@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VISIONMUNDIALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Recurso">
+    <Key>
+      <PropertyRef Name="ID_Recurso" />
+    </Key>
+    <Property Name="ID_Recurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Recurso" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Pagina" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="ID_Rol" />
+    </Key>
+    <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RolRecurso">
+    <Key>
+      <PropertyRef Name="ID_RolRecurso" />
+    </Key>
+    <Property Name="ID_RolRecurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Rol" Type="int" Nullable="false" />
+    <Property Name="ID_Recurso" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Contrasenia" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsuarioRol">
+    <Key>
+      <PropertyRef Name="ID_UsuarioRol" />
+    </Key>
+    <Property Name="ID_UsuarioRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Usuario" Type="int" Nullable="false" />
+    <Property Name="ID_Rol" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_RolRecurso_ID_Recurso">
+    <End Role="Recurso" Type="Self.Recurso" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolRecurso" Type="Self.RolRecurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recurso">
+        <PropertyRef Name="ID_Recurso" />
+      </Principal>
+      <Dependent Role="RolRecurso">
+        <PropertyRef Name="ID_Recurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RolRecurso_ID_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RolRecurso" Type="Self.RolRecurso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="ID_Rol" />
+      </Principal>
+      <Dependent Role="RolRecurso">
+        <PropertyRef Name="ID_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioRol_ID_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioRol" Type="Self.UsuarioRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="ID_Rol" />
+      </Principal>
+      <Dependent Role="UsuarioRol">
+        <PropertyRef Name="ID_Rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioRol_ID_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UsuarioRol" Type="Self.UsuarioRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="UsuarioRol">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VISIONMUNDIALModelStoreContainer">
+    <EntitySet Name="Recurso" EntityType="Self.Recurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RolRecurso" EntityType="Self.RolRecurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioRol" EntityType="Self.UsuarioRol" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_RolRecurso_ID_Recurso" Association="Self.FK_RolRecurso_ID_Recurso">
+      <End Role="Recurso" EntitySet="Recurso" />
+      <End Role="RolRecurso" EntitySet="RolRecurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RolRecurso_ID_Rol" Association="Self.FK_RolRecurso_ID_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="RolRecurso" EntitySet="RolRecurso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioRol_ID_Rol" Association="Self.FK_UsuarioRol_ID_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="UsuarioRol" EntitySet="UsuarioRol" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioRol_ID_Usuario" Association="Self.FK_UsuarioRol_ID_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioRol" EntitySet="UsuarioRol" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

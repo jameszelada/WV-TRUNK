@@ -1,0 +1,202 @@
+﻿<%@  Master Language="C#" AutoEventWireup="true" CodeBehind="WV.master.cs" Inherits="WV.WebApplication.WV" ClientIDMode="Static"%>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <title runat="server">Visión Mundial - </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/font-awesome.css" rel="stylesheet" />
+ 
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/morris/morris-0.4.3.min.css" rel="stylesheet" />
+   
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/custom-styles.css" rel="stylesheet" />
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <asp:ContentPlaceHolder runat="server" ID="MetaContent" />
+</head>
+<body>
+   
+    <header>
+        <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home">Vision Mundial</a>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Doe</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Today</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+              
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li
+                            ><a id="master_username">
+                                <i class="fa fa-user fa-fw"></i> 
+                                Bienvenido 
+                             </a>
+
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="Logout.aspx"><i class="fa fa-sign-out fa-fw"></i> Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li id="Inicio" runat="server">
+                        <a  href="Home"><i class="fa fa-home"></i> Home</a>
+                      
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap"></i>Administración<span class="fa arrow"></span></a>
+                        <ul style="height: auto;" class="nav nav-second-level collapse">
+                            <li id="Usuarios" runat="server">
+                                <a href="User">Usuarios</a>
+                            </li >
+                            <li id="Roles" runat="server">
+                                <a href="Role">Roles</a>
+                            </li>
+                            <li id="Recursos" runat="server">
+                                <a href="Options">Configuración de Contenido</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="Acerca_de" runat="server">
+                        <a  href="About" ><i class="fa fa-desktop"></i> About</a>
+                    </li>
+                    
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                            <div id="errorcontainer" class="alert alert-danger hidden">
+                                </div>
+                                <div id="messagecontainer" class="alert alert-success hidden">
+                                </div>
+                        </div>
+            <div id="page-inner">
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                            <div id="body">
+                                <section class="content-wrapper main-content clear-fix">
+                                    <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+                                </section>
+                                <script type="text/javascript" src="/Content/assets/js/jquery-1.10.2.js"></script>
+
+                                <script type="text/javascript" src="/Content/assets/js/bootstrap.min.js"></script>
+                                    
+
+                                <script type="text/javascript" src="/Content/assets/js/jquery.metisMenu.js"></script>
+
+                                <script type="text/javascript" src="/Content/assets/js/morris/morris.js"></script>
+
+                                <script type="text/javascript" src="/Content/assets/js/custom-scripts.js"></script>
+                                
+                                <script type="text/javascript" src="/Content/assets/js/default.js"></script>
+                                
+                                <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                </div>
+                <!-- /. ROW  -->
+
+                <!-- /. ROW  -->
+			
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    </header>
+        
+    
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </div>
+        </div>
+    </footer>
+        
+   
+
+</body>
+    
+</html>

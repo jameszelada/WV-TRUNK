@@ -1,0 +1,12 @@
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll.config
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.pdb
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\DataLayer.dll
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\EntityFramework.dll
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\Repository.dll
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\DataLayer.pdb
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\Repository.pdb
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\bin\EntityFramework.xml
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.csprojResolveAssemblyReference.cache
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.dll
+C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.pdb

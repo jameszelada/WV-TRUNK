@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4fa829b0318b46fd8ae1e354fe7e1c7d" Name="Diagram1">
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Recurso" Width="1.5" PointX="3.375" PointY="5.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Rol" Width="1.5" PointX="3.375" PointY="2.375" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.RolRecurso" Width="1.5" PointX="5.625" PointY="4.375" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.UsuarioRol" Width="1.5" PointX="5.375" PointY="0.5" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Recurso" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Rol" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Rol" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Usuario" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
