@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\DataLayer\VisionMundialDataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\VisionMundialDataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
