@@ -66,7 +66,7 @@ namespace WV.WebApplication.Pages
 
             List<string> allPages = _context.Database.SqlQuery<string>(statementAllPages).ToList();
 
-            List<string> result = allPages.Where(p=> !options.Any(o=> o != p)).ToList();
+            List<string> result = allPages.Where(p=> !options.Any(o=> o == p)).ToList();
 
             foreach (string option in result)
             {
@@ -77,6 +77,8 @@ namespace WV.WebApplication.Pages
                 }
                   
             }
+
+
             
         }
 

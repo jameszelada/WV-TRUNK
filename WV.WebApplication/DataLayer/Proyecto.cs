@@ -12,12 +12,11 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Indicador
+    public partial class Proyecto
     {
-        public int ID_Indicador { get; set; }
-        public string Indicador1 { get; set; }
-        public string IndicadorDescripcion { get; set; }
-        public string IndicadorValor { get; set; }
-        public int ID_Programa { get; set; }
+        public int ID_Proyecto { get; set; }
+        public string Codigo { get; set; }
+        public string ProyectoDescripcion { get; set; }
+        public string Estado { get; set; }
     }
 }

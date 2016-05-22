@@ -34,6 +34,7 @@
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BitacoraDetalle_ID_Bitacora" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanal_ID_Persona" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanalDetalle_ID_PlanSemanal" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Proyecto" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

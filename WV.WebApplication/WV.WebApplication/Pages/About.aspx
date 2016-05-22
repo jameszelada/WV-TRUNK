@@ -5,5 +5,5 @@
   </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div id="pagename" runat="server" class="hidden">Acerca_de</div>
-    Hi Bitches
+    Just used for testing purposes
     </asp:Content>

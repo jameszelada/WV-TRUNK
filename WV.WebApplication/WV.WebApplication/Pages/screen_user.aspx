@@ -164,11 +164,10 @@
                     <div class="modal-body">
                         <p id="actionmessagerol">Elija el Rol para asignar al usario</p>
                         <div class="form-group">
-                                            <label>Roles de Usuario</label>
-                                            <select id="cmbroles" class="form-control">
-                                                
-                                            </select>
-                                        </div>
+                            <label>Roles de Usuario</label>
+                            <select id="cmbroles" class="form-control">
+                            </select>
+                        </div>
                     </div>
                     <div class="modal-footer">         
                         <button id="btnassignrole" type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>

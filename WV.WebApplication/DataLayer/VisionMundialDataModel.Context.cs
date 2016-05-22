@@ -43,5 +43,6 @@ namespace DataLayer
         public DbSet<Persona> Persona { get; set; }
         public DbSet<PlanSemanal> PlanSemanal { get; set; }
         public DbSet<PlanSemanalDetalle> PlanSemanalDetalle { get; set; }
+        public DbSet<Proyecto> Proyecto { get; set; }
     }
 }

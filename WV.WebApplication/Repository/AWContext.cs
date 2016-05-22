@@ -36,6 +36,7 @@ namespace Repository
         public DbSet<BitacoraDetalle> BitacoraDetalle { get; set; }
         public DbSet<PlanSemanal> PlanSemanal { get; set; }
         public DbSet<PlanSemanalDetalle> PlanSemanalDetalle { get; set; }
+        public DbSet<Proyecto> Proyecto { get; set; }
         
        
     }

@@ -31,6 +31,14 @@ namespace WV.WebApplication.Utils
             set { _ResponseData = value; }
         }
 
+        private object _ResponseAdditional = null;
+
+        public object ResponseAdditional
+        {
+            get { return _ResponseAdditional; }
+            set { _ResponseAdditional = value; }
+        }
+
         private string _CallBack = string.Empty;
 
         public string CallBack

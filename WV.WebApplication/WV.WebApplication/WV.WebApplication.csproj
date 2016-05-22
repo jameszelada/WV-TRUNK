@@ -84,8 +84,12 @@
     <Content Include="Content\assets\js\morris\morris.js" />
     <Content Include="Content\assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\assets\js\prefixfree.min.js" />
+    <Content Include="Content\assets\js\screen_community.js" />
+    <Content Include="Content\assets\js\screen_programtype.js" />
+    <Content Include="Content\assets\js\screen_project.js" />
     <Content Include="Content\assets\js\screen_role.js" />
     <Content Include="Content\assets\js\screen_role_configuration.js" />
+    <Content Include="Content\assets\js\screen_staff.js" />
     <Content Include="Content\assets\js\screen_user.js" />
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
@@ -93,8 +97,12 @@
     <Content Include="Pages\Error\Unauthorized.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
+    <Content Include="Pages\screen_community.aspx" />
+    <Content Include="Pages\screen_programtype.aspx" />
+    <Content Include="Pages\screen_project.aspx" />
     <Content Include="Pages\screen_role.aspx" />
     <Content Include="Pages\screen_role_configuration.aspx" />
+    <Content Include="Pages\screen_staff.aspx" />
     <Content Include="Pages\screen_user.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -105,11 +113,23 @@
     <Compile Include="Handlers\Authenticate.ashx.cs">
       <DependentUpon>Authenticate.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\Community.ashx.cs">
+      <DependentUpon>Community.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ProgramType.ashx.cs">
+      <DependentUpon>ProgramType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Project.ashx.cs">
+      <DependentUpon>Project.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\Role.ashx.cs">
       <DependentUpon>Role.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\RoleConfiguration.ashx.cs">
       <DependentUpon>RoleConfiguration.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Staff.ashx.cs">
+      <DependentUpon>Staff.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\User.ashx.cs">
       <DependentUpon>User.ashx</DependentUpon>
@@ -152,6 +172,27 @@
     <Compile Include="Pages\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Pages\screen_community.aspx.cs">
+      <DependentUpon>screen_community.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_community.aspx.designer.cs">
+      <DependentUpon>screen_community.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\screen_programtype.aspx.cs">
+      <DependentUpon>screen_programtype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_programtype.aspx.designer.cs">
+      <DependentUpon>screen_programtype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\screen_project.aspx.cs">
+      <DependentUpon>screen_project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_project.aspx.designer.cs">
+      <DependentUpon>screen_project.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\screen_role.aspx.cs">
       <DependentUpon>screen_role.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -166,6 +207,13 @@
     <Compile Include="Pages\screen_role_configuration.aspx.designer.cs">
       <DependentUpon>screen_role_configuration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\screen_staff.aspx.cs">
+      <DependentUpon>screen_staff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_staff.aspx.designer.cs">
+      <DependentUpon>screen_staff.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\screen_user.aspx.cs">
       <DependentUpon>screen_user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -174,6 +222,7 @@
       <DependentUpon>screen_user.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\ActionTemplate.cs" />
     <Compile Include="Utils\JSONResponse.cs" />
     <Compile Include="WV.Master.cs">
       <DependentUpon>WV.Master</DependentUpon>
@@ -197,6 +246,10 @@
     <Content Include="Handlers\User.ashx" />
     <Content Include="Handlers\Role.ashx" />
     <Content Include="Handlers\RoleConfiguration.ashx" />
+    <Content Include="Handlers\ProgramType.ashx" />
+    <Content Include="Handlers\Community.ashx" />
+    <Content Include="Handlers\Staff.ashx" />
+    <Content Include="Handlers\Project.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

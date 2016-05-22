@@ -46,7 +46,7 @@
                                            
 
                         </table>
-                        <input id="roletosave" type="text" />
+                        <input id="roletosave" class="hidden" type="text" />
 
                         <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false">
                             <div class="modal-dialog">
