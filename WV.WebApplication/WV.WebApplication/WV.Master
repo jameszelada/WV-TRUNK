@@ -150,6 +150,9 @@
                             <li id="Proyectos" runat="server">
                                 <a href="Project">Proyectos</a>
                             </li>
+                            <li id="Tipo_Puesto" runat="server">
+                                <a href="JobType">Tipo de Puesto</a>
+                            </li>
                         </ul>
                     </li>
                     <li id="Acerca_de" runat="server">

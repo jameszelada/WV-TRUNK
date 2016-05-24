@@ -85,6 +85,7 @@
     <Content Include="Content\assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\assets\js\prefixfree.min.js" />
     <Content Include="Content\assets\js\screen_community.js" />
+    <Content Include="Content\assets\js\screen_jobtype.js" />
     <Content Include="Content\assets\js\screen_programtype.js" />
     <Content Include="Content\assets\js\screen_project.js" />
     <Content Include="Content\assets\js\screen_role.js" />
@@ -98,6 +99,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\screen_community.aspx" />
+    <Content Include="Pages\screen_jobtype.aspx" />
     <Content Include="Pages\screen_programtype.aspx" />
     <Content Include="Pages\screen_project.aspx" />
     <Content Include="Pages\screen_role.aspx" />
@@ -115,6 +117,9 @@
     </Compile>
     <Compile Include="Handlers\Community.ashx.cs">
       <DependentUpon>Community.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\JobType.ashx.cs">
+      <DependentUpon>JobType.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\ProgramType.ashx.cs">
       <DependentUpon>ProgramType.ashx</DependentUpon>
@@ -178,6 +183,13 @@
     </Compile>
     <Compile Include="Pages\screen_community.aspx.designer.cs">
       <DependentUpon>screen_community.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\screen_jobtype.aspx.cs">
+      <DependentUpon>screen_jobtype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_jobtype.aspx.designer.cs">
+      <DependentUpon>screen_jobtype.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\screen_programtype.aspx.cs">
       <DependentUpon>screen_programtype.aspx</DependentUpon>
@@ -250,6 +262,7 @@
     <Content Include="Handlers\Community.ashx" />
     <Content Include="Handlers\Staff.ashx" />
     <Content Include="Handlers\Project.ashx" />
+    <Content Include="Handlers\JobType.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

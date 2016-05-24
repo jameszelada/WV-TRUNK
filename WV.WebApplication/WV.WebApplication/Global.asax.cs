@@ -25,6 +25,7 @@ namespace WV.WebApplication
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Program Type", "ProgramType", "~/Pages/screen_programtype.aspx");
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Staff", "Staff", "~/Pages/screen_staff.aspx");
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Project", "Project", "~/Pages/screen_project.aspx");
+            System.Web.Routing.RouteTable.Routes.MapPageRoute("JobType", "JobType", "~/Pages/screen_jobtype.aspx");
            
         }
 

@@ -94,6 +94,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Proyectos;
         
         /// <summary>
+        /// Tipo_Puesto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tipo_Puesto;
+        
+        /// <summary>
         /// Acerca_de control.
         /// </summary>
         /// <remarks>
