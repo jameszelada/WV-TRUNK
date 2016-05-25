@@ -77,7 +77,7 @@ namespace WV.WebApplication.Handlers
             string tableHeader = "", tableBody = "", tableFooter = "", table = "";
             tableHeader += "<thead><tr><th></th><th>Nombre de Opción</th><th>Descripción</th></tr></thead>";
            
-            tableHeader += "<tbody>";
+            tableHeader += "<tbody><div class='scrollbar' id='style-2'>";
 
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -101,7 +101,7 @@ namespace WV.WebApplication.Handlers
                     
                 }
 
-                tableFooter += "</tbody>";
+                tableFooter += "</div></tbody>";
                 table = tableHeader + tableBody + tableFooter;
 
                 if (recursos.ToList().Count > 0)

@@ -6,7 +6,7 @@ $(window).load(function () {
 
     getAllCommunities();
 
-
+    loadSidebarOptions();
 
     // End of Execution
 
@@ -545,6 +545,11 @@ $(window).load(function () {
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
 
+    }
+
+    function loadSidebarOptions() {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a href='#' id='brand'> Andrew Jos</a></li><li><a href='#' id='brand1'> Action #2 Some description</a></li><li><a href='#' id='brand2'> Action #2 Some description</a> </li><li><a href='#' id='brand3'> Action #2 Some description</a></li></ul></div></div></div></div></div>";
+        $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
 });

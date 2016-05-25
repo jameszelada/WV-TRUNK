@@ -5,14 +5,14 @@
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
     <%--<script src="/Content/assets/js/jquery.validate.js"></script>--%>
-   <%-- <script src="/Content/assets/js/validator.js"></script>--%>
+    <%-- <script src="/Content/assets/js/validator.js"></script>--%>
     <script src="/Content/assets/js/bootstrapValidator.js"></script>
     <script src="/Content/assets/js/screen_user.js"></script>
 
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-<div  runat="server" id="pagename" class="hidden">Usuarios</div>
+    <div runat="server" id="pagename" class="hidden">Usuarios</div>
 
     <div id="contenido" class="panel-body">
         <div class="row">
@@ -40,9 +40,8 @@
                                     <form id="form1">
                                         <div class="form-group hidden in-controls">
                                             <label for="in_username" class="control-label">Username</label>
-                                            <input type="text" id="in_username" name="in_username" class="form-control" placeholder="Ingrese el Username" >
-                                           <%-- <div class="help-block with-errors"></div>--%>
-                                            
+                                            <input type="text" id="in_username" name="in_username" class="form-control" placeholder="Ingrese el Username">
+                                            <%-- <div class="help-block with-errors"></div>--%>
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Username</label>
@@ -51,9 +50,8 @@
 
                                         <div class="form-group hidden in-controls has-feedback">
                                             <label for="in_nombre">Nombres</label>
-                                            <input type="text" id="in_nombre" name="in_nombre" class="form-control" placeholder="Ingrese el Nombre" >
-                                          <%--  <div class="help-block with-errors"></div>--%>
-                                            
+                                            <input type="text" id="in_nombre" name="in_nombre" class="form-control" placeholder="Ingrese el Nombre">
+                                            <%--  <div class="help-block with-errors"></div>--%>
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Nombres</label>
@@ -61,9 +59,8 @@
                                         </div>
                                         <div class="form-group hidden in-controls has-feedback">
                                             <label for="in_apellido">Apellidos</label>
-                                            <input type="text" id="in_apellido" name="in_apellido" class="form-control" placeholder="Ingrese sus Apellidos" >
+                                            <input type="text" id="in_apellido" name="in_apellido" class="form-control" placeholder="Ingrese sus Apellidos">
                                             <%--<div class="help-block with-errors"></div>--%>
-                                            
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Apellidos</label>
@@ -71,9 +68,8 @@
                                         </div>
                                         <div class="form-group hidden in-controls has-feedback">
                                             <label>Contraseña</label>
-                                            <input id="in_contrasenia" name="in_contrasenia" type="password" class="form-control" placeholder="Ingrese su contraseña" >
+                                            <input id="in_contrasenia" name="in_contrasenia" type="password" class="form-control" placeholder="Ingrese su contraseña">
                                             <%--<div class="help-block with-errors"></div>--%>
-                                            
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Contraseña</label>
@@ -81,22 +77,20 @@
                                         </div>
                                         <div class="form-group hidden in-controls has-feedback">
                                             <label>Escriba de nuevo su Contraseña</label>
-                                            <input id="in_contrasenia_re" name="in_contrasenia_re" type="password" class="form-control" placeholder="Rescriba su contraseña" >
+                                            <input id="in_contrasenia_re" name="in_contrasenia_re" type="password" class="form-control" placeholder="Rescriba su contraseña">
                                             <%--<div class="help-block with-errors"></div>--%>
-                                            
                                         </div>
 
                                         <div class="form-group hidden in-controls has-feedback">
                                             <label for="in_email">Correo Electrónico</label>
-                                            <input type="email" id="in_email" name="in_email" class="form-control" placeholder="Ingrese su correo electronico" >
-                                          <%--  <div class="help-block with-errors"></div>--%>
-                                            
+                                            <input type="email" id="in_email" name="in_email" class="form-control" placeholder="Ingrese su correo electronico">
+                                            <%--  <div class="help-block with-errors"></div>--%>
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Correo Electrónico</label>
                                             <p id="lbl_email" class="form-control-static"></p>
                                         </div>
-                                       
+
                                     </form>
                                     <%-- From here all the controls get loaded either to display data or to edit --%>
 
@@ -154,7 +148,7 @@
             </div>
         </div>
 
-         <div class="modal fade" id="modalrole" role="dialog">
+        <div class="modal fade" id="modalrole" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -169,7 +163,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="modal-footer">         
+                    <div class="modal-footer">
                         <button id="btnassignrole" type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
                     </div>
                 </div>

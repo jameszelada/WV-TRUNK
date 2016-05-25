@@ -68,7 +68,7 @@ namespace WV.WebApplication.Handlers
         {
             string tableHeader = "", tableBody = "", tableFooter = "", table = "";
             tableHeader = "<div class='table-responsive'>";
-            tableHeader += "<table class='table'>";
+            tableHeader += "<table class='table table-striped'>";
             tableHeader += "<thead><tr><th>No</th><th>Nombre</th><th>Apellido</th><th>Direccion</th></tr></thead>";
             tableHeader += "<tbody>";
 
