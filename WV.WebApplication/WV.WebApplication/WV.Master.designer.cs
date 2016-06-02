@@ -76,6 +76,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Comunidades;
         
         /// <summary>
+        /// Control_Personal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Control_Personal;
+        
+        /// <summary>
         /// Personal control.
         /// </summary>
         /// <remarks>

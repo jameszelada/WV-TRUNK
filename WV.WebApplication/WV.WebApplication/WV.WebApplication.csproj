@@ -62,28 +62,61 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\css\bootstrap.css" />
+    <Content Include="Content\assets\css\buttons.bootstrap.min.css" />
     <Content Include="Content\assets\css\custom-styles.css" />
+    <Content Include="Content\assets\css\editor.bootstrap.min.css" />
+    <Content Include="Content\assets\css\editor.dataTables.min.css" />
     <Content Include="Content\assets\css\font-awesome.css" />
+    <Content Include="Content\assets\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\assets\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\assets\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\assets\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\assets\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\assets\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\assets\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\assets\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\assets\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\assets\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\assets\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\assets\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\assets\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\jquery-ui.min.css" />
+    <Content Include="Content\assets\css\jquery.dataTables.min.css" />
+    <Content Include="Content\assets\css\logbook.css" />
     <Content Include="Content\assets\css\morris\morris-0.4.3.min.css" />
     <Content Include="Content\assets\css\normalize.css" />
+    <Content Include="Content\assets\css\select.bootstrap.min.css" />
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
+    <Content Include="Content\assets\js\controlstaff.js" />
     <Content Include="Content\assets\js\custom-scripts.js" />
     <Content Include="Content\assets\js\custom.js" />
+    <Content Include="Content\assets\js\dataTables.bootstrap.js" />
+    <Content Include="Content\assets\js\dataTables\buttons.bootstrap.min.js" />
     <Content Include="Content\assets\js\dataTables\dataTables.bootstrap.css" />
     <Content Include="Content\assets\js\dataTables\dataTables.bootstrap.js" />
+    <Content Include="Content\assets\js\dataTables\dataTables.bootstrap.min.js" />
+    <Content Include="Content\assets\js\dataTables\dataTables.buttons.min.js" />
+    <Content Include="Content\assets\js\dataTables\dataTables.editor.min.js" />
+    <Content Include="Content\assets\js\dataTables\dataTables.select.min.js" />
+    <Content Include="Content\assets\js\dataTables\editor.bootstrap.min.js" />
     <Content Include="Content\assets\js\dataTables\jquery.dataTables.js" />
+    <Content Include="Content\assets\js\dataTables\jquery.dataTables.min.js" />
     <Content Include="Content\assets\js\default.js" />
     <Content Include="Content\assets\js\jquery-1.10.2.js" />
+    <Content Include="Content\assets\js\jquery-ui.min.js" />
     <Content Include="Content\assets\js\jquery.metisMenu.js" />
+    <Content Include="Content\assets\js\logbook.js" />
     <Content Include="Content\assets\js\login.js" />
     <Content Include="Content\assets\js\morris\morris-0.4.3.min.css" />
     <Content Include="Content\assets\js\morris\morris.js" />
     <Content Include="Content\assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\assets\js\prefixfree.min.js" />
+    <Content Include="Content\assets\js\registration.js" />
     <Content Include="Content\assets\js\screen_community.js" />
     <Content Include="Content\assets\js\screen_jobtype.js" />
     <Content Include="Content\assets\js\screen_programtype.js" />
@@ -94,10 +127,13 @@
     <Content Include="Content\assets\js\screen_user.js" />
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
+    <Content Include="Pages\LogBook.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
+    <Content Include="Pages\Registration.aspx" />
     <Content Include="Pages\screen_community.aspx" />
     <Content Include="Pages\screen_jobtype.aspx" />
     <Content Include="Pages\screen_programtype.aspx" />
@@ -118,8 +154,14 @@
     <Compile Include="Handlers\Community.ashx.cs">
       <DependentUpon>Community.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\ControlStaff.ashx.cs">
+      <DependentUpon>ControlStaff.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\JobType.ashx.cs">
       <DependentUpon>JobType.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\LogBook.ashx.cs">
+      <DependentUpon>LogBook.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\ProgramType.ashx.cs">
       <DependentUpon>ProgramType.ashx</DependentUpon>
@@ -146,6 +188,13 @@
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ControlStaff.aspx.cs">
+      <DependentUpon>ControlStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ControlStaff.aspx.designer.cs">
+      <DependentUpon>ControlStaff.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +208,13 @@
     </Compile>
     <Compile Include="Pages\Error\Unauthorized.aspx.designer.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\LogBook.aspx.cs">
+      <DependentUpon>LogBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\LogBook.aspx.designer.cs">
+      <DependentUpon>LogBook.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -176,6 +232,13 @@
     </Compile>
     <Compile Include="Pages\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\screen_community.aspx.cs">
       <DependentUpon>screen_community.aspx</DependentUpon>
@@ -263,6 +326,8 @@
     <Content Include="Handlers\Staff.ashx" />
     <Content Include="Handlers\Project.ashx" />
     <Content Include="Handlers\JobType.ashx" />
+    <Content Include="Handlers\ControlStaff.ashx" />
+    <Content Include="Handlers\LogBook.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

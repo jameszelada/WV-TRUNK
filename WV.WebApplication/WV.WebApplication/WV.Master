@@ -144,6 +144,9 @@
                     <li>
                         <a href="#"><i class="fa fa-archive"></i>Administración de Proyectos<span class="fa arrow"></span></a>
                         <ul style="height: auto;" class="nav nav-second-level collapse">
+                            <li id="Control_Personal" runat="server">
+                                <a href="ControlStaff">Control de Personal</a>
+                            </li >
                             <li id="Personal" runat="server">
                                 <a href="Staff">Personal</a>
                             </li >

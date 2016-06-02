@@ -12,6 +12,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.margin-bottom {
+    margin-bottom:60px;
+}
+
  #wrapper {
     width: 100%;
     background:#09192A;
@@ -1108,8 +1112,8 @@ button.note-color-btn {
 	
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background-color: rgb(139, 195, 74) !important;
-    border-color: rgb(139, 195, 74) !important;
+      background-color: #428bca;
+    border-color: #428bca;
 }
 .breadcrumb li{
 	font-size:0.85em;
@@ -1207,8 +1211,8 @@ h2.modal-title {
 }
 .radio label, .checkbox label, label{
   font-size: 1.0em;
-  font-weight:300;
-  vertical-align: middle;
+  font-weight:bold;
+  vertical-align: baseline;
 }
 .checkbox1{
   font-size: 1.0em;

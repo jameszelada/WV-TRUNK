@@ -9,9 +9,10 @@ namespace Repository
 {
     public class AWContext: System.Data.Entity.DbContext,IAWContext
     {
-        public AWContext()
+       
+        public AWContext() :base("VISIONMUNDIALEntities")
         {
-
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public AWContext(string connectionstring) : base(connectionstring)
