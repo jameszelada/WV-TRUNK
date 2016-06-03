@@ -75,9 +75,9 @@ namespace WV.WebApplication.Handlers
         public string GetAllResources()
         {
             string tableHeader = "", tableBody = "", tableFooter = "", table = "";
-            tableHeader += "<thead><tr><th></th><th>Nombre de Opción</th><th>Descripción</th></tr></thead>";
+           // tableHeader += "<thead><tr><th></th><th>Nombre de Opción</th><th>Descripción</th></tr></thead>";
            
-            tableHeader += "<tbody><div class='scrollbar' id='style-2'>";
+            tableHeader += "<tbody>";
 
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -101,7 +101,7 @@ namespace WV.WebApplication.Handlers
                     
                 }
 
-                tableFooter += "</div></tbody>";
+                tableFooter += "</tbody>";
                 table = tableHeader + tableBody + tableFooter;
 
                 if (recursos.ToList().Count > 0)
@@ -212,7 +212,7 @@ namespace WV.WebApplication.Handlers
                                     select new { rec.Recurso1, rec.Pagina, ID_Recurso = rec.ID_Recurso == null ? 0 : rec.ID_Recurso };
 
                 string tableHeader = "", tableBody = "", tableFooter = "", table = "";
-                tableHeader += "<thead><tr><th>No</th><th>Nombre de Opción</th><th>Descripción</th><tr><th></th></tr></thead>";
+                //tableHeader += "<thead><tr><th>No</th><th>Nombre de Opción</th><th>Descripción</th><tr><th></th></tr></thead>";
 
                 tableHeader += "<tbody>";
                 int index = 0;

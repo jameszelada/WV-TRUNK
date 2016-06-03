@@ -1,8 +1,11 @@
 ﻿$(window).load(function () {
 
+    var t;
+
     getAllRoles();
 
     getAllResources();
+
 
     function getAllRoles() {
         $.ajax({
@@ -37,7 +40,20 @@
 
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
-                    $("#tblopciones").html(response.ResponseData);
+                    $("#tblopciones").append(response.ResponseData);
+                    $("#tblopciones").DataTable({
+                        "bFilter": true,
+                        "bPaginate": true,
+                        "bLengthChange": true,
+                        "bInfo": true,
+                        "pageLength": 5,
+                        "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                        "oLanguage": {
+                            "sEmptyTable": '',
+                            "sInfoEmpty": ''
+                        }
+
+                    });
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
@@ -92,8 +108,52 @@
             success: function (data) {
 
                 var response = JSON.parse(data);
+                
                 if (response.IsSucess) {
-                    $("#tblopcionesenrol").html(response.ResponseData);
+
+                    if (t == null || t == undefined) {
+                        $("#tblopcionesenrol").append(response.ResponseData);
+                        t = $('#tblopcionesenrol').DataTable({
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "pageLength": 5,
+                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                            "oLanguage": {
+                                "sEmptyTable": '',
+                                "sInfoEmpty": ''
+                            }
+                            
+                        });
+
+                        
+                       
+                    }
+                    else {
+                        t.clear();
+                        $("#tblopcionesenrol > tbody").remove();
+                        t.destroy();
+                        $("#tblopcionesenrol").append(response.ResponseData);
+                        t = $('#tblopcionesenrol').DataTable({
+                            "bFilter": true,
+                            "bPaginate": true,
+                            "bLengthChange": true,
+                            "bInfo": true,
+                            "pageLength": 5,
+                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                            "oLanguage": {
+                                "sEmptyTable": '',
+                                "sInfoEmpty": ''
+                            }
+                            
+                        });
+                    }
+                    
+                    
+                   
+                   
+
                     attachClickToDeleteButtons();
 
                 }
