@@ -125,6 +125,7 @@
     <Content Include="Content\assets\js\screen_role_configuration.js" />
     <Content Include="Content\assets\js\screen_staff.js" />
     <Content Include="Content\assets\js\screen_user.js" />
+    <Content Include="Content\assets\js\weeklyplan.js" />
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\ControlStaff.aspx" />
@@ -142,6 +143,7 @@
     <Content Include="Pages\screen_role_configuration.aspx" />
     <Content Include="Pages\screen_staff.aspx" />
     <Content Include="Pages\screen_user.aspx" />
+    <Content Include="Pages\WeeklyPlan.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +182,9 @@
     </Compile>
     <Compile Include="Handlers\User.ashx.cs">
       <DependentUpon>User.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\WeeklyPlan.ashx.cs">
+      <DependentUpon>WeeklyPlan.ashx</DependentUpon>
     </Compile>
     <Compile Include="Pages\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -296,6 +301,13 @@
     <Compile Include="Pages\screen_user.aspx.designer.cs">
       <DependentUpon>screen_user.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\WeeklyPlan.aspx.cs">
+      <DependentUpon>WeeklyPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\WeeklyPlan.aspx.designer.cs">
+      <DependentUpon>WeeklyPlan.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ActionTemplate.cs" />
     <Compile Include="Utils\JSONResponse.cs" />
@@ -328,6 +340,7 @@
     <Content Include="Handlers\JobType.ashx" />
     <Content Include="Handlers\ControlStaff.ashx" />
     <Content Include="Handlers\LogBook.ashx" />
+    <Content Include="Handlers\WeeklyPlan.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

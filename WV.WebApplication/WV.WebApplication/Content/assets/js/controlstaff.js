@@ -68,7 +68,7 @@ $(window).load(function () {
     function attachClickToSeeScheduleButtons() {
         $("#table-responsive").find("[class='btn btn-primary btn-sm schedule']").each(function (index, value) {
             $(value).click(function () {
-               // window.location.href = "/LogBook?id=" + $(this).attr("data-id-user");
+                window.location.href = "/WeeklyPlan?id=" + $(this).attr("data-id-person");
                 
             });
         });

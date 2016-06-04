@@ -133,23 +133,24 @@
                      <li>
                         <a href="#"><i class="fa fa-bars"></i>Monitoreo de Programas<span class="fa arrow"></span></a>
                         <ul style="height: auto;" class="nav nav-second-level collapse">
+                            <li id="Control_Personal" runat="server">
+                                <a href="ControlStaff">Control de Personal</a>
+                            </li >
                             <li id="Tipo_Programa" runat="server">
                                 <a href="ProgramType">Tipo de Programa</a>
                             </li >
                             <li id="Comunidades" runat="server">
                                 <a href="Community">Comunidades</a>
                             </li>
+                            <li id="Personal" runat="server">
+                                <a href="Staff">Personal</a>
+                            </li >
                         </ul>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-archive"></i>Administración de Proyectos<span class="fa arrow"></span></a>
                         <ul style="height: auto;" class="nav nav-second-level collapse">
-                            <li id="Control_Personal" runat="server">
-                                <a href="ControlStaff">Control de Personal</a>
-                            </li >
-                            <li id="Personal" runat="server">
-                                <a href="Staff">Personal</a>
-                            </li >
+                            
                             <li id="Proyectos" runat="server">
                                 <a href="Project">Proyectos</a>
                             </li>

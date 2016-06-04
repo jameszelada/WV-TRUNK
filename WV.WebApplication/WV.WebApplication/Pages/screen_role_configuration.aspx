@@ -44,6 +44,7 @@
                         </div>
 
                         <button id="btnagregaropcion" href="#myModal" data-toggle="modal" type="button" class="btn btn-secondary btn-sm disabled">Agregar Opción</button>
+                        <br />
                         <div id="table-responsive" class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="tblopcionesenrol">
                                 <thead>

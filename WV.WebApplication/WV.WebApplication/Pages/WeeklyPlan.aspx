@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Visión Mundial - Bitácora" Language="C#" AutoEventWireup="true" CodeBehind="LogBook.aspx.cs" Inherits="WV.WebApplication.Pages.LogBook" MasterPageFile="~/WV.Master" ClientIDMode="Static" %>
+﻿<%@ Page Title="Visión Mundial - Plan Semanal" Language="C#" AutoEventWireup="true" CodeBehind="WeeklyPlan.aspx.cs" Inherits="WV.WebApplication.Pages.WeeklyPlan" MasterPageFile="~/WV.Master" ClientIDMode="Static"%>
 
 <asp:Content ContentPlaceHolderID="MetaContent" runat="server">
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/logbook.css" rel="stylesheet" />
@@ -15,21 +15,21 @@
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.min.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.select.min.js"></script>
-    <script src="/Content/assets/js/logbook.js"></script>
+    <script src="/Content/assets/js/weeklyplan.js"></script>
     <script src="/Content/assets/js/jquery-ui.min.js"></script>
 
 
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div runat="server" id="pagename" class="hidden">Bitacora</div>
+    <div runat="server" id="pagename" class="hidden">Plan_Semanal</div>
 
     <div id="contenido" class="panel-body">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Bitacora de Personal
+                        Plan Semanal
                     </div>
                     <div class="panel-body">
                         <div id="wrapperinside" class="">
@@ -38,8 +38,9 @@
                             <!-- Sidebar -->
                             <div id="sidebar-wrapper" class="">
                                 <ul id="sidebar_menu" class="sidebar-nav">
-                                    <li class="sidebar-brand"><a id="menu-toggle" href="#">Fechas<span id="main_icon" class="fa fa-times"></span></a></li>
+                                    <li class="sidebar-brand"><a id="menu-toggle" href="#">Semanas<span id="main_icon" class="fa fa-times"></span></a></li>
                                 </ul>
+                                <%-- Probablemente haya que actualizar el id del sidebar --%>
                                 <ul id="logbookdates" class="sidebar-nav" id="sidebar">
                                 </ul>
                             </div>
@@ -77,17 +78,19 @@
                                                     <div class="form-horizontal margin-bottom">
 
                                                         <div class="form-group">
-                                                            <label>Fecha:</label>
+                                                            <label>Semana:</label>
                                                             <input type="text" class="form-control-static input-sm" id="datepicker">
+                                                             <label id="rangofechas"></label>
+                                                            <input type="hidden" id="fechainicio"/>
+                                                            <input type="hidden" id="fechafinal"/>
                                                         </div>
                                                     </div>
 
 
                                                     <div class="form-horizontal">
                                                         <button id="addRow" class="form-control-static fa fa-plus-circle"></button>
-                                                        
+
                                                         <button id="deleterow" class="form-control-static fa fa-minus-circle"></button>
-                                                        
                                                     </div>
 
                                                 </div>
@@ -108,7 +111,7 @@
                                                                     <th></th>
                                                                     <th>Actividad</th>
                                                                     <th>Observacion</th>
-
+                                                                    <th>Recursos</th>
                                                                 </tr>
                                                             </thead>
 
@@ -135,10 +138,6 @@
         </div>
     </div>
 
-
-
-    <%--<input id="usertoassign" class="hidden" type="text" />
-        <input id="roletoassign" class="hidden" type="text" />--%>
     <input id="pagetodelete" class="hidden" type="text" />
     <input id="pagetoedit" class="hidden" type="text" />
     <div class="modal fade" id="modalmessage" role="dialog">
@@ -146,36 +145,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Eliminar Bitacora</h4>
+                    <h4 class="modal-title">Eliminar Plan Semanal</h4>
                 </div>
                 <div class="modal-body">
                     <p>¿Está seguro de eliminar el registro seleccionado?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    <%--<button id="btndeleteuser" type="button" class="btn btn-default" data-dismiss="modal">Si</button>--%>
                     <button id="pagebtndelete" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="modalsave" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Eliminar Personal</h4>
-                </div>
-                <div class="modal-body">
-                    <p id="actionmessage">¿Está seguro de guardar los cambios?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                    <button id="pagebtnsave" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 </asp:Content>
