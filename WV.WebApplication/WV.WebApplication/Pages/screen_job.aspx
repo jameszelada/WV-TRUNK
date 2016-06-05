@@ -1,22 +1,22 @@
-﻿<%@ Page Title="Visión Mundial - Tipo de Puesto" Language="C#" AutoEventWireup="true" CodeBehind="screen_jobtype.aspx.cs" Inherits="WV.WebApplication.Pages.screen_jobtype" MasterPageFile="~/WV.Master" ClientIDMode="Static"%>
+﻿<%@ Page Title="Visión Mundial - Puesto" Language="C#" AutoEventWireup="true" CodeBehind="screen_job.aspx.cs" Inherits="WV.WebApplication.Pages.screen_job" MasterPageFile="~/WV.Master" ClientIDMode="Static"%>
 
 <asp:Content ContentPlaceHolderID="MetaContent" runat="server">
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
     <script src="/Content/assets/js/bootstrapValidator.js"></script>
-     <script src="/Content/assets/js/screen_jobtype.js"></script>
+     <script src="/Content/assets/js/screen_job.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div runat="server" id="pagename" class="hidden">Tipo_Puesto</div>
+    <div runat="server" id="pagename" class="hidden">Puesto</div>
 
     <div id="contenido" class="panel-body">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                       Tipo de Puesto
+                       Puesto
                     </div>
                     <div class="panel-body">
                         <ul class="nav nav-pills">
@@ -37,24 +37,29 @@
                                     <form id="form1">
 
                                         <div class="form-group hidden in-controls">
-                                            <label for="in_tipo_puesto" class="control-label">Tipo de Puesto</label>
-                                            <input type="text" id="in_tipo_puesto" name="in_tipo_puesto" class="form-control" placeholder="Ingrese el tipo de puesto">
+                                            <label for="in_puesto" class="control-label">Nombre de Puesto</label>
+                                            <input type="text" id="in_puesto" name="in_puesto" class="form-control" placeholder="Ingrese el nombre del puesto">
                                             <%-- <div class="help-block with-errors"></div>--%>
                                         </div>
                                         <div class="form-group txt-controls">
-                                            <label>Tipo de Puesto</label>
-                                            <p id="lbl_tipo_puesto" class="form-control-static"></p>
+                                            <label>Nombre de Puesto</label>
+                                            <p id="lbl_puesto" class="form-control-static"></p>
                                         </div>
 
                                         <div class="form-group hidden in-controls">
-                                            <label for="in_tipo_puesto_descripcion" class="control-label">Descripcion</label>
-                                            <textarea id="in_tipo_puesto_descripcion" name="in_tipo_puesto_descripcion" class="form-control" rows="4"></textarea>
-                                            <%--<input type="text" id="in_apellido" name="in_apellido" class="form-control" placeholder="Ingrese el apellido">--%>
-                                            <%-- <div class="help-block with-errors"></div>--%>
+                                            <label for="in_puesto_descripcion" class="control-label">Descripcion de puesto</label>
+                                            <textarea id="in_puesto_descripcion" name="in_puesto_descripcion" class="form-control" rows="4"></textarea>
+ 
                                         </div>
                                         <div class="form-group txt-controls">
                                             <label>Descripcion de Proyecto</label>
-                                            <p id="lbl_tipo_puesto_descripcion" class="form-control-static"></p>
+                                            <p id="lbl_puesto_descripcion" class="form-control-static"></p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Seleccione el Tipo de Puesto</label>
+                                            <select id="cmbtipopuesto" class="form-control">
+                                            </select>
                                         </div>
 
 
@@ -84,7 +89,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Eliminar Tipo de Puesto</h4>
+                        <h4 class="modal-title">Eliminar Puesto</h4>
                     </div>
                     <div class="modal-body">
                         <p>¿Está seguro de eliminar el registro seleccionado?</p>
@@ -118,4 +123,3 @@
 
     </div>
 </asp:Content>
-

@@ -136,15 +136,16 @@
                             <li id="Control_Personal" runat="server">
                                 <a href="ControlStaff">Control de Personal</a>
                             </li >
+                             <li id="Personal" runat="server">
+                                <a href="Staff">Personal</a>
+                            </li >
                             <li id="Tipo_Programa" runat="server">
-                                <a href="ProgramType">Tipo de Programa</a>
+                                <a href="ProgramType">Tipos de Programas</a>
                             </li >
                             <li id="Comunidades" runat="server">
                                 <a href="Community">Comunidades</a>
                             </li>
-                            <li id="Personal" runat="server">
-                                <a href="Staff">Personal</a>
-                            </li >
+                           
                         </ul>
                     </li>
                     <li>
@@ -156,6 +157,9 @@
                             </li>
                             <li id="Tipo_Puesto" runat="server">
                                 <a href="JobType">Tipo de Puesto</a>
+                            </li>
+                            <li id="Puesto" runat="server">
+                                <a href="Job">Puesto</a>
                             </li>
                         </ul>
                     </li>

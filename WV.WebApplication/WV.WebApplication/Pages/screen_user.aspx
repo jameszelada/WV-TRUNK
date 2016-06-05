@@ -156,7 +156,7 @@
                         <h4 class="modal-title">Seleccionar Rol</h4>
                     </div>
                     <div class="modal-body">
-                        <p id="actionmessagerol">Elija el Rol para asignar al usario</p>
+                        <p id="actionmessagerol">Elija el Rol para asignar al usuario</p>
                         <div class="form-group">
                             <label>Roles de Usuario</label>
                             <select id="cmbroles" class="form-control">
