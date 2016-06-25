@@ -8,6 +8,17 @@ http://creativecommons.org/licenses/by/3.0/
 /*----------------------------------------------
     COMMON  STYLES    
 ------------------------------------------------*/
+
+.default-row-spacer{
+    margin-bottom:10px;
+}
+.default-spacer{
+    margin-right:10px;
+}
+.large-row-spacer{
+    margin-bottom:20px;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
 }

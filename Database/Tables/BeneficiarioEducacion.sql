@@ -34,6 +34,7 @@ ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_Estudi
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_GradoEducacion DEFAULT '' FOR GradoEducacion;
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_Motivo DEFAULT '' FOR Motivo;
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_UltimoGrado DEFAULT '' FOR UltimoGrado;
+ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_UltimoAnio DEFAULT '' FOR UltimoAño;
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_NombreCentroEscolar DEFAULT '' FOR NombreCentroEscolar;
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_Turno DEFAULT '' FOR Turno;
 ALTER TABLE BeneficiarioEducacion ADD CONSTRAINT DF_BeneficiarioEducacion_ID_Beneficiario DEFAULT (0) FOR ID_Beneficiario;

@@ -6,8 +6,6 @@ $(window).load(function () {
 
     getProjects();
 
-    loadSidebarOptions();
-
     // End of Execution
 
     /*CRUD Functions*/
@@ -32,6 +30,61 @@ $(window).load(function () {
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
                     displayErrorMessage(error);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
+    function getRRHH(ID_Project) {
+        
+        var dataToSend =
+            {
+                Id_Proyecto: ID_Project
+            };
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/Project.ashx?method=getrrhh',
+            data: dataToSend,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    $("#rrhh").html(response.ResponseData);
+                }
+                else {
+                    displayErrorMessage(response.Message);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
+    function deleteRRHH(ID_Project) {
+
+        var dataToSend =
+            {
+                Id_Proyecto: ID_Project
+            };
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/Project.ashx?method=deleterrhh',
+            data: dataToSend,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    displayMessage(response.Message);
+                    getRRHH($('#pagetoshow').val());
+                }
+                else {
+                    displayErrorMessage(response.Message);
                 }
             },
             error: function () {
@@ -86,6 +139,11 @@ $(window).load(function () {
                     //to implement
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
+                    if (!$("#sidebaroptions").length)
+                    {
+                        loadSidebarOptions();
+                    }
+                    
                 }
                 else {
                     displayErrorMessage(response.Message);
@@ -186,7 +244,10 @@ $(window).load(function () {
     function attachClickToShowButtons() {
         $("#page_table").find("[class='btn btn-primary btn-sm detail']").each(function (index, value) {
             $(value).click(function () {
-                showProject($(this).attr("data-id-project"));
+                var Id_Project = $(this).attr("data-id-project");
+                $('#pagetoshow').val(Id_Project);
+                showProject(Id_Project);
+                getRRHH(Id_Project);
             });
         });
         //
@@ -233,10 +294,15 @@ $(window).load(function () {
         $("#pagebtndelete").click(function () {
             deleteProject();
         });
+
+        $("#pagebtndeleteassign").click(function () {
+            deleteRRHH($('#pagetoshow').val());
+        });
     }
 
 
     function attachActionButtons() {
+        $("#sidebaroptions").remove();
         $("#cancelpage").click(function () {
             $("#tabtable").tab("show");
             clearControls();
@@ -425,29 +491,58 @@ $(window).load(function () {
 
     /*Message Functions*/
 
-    function displayErrorMessage(message) {
-        $("#errorcontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+    //function displayErrorMessage(message) {
+    //    $("#errorcontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+    //}
+
+    //function displayMessage(message) {
+    //    $("#messagecontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
+
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+    //    $("#pagebtndelete").unbind();
+    //    $("#tabdetails").unbind();
+
+    //}
+
+    function displayErrorMessage(message) {
+        //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#errorcontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
+
+        //}).html(message).toggleClass("hidden").fadeToggle(8000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+        $("#errorcontainer").html(message);
+        $("#myErrorDialog").modal('show');
     }
 
     function displayMessage(message) {
-        $("#messagecontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+        // message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#messagecontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //}).html(message).toggleClass("hidden").fadeToggle(8000,"linear" , function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //$("#pagebtndelete").unbind();
+        //$("#tabdetails").unbind();
+
+        $("#messagecontainer").html(message);
+        $("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
-
     }
 
     function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a href='#' id='brand'> Andrew Jos</a></li><li><a href='#' id='brand1'> Action #2 Some description</a></li><li><a href='#' id='brand2'> Action #2 Some description</a> </li><li><a href='#' id='brand3'> Action #2 Some description</a></li></ul></div></div></div></div></div>";
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

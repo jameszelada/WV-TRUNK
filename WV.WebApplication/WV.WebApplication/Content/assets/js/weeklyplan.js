@@ -231,25 +231,55 @@
     }
 
     function displayErrorMessage(message) {
-        $("#errorcontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+        //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#errorcontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+        //}).html(message).toggleClass("hidden").fadeToggle(8000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+        $("#errorcontainer").html(message);
+        $("#myErrorDialog").modal('show');
     }
 
     function displayMessage(message) {
-        $("#messagecontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+        // message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#messagecontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //}).html(message).toggleClass("hidden").fadeToggle(8000,"linear" , function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //$("#pagebtndelete").unbind();
+        //$("#tabdetails").unbind();
+
+        $("#messagecontainer").html(message);
+        $("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
 
     }
+
+    //function displayErrorMessage(message) {
+    //    $("#errorcontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
+
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+    //}
+
+    //function displayMessage(message) {
+    //    $("#messagecontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
+
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+    //    $("#pagebtndelete").unbind();
+    //    $("#tabdetails").unbind();
+
+    //}
 
     function attachClickToDates() {
         $("#logbookdates").find("li").each(function (index, value) {

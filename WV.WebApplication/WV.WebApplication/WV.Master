@@ -133,19 +133,20 @@
                      <li>
                         <a href="#"><i class="fa fa-bars"></i>Monitoreo de Programas<span class="fa arrow"></span></a>
                         <ul style="height: auto;" class="nav nav-second-level collapse">
-                            <li id="Control_Personal" runat="server">
-                                <a href="ControlStaff">Control de Personal</a>
+                            
+                             <li id="Programa" runat="server">
+                                <a href="Program">Programas</a>
                             </li >
-                             <li id="Personal" runat="server">
-                                <a href="Staff">Personal</a>
-                            </li >
+
                             <li id="Tipo_Programa" runat="server">
                                 <a href="ProgramType">Tipos de Programas</a>
                             </li >
                             <li id="Comunidades" runat="server">
                                 <a href="Community">Comunidades</a>
                             </li>
-                           
+                            <li id="Inscripcion" runat="server">
+                                <a href="Registration">Inscripcion de Beneficiarios</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -155,12 +156,22 @@
                             <li id="Proyectos" runat="server">
                                 <a href="Project">Proyectos</a>
                             </li>
-                            <li id="Tipo_Puesto" runat="server">
-                                <a href="JobType">Tipo de Puesto</a>
-                            </li>
+                             <li id="Personal" runat="server">
+                                <a href="Staff">Personal</a>
+                            </li >
+                            <li id="Control_Personal" runat="server">
+                                <a href="ControlStaff">Control de Personal</a>
+                            </li >
+                            <li id="Asignar_RRHH" runat="server">
+                                <a href="AssignRRHH">Asignar RRHH a Proyecto</a>
+                            </li >
                             <li id="Puesto" runat="server">
                                 <a href="Job">Puesto</a>
                             </li>
+                            <li id="Tipo_Puesto" runat="server">
+                                <a href="JobType">Tipo de Puesto</a>
+                            </li>
+                            
                         </ul>
                     </li>
                     <li id="Acerca_de" runat="server">
@@ -175,10 +186,12 @@
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div class="col-md-9 col-sm-12 col-xs-12">
-                            <div id="errorcontainer" class="alert alert-danger hidden">
-                                </div>
-                                <div id="messagecontainer" class="alert alert-success hidden">
-                                </div>
+                           <%-- <div id="errorcontainer" class="alert alert-danger hidden">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                </div>--%>
+                               <%-- <div id="messagecontainer" class="alert alert-success hidden">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                </div>--%>
                         </div>
             <div id="page-inner">
 
@@ -227,8 +240,36 @@
             </div>
         </div>
     </footer>
-        
-   
+    
+    <div class="modal fade" id="myMessageDialog" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h6 class="modal-title">Información</h6>
+                </div>
+                <div class="modal-body">
+                    <p id="messagecontainer"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="myErrorDialog" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h6 class="modal-title">Error</h6>
+                </div>
+                <div class="modal-body">
+                    <p id="errorcontainer"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  
 
 </body>
     

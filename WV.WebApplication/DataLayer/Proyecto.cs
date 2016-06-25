@@ -14,9 +14,18 @@ namespace DataLayer
     
     public partial class Proyecto
     {
+        public Proyecto()
+        {
+            this.AsignacionRecursoHumano = new HashSet<AsignacionRecursoHumano>();
+            this.Programa = new HashSet<Programa>();
+        }
+    
         public int ID_Proyecto { get; set; }
         public string Codigo { get; set; }
         public string ProyectoDescripcion { get; set; }
         public string Estado { get; set; }
+    
+        public virtual ICollection<AsignacionRecursoHumano> AsignacionRecursoHumano { get; set; }
+        public virtual ICollection<Programa> Programa { get; set; }
     }
 }

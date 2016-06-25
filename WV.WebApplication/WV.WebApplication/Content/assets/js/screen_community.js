@@ -526,27 +526,54 @@ $(window).load(function () {
 
     /*Message Functions*/
 
-    function displayErrorMessage(message) {
-        $("#errorcontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+    //function displayErrorMessage(message) {
+    //    $("#errorcontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+    //}
+
+    //function displayMessage(message) {
+    //    $("#messagecontainer").css({
+    //        'position': 'absolute',
+    //        'zIndex': '0',
+    //        'right': '30%'
+
+    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+    //    $("#pagebtndelete").unbind();
+    //    $("#tabdetails").unbind();
+
+    //}
+    function displayErrorMessage(message) {
+        //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#errorcontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
+
+        //}).html(message).toggleClass("hidden").fadeToggle(8000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
+        $("#errorcontainer").html(message);
+        $("#myErrorDialog").modal('show');
     }
 
     function displayMessage(message) {
-        $("#messagecontainer").css({
-            'position': 'absolute',
-            'zIndex': '0',
-            'right': '30%'
+        // message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+        //$("#messagecontainer").css({
+        //    'position': 'absolute',
+        //    'zIndex': '0',
+        //    'right': '30%'
 
-        }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //}).html(message).toggleClass("hidden").fadeToggle(8000,"linear" , function () { $("#messagecontainer").toggleClass("hidden").empty(); });
+        //$("#pagebtndelete").unbind();
+        //$("#tabdetails").unbind();
+
+        $("#messagecontainer").html(message);
+        $("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
-
     }
-
     function loadSidebarOptions() {
         var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a href='#' id='brand'> Andrew Jos</a></li><li><a href='#' id='brand1'> Action #2 Some description</a></li><li><a href='#' id='brand2'> Action #2 Some description</a> </li><li><a href='#' id='brand3'> Action #2 Some description</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");

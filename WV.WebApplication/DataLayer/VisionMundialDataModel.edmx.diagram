@@ -5,23 +5,23 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4fa829b0318b46fd8ae1e354fe7e1c7d" Name="Diagram1" ZoomLevel="74">
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Usuario" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Recurso" Width="1.5" PointX="3.375" PointY="5.5" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Rol" Width="1.5" PointX="3.375" PointY="2.375" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.RolRecurso" Width="1.5" PointX="5.625" PointY="4.375" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.UsuarioRol" Width="1.5" PointX="5.375" PointY="0.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Usuario" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Recurso" Width="1.5" PointX="2.125" PointY="5.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Rol" Width="1.5" PointX="0.5" PointY="4" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.RolRecurso" Width="1.5" PointX="3.625" PointY="2.875" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.UsuarioRol" Width="1.5" PointX="3.25" PointY="0.5" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Recurso" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Rol" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Rol" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Usuario" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Indicador" Width="1.5" PointX="9.875" PointY="0.75" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Objetivo" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPrograma" Width="1.5" PointX="11.875" PointY="0.75" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Comunidad" Width="1.5" PointX="11.5" PointY="5.625" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Departamento" Width="1.5" PointX="6.625" PointY="6.5" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Municipio" Width="1.5" PointX="9.125" PointY="5.75" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Puesto" Width="1.5" PointX="10.875" PointY="2.75" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPuesto" Width="1.5" PointX="7.75" PointY="2.875" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Indicador" Width="1.5" PointX="9.75" PointY="0.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Objetivo" Width="1.5" PointX="8.125" PointY="0.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPrograma" Width="1.5" PointX="11.25" PointY="0.75" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Comunidad" Width="1.5" PointX="16.375" PointY="9.25" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Departamento" Width="1.5" PointX="13.875" PointY="9.625" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Municipio" Width="1.5" PointX="14.5" PointY="6.625" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Puesto" Width="1.5" PointX="8.125" PointY="3.125" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPuesto" Width="1.5" PointX="5.5" PointY="3.75" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Comunidad_ID_Municipio" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Municipio_ID_Departamento" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Puesto_ID_TipoPuesto" />
@@ -34,7 +34,27 @@
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BitacoraDetalle_ID_Bitacora" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanal_ID_Persona" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanalDetalle_ID_PlanSemanal" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Proyecto" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Proyecto" Width="1.5" PointX="8.875" PointY="7.25" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.AsignacionRecursoHumano" Width="1.5" PointX="10.625" PointY="4.375" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Persona" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Proyecto" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Puesto" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Programa" Width="1.5" PointX="20.625" PointY="4.125" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_Comunidad" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Indicador_ID_Programa" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Objetivo_ID_Programa" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_Proyecto" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_TipoPrograma" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Beneficiario" Width="1.5" PointX="22.875" PointY="13.5" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioAdicional" Width="1.5" PointX="25.125" PointY="9" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioCompromiso" Width="1.5" PointX="25.125" PointY="15.625" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioEducacion" Width="1.5" PointX="25.125" PointY="11.875" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioSalud" Width="1.5" PointX="25.125" PointY="18.875" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Beneficiario_ID_Programa" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioAdicional_ID_Beneficiario" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioCompromiso_ID_Beneficiario" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioEducacion_ID_Beneficiario" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

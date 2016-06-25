@@ -7,11 +7,21 @@ using System.Web.UI.WebControls;
 
 namespace WV.WebApplication.Pages
 {
-    public partial class Registration : System.Web.UI.Page
+    public partial class Registration : PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (ValidateSession())
+            {
+                AddUserTag();
+                ValidateOptions();
+                if (!hasPermissions(pagename.InnerText))
+                {
+                    Context.Response.Redirect("Unauthorized");
+                }
 
+
+            }
         }
     }
 }

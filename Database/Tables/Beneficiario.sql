@@ -17,7 +17,7 @@ ALTER TABLE Beneficiario
 ADD Codigo VARCHAR(10) null
 
 ALTER TABLE Beneficiario
-ADD Edad int not null
+ADD Edad VARCHAR(10) null
 
 ALTER TABLE Beneficiario
 ADD Sexo VARCHAR(1) not null 
@@ -36,7 +36,7 @@ ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Apellido DEFAULT '' FOR 
 ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Dui DEFAULT '' FOR Dui;
 ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Codigo DEFAULT '' FOR Codigo;
 ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Sexo DEFAULT '' FOR Sexo;
-ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Edad DEFAULT (0) FOR Edad;
+ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Edad DEFAULT '' FOR Edad;
 ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_Direccion DEFAULT '' FOR Direccion;
 ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_ID_Programa DEFAULT (0) FOR ID_Programa;
 
@@ -52,3 +52,7 @@ ALTER TABLE Beneficiario ADD CONSTRAINT DF_Beneficiario_ID_Programa DEFAULT (0) 
 ALTER TABLE Beneficiario
 ADD CONSTRAINT FK_Beneficiario_ID_Programa FOREIGN KEY(ID_Programa) REFERENCES Programa(ID_Programa)
 ON DELETE CASCADE
+
+
+ALTER TABLE Beneficiario
+DROP COLUMN Edad

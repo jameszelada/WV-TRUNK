@@ -18,6 +18,7 @@ namespace DataLayer
         {
             this.Bitacora = new HashSet<Bitacora>();
             this.PlanSemanal = new HashSet<PlanSemanal>();
+            this.AsignacionRecursoHumano = new HashSet<AsignacionRecursoHumano>();
         }
     
         public int ID_Persona { get; set; }
@@ -32,5 +33,6 @@ namespace DataLayer
     
         public virtual ICollection<Bitacora> Bitacora { get; set; }
         public virtual ICollection<PlanSemanal> PlanSemanal { get; set; }
+        public virtual ICollection<AsignacionRecursoHumano> AsignacionRecursoHumano { get; set; }
     }
 }

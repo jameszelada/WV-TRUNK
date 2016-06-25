@@ -44,5 +44,12 @@ namespace DataLayer
         public DbSet<PlanSemanal> PlanSemanal { get; set; }
         public DbSet<PlanSemanalDetalle> PlanSemanalDetalle { get; set; }
         public DbSet<Proyecto> Proyecto { get; set; }
+        public DbSet<AsignacionRecursoHumano> AsignacionRecursoHumano { get; set; }
+        public DbSet<Programa> Programa { get; set; }
+        public DbSet<Beneficiario> Beneficiario { get; set; }
+        public DbSet<BeneficiarioAdicional> BeneficiarioAdicional { get; set; }
+        public DbSet<BeneficiarioCompromiso> BeneficiarioCompromiso { get; set; }
+        public DbSet<BeneficiarioEducacion> BeneficiarioEducacion { get; set; }
+        public DbSet<BeneficiarioSalud> BeneficiarioSalud { get; set; }
     }
 }

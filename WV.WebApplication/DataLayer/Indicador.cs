@@ -19,5 +19,7 @@ namespace DataLayer
         public string IndicadorDescripcion { get; set; }
         public string IndicadorValor { get; set; }
         public int ID_Programa { get; set; }
+    
+        public virtual Programa Programa { get; set; }
     }
 }

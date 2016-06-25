@@ -14,8 +14,15 @@ namespace DataLayer
     
     public partial class TipoPrograma
     {
+        public TipoPrograma()
+        {
+            this.Programa = new HashSet<Programa>();
+        }
+    
         public int ID_TipoPrograma { get; set; }
         public string TipoPrograma1 { get; set; }
         public string TipoProgramaDescripcion { get; set; }
+    
+        public virtual ICollection<Programa> Programa { get; set; }
     }
 }

@@ -14,11 +14,17 @@ namespace DataLayer
     
     public partial class Puesto
     {
+        public Puesto()
+        {
+            this.AsignacionRecursoHumano = new HashSet<AsignacionRecursoHumano>();
+        }
+    
         public int ID_Puesto { get; set; }
         public string Puesto1 { get; set; }
         public string PuestoDescripcion { get; set; }
         public int ID_TipoPuesto { get; set; }
     
         public virtual TipoPuesto TipoPuesto { get; set; }
+        public virtual ICollection<AsignacionRecursoHumano> AsignacionRecursoHumano { get; set; }
     }
 }

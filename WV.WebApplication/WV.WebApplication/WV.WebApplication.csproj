@@ -90,6 +90,7 @@
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\js\assignrrhh.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
     <Content Include="Content\assets\js\controlstaff.js" />
@@ -120,6 +121,7 @@
     <Content Include="Content\assets\js\screen_community.js" />
     <Content Include="Content\assets\js\screen_job.js" />
     <Content Include="Content\assets\js\screen_jobtype.js" />
+    <Content Include="Content\assets\js\screen_program.js" />
     <Content Include="Content\assets\js\screen_programtype.js" />
     <Content Include="Content\assets\js\screen_project.js" />
     <Content Include="Content\assets\js\screen_role.js" />
@@ -129,6 +131,7 @@
     <Content Include="Content\assets\js\weeklyplan.js" />
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
+    <Content Include="Pages\AssignRRHH.aspx" />
     <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
@@ -139,6 +142,7 @@
     <Content Include="Pages\screen_community.aspx" />
     <Content Include="Pages\screen_job.aspx" />
     <Content Include="Pages\screen_jobtype.aspx" />
+    <Content Include="Pages\screen_program.aspx" />
     <Content Include="Pages\screen_programtype.aspx" />
     <Content Include="Pages\screen_project.aspx" />
     <Content Include="Pages\screen_role.aspx" />
@@ -151,6 +155,9 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\AssignRRHH.ashx.cs">
+      <DependentUpon>AssignRRHH.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Authenticate.ashx.cs">
       <DependentUpon>Authenticate.ashx</DependentUpon>
@@ -170,11 +177,17 @@
     <Compile Include="Handlers\LogBook.ashx.cs">
       <DependentUpon>LogBook.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\Program.ashx.cs">
+      <DependentUpon>Program.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\ProgramType.ashx.cs">
       <DependentUpon>ProgramType.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Project.ashx.cs">
       <DependentUpon>Project.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Registration.ashx.cs">
+      <DependentUpon>Registration.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Role.ashx.cs">
       <DependentUpon>Role.ashx</DependentUpon>
@@ -197,6 +210,13 @@
     </Compile>
     <Compile Include="Pages\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AssignRRHH.aspx.cs">
+      <DependentUpon>AssignRRHH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AssignRRHH.aspx.designer.cs">
+      <DependentUpon>AssignRRHH.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\ControlStaff.aspx.cs">
       <DependentUpon>ControlStaff.aspx</DependentUpon>
@@ -271,6 +291,13 @@
     <Compile Include="Pages\screen_jobtype.aspx.designer.cs">
       <DependentUpon>screen_jobtype.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\screen_program.aspx.cs">
+      <DependentUpon>screen_program.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_program.aspx.designer.cs">
+      <DependentUpon>screen_program.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\screen_programtype.aspx.cs">
       <DependentUpon>screen_programtype.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +349,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ActionTemplate.cs" />
+    <Compile Include="Utils\BeneficiarioTemplate.cs" />
     <Compile Include="Utils\JSONResponse.cs" />
     <Compile Include="WV.Master.cs">
       <DependentUpon>WV.Master</DependentUpon>
@@ -354,6 +382,9 @@
     <Content Include="Handlers\LogBook.ashx" />
     <Content Include="Handlers\WeeklyPlan.ashx" />
     <Content Include="Handlers\Job.ashx" />
+    <Content Include="Handlers\AssignRRHH.ashx" />
+    <Content Include="Handlers\Program.ashx" />
+    <Content Include="Handlers\Registration.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

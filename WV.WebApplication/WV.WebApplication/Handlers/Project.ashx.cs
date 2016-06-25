@@ -22,6 +22,8 @@ namespace WV.WebApplication.Handlers
         object Parameter = string.Empty;
         IAWContext _context;
         IDataRepository<Proyecto> _proyecto;
+        IAWContext _context1;
+        IDataRepository<AsignacionRecursoHumano> _rrhh;
 
         public void ProcessRequest(HttpContext context)
         {
@@ -47,6 +49,12 @@ namespace WV.WebApplication.Handlers
                 case "edit":
                     context.Response.Write(EditRecord(context));
                     break;
+                case "getrrhh":
+                    context.Response.Write(GetHHRR(context));
+                    break;
+                case "deleterrhh":
+                    context.Response.Write(DeleteHHRR(context));
+                    break;
             }
         }
 
@@ -62,6 +70,8 @@ namespace WV.WebApplication.Handlers
         {
             _context = new AWContext(Connection);
             _proyecto = new DataRepository<IAWContext, Proyecto>(_context);
+            _context1 = new AWContext();
+            _rrhh = new DataRepository<IAWContext, AsignacionRecursoHumano>(_context1);
         }
 
         public override string GetAllRecords()
@@ -147,6 +157,78 @@ namespace WV.WebApplication.Handlers
             catch (Exception ex)
             {
 
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
+        }
+
+        public string GetHHRR(HttpContext context)
+        {
+            string content = "",message="";
+            int ID_Proyecto = Int32.Parse(context.Request.Params["Id_Proyecto"].ToString());
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                var rrhh = _rrhh.Where(p=>p.ID_Proyecto == ID_Proyecto);
+
+                foreach (var persona in rrhh)
+                {
+                
+                    content += "<a class='list-group-item'><i class='fa fa-fw fa-user'></i>"+persona.Persona.Nombre +" "+persona.Persona.Apellido+"</a>";
+                }   
+
+                if (content == "")
+                {
+                    message = "No hay Personal asignado a este proyecto";
+                    response.ResponseData = message;
+                    response.ResponseAdditional = "0";
+                }
+                else
+                {
+                    response.ResponseData = content;
+                    response.ResponseAdditional = "1";
+                }
+                response.IsSucess = true;
+                response.CallBack = string.Empty;
+                response.Message = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
+        }
+
+        public string DeleteHHRR(HttpContext context)
+        {
+           
+            int ID_Proyecto = Int32.Parse(context.Request.Params["Id_Proyecto"].ToString());
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            try
+            {
+                var rrhh = _rrhh.Where(p => p.ID_Proyecto == ID_Proyecto);
+
+                foreach (var persona in rrhh)
+                {
+                    AsignacionRecursoHumano asignacion = _rrhh.GetFirst(asi=> asi.ID_AsignacionRecursoHumano == persona.ID_AsignacionRecursoHumano);
+                    _rrhh.Delete(asignacion);
+                }
+
+                _context1.SaveChanges();
+
+                response.ResponseData = string.Empty;
+                response.IsSucess = true;
+                response.Message = "Asignacion Eliminada Satisfactoriamente";
+                response.CallBack = string.Empty;
+            }
+            catch (Exception ex)
+            {
                 response.Message = ex.Message;
                 response.IsSucess = false;
             }

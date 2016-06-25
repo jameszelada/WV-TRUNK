@@ -49,5 +49,239 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Indicador">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Indicador">
+        <MappingFragment StoreEntitySet="Indicador">
+          <ScalarProperty Name="ID_Programa" ColumnName="ID_Programa" />
+          <ScalarProperty Name="IndicadorValor" ColumnName="IndicadorValor" />
+          <ScalarProperty Name="IndicadorDescripcion" ColumnName="IndicadorDescripcion" />
+          <ScalarProperty Name="Indicador1" ColumnName="Indicador" />
+          <ScalarProperty Name="ID_Indicador" ColumnName="ID_Indicador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Objetivo">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Objetivo">
+        <MappingFragment StoreEntitySet="Objetivo">
+          <ScalarProperty Name="ID_Programa" ColumnName="ID_Programa" />
+          <ScalarProperty Name="TipoObjetivo" ColumnName="TipoObjetivo" />
+          <ScalarProperty Name="ObjetivoDescripcion" ColumnName="ObjetivoDescripcion" />
+          <ScalarProperty Name="Objetivo1" ColumnName="Objetivo" />
+          <ScalarProperty Name="ID_Objetivo" ColumnName="ID_Objetivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPrograma">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.TipoPrograma">
+        <MappingFragment StoreEntitySet="TipoPrograma">
+          <ScalarProperty Name="TipoProgramaDescripcion" ColumnName="TipoProgramaDescripcion" />
+          <ScalarProperty Name="TipoPrograma1" ColumnName="TipoPrograma" />
+          <ScalarProperty Name="ID_TipoPrograma" ColumnName="ID_TipoPrograma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comunidad">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Comunidad">
+        <MappingFragment StoreEntitySet="Comunidad">
+          <ScalarProperty Name="ID_Municipio" ColumnName="ID_Municipio" />
+          <ScalarProperty Name="Comunidad1" ColumnName="Comunidad" />
+          <ScalarProperty Name="ID_Comunidad" ColumnName="ID_Comunidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departamento">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Departamento">
+        <MappingFragment StoreEntitySet="Departamento">
+          <ScalarProperty Name="Departamento1" ColumnName="Departamento" />
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipio">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Municipio">
+        <MappingFragment StoreEntitySet="Municipio">
+          <ScalarProperty Name="ID_Departamento" ColumnName="ID_Departamento" />
+          <ScalarProperty Name="Municipio1" ColumnName="Municipio" />
+          <ScalarProperty Name="ID_Municipio" ColumnName="ID_Municipio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puesto">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Puesto">
+        <MappingFragment StoreEntitySet="Puesto">
+          <ScalarProperty Name="ID_TipoPuesto" ColumnName="ID_TipoPuesto" />
+          <ScalarProperty Name="PuestoDescripcion" ColumnName="PuestoDescripcion" />
+          <ScalarProperty Name="Puesto1" ColumnName="Puesto" />
+          <ScalarProperty Name="ID_Puesto" ColumnName="ID_Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPuesto">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.TipoPuesto">
+        <MappingFragment StoreEntitySet="TipoPuesto">
+          <ScalarProperty Name="TipoPuestoDescripcion" ColumnName="TipoPuestoDescripcion" />
+          <ScalarProperty Name="TipoPuesto1" ColumnName="TipoPuesto" />
+          <ScalarProperty Name="ID_TipoPuesto" ColumnName="ID_TipoPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="FechaBitacora" ColumnName="FechaBitacora" />
+          <ScalarProperty Name="ID_Persona" ColumnName="ID_Persona" />
+          <ScalarProperty Name="ID_Bitacora" ColumnName="ID_Bitacora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraDetalle">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.BitacoraDetalle">
+        <MappingFragment StoreEntitySet="BitacoraDetalle">
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="ID_Bitacora" ColumnName="ID_Bitacora" />
+          <ScalarProperty Name="ID_BitacoraDetalle" ColumnName="ID_BitacoraDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Dui" ColumnName="Dui" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_Persona" ColumnName="ID_Persona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanSemanal">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.PlanSemanal">
+        <MappingFragment StoreEntitySet="PlanSemanal">
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="ID_Persona" ColumnName="ID_Persona" />
+          <ScalarProperty Name="ID_PlanSemanal" ColumnName="ID_PlanSemanal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PlanSemanalDetalle">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.PlanSemanalDetalle">
+        <MappingFragment StoreEntitySet="PlanSemanalDetalle">
+          <ScalarProperty Name="Recurso" ColumnName="Recurso" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="Actividad" ColumnName="Actividad" />
+          <ScalarProperty Name="ID_PlanSemanal" ColumnName="ID_PlanSemanal" />
+          <ScalarProperty Name="ID_PlanSemanalDetalle" ColumnName="ID_PlanSemanalDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Proyecto">
+        <MappingFragment StoreEntitySet="Proyecto">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ProyectoDescripcion" ColumnName="ProyectoDescripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ID_Proyecto" ColumnName="ID_Proyecto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AsignacionRecursoHumano">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.AsignacionRecursoHumano">
+        <MappingFragment StoreEntitySet="AsignacionRecursoHumano">
+          <ScalarProperty Name="ID_Proyecto" ColumnName="ID_Proyecto" />
+          <ScalarProperty Name="ID_Persona" ColumnName="ID_Persona" />
+          <ScalarProperty Name="ID_Puesto" ColumnName="ID_Puesto" />
+          <ScalarProperty Name="ID_AsignacionRecursoHumano" ColumnName="ID_AsignacionRecursoHumano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programa">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Programa">
+        <MappingFragment StoreEntitySet="Programa">
+          <ScalarProperty Name="ID_Comunidad" ColumnName="ID_Comunidad" />
+          <ScalarProperty Name="ID_TipoPrograma" ColumnName="ID_TipoPrograma" />
+          <ScalarProperty Name="ID_Proyecto" ColumnName="ID_Proyecto" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ProgramaDescripcion" ColumnName="ProgramaDescripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ID_Programa" ColumnName="ID_Programa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beneficiario">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Beneficiario">
+        <MappingFragment StoreEntitySet="Beneficiario">
+          <ScalarProperty Name="ID_Programa" ColumnName="ID_Programa" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Dui" ColumnName="Dui" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiarioAdicional">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.BeneficiarioAdicional">
+        <MappingFragment StoreEntitySet="BeneficiarioAdicional">
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="TieneRegistroNacimiento" ColumnName="TieneRegistroNacimiento" />
+          <ScalarProperty Name="NumeroEmergencia" ColumnName="NumeroEmergencia" />
+          <ScalarProperty Name="NombreEmergencia" ColumnName="NombreEmergencia" />
+          <ScalarProperty Name="ID_BeneficiarioAdicional" ColumnName="ID_BeneficiarioAdicional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiarioCompromiso">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.BeneficiarioCompromiso">
+        <MappingFragment StoreEntitySet="BeneficiarioCompromiso">
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="NombreIglesia" ColumnName="NombreIglesia" />
+          <ScalarProperty Name="SeCongrega" ColumnName="SeCongrega" />
+          <ScalarProperty Name="ExistioProblema" ColumnName="ExistioProblema" />
+          <ScalarProperty Name="AceptaCompromiso" ColumnName="AceptaCompromiso" />
+          <ScalarProperty Name="ID_BeneficiarioCompromiso" ColumnName="ID_BeneficiarioCompromiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiarioEducacion">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.BeneficiarioEducacion">
+        <MappingFragment StoreEntitySet="BeneficiarioEducacion">
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="Turno" ColumnName="Turno" />
+          <ScalarProperty Name="NombreCentroEscolar" ColumnName="NombreCentroEscolar" />
+          <ScalarProperty Name="UltimoAño" ColumnName="UltimoAño" />
+          <ScalarProperty Name="UltimoGrado" ColumnName="UltimoGrado" />
+          <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+          <ScalarProperty Name="GradoEducacion" ColumnName="GradoEducacion" />
+          <ScalarProperty Name="Estudia" ColumnName="Estudia" />
+          <ScalarProperty Name="ID_BeneficiarioEducacion" ColumnName="ID_BeneficiarioEducacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BeneficiarioSalud">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.BeneficiarioSalud">
+        <MappingFragment StoreEntitySet="BeneficiarioSalud">
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="Discapacidad" ColumnName="Discapacidad" />
+          <ScalarProperty Name="Enfermedad" ColumnName="Enfermedad" />
+          <ScalarProperty Name="FechaInmunizacion" ColumnName="FechaInmunizacion" />
+          <ScalarProperty Name="FechaCurvaCrecimiento" ColumnName="FechaCurvaCrecimiento" />
+          <ScalarProperty Name="TieneTarjeta" ColumnName="TieneTarjeta" />
+          <ScalarProperty Name="EstadoSalud" ColumnName="EstadoSalud" />
+          <ScalarProperty Name="ID_BeneficiarioSalud" ColumnName="ID_BeneficiarioSalud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

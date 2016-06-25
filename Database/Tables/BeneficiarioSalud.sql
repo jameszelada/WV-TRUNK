@@ -29,11 +29,13 @@ ADD ID_Beneficiario int not null
 
 ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_EstadoSalud DEFAULT '' FOR EstadoSalud;
 ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_TieneTarjeta DEFAULT 0 FOR TieneTarjeta;
-ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_FechaCurvaCrecimiento DEFAULT GETDATE() FOR FechaCurvaCrecimiento;
-ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_FechaInmunizacion DEFAULT GETDATE() FOR FechaInmunizacion;
+ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_FechaCurvaCrecimiento  DEFAULT ('1900-01-01 00:00:00') FOR FechaCurvaCrecimiento;
+ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_FechaInmunizacion  DEFAULT ('1900-01-01 00:00:00') FOR FechaInmunizacion;
 ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_Enfermedad DEFAULT '' FOR Enfermedad;
 ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_Discapacidad DEFAULT '' FOR Discapacidad;
 ALTER TABLE BeneficiarioSalud ADD CONSTRAINT DF_BeneficiarioSalud_ID_Beneficiario DEFAULT (0) FOR ID_Beneficiario;
+
+
 
 -- Unique Constraint
 

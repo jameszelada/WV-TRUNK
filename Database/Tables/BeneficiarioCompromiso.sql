@@ -11,9 +11,6 @@ ALTER TABLE BeneficiarioCompromiso
 ADD ExistioProblema BIT not null
 
 ALTER TABLE BeneficiarioCompromiso
-ADD TieneRegistroNacimiento BIT not null
-
-ALTER TABLE BeneficiarioCompromiso
 ADD SeCongrega BIT not null
 
 ALTER TABLE BeneficiarioCompromiso
@@ -37,6 +34,8 @@ ALTER TABLE BeneficiarioCompromiso ADD CONSTRAINT DF_BeneficiarioCompromiso_ID_B
 -- Unique Constraint
 
 --ALTER TABLE Persona ADD CONSTRAINT UQ_Dui UNIQUE (Dui)
+
+--ALTER TABLE BeneficiarioCompromiso DROP COLUMN TieneRegistroNacimiento
 
 -- Foreign Key Constraints
 

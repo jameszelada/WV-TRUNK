@@ -58,22 +58,13 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Recursos;
         
         /// <summary>
-        /// Control_Personal control.
+        /// Programa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Control_Personal;
-        
-        /// <summary>
-        /// Personal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Personal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Programa;
         
         /// <summary>
         /// Tipo_Programa control.
@@ -94,6 +85,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Comunidades;
         
         /// <summary>
+        /// Inscripcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Inscripcion;
+        
+        /// <summary>
         /// Proyectos control.
         /// </summary>
         /// <remarks>
@@ -103,13 +103,31 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Proyectos;
         
         /// <summary>
-        /// Tipo_Puesto control.
+        /// Personal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tipo_Puesto;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Personal;
+        
+        /// <summary>
+        /// Control_Personal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Control_Personal;
+        
+        /// <summary>
+        /// Asignar_RRHH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Asignar_RRHH;
         
         /// <summary>
         /// Puesto control.
@@ -119,6 +137,15 @@ namespace WV.WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Puesto;
+        
+        /// <summary>
+        /// Tipo_Puesto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tipo_Puesto;
         
         /// <summary>
         /// Acerca_de control.

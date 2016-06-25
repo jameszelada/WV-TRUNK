@@ -14,10 +14,16 @@ namespace DataLayer
     
     public partial class Comunidad
     {
+        public Comunidad()
+        {
+            this.Programa = new HashSet<Programa>();
+        }
+    
         public int ID_Comunidad { get; set; }
         public string Comunidad1 { get; set; }
         public int ID_Municipio { get; set; }
     
         public virtual Municipio Municipio { get; set; }
+        public virtual ICollection<Programa> Programa { get; set; }
     }
 }

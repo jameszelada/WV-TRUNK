@@ -77,7 +77,28 @@
                                     <button id="cancelpage" type="button" class="btn btn-default hidden in-controls"><i class=" fa fa-times "></i>Cancelar</button>
                                     <input type="text" id="screenmode" class="hidden" />
 
+                                    <hr/>
+
+                                    <div class="panel-group hidden txt-controls" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title">
+                                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="">Recursos Humanos Asignados</a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in" style="height: auto;">
+                                                <div class="panel-body">
+                                                    <div id="rrhh" class="list-group">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
+
+                                
 
                             </div>
 
@@ -90,6 +111,7 @@
         <%--<input id="usertoassign" class="hidden" type="text" />
         <input id="roletoassign" class="hidden" type="text" />--%>
         <input id="pagetodelete" class="hidden" type="text" />
+        <input id="pagetoshow" class="hidden" type="text" />
         <input id="pagetoedit" class="hidden" type="text" />
         <div class="modal fade" id="modalmessage" role="dialog">
             <div class="modal-dialog modal-sm">
@@ -110,23 +132,29 @@
             </div>
         </div>
 
-        <div class="modal fade" id="modalsave" role="dialog">
-            <div class="modal-dialog modal-sm">
+        <div class="modal fade" tabindex="-1" role="dialog" id="gridSystemModal">
+            <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Eliminar Proyecto</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="gridSystemModalLabelTitle">Eliminar Asignacion de RRHH</h4>
                     </div>
-                    <div class="modal-body">
-                        <p id="actionmessage">¿Está seguro de guardar los cambios?</p>
+                    <div id="modalcontent" class="modal-body">
+                        <div class="modal-body">
+                        <p>¿Está seguro de Eliminar la Asignacion de RRHH para este proyecto?</p>
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                        <button id="pagebtnsave" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
+                        <%--<button id="btndeleteuser" type="button" class="btn btn-default" data-dismiss="modal">Si</button>--%>
+                        <button id="pagebtndeleteassign" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
                     </div>
                 </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
         </div>
+        <!-- /.modal -->
 
     </div>
 </asp:Content>

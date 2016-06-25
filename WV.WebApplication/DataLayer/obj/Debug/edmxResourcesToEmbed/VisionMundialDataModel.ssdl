@@ -1,5 +1,202 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VISIONMUNDIALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="AsignacionRecursoHumano">
+    <Key>
+      <PropertyRef Name="ID_AsignacionRecursoHumano" />
+    </Key>
+    <Property Name="ID_AsignacionRecursoHumano" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Puesto" Type="int" Nullable="false" />
+    <Property Name="ID_Persona" Type="int" Nullable="false" />
+    <Property Name="ID_Proyecto" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Beneficiario">
+    <Key>
+      <PropertyRef Name="ID_Beneficiario" />
+    </Key>
+    <Property Name="ID_Beneficiario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dui" Type="varchar" MaxLength="10" />
+    <Property Name="Codigo" Type="varchar" MaxLength="10" />
+    <Property Name="Sexo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ID_Programa" Type="int" Nullable="false" />
+    <Property Name="Edad" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="BeneficiarioAdicional">
+    <Key>
+      <PropertyRef Name="ID_BeneficiarioAdicional" />
+    </Key>
+    <Property Name="ID_BeneficiarioAdicional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEmergencia" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="NumeroEmergencia" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TieneRegistroNacimiento" Type="bit" Nullable="false" />
+    <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BeneficiarioCompromiso">
+    <Key>
+      <PropertyRef Name="ID_BeneficiarioCompromiso" />
+    </Key>
+    <Property Name="ID_BeneficiarioCompromiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AceptaCompromiso" Type="bit" Nullable="false" />
+    <Property Name="ExistioProblema" Type="bit" Nullable="false" />
+    <Property Name="SeCongrega" Type="bit" Nullable="false" />
+    <Property Name="NombreIglesia" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Comentario" Type="varchar" MaxLength="2000" Nullable="false" />
+    <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BeneficiarioEducacion">
+    <Key>
+      <PropertyRef Name="ID_BeneficiarioEducacion" />
+    </Key>
+    <Property Name="ID_BeneficiarioEducacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Estudia" Type="bit" />
+    <Property Name="GradoEducacion" Type="varchar" MaxLength="30" />
+    <Property Name="Motivo" Type="varchar" MaxLength="30" />
+    <Property Name="UltimoGrado" Type="varchar" MaxLength="30" />
+    <Property Name="UltimoAño" Type="varchar" MaxLength="30" />
+    <Property Name="NombreCentroEscolar" Type="varchar" MaxLength="100" />
+    <Property Name="Turno" Type="varchar" MaxLength="30" />
+    <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BeneficiarioSalud">
+    <Key>
+      <PropertyRef Name="ID_BeneficiarioSalud" />
+    </Key>
+    <Property Name="ID_BeneficiarioSalud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EstadoSalud" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TieneTarjeta" Type="bit" />
+    <Property Name="FechaCurvaCrecimiento" Type="datetime" />
+    <Property Name="FechaInmunizacion" Type="datetime" />
+    <Property Name="Enfermedad" Type="varchar" MaxLength="30" />
+    <Property Name="Discapacidad" Type="varchar" MaxLength="30" />
+    <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bitacora">
+    <Key>
+      <PropertyRef Name="ID_Bitacora" />
+    </Key>
+    <Property Name="ID_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Persona" Type="int" Nullable="false" />
+    <Property Name="FechaBitacora" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraDetalle">
+    <Key>
+      <PropertyRef Name="ID_BitacoraDetalle" />
+    </Key>
+    <Property Name="ID_BitacoraDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Bitacora" Type="int" Nullable="false" />
+    <Property Name="Actividad" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comunidad">
+    <Key>
+      <PropertyRef Name="ID_Comunidad" />
+    </Key>
+    <Property Name="ID_Comunidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Comunidad" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ID_Municipio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departamento">
+    <Key>
+      <PropertyRef Name="ID_Departamento" />
+    </Key>
+    <Property Name="ID_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Departamento" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Indicador">
+    <Key>
+      <PropertyRef Name="ID_Indicador" />
+    </Key>
+    <Property Name="ID_Indicador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Indicador" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="IndicadorDescripcion" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="IndicadorValor" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Programa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Municipio">
+    <Key>
+      <PropertyRef Name="ID_Municipio" />
+    </Key>
+    <Property Name="ID_Municipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Municipio" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="ID_Departamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Objetivo">
+    <Key>
+      <PropertyRef Name="ID_Objetivo" />
+    </Key>
+    <Property Name="ID_Objetivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Objetivo" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ObjetivoDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="TipoObjetivo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ID_Programa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="ID_Persona" />
+    </Key>
+    <Property Name="ID_Persona" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dui" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Sexo" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanSemanal">
+    <Key>
+      <PropertyRef Name="ID_PlanSemanal" />
+    </Key>
+    <Property Name="ID_PlanSemanal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Persona" Type="int" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFinal" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlanSemanalDetalle">
+    <Key>
+      <PropertyRef Name="ID_PlanSemanalDetalle" />
+    </Key>
+    <Property Name="ID_PlanSemanalDetalle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_PlanSemanal" Type="int" Nullable="false" />
+    <Property Name="Actividad" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Observaciones" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Recurso" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Programa">
+    <Key>
+      <PropertyRef Name="ID_Programa" />
+    </Key>
+    <Property Name="ID_Programa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProgramaDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+    <Property Name="FechaFinal" Type="datetime" Nullable="false" />
+    <Property Name="ID_Proyecto" Type="int" Nullable="false" />
+    <Property Name="ID_TipoPrograma" Type="int" Nullable="false" />
+    <Property Name="ID_Comunidad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="ID_Proyecto" />
+    </Key>
+    <Property Name="ID_Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProyectoDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puesto">
+    <Key>
+      <PropertyRef Name="ID_Puesto" />
+    </Key>
+    <Property Name="ID_Puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PuestoDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="ID_TipoPuesto" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Recurso">
     <Key>
       <PropertyRef Name="ID_Recurso" />
@@ -24,6 +221,22 @@
     <Property Name="ID_Rol" Type="int" Nullable="false" />
     <Property Name="ID_Recurso" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="TipoPrograma">
+    <Key>
+      <PropertyRef Name="ID_TipoPrograma" />
+    </Key>
+    <Property Name="ID_TipoPrograma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPrograma" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TipoProgramaDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoPuesto">
+    <Key>
+      <PropertyRef Name="ID_TipoPuesto" />
+    </Key>
+    <Property Name="ID_TipoPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPuesto" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TipoPuestoDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
   <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="ID_Usuario" />
@@ -43,6 +256,286 @@
     <Property Name="ID_Usuario" Type="int" Nullable="false" />
     <Property Name="ID_Rol" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_AsignacionRecursoHumano_ID_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AsignacionRecursoHumano" Type="Self.AsignacionRecursoHumano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="ID_Persona" />
+      </Principal>
+      <Dependent Role="AsignacionRecursoHumano">
+        <PropertyRef Name="ID_Persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AsignacionRecursoHumano_ID_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AsignacionRecursoHumano" Type="Self.AsignacionRecursoHumano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="ID_Proyecto" />
+      </Principal>
+      <Dependent Role="AsignacionRecursoHumano">
+        <PropertyRef Name="ID_Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AsignacionRecursoHumano_ID_Puesto">
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AsignacionRecursoHumano" Type="Self.AsignacionRecursoHumano" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puesto">
+        <PropertyRef Name="ID_Puesto" />
+      </Principal>
+      <Dependent Role="AsignacionRecursoHumano">
+        <PropertyRef Name="ID_Puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Beneficiario_ID_Programa">
+    <End Role="Programa" Type="Self.Programa" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa">
+        <PropertyRef Name="ID_Programa" />
+      </Principal>
+      <Dependent Role="Beneficiario">
+        <PropertyRef Name="ID_Programa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BeneficiarioAdicional_ID_Beneficiario">
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BeneficiarioAdicional" Type="Self.BeneficiarioAdicional" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiario">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Principal>
+      <Dependent Role="BeneficiarioAdicional">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BeneficiarioCompromiso_ID_Beneficiario">
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BeneficiarioCompromiso" Type="Self.BeneficiarioCompromiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiario">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Principal>
+      <Dependent Role="BeneficiarioCompromiso">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BeneficiarioEducacion_ID_Beneficiario">
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BeneficiarioEducacion" Type="Self.BeneficiarioEducacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiario">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Principal>
+      <Dependent Role="BeneficiarioEducacion">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BeneficiarioSalud_ID_Beneficiario">
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BeneficiarioSalud" Type="Self.BeneficiarioSalud" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiario">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Principal>
+      <Dependent Role="BeneficiarioSalud">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bitacora_ID_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="ID_Persona" />
+      </Principal>
+      <Dependent Role="Bitacora">
+        <PropertyRef Name="ID_Persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraDetalle_ID_Bitacora">
+    <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BitacoraDetalle" Type="Self.BitacoraDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bitacora">
+        <PropertyRef Name="ID_Bitacora" />
+      </Principal>
+      <Dependent Role="BitacoraDetalle">
+        <PropertyRef Name="ID_Bitacora" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comunidad_ID_Municipio">
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comunidad" Type="Self.Comunidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipio">
+        <PropertyRef Name="ID_Municipio" />
+      </Principal>
+      <Dependent Role="Comunidad">
+        <PropertyRef Name="ID_Municipio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Indicador_ID_Programa">
+    <End Role="Programa" Type="Self.Programa" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Indicador" Type="Self.Indicador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa">
+        <PropertyRef Name="ID_Programa" />
+      </Principal>
+      <Dependent Role="Indicador">
+        <PropertyRef Name="ID_Programa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipio_ID_Departamento">
+    <End Role="Departamento" Type="Self.Departamento" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Municipio" Type="Self.Municipio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departamento">
+        <PropertyRef Name="ID_Departamento" />
+      </Principal>
+      <Dependent Role="Municipio">
+        <PropertyRef Name="ID_Departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Objetivo_ID_Programa">
+    <End Role="Programa" Type="Self.Programa" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa">
+        <PropertyRef Name="ID_Programa" />
+      </Principal>
+      <Dependent Role="Objetivo">
+        <PropertyRef Name="ID_Programa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanSemanal_ID_Persona">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlanSemanal" Type="Self.PlanSemanal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="ID_Persona" />
+      </Principal>
+      <Dependent Role="PlanSemanal">
+        <PropertyRef Name="ID_Persona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlanSemanalDetalle_ID_PlanSemanal">
+    <End Role="PlanSemanal" Type="Self.PlanSemanal" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PlanSemanalDetalle" Type="Self.PlanSemanalDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PlanSemanal">
+        <PropertyRef Name="ID_PlanSemanal" />
+      </Principal>
+      <Dependent Role="PlanSemanalDetalle">
+        <PropertyRef Name="ID_PlanSemanal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programa_ID_Comunidad">
+    <End Role="Comunidad" Type="Self.Comunidad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Programa" Type="Self.Programa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comunidad">
+        <PropertyRef Name="ID_Comunidad" />
+      </Principal>
+      <Dependent Role="Programa">
+        <PropertyRef Name="ID_Comunidad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programa_ID_Proyecto">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Programa" Type="Self.Programa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="ID_Proyecto" />
+      </Principal>
+      <Dependent Role="Programa">
+        <PropertyRef Name="ID_Proyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Programa_ID_TipoPrograma">
+    <End Role="TipoPrograma" Type="Self.TipoPrograma" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Programa" Type="Self.Programa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPrograma">
+        <PropertyRef Name="ID_TipoPrograma" />
+      </Principal>
+      <Dependent Role="Programa">
+        <PropertyRef Name="ID_TipoPrograma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Puesto_ID_TipoPuesto">
+    <End Role="TipoPuesto" Type="Self.TipoPuesto" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Puesto" Type="Self.Puesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPuesto">
+        <PropertyRef Name="ID_TipoPuesto" />
+      </Principal>
+      <Dependent Role="Puesto">
+        <PropertyRef Name="ID_TipoPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RolRecurso_ID_Recurso">
     <End Role="Recurso" Type="Self.Recurso" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -100,11 +593,112 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="VISIONMUNDIALModelStoreContainer">
+    <EntitySet Name="AsignacionRecursoHumano" EntityType="Self.AsignacionRecursoHumano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeneficiarioAdicional" EntityType="Self.BeneficiarioAdicional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeneficiarioCompromiso" EntityType="Self.BeneficiarioCompromiso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeneficiarioEducacion" EntityType="Self.BeneficiarioEducacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BeneficiarioSalud" EntityType="Self.BeneficiarioSalud" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraDetalle" EntityType="Self.BitacoraDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comunidad" EntityType="Self.Comunidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Indicador" EntityType="Self.Indicador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Municipio" EntityType="Self.Municipio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Objetivo" EntityType="Self.Objetivo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanSemanal" EntityType="Self.PlanSemanal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlanSemanalDetalle" EntityType="Self.PlanSemanalDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Programa" EntityType="Self.Programa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puesto" EntityType="Self.Puesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Recurso" EntityType="Self.Recurso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolRecurso" EntityType="Self.RolRecurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPrograma" EntityType="Self.TipoPrograma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPuesto" EntityType="Self.TipoPuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioRol" EntityType="Self.UsuarioRol" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AsignacionRecursoHumano_ID_Persona" Association="Self.FK_AsignacionRecursoHumano_ID_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="AsignacionRecursoHumano" EntitySet="AsignacionRecursoHumano" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AsignacionRecursoHumano_ID_Proyecto" Association="Self.FK_AsignacionRecursoHumano_ID_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="AsignacionRecursoHumano" EntitySet="AsignacionRecursoHumano" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AsignacionRecursoHumano_ID_Puesto" Association="Self.FK_AsignacionRecursoHumano_ID_Puesto">
+      <End Role="Puesto" EntitySet="Puesto" />
+      <End Role="AsignacionRecursoHumano" EntitySet="AsignacionRecursoHumano" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Beneficiario_ID_Programa" Association="Self.FK_Beneficiario_ID_Programa">
+      <End Role="Programa" EntitySet="Programa" />
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BeneficiarioAdicional_ID_Beneficiario" Association="Self.FK_BeneficiarioAdicional_ID_Beneficiario">
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+      <End Role="BeneficiarioAdicional" EntitySet="BeneficiarioAdicional" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BeneficiarioCompromiso_ID_Beneficiario" Association="Self.FK_BeneficiarioCompromiso_ID_Beneficiario">
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+      <End Role="BeneficiarioCompromiso" EntitySet="BeneficiarioCompromiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BeneficiarioEducacion_ID_Beneficiario" Association="Self.FK_BeneficiarioEducacion_ID_Beneficiario">
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+      <End Role="BeneficiarioEducacion" EntitySet="BeneficiarioEducacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BeneficiarioSalud_ID_Beneficiario" Association="Self.FK_BeneficiarioSalud_ID_Beneficiario">
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+      <End Role="BeneficiarioSalud" EntitySet="BeneficiarioSalud" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bitacora_ID_Persona" Association="Self.FK_Bitacora_ID_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Bitacora" EntitySet="Bitacora" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraDetalle_ID_Bitacora" Association="Self.FK_BitacoraDetalle_ID_Bitacora">
+      <End Role="Bitacora" EntitySet="Bitacora" />
+      <End Role="BitacoraDetalle" EntitySet="BitacoraDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comunidad_ID_Municipio" Association="Self.FK_Comunidad_ID_Municipio">
+      <End Role="Municipio" EntitySet="Municipio" />
+      <End Role="Comunidad" EntitySet="Comunidad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Indicador_ID_Programa" Association="Self.FK_Indicador_ID_Programa">
+      <End Role="Programa" EntitySet="Programa" />
+      <End Role="Indicador" EntitySet="Indicador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipio_ID_Departamento" Association="Self.FK_Municipio_ID_Departamento">
+      <End Role="Departamento" EntitySet="Departamento" />
+      <End Role="Municipio" EntitySet="Municipio" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Objetivo_ID_Programa" Association="Self.FK_Objetivo_ID_Programa">
+      <End Role="Programa" EntitySet="Programa" />
+      <End Role="Objetivo" EntitySet="Objetivo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanSemanal_ID_Persona" Association="Self.FK_PlanSemanal_ID_Persona">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="PlanSemanal" EntitySet="PlanSemanal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlanSemanalDetalle_ID_PlanSemanal" Association="Self.FK_PlanSemanalDetalle_ID_PlanSemanal">
+      <End Role="PlanSemanal" EntitySet="PlanSemanal" />
+      <End Role="PlanSemanalDetalle" EntitySet="PlanSemanalDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programa_ID_Comunidad" Association="Self.FK_Programa_ID_Comunidad">
+      <End Role="Comunidad" EntitySet="Comunidad" />
+      <End Role="Programa" EntitySet="Programa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programa_ID_Proyecto" Association="Self.FK_Programa_ID_Proyecto">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="Programa" EntitySet="Programa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Programa_ID_TipoPrograma" Association="Self.FK_Programa_ID_TipoPrograma">
+      <End Role="TipoPrograma" EntitySet="TipoPrograma" />
+      <End Role="Programa" EntitySet="Programa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Puesto_ID_TipoPuesto" Association="Self.FK_Puesto_ID_TipoPuesto">
+      <End Role="TipoPuesto" EntitySet="TipoPuesto" />
+      <End Role="Puesto" EntitySet="Puesto" />
+    </AssociationSet>
     <AssociationSet Name="FK_RolRecurso_ID_Recurso" Association="Self.FK_RolRecurso_ID_Recurso">
       <End Role="Recurso" EntitySet="Recurso" />
       <End Role="RolRecurso" EntitySet="RolRecurso" />

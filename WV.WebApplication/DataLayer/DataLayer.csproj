@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionRecursoHumano.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Beneficiario.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeneficiarioAdicional.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeneficiarioCompromiso.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeneficiarioEducacion.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeneficiarioSalud.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Bitacora.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
@@ -74,6 +92,9 @@
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PlanSemanalDetalle.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Programa.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

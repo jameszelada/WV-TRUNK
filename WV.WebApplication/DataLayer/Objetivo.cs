@@ -19,5 +19,7 @@ namespace DataLayer
         public string ObjetivoDescripcion { get; set; }
         public string TipoObjetivo { get; set; }
         public int ID_Programa { get; set; }
+    
+        public virtual Programa Programa { get; set; }
     }
 }
