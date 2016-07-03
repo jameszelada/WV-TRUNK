@@ -14,10 +14,8 @@ ALTER TABLE Actividad
 ADD Estado VARCHAR(1) not null 
 
 ALTER TABLE Actividad
-ADD FechaInicio DATETIME not null
+ADD Fecha DATE not null
 
-ALTER TABLE Actividad
-ADD FechaFinal DATETIME not null
 
 ALTER TABLE Actividad
 ADD ID_Programa int not null
@@ -30,15 +28,27 @@ ADD Observacion VARCHAR(1000) not null
 ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_Codigo DEFAULT '' FOR Codigo;
 ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_ProgramaDescripcion DEFAULT '' FOR ActividadDescripcion;
 ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_Estado DEFAULT '' FOR Estado;
-ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_FechaInicio DEFAULT GETDATE() FOR FechaInicio;
-ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_FechaFinal DEFAULT GETDATE() FOR FechaFinal;
+ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_Fecha DEFAULT ('1900-01-01') FOR Fecha;
 ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_ID_Programa DEFAULT (0) FOR ID_Programa;
 ALTER TABLE Actividad ADD CONSTRAINT DF_Actividad_Observacion DEFAULT '' FOR Observacion;
 
 
+--Table Structure modification
+--ALTER TABLE Actividad DROP CONSTRAINT UQ_CodigoActividad
+--ALTER TABLE Actividad DROP CONSTRAINT DF_Actividad_FechaInicio
+--ALTER TABLE Actividad DROP CONSTRAINT DF_Actividad_FechaFinal
+
+--ALTER TABLE Actividad DROP COLUMN FechaInicio
+--ALTER TABLE Actividad DROP COLUMN FechaFinal
+
+
+
+
+
+
 -- Unique Constraint
 
-ALTER TABLE Actividad ADD CONSTRAINT UQ_CodigoActividad UNIQUE (Codigo)
+ALTER TABLE Actividad ADD CONSTRAINT UQ_ProgramaFechaActividad UNIQUE (ID_Programa,Fecha)
 
 -- Foreign Keys
 

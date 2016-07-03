@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividad.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AsignacionRecursoHumano.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>

@@ -67,6 +67,7 @@
     <Content Include="Content\assets\css\editor.bootstrap.min.css" />
     <Content Include="Content\assets\css\editor.dataTables.min.css" />
     <Content Include="Content\assets\css\font-awesome.css" />
+    <Content Include="Content\assets\css\fullcalendar.css" />
     <Content Include="Content\assets\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\assets\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\assets\css\images\ui-bg_flat_10_000000_40x100.png" />
@@ -91,6 +92,7 @@
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\js\assignrrhh.js" />
+    <Content Include="Content\assets\js\attendancetracking.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
     <Content Include="Content\assets\js\controlstaff.js" />
@@ -108,16 +110,20 @@
     <Content Include="Content\assets\js\dataTables\jquery.dataTables.js" />
     <Content Include="Content\assets\js\dataTables\jquery.dataTables.min.js" />
     <Content Include="Content\assets\js\default.js" />
+    <Content Include="Content\assets\js\fullcalendar.min.js" />
     <Content Include="Content\assets\js\jquery-1.10.2.js" />
     <Content Include="Content\assets\js\jquery-ui.min.js" />
     <Content Include="Content\assets\js\jquery.metisMenu.js" />
+    <Content Include="Content\assets\js\lang-all.js" />
     <Content Include="Content\assets\js\logbook.js" />
     <Content Include="Content\assets\js\login.js" />
+    <Content Include="Content\assets\js\moment.min.js" />
     <Content Include="Content\assets\js\morris\morris-0.4.3.min.css" />
     <Content Include="Content\assets\js\morris\morris.js" />
     <Content Include="Content\assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\assets\js\prefixfree.min.js" />
     <Content Include="Content\assets\js\registration.js" />
+    <Content Include="Content\assets\js\screen_activity.js" />
     <Content Include="Content\assets\js\screen_community.js" />
     <Content Include="Content\assets\js\screen_job.js" />
     <Content Include="Content\assets\js\screen_jobtype.js" />
@@ -132,6 +138,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AssignRRHH.aspx" />
+    <Content Include="Pages\AttendanceTracking.aspx" />
     <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
@@ -139,6 +146,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\Registration.aspx" />
+    <Content Include="Pages\screen_activity.aspx" />
     <Content Include="Pages\screen_community.aspx" />
     <Content Include="Pages\screen_job.aspx" />
     <Content Include="Pages\screen_jobtype.aspx" />
@@ -155,6 +163,9 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Activity.ashx.cs">
+      <DependentUpon>Activity.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\AssignRRHH.ashx.cs">
       <DependentUpon>AssignRRHH.ashx</DependentUpon>
@@ -218,6 +229,13 @@
     <Compile Include="Pages\AssignRRHH.aspx.designer.cs">
       <DependentUpon>AssignRRHH.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AttendanceTracking.aspx.cs">
+      <DependentUpon>AttendanceTracking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AttendanceTracking.aspx.designer.cs">
+      <DependentUpon>AttendanceTracking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\ControlStaff.aspx.cs">
       <DependentUpon>ControlStaff.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +287,13 @@
     </Compile>
     <Compile Include="Pages\Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\screen_activity.aspx.cs">
+      <DependentUpon>screen_activity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_activity.aspx.designer.cs">
+      <DependentUpon>screen_activity.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\screen_community.aspx.cs">
       <DependentUpon>screen_community.aspx</DependentUpon>
@@ -385,6 +410,7 @@
     <Content Include="Handlers\AssignRRHH.ashx" />
     <Content Include="Handlers\Program.ashx" />
     <Content Include="Handlers\Registration.ashx" />
+    <Content Include="Handlers\Activity.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

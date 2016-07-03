@@ -147,6 +147,9 @@
                             <li id="Inscripcion" runat="server">
                                 <a href="Registration">Inscripcion de Beneficiarios</a>
                             </li>
+                            <li id="Actividades" runat="server">
+                                <a href="Activity">Control de Actividades</a>
+                            </li>
                         </ul>
                     </li>
                     <li>

@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VISIONMUNDIALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="Actividad">
+    <Key>
+      <PropertyRef Name="ID_Actividad" />
+    </Key>
+    <Property Name="ID_Actividad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ActividadDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ID_Programa" Type="int" Nullable="false" />
+    <Property Name="Observacion" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+  </EntityType>
   <EntityType Name="AsignacionRecursoHumano">
     <Key>
       <PropertyRef Name="ID_AsignacionRecursoHumano" />
@@ -256,6 +268,20 @@
     <Property Name="ID_Usuario" Type="int" Nullable="false" />
     <Property Name="ID_Rol" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Actividad_ID_Programa">
+    <End Role="Programa" Type="Self.Programa" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa">
+        <PropertyRef Name="ID_Programa" />
+      </Principal>
+      <Dependent Role="Actividad">
+        <PropertyRef Name="ID_Programa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_AsignacionRecursoHumano_ID_Persona">
     <End Role="Persona" Type="Self.Persona" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -593,6 +619,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="VISIONMUNDIALModelStoreContainer">
+    <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AsignacionRecursoHumano" EntityType="Self.AsignacionRecursoHumano" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BeneficiarioAdicional" EntityType="Self.BeneficiarioAdicional" Schema="dbo" store:Type="Tables" />
@@ -619,6 +646,10 @@
     <EntitySet Name="TipoPuesto" EntityType="Self.TipoPuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioRol" EntityType="Self.UsuarioRol" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Actividad_ID_Programa" Association="Self.FK_Actividad_ID_Programa">
+      <End Role="Programa" EntitySet="Programa" />
+      <End Role="Actividad" EntitySet="Actividad" />
+    </AssociationSet>
     <AssociationSet Name="FK_AsignacionRecursoHumano_ID_Persona" Association="Self.FK_AsignacionRecursoHumano_ID_Persona">
       <End Role="Persona" EntitySet="Persona" />
       <End Role="AsignacionRecursoHumano" EntitySet="AsignacionRecursoHumano" />

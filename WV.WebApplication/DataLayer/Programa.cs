@@ -19,6 +19,7 @@ namespace DataLayer
             this.Indicador = new HashSet<Indicador>();
             this.Objetivo = new HashSet<Objetivo>();
             this.Beneficiario = new HashSet<Beneficiario>();
+            this.Actividad = new HashSet<Actividad>();
         }
     
         public int ID_Programa { get; set; }
@@ -37,5 +38,6 @@ namespace DataLayer
         public virtual Proyecto Proyecto { get; set; }
         public virtual TipoPrograma TipoPrograma { get; set; }
         public virtual ICollection<Beneficiario> Beneficiario { get; set; }
+        public virtual ICollection<Actividad> Actividad { get; set; }
     }
 }

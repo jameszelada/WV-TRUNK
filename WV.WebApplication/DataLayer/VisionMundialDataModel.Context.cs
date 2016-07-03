@@ -51,5 +51,6 @@ namespace DataLayer
         public DbSet<BeneficiarioCompromiso> BeneficiarioCompromiso { get; set; }
         public DbSet<BeneficiarioEducacion> BeneficiarioEducacion { get; set; }
         public DbSet<BeneficiarioSalud> BeneficiarioSalud { get; set; }
+        public DbSet<Actividad> Actividad { get; set; }
     }
 }

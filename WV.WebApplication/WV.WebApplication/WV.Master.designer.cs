@@ -94,6 +94,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Inscripcion;
         
         /// <summary>
+        /// Actividades control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Actividades;
+        
+        /// <summary>
         /// Proyectos control.
         /// </summary>
         /// <remarks>

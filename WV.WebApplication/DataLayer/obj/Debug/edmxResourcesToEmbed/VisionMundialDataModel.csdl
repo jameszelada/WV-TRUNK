@@ -135,6 +135,11 @@
       <End Role="Beneficiario" EntitySet="Beneficiario" />
       <End Role="BeneficiarioSalud" EntitySet="BeneficiarioSalud" />
     </AssociationSet>
+    <EntitySet Name="Actividad" EntityType="VISIONMUNDIALModel.Actividad" />
+    <AssociationSet Name="FK_Actividad_ID_Programa" Association="VISIONMUNDIALModel.FK_Actividad_ID_Programa">
+      <End Role="Programa" EntitySet="Programa" />
+      <End Role="Actividad" EntitySet="Actividad" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Recurso">
     <Key>
@@ -551,6 +556,7 @@
     <NavigationProperty Name="Proyecto" Relationship="VISIONMUNDIALModel.FK_Programa_ID_Proyecto" FromRole="Programa" ToRole="Proyecto" />
     <NavigationProperty Name="TipoPrograma" Relationship="VISIONMUNDIALModel.FK_Programa_ID_TipoPrograma" FromRole="Programa" ToRole="TipoPrograma" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_Beneficiario_ID_Programa" FromRole="Programa" ToRole="Beneficiario" />
+    <NavigationProperty Name="Actividad" Relationship="VISIONMUNDIALModel.FK_Actividad_ID_Programa" FromRole="Programa" ToRole="Actividad" />
   </EntityType>
   <Association Name="FK_Programa_ID_Comunidad">
     <End Type="VISIONMUNDIALModel.Comunidad" Role="Comunidad" Multiplicity="1">
@@ -631,7 +637,7 @@
     <Property Name="Apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Dui" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="Edad" Type="String" />
+    <Property Name="Edad" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="Sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ID_Programa" Type="Int32" Nullable="false" />
@@ -761,6 +767,33 @@
       </Principal>
       <Dependent Role="BeneficiarioSalud">
         <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Actividad">
+    <Key>
+      <PropertyRef Name="ID_Actividad" />
+    </Key>
+    <Property Name="ID_Actividad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ActividadDescripcion" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Programa" Type="Int32" Nullable="false" />
+    <Property Name="Observacion" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Actividad_ID_Programa" FromRole="Actividad" ToRole="Programa" />
+  </EntityType>
+  <Association Name="FK_Actividad_ID_Programa">
+    <End Type="VISIONMUNDIALModel.Programa" Role="Programa" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VISIONMUNDIALModel.Actividad" Role="Actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Programa">
+        <PropertyRef Name="ID_Programa" />
+      </Principal>
+      <Dependent Role="Actividad">
+        <PropertyRef Name="ID_Programa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

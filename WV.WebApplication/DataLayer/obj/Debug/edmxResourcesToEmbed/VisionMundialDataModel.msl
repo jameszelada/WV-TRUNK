@@ -283,5 +283,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Actividad">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Actividad">
+        <MappingFragment StoreEntitySet="Actividad">
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="ID_Programa" ColumnName="ID_Programa" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ActividadDescripcion" ColumnName="ActividadDescripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ID_Actividad" ColumnName="ID_Actividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
