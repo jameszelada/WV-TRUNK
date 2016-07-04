@@ -9,6 +9,21 @@ http://creativecommons.org/licenses/by/3.0/
     COMMON  STYLES    
 ------------------------------------------------*/
 
+
+#backgroundCover {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 100%;
+    background: #fff;
+    opacity: .70;
+    filter: alpha(opacity=70);
+    z-index: 1000000;
+}
+
 .default-row-spacer{
     margin-bottom:10px;
 }

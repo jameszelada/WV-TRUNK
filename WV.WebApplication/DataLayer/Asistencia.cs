@@ -12,22 +12,14 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class Actividad
+    public partial class Asistencia
     {
-        public Actividad()
-        {
-            this.Asistencia = new HashSet<Asistencia>();
-        }
-    
+        public int ID_Asistencia { get; set; }
         public int ID_Actividad { get; set; }
-        public string Codigo { get; set; }
-        public string ActividadDescripcion { get; set; }
+        public int ID_Beneficiario { get; set; }
         public string Estado { get; set; }
-        public int ID_Programa { get; set; }
-        public string Observacion { get; set; }
-        public System.DateTime Fecha { get; set; }
     
-        public virtual Programa Programa { get; set; }
-        public virtual ICollection<Asistencia> Asistencia { get; set; }
+        public virtual Actividad Actividad { get; set; }
+        public virtual Beneficiario Beneficiario { get; set; }
     }
 }

@@ -34,9 +34,6 @@
         });
     }
 
-
-
-
     function setProgramsTable(responseData) {
         $("#dataTables-example").append(responseData);
         if (tpr == null || tpr == undefined) {
@@ -105,9 +102,6 @@
         }
 
     }
-
-
-
 
     function attachClickToView() {
         $("#table-responsive").find("[class='btn btn-primary btn-sm details']").each(function (index, value) {

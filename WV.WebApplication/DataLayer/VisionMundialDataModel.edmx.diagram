@@ -57,6 +57,9 @@
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" />
         <EntityTypeShape EntityType="VISIONMUNDIALModel.Actividad" Width="1.5" PointX="22.875" PointY="4.875" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Actividad_ID_Programa" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Asistencia" Width="1.5" PointX="28.125" PointY="10" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Asistencia_ID_Actividad" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_Asistencia_ID_Beneficiario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

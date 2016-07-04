@@ -21,6 +21,15 @@
     <Property Name="ID_Persona" Type="int" Nullable="false" />
     <Property Name="ID_Proyecto" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Asistencia">
+    <Key>
+      <PropertyRef Name="ID_Asistencia" />
+    </Key>
+    <Property Name="ID_Asistencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Actividad" Type="int" Nullable="false" />
+    <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
   <EntityType Name="Beneficiario">
     <Key>
       <PropertyRef Name="ID_Beneficiario" />
@@ -324,6 +333,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Asistencia_ID_Actividad">
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividad">
+        <PropertyRef Name="ID_Actividad" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="ID_Actividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asistencia_ID_Beneficiario">
+    <End Role="Beneficiario" Type="Self.Beneficiario" Multiplicity="1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Beneficiario">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="ID_Beneficiario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Beneficiario_ID_Programa">
     <End Role="Programa" Type="Self.Programa" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -621,6 +656,7 @@
   <EntityContainer Name="VISIONMUNDIALModelStoreContainer">
     <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AsignacionRecursoHumano" EntityType="Self.AsignacionRecursoHumano" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Beneficiario" EntityType="Self.Beneficiario" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BeneficiarioAdicional" EntityType="Self.BeneficiarioAdicional" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="BeneficiarioCompromiso" EntityType="Self.BeneficiarioCompromiso" Schema="dbo" store:Type="Tables" />
@@ -661,6 +697,14 @@
     <AssociationSet Name="FK_AsignacionRecursoHumano_ID_Puesto" Association="Self.FK_AsignacionRecursoHumano_ID_Puesto">
       <End Role="Puesto" EntitySet="Puesto" />
       <End Role="AsignacionRecursoHumano" EntitySet="AsignacionRecursoHumano" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_ID_Actividad" Association="Self.FK_Asistencia_ID_Actividad">
+      <End Role="Actividad" EntitySet="Actividad" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asistencia_ID_Beneficiario" Association="Self.FK_Asistencia_ID_Beneficiario">
+      <End Role="Beneficiario" EntitySet="Beneficiario" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
     </AssociationSet>
     <AssociationSet Name="FK_Beneficiario_ID_Programa" Association="Self.FK_Beneficiario_ID_Programa">
       <End Role="Programa" EntitySet="Programa" />

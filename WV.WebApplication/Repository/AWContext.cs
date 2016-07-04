@@ -45,6 +45,7 @@ namespace Repository
         public DbSet<BeneficiarioSalud> BeneficiarioSalud { get; set; }
         public DbSet<BeneficiarioCompromiso> BeneficiarioCompromiso { get; set; }
         public DbSet<Actividad> Actividad { get; set; }
+        public DbSet<Asistencia> Asistencia { get; set; }
        
 
         

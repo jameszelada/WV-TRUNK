@@ -170,6 +170,9 @@
     <Compile Include="Handlers\AssignRRHH.ashx.cs">
       <DependentUpon>AssignRRHH.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\AttendanceTracking.ashx.cs">
+      <DependentUpon>AttendanceTracking.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\Authenticate.ashx.cs">
       <DependentUpon>Authenticate.ashx</DependentUpon>
     </Compile>
@@ -411,6 +414,7 @@
     <Content Include="Handlers\Program.ashx" />
     <Content Include="Handlers\Registration.ashx" />
     <Content Include="Handlers\Activity.ashx" />
+    <Content Include="Handlers\AttendanceTracking.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

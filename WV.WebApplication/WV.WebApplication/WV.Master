@@ -207,6 +207,7 @@
                                     <asp:ContentPlaceHolder runat="server" ID="MainContent" />
                                 </section>
                                 <script type="text/javascript" src="/Content/assets/js/jquery-1.10.2.js"></script>
+                                <script type="text/javascript" src="/Content/assets/js/jquery-ui.min.js"></script>
 
                                 <script type="text/javascript" src="/Content/assets/js/bootstrap.min.js"></script>
                                     

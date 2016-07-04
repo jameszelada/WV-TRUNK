@@ -296,5 +296,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Asistencia">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Asistencia">
+        <MappingFragment StoreEntitySet="Asistencia">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="ID_Actividad" ColumnName="ID_Actividad" />
+          <ScalarProperty Name="ID_Asistencia" ColumnName="ID_Asistencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

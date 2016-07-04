@@ -10,17 +10,16 @@
 
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
     <script src="/Content/assets/js/bootstrapValidator.js"></script>
-     <script src="/Content/assets/js/dataTables/jquery.dataTables.min.js"></script>
+    <script src="/Content/assets/js/dataTables/jquery.dataTables.min.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.min.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.select.min.js"></script>
-    <script src="/Content/assets/js/jquery-ui.min.js"></script>
     <script src="/Content/assets/js/moment.min.js"></script>
     <script src="/Content/assets/js/fullcalendar.min.js"></script>
     <script src="/Content/assets/js/lang-all.js"></script>
     <script src="/Content/assets/js/attendancetracking.js"></script>
 
-   
+
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -52,16 +51,16 @@
                         <br />
                         <div class="row">
                             <div class="col-sm-5">
-                                  <div id="calendar" class="fc fc-ltr fc-unthemed">
-                                  </div>
-                                
+                                <div id="calendar" class="fc fc-ltr fc-unthemed">
+                                </div>
+
                             </div>
                             <div class="col-md-7">
                                 <div class="col-sm-3">
-                                   <h5>Asistencia para </h5>
+                                    <h5>Asistencia para </h5>
                                 </div>
                                 <div class="col-sm-5">
-                                  <select id="cmbprograma" class="form-control">
+                                    <select id="cmbprograma" class="form-control">
                                     </select>
                                 </div>
                                 <div class="col-sm-2 default-row-spacer">
@@ -71,42 +70,36 @@
                                         <span class="caret"></span>
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Presente</a></li>
-                                            <li><a href="#">Ausente</a></li>
-                                            <li><a href="#">Tarde</a></li>
+                                            <li><a id="btnpresente">Presente</a></li>
+                                            <li><a id="btnausente">Ausente</a></li>
                                         </ul>
                                     </div>
                                 </div>
-                               
-                               
-                                 <div id="table-responsive" class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            <th></th>
-                                            
-                                        </tr>
-                                    </thead>
-                                </table>
-                                    
-                                     <input type="text" id="screenmode" class="hidden" />
-                            </div>
-                                
-                                 
-                            </div>
-                            <div class="col-md-7">
-                                <div class="col-sm-6">
-                                    
-                                    <button id="cancelpage" type="button" class="btn btn-default btn-sm pull-left"><i class="fa fa-times "></i>Borrar</button>
-                                </div>
-                                <div class="col-sm-6">
+
+
+                                <div id="table-responsive" class="table-responsive">
+                                    <table class="table table-striped table-bordered" id="dataTables-example">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Nombre</th>
+                                                <th></th>
+
+
+                                            </tr>
+                                        </thead>
+                                    </table>
                                     <button id="savepage" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-floppy-o "></i>Guardar</button>
+                                    <button id="cancelpage" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-times "></i>Borrar</button>
+
+                                    <input type="text" id="screenmode" class="hidden" />
                                 </div>
-                                <%--<button id="editpage" type="button" class="btn btn-default btn-sm in-controls hidden"><i class=" fa fa-pencil-square "></i>Editar</button>--%>
+
+
                             </div>
+
+
+
                         </div>
 
                     </div>
@@ -114,6 +107,7 @@
             </div>
         </div>
     </div>
+    <div id="backgroundCover" style="display: none; z-index: 1000000;"></div>
     <%--<input id="usertoassign" class="hidden" type="text" />
         <input id="roletoassign" class="hidden" type="text" />--%>
     <input id="pagetodelete" class="hidden" type="text" />

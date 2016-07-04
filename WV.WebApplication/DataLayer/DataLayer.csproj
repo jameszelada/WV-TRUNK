@@ -52,6 +52,9 @@
     <Compile Include="AsignacionRecursoHumano.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Asistencia.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Beneficiario.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
