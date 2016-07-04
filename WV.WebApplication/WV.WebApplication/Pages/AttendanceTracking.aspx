@@ -23,7 +23,12 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <div runat="server" id="pagename" class="hidden">Inscripcion</div>
+    <style type="text/css">
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+            background-color: #7db831;
+        }
+    </style>
+    <div runat="server" id="pagename" class="hidden">Asistencia</div>
 
     <div id="contenido" class="panel-body">
         <div class="row">
