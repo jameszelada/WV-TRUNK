@@ -113,7 +113,7 @@
                 <ul class="nav" id="main-menu">
 
                     <li id="Inicio" runat="server">
-                        <a  href="Home"><i class="fa fa-home"></i> Home</a>
+                        <a  href="Home"><i class="fa fa-home"></i>Inicio</a>
                       
                     </li>
                     <li>
@@ -150,6 +150,9 @@
                             <li id="Actividades" runat="server">
                                 <a href="Activity">Control de Actividades</a>
                             </li>
+                            <li id="Control_Asistencia" runat="server">
+                                <a href="AttendanceTracking">Control de Asistencia</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -177,8 +180,13 @@
                             
                         </ul>
                     </li>
-                    <li id="Acerca_de" runat="server">
-                        <a  href="About" ><i class="fa fa-desktop"></i> About</a>
+                    <li>
+                        <a href="#"><i class="fa fa-book"></i>Reportes<span class="fa arrow"></span></a>
+                        <ul style="height: auto;" class="nav nav-second-level collapse">
+                            
+                           
+                            
+                        </ul>
                     </li>
                     
                 </ul>
@@ -240,7 +248,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Vision Mundial, El Salvador</p>
             </div>
         </div>
     </footer>

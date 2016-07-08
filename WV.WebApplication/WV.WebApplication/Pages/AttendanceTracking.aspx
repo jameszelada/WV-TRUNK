@@ -28,7 +28,7 @@
             background-color: #7db831;
         }
     </style>
-    <div runat="server" id="pagename" class="hidden">Asistencia</div>
+    <div runat="server" id="pagename" class="hidden">Control_Asistencia</div>
 
     <div id="contenido" class="panel-body">
         <div class="row">
@@ -44,8 +44,8 @@
                                 <div class="content-header content-header-media" style="background-color: #09192a; height: 130px;">
                                     <!-- Remove inline styles when have background image. -->
                                     <div class="header-section">
-                                        <h1>Cuadro de Control de Asistencia<br>
-                                            <small>Asistencia para la fecha <strong><span id="attendance_date"></span></strong></small></h1>
+                                        <h1 style="color:#999;">Cuadro de Control de Asistencia<br>
+                                            <small >Asistencia para el dia: <strong><span id="attendance_date"></span></strong></small></h1>
                                     </div>
                                     <!-- For best results use an image with a resolution of 2560x248 pixels (You can also use a blurred image with ratio 10:1 - eg: 1000x100 pixels - it will adjust and look great!) -->
                                     <!-- <img src="/images/proui-2.0/placeholders/headers/profile_header.jpg" alt="header image" class="animation-pulseSlow"> -->
@@ -94,8 +94,8 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    <button id="savepage" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-floppy-o "></i>Guardar</button>
-                                    <button id="cancelpage" type="button" class="btn btn-default btn-sm pull-right"><i class="fa fa-times "></i>Borrar</button>
+                                    <button id="savepage" type="button" class="btn btn-default btn-sm pull-right" disabled><i class="fa fa-floppy-o "></i>Guardar</button>
+                                    
 
                                     <input type="text" id="screenmode" class="hidden" />
                                 </div>
@@ -115,7 +115,7 @@
     <div id="backgroundCover" style="display: none; z-index: 1000000;"></div>
     <%--<input id="usertoassign" class="hidden" type="text" />
         <input id="roletoassign" class="hidden" type="text" />--%>
-    <input id="pagetodelete" class="hidden" type="text" />
+    <input id="idactividad" class="hidden" type="text" />
     <input id="pagetoedit" class="hidden" type="text" />
     <div class="modal fade" id="modalmessage" role="dialog">
         <div class="modal-dialog modal-sm">
