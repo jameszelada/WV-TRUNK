@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Visión Mundial - Asignar Recursos Humanos" Language="C#" AutoEventWireup="true" CodeBehind="AssignRRHH.aspx.cs" Inherits="WV.WebApplication.Pages.AssignRRHH" MasterPageFile="~/WV.Master" ClientIDMode="Static"%>
+﻿<%@ Page Title="Visión Mundial - Asignar Recursos Humanos" Language="C#" AutoEventWireup="true" CodeBehind="AssignRRHH.aspx.cs" Inherits="WV.WebApplication.Pages.AssignRRHH" MasterPageFile="~/WV.Master" ClientIDMode="Static" %>
 
 <asp:Content ContentPlaceHolderID="MetaContent" runat="server">
     <%--<link href="<%# ResolveUrl("~/") %>Content/assets/css/logbook.css" rel="stylesheet" />--%>
@@ -39,69 +39,69 @@
                             <br />
                         </div>
                         <div class="row">
-                           <br />
+                            <br />
                         </div>
 
                         <div class="row">
-                            
+
                             <div class="col-md-10">
                                 <div class="col-md-3">
                                 </div>
                                 <div class="col-md-7">
-                                   <div class="form-horizontal">
-                                            <label>Seleccione el proyecto</label>
-                                            <select id="cmbproyecto" class="form-control">
-                                            </select>
-                                        </div>
+                                    <div class="form-horizontal">
+                                        <label>Seleccione el proyecto</label>
+                                        <select id="cmbproyecto" class="form-control">
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-3">
                                 </div>
                             </div>
-                            
+
                         </div>
 
                         <div class="row">
-                           <br />
+                            <br />
                         </div>
                         <div class="row">
-                           <br />
+                            <br />
                         </div>
                         <div class="row">
-                           <br />
+                            <br />
                         </div>
                         <div class="row">
-                            
+
                             <div class="form-horizontal col-md-12">
                                 <button id="addRow" class="form-control-static fa fa-plus-circle"></button>
                                 <button id="deleterow" class="form-control-static fa fa-minus-circle"></button>
                             </div>
-                            
-                        </div>
-                        <div class="row">
-                           <br />
-                        </div>
-                        <div class="row">
-                           <br />
-                        </div>
-                        <div class="row">
-                            
-                            <div class="form-horizontal col-md-12">
-                                
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="example" width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Nombre</th>
-                                                    <th>Telefono</th>
-                                                    <th>Puesto</th>
-                                                </tr>
-                                            </thead>
 
-                                        </table>
+                        </div>
+                        <div class="row">
+                            <br />
+                        </div>
+                        <div class="row">
+                            <br />
+                        </div>
+                        <div class="row">
+
+                            <div class="form-horizontal col-md-12">
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover" id="example" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nombre</th>
+                                                <th>Telefono</th>
+                                                <th>Puesto</th>
+                                            </tr>
+                                        </thead>
+
+                                    </table>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="row">
                             <br />
@@ -113,10 +113,10 @@
                             <div class="col-md-4">
                             </div>
                             <div class="col-md-4">
-                                 <button id="savepage" data-disable="" type="button" class="btn btn-default in-controls"><i class=" fa fa-floppy-o "></i>Guardar</button>
-                           <button id="cancelpage" type="button" class="btn btn-default in-controls" data-toggle="modal" data-target="#modalmessage"><i class=" fa fa-times "></i>Cancelar</button>
+                                <button id="savepage" data-disable="" type="button" class="btn btn-default in-controls" disabled><i class=" fa fa-floppy-o "></i>Guardar</button>
+                                <button id="cancelpage" type="button" class="btn btn-default in-controls" data-toggle="modal" data-target="#modalmessage"><i class=" fa fa-times "></i>Cancelar</button>
                             </div>
-                          
+
                             <div class="col-md-4">
                             </div>
                         </div>

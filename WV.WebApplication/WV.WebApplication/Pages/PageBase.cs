@@ -18,6 +18,7 @@ namespace WV.WebApplication.Pages
         IDataRepository<Usuario> _usuario;
         public void Logout()
         {
+            HttpContext.Current.Session["isActive"] = null;
             HttpContext.Current.Session.Abandon();
             HttpContext.Current.Response.Redirect("Login");
         }

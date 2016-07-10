@@ -63,6 +63,7 @@
   <ItemGroup>
     <Content Include="Content\assets\css\bootstrap.css" />
     <Content Include="Content\assets\css\buttons.bootstrap.min.css" />
+    <Content Include="Content\assets\css\charisma-app.css" />
     <Content Include="Content\assets\css\custom-styles.css" />
     <Content Include="Content\assets\css\editor.bootstrap.min.css" />
     <Content Include="Content\assets\css\editor.dataTables.min.css" />
@@ -82,6 +83,7 @@
     <Content Include="Content\assets\css\images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Content\assets\css\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\introjs.css" />
     <Content Include="Content\assets\css\jquery-ui.min.css" />
     <Content Include="Content\assets\css\jquery.dataTables.min.css" />
     <Content Include="Content\assets\css\logbook.css" />
@@ -111,6 +113,7 @@
     <Content Include="Content\assets\js\dataTables\jquery.dataTables.min.js" />
     <Content Include="Content\assets\js\default.js" />
     <Content Include="Content\assets\js\fullcalendar.min.js" />
+    <Content Include="Content\assets\js\intro.js" />
     <Content Include="Content\assets\js\jquery-1.10.2.js" />
     <Content Include="Content\assets\js\jquery-ui.min.js" />
     <Content Include="Content\assets\js\jquery.metisMenu.js" />

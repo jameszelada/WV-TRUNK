@@ -5,6 +5,7 @@
   <head runat="server">
     <title runat="server">Visión Mundial - Iniciar Sesión</title>
     <meta charset="UTF-8">
+      <link href="/Content/assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
       
     <link rel="stylesheet" href="/Content/assets/css/charisma-app.css">
     <link rel="stylesheet" href="/Content/assets/css/bootstrap.css">
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="/Content/assets/css/style.css">
     <script src="/Content/assets/js/prefixfree.min.js"></script>
     <script src="../Content/assets/js/jquery-1.10.2.js"></script> 
+    <script type="text/javascript" src="/Content/assets/js/bootstrap.min.js"></script>
   </head>
   <body>
    <%-- <div class="login">
@@ -23,8 +25,8 @@
         <button id="login" type="button" class="btn btn-primary btn-block btn-large">Log In</button>
     </form>
 </div>--%>
-      <div class="ch-container">
-    <div class="row">
+      
+    
         
     <div class="row">
         <div class="col-md-12 center login-header">
@@ -35,7 +37,7 @@
 
     <div class="row">
         <div class="well col-md-5 center login-box">
-            <div id="errormessage" class="alert alert-info">
+            <div id="errormessage" class="alert alert-info" title="Ingrese su usuario" data-toggle="tooltip">
                 Inicie sesion con su usuario y contraseña.
             </div>
             <form class="form-horizontal" id="form1" runat="server">

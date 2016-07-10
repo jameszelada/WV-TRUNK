@@ -226,7 +226,7 @@ $(window).load(function () {
 
     function setProjectTable(responseData) {
         $("#page_table").html(responseData);
-
+        validation();
     }
 
 
@@ -283,8 +283,7 @@ $(window).load(function () {
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-            $("#cancelpage").unbind();
-            $("#savepage").unbind();
+            
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -383,8 +382,7 @@ $(window).load(function () {
             $(value).val("");
         });
         $("#in_descripcion").val("");
-        $("#cancelpage").unbind();
-        $("#savepage").unbind();
+        
     }
     //*********************************
     function fillLblFields(project) {
@@ -542,7 +540,7 @@ $(window).load(function () {
     }
 
     function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li></ul></div></div></div></div></div>";
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

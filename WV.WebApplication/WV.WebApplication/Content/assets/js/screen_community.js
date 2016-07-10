@@ -6,7 +6,7 @@ $(window).load(function () {
 
     getAllCommunities();
 
-    loadSidebarOptions();
+   
 
     // End of Execution
 
@@ -87,6 +87,9 @@ $(window).load(function () {
                     //to implement
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
+                    if (!$("#sidebaroptions").length) {
+                        loadSidebarOptions();
+                    }
                 }
                 else {
                     displayErrorMessage(response.Message);
@@ -223,7 +226,7 @@ $(window).load(function () {
 
     function setCommunityTable(responseData) {
         $("#page_table").html(responseData);
-       
+        validation();
     }
 
 
@@ -302,8 +305,7 @@ $(window).load(function () {
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-            $("#cancelpage").unbind();
-            $("#savepage").unbind();
+           
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -317,6 +319,7 @@ $(window).load(function () {
 
 
     function attachActionButtons() {
+        $("#sidebaroptions").remove();
         $("#cancelpage").click(function () {
             $("#tabtable").tab("show");
             clearControls();
@@ -398,8 +401,7 @@ $(window).load(function () {
         });
         $("#cmbdepartamento").prop("disabled", false);
         $("#cmbmunicipio").prop("disabled", false);
-        $("#cancelpage").unbind();
-        $("#savepage").unbind();
+        
     }
     //*********************************
     function fillLblFields(comunidad) {
@@ -575,7 +577,7 @@ $(window).load(function () {
         $("#tabdetails").unbind();
     }
     function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a href='#' id='brand'> Andrew Jos</a></li><li><a href='#' id='brand1'> Action #2 Some description</a></li><li><a href='#' id='brand2'> Action #2 Some description</a> </li><li><a href='#' id='brand3'> Action #2 Some description</a></li></ul></div></div></div></div></div>";
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

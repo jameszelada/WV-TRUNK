@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
     
+    $('[data-toggle="tooltip"]').tooltip({
+        placement:'rigth'
+    });
+
     $('#login').click(function () {
 
         var username = $("#nombreusuario").val();

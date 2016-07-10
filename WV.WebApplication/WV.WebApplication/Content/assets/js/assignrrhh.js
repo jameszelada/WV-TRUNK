@@ -140,6 +140,10 @@
                 if (response.IsSucess) {
                     $("#cmbproyecto").html(response.ResponseData);
 
+                    if ($('#cmbproyecto option').length != 0) {
+                        $("#savepage").prop('disabled', false);
+                    }
+
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";

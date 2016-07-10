@@ -12,199 +12,149 @@
     <div id="contenido" class="panel-body">
         <div class="row">
             <div class="row text-center pad-top">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-users fa-5x"></i>
-                            <h4>Check Data</h4>
-                        </a>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Inscripcion de Beneficiarios
+                        </div>
+                        <div class="panel-body">
+                            
+                                <div class="panel panel-primary text-center no-boder bg-color-green">
+                                    <div class="panel-body">
+                                         <a href="Registration">
+                                        <i class="fa fa-file-text-o fa-5x"></i>
+                                         </a>
+                                    </div>
+                                    
+                                </div>
+                            
+                        </div>
+                        <div class="panel-footer">
+                            Registro de Informacion de Beneficiarios
+                        </div>
                     </div>
-
-
                 </div>
 
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-envelope-o fa-5x"></i>
-                            <h4>Mail Box</h4>
-                        </a>
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Control de Asistencia
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-primary text-center no-boder bg-color-blue">
+                                    <div class="panel-body">
+                                         <a href="AttendanceTracking">
+                                        <i class="fa fa-columns fa-5x"></i>
+                                      </a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                        <div class="panel-footer">
+                            Registro de Asistencia a Actividades
+                        </div>
                     </div>
-
-
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-lightbulb-o fa-5x"></i>
-                            <h4>New Issues</h4>
-                        </a>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Control de Actividades
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-primary text-center no-boder bg-color-blue">
+                                    <div class="panel-body">
+                                         <a href="Activity">
+                                        <i class="fa fa-clock-o fa-5x"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                        <div class="panel-footer">
+                            Creación de Eventos (Actividades)
+                        </div>
                     </div>
-
-
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-users fa-5x"></i>
-                            <h4>See Users</h4>
-                        </a>
-                    </div>
 
 
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-key fa-5x"></i>
-                            <h4>Admin </h4>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-comments-o fa-5x"></i>
-                            <h4>Support</h4>
-                        </a>
-                    </div>
-
-
-                </div>
             </div>
 
-        </div>
-
-        <div class="row">
+       
             <div class="row text-center pad-top">
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-users fa-5x"></i>
-                            <h4>Check Data</h4>
-                        </a>
-                    </div>
 
-
-                </div>
-
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-envelope-o fa-5x"></i>
-                            <h4>Mail Box</h4>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-lightbulb-o fa-5x"></i>
-                            <h4>New Issues</h4>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-users fa-5x"></i>
-                            <h4>See Users</h4>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-key fa-5x"></i>
-                            <h4>Admin </h4>
-                        </a>
-                    </div>
-
-
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                    <div class="div-square">
-                        <a href="blank.html">
-                            <i class="fa fa-comments-o fa-5x"></i>
-                            <h4>Support</h4>
-                        </a>
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Asignacion de Recursos Humanos
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-primary text-center no-boder bg-color-blue">
+                                    <div class="panel-body">
+                                         <a href="AssignRRHH">
+                                        <i class="fa fa-users fa-5x"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                        <div class="panel-footer">
+                            Aisgnacion de Personal a Proyectos
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Control de Personal
+                        </div>
+                        <div class="panel-body">
+                        <div class="panel panel-primary text-center no-boder bg-color-blue">
+                                    <div class="panel-body">
+                                        <a href="ControlStaff">
+                                        <i class="fa fa-table fa-5x"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                        <div class="panel-footer">
+                           Control de Bitacoras y Plan Semanal
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            Reportes
+                        </div>
+                        <div class="panel-body">
+                            <div class="panel panel-primary text-center no-boder bg-color-green">
+                                    <div class="panel-body">
+                                         <a href="#">
+                                        <i class="fa fa-bar-chart-o fa-5x"></i>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                        </div>
+                        <div class="panel-footer">
+                            Informacion de Proyectos y Programas
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
         </div>
 
-        <div class="row text-center pad-top">
-
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-clipboard fa-5x"></i>
-                        <h4>All Docs</h4>
-                    </a>
-                </div>
 
 
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-gear fa-5x"></i>
-                        <h4>Settings</h4>
-                    </a>
-                </div>
 
-
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-users fa-5x"></i>
-                        <h4>Live Talk</h4>
-                    </a>
-                </div>
-
-
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-bell-o fa-5x"></i>
-                        <h4>Notifications </h4>
-                    </a>
-                </div>
-
-
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-rocket fa-5x"></i>
-                        <h4>Launch</h4>
-                    </a>
-                </div>
-
-
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
-                <div class="div-square">
-                    <a href="blank.html">
-                        <i class="fa fa-user fa-5x"></i>
-                        <h4>Register User</h4>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
 
 
     </div>

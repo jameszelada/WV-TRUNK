@@ -67,7 +67,7 @@ namespace WV.WebApplication.Handlers
 
         public override void InitializeObjects()
         {
-            _context = new AWContext(Connection);
+            _context = new AWContext();
 
             _proyecto = new DataRepository<IAWContext, Proyecto>(_context);
 
@@ -131,7 +131,11 @@ namespace WV.WebApplication.Handlers
 
                 foreach (var proyecto in proyectos)
                 {
-                    optionsProject += "<option data-id-project='" + proyecto.ID_Proyecto + "'>" + proyecto.Codigo + "</option>";
+                    if (proyecto.AsignacionRecursoHumano.Count == 0)
+                    {
+                        optionsProject += "<option data-id-project='" + proyecto.ID_Proyecto + "'>" + proyecto.Codigo + "</option>";
+                    }
+                    
                 }
 
                 response.IsSucess = true;

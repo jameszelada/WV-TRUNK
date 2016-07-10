@@ -47,11 +47,17 @@
                         "bLengthChange": true,
                         "bInfo": true,
                         "pageLength": 5,
-                        "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-                        "oLanguage": {
-                            "sEmptyTable": '',
-                            "sInfoEmpty": ''
+                        "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+                        language: {
+                            searchPlaceholder: "Búsqueda",
+                            "search": "Buscar",
+                            "emptyTable": "No hay datos encontrados",
+                            "zeroRecords": "No hay datos disponibles",
+                            "lengthMenu": "_MENU_ registros por página",
+                            "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                            
                         }
+
 
                     });
                 }
@@ -119,10 +125,15 @@
                             "bLengthChange": true,
                             "bInfo": true,
                             "pageLength": 5,
-                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-                            "oLanguage": {
-                                "sEmptyTable": '',
-                                "sInfoEmpty": ''
+                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+                            language: {
+                                searchPlaceholder: "Búsqueda",
+                                "search": "Buscar",
+                                "emptyTable": "No hay datos encontrados",
+                                "zeroRecords": "No hay datos disponibles",
+                                "lengthMenu": "_MENU_ registros por página",
+                                "info": "Mostrando pagina _PAGE_ de _PAGES_"
+
                             }
                             
                         });
@@ -135,22 +146,28 @@
                         $("#tblopcionesenrol > tbody").remove();
                         t.destroy();
                         $("#tblopcionesenrol").append(response.ResponseData);
+                        attachClickToDeleteButtons();
                         t = $('#tblopcionesenrol').DataTable({
                             "bFilter": true,
                             "bPaginate": true,
                             "bLengthChange": true,
                             "bInfo": true,
                             "pageLength": 5,
-                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-                            "oLanguage": {
-                                "sEmptyTable": '',
-                                "sInfoEmpty": ''
+                            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+                            language: {
+                                searchPlaceholder: "Búsqueda",
+                                "search": "Buscar",
+                                "emptyTable": "No hay datos encontrados",
+                                "zeroRecords": "No hay datos disponibles",
+                                "lengthMenu": "_MENU_ registros por página",
+                                "info": "Mostrando pagina _PAGE_ de _PAGES_"
+
                             }
                             
                         });
                     }
 
-                    attachClickToDeleteButtons();
+                    
 
                 }
                 else {

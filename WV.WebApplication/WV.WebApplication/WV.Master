@@ -7,14 +7,21 @@
     <title runat="server">Visión Mundial - </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Content/assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
 
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/bootstrap.css" rel="stylesheet" />
 
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/font-awesome.css" rel="stylesheet" />
  
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/morris/morris-0.4.3.min.css" rel="stylesheet" />
+
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/morris/morris-0.4.3.min.css" rel="stylesheet" />
    
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/custom-styles.css" rel="stylesheet" />
+
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/introjs.css" rel="stylesheet" />
+
+    
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <asp:ContentPlaceHolder runat="server" ID="MetaContent" />
@@ -37,50 +44,25 @@
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-question fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
-                            <a href="#">
+                            <a href="">
                                 <div>
-                                    <strong>John Doe</strong>
+                                    <strong>Habilitar Ayuda</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Today</em>
+                                        <em>Ayuda</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
+                                    <div id="togglehelp" class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-primary"><input type="radio" name="options1" id="" data-id-type="1">On</label>
+                                        <label class="btn btn-primary active"><input type="radio" name="options1" id="" data-id-type="2">Off</label>
+
+                                    </div>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
+                                </a>
                         </li>
                     </ul>
                     <!-- /.dropdown-messages -->
@@ -225,8 +207,12 @@
                                 <script type="text/javascript" src="/Content/assets/js/morris/morris.js"></script>
 
                                 <script type="text/javascript" src="/Content/assets/js/custom-scripts.js"></script>
-                                
+
+                                <script type="text/javascript" src="/Content/assets/js/intro.js"></script>
+
                                 <script type="text/javascript" src="/Content/assets/js/default.js"></script>
+                                
+                                
                                 
                                 <asp:ContentPlaceHolder ID="HeadContent" runat="server">
                                 </asp:ContentPlaceHolder>
@@ -248,7 +234,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - Vision Mundial, El Salvador</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Vision Mundial</p>
             </div>
         </div>
     </footer>

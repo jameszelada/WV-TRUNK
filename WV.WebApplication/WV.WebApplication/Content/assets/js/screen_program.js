@@ -152,7 +152,25 @@
 
         if (t == null || t == undefined) {
             $("#dataTables-example").append(responseData);
-            t = $('#dataTables-example').DataTable();
+            t = $('#dataTables-example').DataTable({
+                "bFilter": true,
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bInfo": true,
+                "pageLength": 5,
+                "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+                language: {
+                    searchPlaceholder: "Búsqueda",
+                    "search": "Buscar",
+                    "emptyTable": "No hay datos encontrados",
+                    "zeroRecords": "No hay datos disponibles",
+                    "lengthMenu": "_MENU_ registros por página",
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_"
+
+                }
+
+
+            });
 
         }
         else {
@@ -160,7 +178,25 @@
             $("#dataTables-example > tbody").remove();
             t.destroy();
             $("#dataTables-example").append(responseData);
-            t = $('#dataTables-example').DataTable();
+            t = $('#dataTables-example').DataTable({
+                "bFilter": true,
+                "bPaginate": true,
+                "bLengthChange": true,
+                "bInfo": true,
+                "pageLength": 5,
+                "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "Todos"]],
+                language: {
+                    searchPlaceholder: "Búsqueda",
+                    "search": "Buscar",
+                    "emptyTable": "No hay datos encontrados",
+                    "zeroRecords": "No hay datos disponibles",
+                    "lengthMenu": "_MENU_ registros por página",
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_"
+
+                }
+
+
+            });
         }
 
         $("#datepickerinicio").datepicker();
@@ -245,9 +281,9 @@
                     
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
-                    //if (!$("#sidebaroptions").length) {
-                    //    loadSidebarOptions();
-                    //}
+                    if (!$("#sidebaroptions").length) {
+                        loadSidebarOptions();
+                    }
 
                 }
                 else {
@@ -337,7 +373,7 @@
     }
 
     function attachActionButtons() {
-        
+        $("#sidebaroptions").remove();
         $("#cancelpage").click(function () {
             $("#tabtable").tab("show");
             clearControls();
@@ -527,6 +563,11 @@
         $("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
+    }
+
+    function loadSidebarOptions() {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
+        $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
 

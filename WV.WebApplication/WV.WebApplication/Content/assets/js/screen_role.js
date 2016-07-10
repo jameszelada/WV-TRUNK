@@ -45,6 +45,9 @@
                     //to implement
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
+                    if (!$("#sidebaroptions").length) {
+                        loadSidebarOptions();
+                    }
                 }
                 else {
                     displayErrorMessage(response.Message);
@@ -121,7 +124,7 @@
 
     function setRolesTable(responseData) {
         $("#roles_table").html(responseData);
-
+        validation();
     }
 
     /*Attaching Functions to Events*/
@@ -162,14 +165,14 @@
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-            $("#cancelrole").unbind();
-            $("#saverole").unbind();
+            
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
     }
 
     function attachActionButtons() {
+        $("#sidebaroptions").remove();
         $("#cancelrole").click(function () {
             $("#tabtable").tab("show");
             clearControls();
@@ -246,8 +249,7 @@
         $(".in-controls").find("input").each(function (index, value) {
             $(value).val("");
         });
-        $("#cancelrole").unbind();
-        $("#saverole").unbind();
+        
     }
 
     function fillLblFields(rol) {
@@ -366,6 +368,11 @@
         $("#myMessageDialog").modal('show');
         //$("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
+    }
+
+    function loadSidebarOptions() {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
+        $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
 });
