@@ -13,7 +13,6 @@
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.min.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.select.min.js"></script>
-    <script src="/Content/assets/js/jquery-ui.min.js"></script>
     <script src="/Content/assets/js/registration.js"></script>
 </asp:Content>
 

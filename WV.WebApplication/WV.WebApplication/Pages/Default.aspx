@@ -8,7 +8,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-
+    <div runat="server" id="pagename" class="hidden">Inicio</div>
     <div id="contenido" class="panel-body">
         <div class="row">
             <div class="row text-center pad-top">

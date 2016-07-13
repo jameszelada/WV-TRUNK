@@ -16,7 +16,7 @@
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.select.min.js"></script>
     <script src="/Content/assets/js/logbook.js"></script>
-    <script src="/Content/assets/js/jquery-ui.min.js"></script>
+    
 
 
 </asp:Content>
