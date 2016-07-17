@@ -38,7 +38,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Home">Vision Mundial</a>
+                <a class="navbar-brand" href="Home">
+                    <div class="col-md-4 text-center">
+                        <img src="/Content/assets/img/worldvision.jpg">
+                    </div>
+                    Vision Mundial</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -110,6 +114,9 @@
                             <li id="Recursos" runat="server">
                                 <a href="Options">Configuración de Contenido</a>
                             </li>
+                            <li id="Acciones_Mantenimiento" runat="server">
+                                <a href="MassActions">Acciones de Mantenimiento</a>
+                            </li >
                         </ul>
                     </li>
                      <li>

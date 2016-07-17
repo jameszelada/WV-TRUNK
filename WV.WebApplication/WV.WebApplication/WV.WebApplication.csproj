@@ -120,6 +120,7 @@
     <Content Include="Content\assets\js\lang-all.js" />
     <Content Include="Content\assets\js\logbook.js" />
     <Content Include="Content\assets\js\login.js" />
+    <Content Include="Content\assets\js\massactions.js" />
     <Content Include="Content\assets\js\moment.min.js" />
     <Content Include="Content\assets\js\morris\morris-0.4.3.min.css" />
     <Content Include="Content\assets\js\morris\morris.js" />
@@ -148,6 +149,7 @@
     <Content Include="Pages\LogBook.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
+    <Content Include="Pages\MassActions.aspx" />
     <Content Include="Pages\Registration.aspx" />
     <Content Include="Pages\screen_activity.aspx" />
     <Content Include="Pages\screen_community.aspx" />
@@ -193,6 +195,9 @@
     </Compile>
     <Compile Include="Handlers\LogBook.ashx.cs">
       <DependentUpon>LogBook.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\MassActions.ashx.cs">
+      <DependentUpon>MassActions.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Program.ashx.cs">
       <DependentUpon>Program.ashx</DependentUpon>
@@ -283,6 +288,13 @@
     </Compile>
     <Compile Include="Pages\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MassActions.aspx.cs">
+      <DependentUpon>MassActions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MassActions.aspx.designer.cs">
+      <DependentUpon>MassActions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -418,6 +430,7 @@
     <Content Include="Handlers\Registration.ashx" />
     <Content Include="Handlers\Activity.ashx" />
     <Content Include="Handlers\AttendanceTracking.ashx" />
+    <Content Include="Handlers\MassActions.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

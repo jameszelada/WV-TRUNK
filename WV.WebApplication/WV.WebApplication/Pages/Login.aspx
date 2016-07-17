@@ -30,7 +30,7 @@
         
     <div class="row">
         <div class="col-md-12 center login-header">
-            <h2 style="color:white;">SAP Vision Mundial El Salvador</h2>
+            <h2 style="color:white;">Sistema de Administracion de Proyectos Vision Mundial El Salvador, Guaymango</h2>
         </div>
         <!--/span-->
     </div><!--/row-->

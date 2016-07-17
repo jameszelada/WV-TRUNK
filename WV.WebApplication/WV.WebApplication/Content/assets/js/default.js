@@ -183,6 +183,42 @@ $(window).load(function () {
             //
 
         }
+        else if ($("#pagename").html() == "Acciones_Mantenimiento") {
+
+            var hints = [
+            {
+                element: document.querySelector('[href="#roles"]'),
+                hint: "Muestra los registros correspondientes a roles para ejecutar una accion.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('[href="#beneficiarios"]'),
+                hint: "Muestra los registros correspondientes a beneficiarios para ejecutar una accion.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('[href="#proyectos"]'),
+                hint: "Muestra los registros correspondientes a Proyectos para ejecutar una accion.",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('[href="#programas"]'),
+                hint: "Muestra los registros correspondientes a Programas para ejecutar una accion.",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('.btn.btn-primary.dropdown-toggle'),
+                hint: "Despliega las acciones disponibles para ejecutar a los registros seleccionados.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+
+        }
         else if ($("#pagename").html() == "Recursos") {
             var hints = [
             {

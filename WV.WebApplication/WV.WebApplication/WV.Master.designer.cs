@@ -58,6 +58,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Recursos;
         
         /// <summary>
+        /// Acciones_Mantenimiento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Acciones_Mantenimiento;
+        
+        /// <summary>
         /// Programa control.
         /// </summary>
         /// <remarks>
