@@ -264,7 +264,7 @@
     /*Mode Functions*/
 
     function setTabInAddMode() {
-
+        $("#cmbtipopuesto").prop("disabled", false);
         $(".txt-controls").each(function (index, value) {
             if (!$(value).hasClass("hidden")) {
 

@@ -147,7 +147,6 @@ $(window).load(function () {
             $("#tabtable").tab("show");
             $("#cancelpage").unbind();
             $("#savepage").unbind();
-            clearControls();
         }
         else if (screenmode === "edit") {
             // To implement****************
@@ -252,6 +251,7 @@ $(window).load(function () {
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 saveJobType(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 

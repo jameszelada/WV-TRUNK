@@ -24,14 +24,6 @@ $(window).load(function () {
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
                     setStaffTable(response.ResponseData);
-                    attachClickSeeLogBookButtons();
-                    attachClickToSeeScheduleButtons();
-                    //attachClickToShowButtons();
-                    //attachClickToEditButtons();
-                    //attachClickToListButton();
-                    //attachClickToNewButton();
-                    //attachClickToModal();
-
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
@@ -50,6 +42,8 @@ $(window).load(function () {
 
     function setStaffTable(responseData) {
         $("#dataTables-example").append(responseData);
+        attachClickSeeLogBookButtons();
+        attachClickToSeeScheduleButtons();
         $('#dataTables-example').dataTable({
             "bFilter": true,
             "bPaginate": true,

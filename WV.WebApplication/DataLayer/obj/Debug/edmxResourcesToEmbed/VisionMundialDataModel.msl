@@ -306,5 +306,43 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AsignacionMateria">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.AsignacionMateria">
+        <MappingFragment StoreEntitySet="AsignacionMateria">
+          <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="ID_AsignacionMateria" ColumnName="ID_AsignacionMateria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Examen">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Examen">
+        <MappingFragment StoreEntitySet="Examen">
+          <ScalarProperty Name="NumeroExamen" ColumnName="NumeroExamen" />
+          <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+          <ScalarProperty Name="ID_Examen" ColumnName="ID_Examen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamenResultado">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.ExamenResultado">
+        <MappingFragment StoreEntitySet="ExamenResultado">
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="ID_Beneficiario" ColumnName="ID_Beneficiario" />
+          <ScalarProperty Name="ID_Examen" ColumnName="ID_Examen" />
+          <ScalarProperty Name="ID_ExamenResultado" ColumnName="ID_ExamenResultado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="VISIONMUNDIALModel.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="Grado" ColumnName="Grado" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

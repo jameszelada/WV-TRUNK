@@ -21,6 +21,7 @@ namespace DataLayer
             this.BeneficiarioEducacion = new HashSet<BeneficiarioEducacion>();
             this.BeneficiarioSalud = new HashSet<BeneficiarioSalud>();
             this.Asistencia = new HashSet<Asistencia>();
+            this.AsignacionMateria = new HashSet<AsignacionMateria>();
         }
     
         public int ID_Beneficiario { get; set; }
@@ -39,5 +40,6 @@ namespace DataLayer
         public virtual ICollection<BeneficiarioEducacion> BeneficiarioEducacion { get; set; }
         public virtual ICollection<BeneficiarioSalud> BeneficiarioSalud { get; set; }
         public virtual ICollection<Asistencia> Asistencia { get; set; }
+        public virtual ICollection<AsignacionMateria> AsignacionMateria { get; set; }
     }
 }

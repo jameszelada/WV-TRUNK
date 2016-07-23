@@ -49,6 +49,9 @@
     <Compile Include="Actividad.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AsignacionMateria.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AsignacionRecursoHumano.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
@@ -82,7 +85,16 @@
     <Compile Include="Departamento.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Examen.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenResultado.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Indicador.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Materia.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Municipio.cs">

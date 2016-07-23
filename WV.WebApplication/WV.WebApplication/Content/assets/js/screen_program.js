@@ -21,11 +21,7 @@
                 if (response.IsSucess) {
 
                     setStaffTable(response.ResponseData);
-                    attachSelects();
-                    attachClickToShowProgramButtons();
-                    attachClickToEditProgramButtons();
-                    attachClickToListButton();
-                    attachClickToNewButton();
+                    
                    // attachClickToModal();
 
                 }
@@ -152,6 +148,11 @@
 
         if (t == null || t == undefined) {
             $("#dataTables-example").append(responseData);
+            attachSelects();
+            attachClickToShowProgramButtons();
+            attachClickToEditProgramButtons();
+            attachClickToListButton();
+            attachClickToNewButton();
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
                 "bPaginate": true,
@@ -178,6 +179,11 @@
             $("#dataTables-example > tbody").remove();
             t.destroy();
             $("#dataTables-example").append(responseData);
+            attachSelects();
+            attachClickToShowProgramButtons();
+            attachClickToEditProgramButtons();
+            attachClickToListButton();
+            attachClickToNewButton();
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
                 "bPaginate": true,
@@ -345,7 +351,7 @@
                 $("#tabdetails").tab("show");
                 $("#screenmode").val("edit");
                 setTabInEditMode();
-
+                clearControls();
                 attachActionButtons();
                 showProgramToEdit($(this).attr("data-id-program"));
                 validation();
@@ -358,6 +364,7 @@
             validation();
             $("#screenmode").val("add");
             setTabInAddMode();
+            clearControls();
             attachActionButtons();
 
         });
