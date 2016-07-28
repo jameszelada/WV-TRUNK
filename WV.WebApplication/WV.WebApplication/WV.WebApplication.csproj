@@ -141,6 +141,7 @@
     <Content Include="Content\assets\js\screen_role.js" />
     <Content Include="Content\assets\js\screen_role_configuration.js" />
     <Content Include="Content\assets\js\screen_staff.js" />
+    <Content Include="Content\assets\js\screen_subject.js" />
     <Content Include="Content\assets\js\screen_user.js" />
     <Content Include="Content\assets\js\weeklyplan.js" />
     <Content Include="Global.asax" />
@@ -165,6 +166,7 @@
     <Content Include="Pages\screen_role.aspx" />
     <Content Include="Pages\screen_role_configuration.aspx" />
     <Content Include="Pages\screen_staff.aspx" />
+    <Content Include="Pages\screen_subject.aspx" />
     <Content Include="Pages\screen_user.aspx" />
     <Content Include="Pages\WeeklyPlan.aspx" />
     <Content Include="Web.config" />
@@ -223,6 +225,9 @@
     </Compile>
     <Compile Include="Handlers\Staff.ashx.cs">
       <DependentUpon>Staff.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\Subject.ashx.cs">
+      <DependentUpon>Subject.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\User.ashx.cs">
       <DependentUpon>User.ashx</DependentUpon>
@@ -380,6 +385,13 @@
     <Compile Include="Pages\screen_staff.aspx.designer.cs">
       <DependentUpon>screen_staff.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\screen_subject.aspx.cs">
+      <DependentUpon>screen_subject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\screen_subject.aspx.designer.cs">
+      <DependentUpon>screen_subject.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\screen_user.aspx.cs">
       <DependentUpon>screen_user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -437,6 +449,7 @@
     <Content Include="Handlers\Activity.ashx" />
     <Content Include="Handlers\AttendanceTracking.ashx" />
     <Content Include="Handlers\MassActions.ashx" />
+    <Content Include="Handlers\Subject.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

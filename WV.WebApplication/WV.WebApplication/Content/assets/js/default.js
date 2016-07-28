@@ -178,9 +178,39 @@ $(window).load(function () {
 
             addHints(hints);
         }
-        else if ($("#pagename").html() == "Inicio") {
+        else if ($("#pagename").html() == "Materia") {
 
-            //
+            var hints = [
+            {
+                element: document.querySelector('#tabtable'),
+                hint: "Muestra el todos los registro de la pantalla actual.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#tabdetails'),
+                hint: "Habilita los campos de ingreso de informacion, coloca la pantalla en modo Agregar.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.detail'),
+                hint: "Muestra el registro seleccionado y coloca la pantalla en modo Vista",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.edit'),
+                hint: "Habilita la edicion de la informacion para el registro seleccionado y coloca la pantalla en modo Edicion",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('.delete'),
+                hint: "Despliega un dialogo modal el cual permite confirmar si se desea eliminar el registro seleccionado",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
 
         }
         else if ($("#pagename").html() == "Acciones_Mantenimiento") {
