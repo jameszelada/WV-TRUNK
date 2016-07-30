@@ -139,7 +139,8 @@
     </Key>
     <Property Name="ID_Examen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Materia" Type="int" Nullable="false" />
-    <Property Name="NumeroExamen" Type="varchar" MaxLength="5" />
+    <Property Name="NumeroExamen" Type="varchar" MaxLength="25" />
+    <Property Name="Archivo" Type="varchar" MaxLength="200" />
   </EntityType>
   <EntityType Name="ExamenResultado">
     <Key>

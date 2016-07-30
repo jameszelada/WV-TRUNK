@@ -144,7 +144,8 @@
           </Key>
           <Property Name="ID_Examen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Materia" Type="int" Nullable="false" />
-          <Property Name="NumeroExamen" Type="varchar" MaxLength="5" />
+          <Property Name="NumeroExamen" Type="varchar" MaxLength="25" />
+          <Property Name="Archivo" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="ExamenResultado">
           <Key>
@@ -1792,9 +1793,10 @@
           </Key>
           <Property Name="ID_Examen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Materia" Type="Int32" Nullable="false" />
-          <Property Name="NumeroExamen" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroExamen" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Materia" Relationship="VISIONMUNDIALModel.FK_Examen_ID_Materia" FromRole="Examen" ToRole="Materia" />
           <NavigationProperty Name="ExamenResultado" Relationship="VISIONMUNDIALModel.FK_ExamenResultado_ID_Examen" FromRole="Examen" ToRole="ExamenResultado" />
+          <Property Name="Archivo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="ExamenResultado">
           <Key>
@@ -2196,6 +2198,7 @@
           <EntitySetMapping Name="Examen">
             <EntityTypeMapping TypeName="VISIONMUNDIALModel.Examen">
               <MappingFragment StoreEntitySet="Examen">
+                <ScalarProperty Name="Archivo" ColumnName="Archivo" />
                 <ScalarProperty Name="NumeroExamen" ColumnName="NumeroExamen" />
                 <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
                 <ScalarProperty Name="ID_Examen" ColumnName="ID_Examen" />

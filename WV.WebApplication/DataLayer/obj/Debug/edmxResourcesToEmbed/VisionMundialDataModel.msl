@@ -318,6 +318,7 @@
     <EntitySetMapping Name="Examen">
       <EntityTypeMapping TypeName="VISIONMUNDIALModel.Examen">
         <MappingFragment StoreEntitySet="Examen">
+          <ScalarProperty Name="Archivo" ColumnName="Archivo" />
           <ScalarProperty Name="NumeroExamen" ColumnName="NumeroExamen" />
           <ScalarProperty Name="ID_Materia" ColumnName="ID_Materia" />
           <ScalarProperty Name="ID_Examen" ColumnName="ID_Examen" />

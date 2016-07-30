@@ -22,6 +22,7 @@ namespace DataLayer
         public int ID_Examen { get; set; }
         public int ID_Materia { get; set; }
         public string NumeroExamen { get; set; }
+        public string Archivo { get; set; }
     
         public virtual Materia Materia { get; set; }
         public virtual ICollection<ExamenResultado> ExamenResultado { get; set; }
