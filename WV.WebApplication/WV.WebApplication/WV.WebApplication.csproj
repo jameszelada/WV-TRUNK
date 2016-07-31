@@ -98,6 +98,7 @@
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\assets\js\assignrrhh.js" />
+    <Content Include="Content\assets\js\assignsubject.js" />
     <Content Include="Content\assets\js\attendancetracking.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
@@ -148,6 +149,7 @@
     <Content Include="Global.asax" />
     <Content Include="Pages\About.aspx" />
     <Content Include="Pages\AssignRRHH.aspx" />
+    <Content Include="Pages\AssignSubject.aspx" />
     <Content Include="Pages\AttendanceTracking.aspx" />
     <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
@@ -182,6 +184,9 @@
     </Compile>
     <Compile Include="Handlers\AssignRRHH.ashx.cs">
       <DependentUpon>AssignRRHH.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\AssignSubject.ashx.cs">
+      <DependentUpon>AssignSubject.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\AttendanceTracking.ashx.cs">
       <DependentUpon>AttendanceTracking.ashx</DependentUpon>
@@ -253,6 +258,13 @@
     </Compile>
     <Compile Include="Pages\AssignRRHH.aspx.designer.cs">
       <DependentUpon>AssignRRHH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AssignSubject.aspx.cs">
+      <DependentUpon>AssignSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AssignSubject.aspx.designer.cs">
+      <DependentUpon>AssignSubject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\AttendanceTracking.aspx.cs">
       <DependentUpon>AttendanceTracking.aspx</DependentUpon>
@@ -463,6 +475,7 @@
     <Content Include="Handlers\MassActions.ashx" />
     <Content Include="Handlers\Subject.ashx" />
     <Content Include="Handlers\Exam.ashx" />
+    <Content Include="Handlers\AssignSubject.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

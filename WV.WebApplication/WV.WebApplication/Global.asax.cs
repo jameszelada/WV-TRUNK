@@ -38,7 +38,7 @@ namespace WV.WebApplication
             System.Web.Routing.RouteTable.Routes.MapPageRoute("MassActions", "MassActions", "~/Pages/MassActions.aspx");
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Subject", "Subject", "~/Pages/screen_subject.aspx");
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Exam", "Exam", "~/Pages/screen_exam.aspx");
-           
+            System.Web.Routing.RouteTable.Routes.MapPageRoute("AssignSubject", "AssignSubject", "~/Pages/AssignSubject.aspx");
            
         }
 
