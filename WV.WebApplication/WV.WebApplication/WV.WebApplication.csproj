@@ -131,6 +131,7 @@
     <Content Include="Content\assets\js\morris\morris.js" />
     <Content Include="Content\assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\assets\js\prefixfree.min.js" />
+    <Content Include="Content\assets\js\recordgrades.js" />
     <Content Include="Content\assets\js\registration.js" />
     <Content Include="Content\assets\js\screen_activity.js" />
     <Content Include="Content\assets\js\screen_community.js" />
@@ -158,6 +159,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\MassActions.aspx" />
+    <Content Include="Pages\RecordGrades.aspx" />
     <Content Include="Pages\Registration.aspx" />
     <Content Include="Pages\screen_activity.aspx" />
     <Content Include="Pages\screen_community.aspx" />
@@ -223,6 +225,9 @@
     </Compile>
     <Compile Include="Handlers\Project.ashx.cs">
       <DependentUpon>Project.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\RecordGrades.ashx.cs">
+      <DependentUpon>RecordGrades.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Registration.ashx.cs">
       <DependentUpon>Registration.ashx</DependentUpon>
@@ -324,6 +329,13 @@
     </Compile>
     <Compile Include="Pages\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecordGrades.aspx.cs">
+      <DependentUpon>RecordGrades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\RecordGrades.aspx.designer.cs">
+      <DependentUpon>RecordGrades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
@@ -476,6 +488,7 @@
     <Content Include="Handlers\Subject.ashx" />
     <Content Include="Handlers\Exam.ashx" />
     <Content Include="Handlers\AssignSubject.ashx" />
+    <Content Include="Handlers\RecordGrades.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
