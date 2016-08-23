@@ -33,7 +33,6 @@ $(window).load(function () {
                     attachClickToListButton();
                     attachClickToNewButton();
                     attachClickToModal();
-
                 }
                 else
                 {
