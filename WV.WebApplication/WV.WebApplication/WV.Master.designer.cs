@@ -121,6 +121,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Control_Asistencia;
         
         /// <summary>
+        /// Administracion_Notas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Administracion_Notas;
+        
+        /// <summary>
         /// Proyectos control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,15 @@ namespace WV.WebApplication {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tipo_Puesto;
+        
+        /// <summary>
+        /// Reportes_Administracion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Reportes_Administracion;
         
         /// <summary>
         /// MainContent control.

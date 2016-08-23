@@ -12,9 +12,24 @@ namespace WV.WebApplication.Reports
 {
     public class HeaderFooter : PdfPageEventHelper 
     {
+
+        private string _Titulo;
+
+        public string Titulo
+        {
+            get { return _Titulo; }
+            set { _Titulo = value; }
+        }
+        private string _SubTitulo;
+
+        public string SubTitulo
+        {
+            get { return _SubTitulo; }
+            set { _SubTitulo = value; }
+        }
+
         PageBase pb = new PageBase();
         Phrase[] header = new Phrase[2];
-        int pagenumber;
 
         // This is the contentbyte object of the writer
         PdfContentByte cb;
@@ -81,7 +96,7 @@ namespace WV.WebApplication.Reports
             footerTemplate.BeginText();
             footerTemplate.SetFontAndSize(bf, 12);
             footerTemplate.SetTextMatrix(0, 0);
-            footerTemplate.ShowText((writer.PageNumber - 1).ToString());
+            footerTemplate.ShowText((writer.PageNumber).ToString());
             footerTemplate.EndText();
         }
 
@@ -98,13 +113,13 @@ namespace WV.WebApplication.Reports
             if (document.PageNumber == 1 )
             {
                 document.SetMargins(10f, 10f, 110f, 50f);
-                iTextSharp.text.Font baseFontNormal = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12f, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
+                Font baseFontNormal = new Font(Font.FontFamily.HELVETICA, 12f, Font.NORMAL, BaseColor.BLACK);
 
-                iTextSharp.text.Font baseFontBig = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12f, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.BLACK);
+                Font baseFontBig = new Font(Font.FontFamily.HELVETICA, 12f, Font.BOLD, BaseColor.BLACK);
 
-                Font tyniFont = new Font(iTextSharp.text.Font.FontFamily.HELVETICA, 7f, Font.ITALIC, iTextSharp.text.BaseColor.BLACK); 
+                Font tyniFont = new Font(Font.FontFamily.HELVETICA, 7f, Font.ITALIC, BaseColor.BLACK); 
 
-                Phrase p1Header = new Phrase("Sample Header Here", baseFontNormal);
+                Phrase p1Header = new Phrase(Titulo, baseFontNormal);
 
                 //Create PdfTable object
 
@@ -120,7 +135,7 @@ namespace WV.WebApplication.Reports
                 PdfPCell pdfCell2 = new PdfPCell(p1Header);
                 PdfPCell pdfCell3 = new PdfPCell(new Phrase(PrintTime.ToShortDateString(), tyniFont));
 
-                PdfPCell pdfCell4 = new PdfPCell(new Phrase("Sub Header Description", baseFontNormal));
+                PdfPCell pdfCell4 = new PdfPCell(new Phrase(SubTitulo, baseFontNormal));
                 //Row 3
 
 
@@ -188,7 +203,7 @@ namespace WV.WebApplication.Reports
 
             document.SetMargins(10f, 10f, 70, 50f);
             
-            String text = "Page " + writer.PageNumber + " of ";
+            String text = "Página " + writer.PageNumber + " de ";
 
 
             //Add paging to header

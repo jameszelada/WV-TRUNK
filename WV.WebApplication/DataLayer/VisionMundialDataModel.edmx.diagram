@@ -4,76 +4,67 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4fa829b0318b46fd8ae1e354fe7e1c7d" Name="Diagram1" ZoomLevel="54">
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Usuario" Width="1.5" PointX="7.125" PointY="3.25" IsExpanded="true" FillColor="Lime" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Recurso" Width="1.5" PointX="5.25" PointY="10.375" FillColor="Lime" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Rol" Width="1.5" PointX="3.5" PointY="6.375" FillColor="Lime" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.RolRecurso" Width="1.5" PointX="6.25" PointY="6.625" FillColor="Lime" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.UsuarioRol" Width="1.5" PointX="4.375" PointY="3" FillColor="Lime" />
+      <Diagram DiagramId="4fa829b0318b46fd8ae1e354fe7e1c7d" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Usuario" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" FillColor="Lime" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Recurso" Width="1.5" PointX="10.75" PointY="7.5" FillColor="Lime" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Rol" Width="1.5" PointX="10.75" PointY="4" FillColor="Lime" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.RolRecurso" Width="1.5" PointX="13" PointY="1" FillColor="Lime" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.UsuarioRol" Width="1.5" PointX="13" PointY="4" FillColor="Lime" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Recurso" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_RolRecurso_ID_Rol" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Rol" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_UsuarioRol_ID_Usuario" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Indicador" Width="1.5" PointX="22.875" PointY="20.125" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Objetivo" Width="1.5" PointX="22.875" PointY="17.125" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPrograma" Width="1.5" PointX="21.875" PointY="4.625" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Comunidad" Width="1.5" PointX="17" PointY="9.25" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Departamento" Width="1.5" PointX="12.5" PointY="10.25" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Municipio" Width="1.5" PointX="14.75" PointY="9.625" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Puesto" Width="1.5" PointX="9.875" PointY="6.375" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPuesto" Width="1.5" PointX="9.75" PointY="3.25" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Indicador" Width="1.5" PointX="8.25" PointY="28.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Objetivo" Width="1.5" PointX="8.25" PointY="25.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPrograma" Width="1.5" PointX="3.75" PointY="15" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Comunidad" Width="1.5" PointX="3.75" PointY="27.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Departamento" Width="1.5" PointX="1.5" PointY="30.75" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Municipio" Width="1.5" PointX="1.5" PointY="27.5" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Puesto" Width="1.5" PointX="0.75" PointY="21.25" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.TipoPuesto" Width="1.5" PointX="1.5" PointY="24.375" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Comunidad_ID_Municipio" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Municipio_ID_Departamento" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Puesto_ID_TipoPuesto" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Bitacora" Width="1.5" PointX="11.25" PointY="0.5" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.BitacoraDetalle" Width="1.5" PointX="15.875" PointY="0.625" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Persona" Width="1.5" PointX="13.625" PointY="2.25" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.PlanSemanal" Width="1.5" PointX="15.875" PointY="4" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.PlanSemanalDetalle" Width="1.5" PointX="18.125" PointY="4" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Bitacora" Width="1.5" PointX="3" PointY="11.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BitacoraDetalle" Width="1.5" PointX="5.25" PointY="11.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Persona" Width="1.5" PointX="0.75" PointY="13.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.PlanSemanal" Width="1.5" PointX="3" PointY="8.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.PlanSemanalDetalle" Width="1.5" PointX="5.25" PointY="8.125" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Bitacora_ID_Persona" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BitacoraDetalle_ID_Bitacora" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanal_ID_Persona" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_PlanSemanalDetalle_ID_PlanSemanal" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Proyecto" Width="1.5" PointX="16" PointY="6.75" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.AsignacionRecursoHumano" Width="1.5" PointX="13.5" PointY="6.625" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Proyecto" Width="1.5" PointX="0.75" PointY="18.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.AsignacionRecursoHumano" Width="1.5" PointX="3" PointY="18.125" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Persona" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Proyecto" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Puesto" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Programa" Width="1.5" PointX="19.875" PointY="6.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Programa" Width="1.5" PointX="6" PointY="17.25" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_Comunidad" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Indicador_ID_Programa" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Objetivo_ID_Programa" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_Proyecto" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Programa_ID_TipoPrograma" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Beneficiario" Width="1.5" PointX="18.75" PointY="11" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioAdicional" Width="1.5" PointX="20.5" PointY="14.625" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioCompromiso" Width="1.5" PointX="19.375" PointY="17.375" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioEducacion" Width="1.5" PointX="21.125" PointY="17.25" FillColor="255, 128, 0" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioSalud" Width="1.5" PointX="17.375" PointY="17.625" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Beneficiario" Width="1.5" PointX="8.25" PointY="16" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioAdicional" Width="1.5" PointX="10.5" PointY="17.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioCompromiso" Width="1.5" PointX="10.5" PointY="20.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioEducacion" Width="1.5" PointX="10.5" PointY="23.625" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.BeneficiarioSalud" Width="1.5" PointX="10.5" PointY="27.375" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Beneficiario_ID_Programa" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioAdicional_ID_Beneficiario" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioCompromiso_ID_Beneficiario" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioEducacion_ID_Beneficiario" />
-        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" ManuallyRouted="true" >
-          <ConnectorPoint PointX="19.9062525" PointY="15.095602213541667" />
-          <ConnectorPoint PointX="19.9062525" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.661459583333333" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.494792916666668" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.286133839673791" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.119467173007127" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.093101012680918" PointY="15.520763482096355" />
-          <ConnectorPoint PointX="19.093101012680918" PointY="18.99974609375" />
-          <ConnectorPoint PointX="18.875" PointY="18.99974609375" />
+        <AssociationConnector Association="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" ManuallyRouted="false" >
         </AssociationConnector>
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Actividad" Width="1.5" PointX="23.875" PointY="7.375" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Actividad" Width="1.5" PointX="8.25" PointY="8.25" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Actividad_ID_Programa" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Asistencia" Width="1.5" PointX="24" PointY="11.125" FillColor="255, 128, 0" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Asistencia" Width="1.5" PointX="10.5" PointY="13.125" FillColor="255, 128, 0" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Asistencia_ID_Actividad" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Asistencia_ID_Beneficiario" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.AsignacionMateria" Width="1.5" PointX="15.875" PointY="13.375" FillColor="Yellow" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Examen" Width="1.5" PointX="13.75" PointY="16" FillColor="Yellow" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.ExamenResultado" Width="1.5" PointX="13.875" PointY="13.25" FillColor="Yellow" />
-        <EntityTypeShape EntityType="VISIONMUNDIALModel.Materia" Width="1.5" PointX="15.75" PointY="15.875" FillColor="Yellow" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.AsignacionMateria" Width="1.5" PointX="13.5" PointY="17.125" FillColor="Yellow" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Examen" Width="1.5" PointX="13.5" PointY="10" FillColor="Yellow" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.ExamenResultado" Width="1.5" PointX="15.75" PointY="10.125" FillColor="Yellow" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.Materia" Width="1.5" PointX="11.25" PointY="10" FillColor="Yellow" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Beneficiario" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Materia" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Examen_ID_Materia" />

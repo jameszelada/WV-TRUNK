@@ -133,6 +133,7 @@
     <Content Include="Content\assets\js\prefixfree.min.js" />
     <Content Include="Content\assets\js\recordgrades.js" />
     <Content Include="Content\assets\js\registration.js" />
+    <Content Include="Content\assets\js\reportsadmin.js" />
     <Content Include="Content\assets\js\screen_activity.js" />
     <Content Include="Content\assets\js\screen_community.js" />
     <Content Include="Content\assets\js\screen_exam.js" />
@@ -155,6 +156,8 @@
     <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
+    <Content Include="Pages\GeneralReportsAdmin.aspx" />
+    <Content Include="Pages\GradesControl.aspx" />
     <Content Include="Pages\LogBook.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
@@ -204,6 +207,9 @@
     </Compile>
     <Compile Include="Handlers\Exam.ashx.cs">
       <DependentUpon>Exam.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\GeneralReporstAdmin.ashx.cs">
+      <DependentUpon>GeneralReporstAdmin.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Job.ashx.cs">
       <DependentUpon>Job.ashx</DependentUpon>
@@ -298,6 +304,20 @@
     </Compile>
     <Compile Include="Pages\Error\Unauthorized.aspx.designer.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsAdmin.aspx.cs">
+      <DependentUpon>GeneralReportsAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsAdmin.aspx.designer.cs">
+      <DependentUpon>GeneralReportsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GradesControl.aspx.cs">
+      <DependentUpon>GradesControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GradesControl.aspx.designer.cs">
+      <DependentUpon>GradesControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\LogBook.aspx.cs">
       <DependentUpon>LogBook.aspx</DependentUpon>
@@ -489,6 +509,7 @@
     <Content Include="Handlers\Exam.ashx" />
     <Content Include="Handlers\AssignSubject.ashx" />
     <Content Include="Handlers\RecordGrades.ashx" />
+    <Content Include="Handlers\GeneralReporstAdmin.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

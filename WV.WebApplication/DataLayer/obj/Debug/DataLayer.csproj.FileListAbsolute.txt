@@ -13,3 +13,4 @@ F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Debug\EntityFramework.dll
 F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Debug\EntityFramework.xml
 F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Debug\DataLayer.dll
 F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Debug\DataLayer.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
