@@ -134,7 +134,7 @@
 						<div class="panel-body">
 							<div class="panel panel-primary text-center no-boder bg-color-green">
 									<div class="panel-body">
-										 <a href="#">
+										 <a href="ProjectReports">
 										<i class="fa fa-bar-chart-o fa-5x"></i>
 										</a>
 									</div>

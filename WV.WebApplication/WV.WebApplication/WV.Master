@@ -176,7 +176,10 @@
                         <a href="#"><i class="fa fa-book"></i>Reportes<span class="fa arrow"></span></a>
                         <ul style="height: auto;" class="nav nav-second-level collapse">
                             <li id="Reportes_Administracion" runat="server">
-                                <a href="AdminReports">Reportes Modulo Administracion</a>
+                                <a href="AdminReports">Reportes Módulo Administración</a>
+                            </li>
+                            <li id="Reportes_Proyectos" runat="server">
+                                <a href="ProjectReports">Reportes Módulo Proyectos</a>
                             </li>
                            
                             

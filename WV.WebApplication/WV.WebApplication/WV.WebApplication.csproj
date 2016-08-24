@@ -134,6 +134,7 @@
     <Content Include="Content\assets\js\recordgrades.js" />
     <Content Include="Content\assets\js\registration.js" />
     <Content Include="Content\assets\js\reportsadmin.js" />
+    <Content Include="Content\assets\js\reportsprojects.js" />
     <Content Include="Content\assets\js\screen_activity.js" />
     <Content Include="Content\assets\js\screen_community.js" />
     <Content Include="Content\assets\js\screen_exam.js" />
@@ -157,6 +158,7 @@
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
     <Content Include="Pages\GeneralReportsAdmin.aspx" />
+    <Content Include="Pages\GeneralReportsProject.aspx" />
     <Content Include="Pages\GradesControl.aspx" />
     <Content Include="Pages\LogBook.aspx" />
     <Content Include="Pages\Login.aspx" />
@@ -210,6 +212,9 @@
     </Compile>
     <Compile Include="Handlers\GeneralReporstAdmin.ashx.cs">
       <DependentUpon>GeneralReporstAdmin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\GeneralReportsProject.ashx.cs">
+      <DependentUpon>GeneralReportsProject.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\Job.ashx.cs">
       <DependentUpon>Job.ashx</DependentUpon>
@@ -311,6 +316,13 @@
     </Compile>
     <Compile Include="Pages\GeneralReportsAdmin.aspx.designer.cs">
       <DependentUpon>GeneralReportsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsProject.aspx.cs">
+      <DependentUpon>GeneralReportsProject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsProject.aspx.designer.cs">
+      <DependentUpon>GeneralReportsProject.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\GradesControl.aspx.cs">
       <DependentUpon>GradesControl.aspx</DependentUpon>
@@ -510,6 +522,7 @@
     <Content Include="Handlers\AssignSubject.ashx" />
     <Content Include="Handlers\RecordGrades.ashx" />
     <Content Include="Handlers\GeneralReporstAdmin.ashx" />
+    <Content Include="Handlers\GeneralReportsProject.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
