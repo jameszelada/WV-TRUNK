@@ -24,6 +24,8 @@ http://creativecommons.org/licenses/by/3.0/
     z-index: 1000000;
 }
 
+
+
 .default-row-spacer{
     margin-bottom:10px;
 }
@@ -58,7 +60,7 @@ body {
     margin:10px 20px 10px 0px;
     background-color:transparent;
     padding:25px;
-    min-height:768px;
+    min-height:500px;
 }
 
 .text-center {

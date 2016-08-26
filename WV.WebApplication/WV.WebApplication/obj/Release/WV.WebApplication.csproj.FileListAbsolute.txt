@@ -1,0 +1,12 @@
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll.config
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\DataLayer.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\EntityFramework.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\Repository.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\DataLayer.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\Repository.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\EntityFramework.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Release\WV.WebApplication.csprojResolveAssemblyReference.cache
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Release\WV.WebApplication.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Release\WV.WebApplication.pdb

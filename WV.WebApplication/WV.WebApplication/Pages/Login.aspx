@@ -26,11 +26,11 @@
     </form>
 </div>--%>
       
-    
+    <img id="cornervm" src="../Content/assets/css/images/vm_transparent.png"  />
         
     <div class="row">
         <div class="col-md-12 center login-header">
-            <h2 style="color:white;">Sistema de Administracion de Proyectos Vision Mundial El Salvador, Guaymango</h2>
+            <h2 style="color:white;">Sistema de Administración de Proyectos Visión Mundial El Salvador, Guaymango</h2>
         </div>
         <!--/span-->
     </div><!--/row-->

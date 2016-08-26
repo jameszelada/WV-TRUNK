@@ -14,13 +14,13 @@
 			<div class="row text-center pad-top">
 
 				<div class="col-md-4 col-sm-4">
-					<div class="panel panel-success">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
-							Inscripcion de Beneficiarios
+							Inscripción de Beneficiarios
 						</div>
 						<div class="panel-body">
 							
-								<div class="panel panel-primary text-center no-boder bg-color-green">
+								<div class="panel panel-primary text-center no-boder bg-color-blue">
 									<div class="panel-body">
 										 <a href="Registration">
 										<i class="fa fa-file-text-o fa-5x"></i>
@@ -31,7 +31,7 @@
 							
 						</div>
 						<div class="panel-footer">
-							Registro de Informacion de Beneficiarios
+							Registro de Información de Beneficiarios
 						</div>
 					</div>
 				</div>
@@ -87,7 +87,7 @@
 				<div class="col-md-4 col-sm-4">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							Asignacion de Recursos Humanos
+							Asignación de Recursos Humanos
 						</div>
 						<div class="panel-body">
 							<div class="panel panel-primary text-center no-boder bg-color-blue">
@@ -100,7 +100,7 @@
 								</div>
 						</div>
 						<div class="panel-footer">
-							Aisgnacion de Personal a Proyectos
+							Asignación de Personal a Proyectos
 						</div>
 					</div>
 				</div>
@@ -127,12 +127,12 @@
 				</div>
 
 				<div class="col-md-4 col-sm-4">
-					<div class="panel panel-success">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Reportes
 						</div>
 						<div class="panel-body">
-							<div class="panel panel-primary text-center no-boder bg-color-green">
+							<div class="panel panel-primary text-center no-boder bg-color-blue">
 									<div class="panel-body">
 										 <a href="ProjectReports">
 										<i class="fa fa-bar-chart-o fa-5x"></i>
@@ -142,7 +142,7 @@
 								</div>
 						</div>
 						<div class="panel-footer">
-							Informacion de Proyectos y Programas
+							Información de Proyectos y Programas
 						</div>
 					</div>
 				</div>

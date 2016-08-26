@@ -296,6 +296,7 @@ div.center, p.center, img.center {
     float: none !important;
     display: block;
     text-align: center;
+    opacity: 0.88;
 }
 
 .stackControls {

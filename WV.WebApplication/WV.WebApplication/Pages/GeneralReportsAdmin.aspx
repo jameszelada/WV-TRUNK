@@ -32,8 +32,8 @@
 								<div class="content-header content-header-media" style="background-color: #09192a; height: 130px; padding-left: 0px;">
 									<!-- Remove inline styles when have background image. -->
 									<div class="header-section">
-										<h1 style="color:#999;">Reportes - Administracion de Sistema<br>
-											<%--<small >Realice Eliminacion Masiva de Registros. <strong><span id="attendance_date"></span>Realizar Cuidadosamente!</strong></small>--%></h1>
+										<h1 style="color:#999;">Reportes - Administración de Sistema<br>
+											<small >Realice la selección correspondiente para Generar su reporte.</small></h1>
 									</div>
 									<!-- For best results use an image with a resolution of 2560x248 pixels (You can also use a blurred image with ratio 10:1 - eg: 1000x100 pixels - it will adjust and look great!) -->
 									<!-- <img src="/images/proui-2.0/placeholders/headers/profile_header.jpg" alt="header image" class="animation-pulseSlow"> -->
@@ -45,7 +45,7 @@
 						<div class="row">
 
 							<div class="row text-center pad-top">
-								<div class="col-md-4 col-sm-4">
+								<div class="col-md-4 col-sm-4" id="listausuarios">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Usuarios
@@ -74,8 +74,8 @@
 									</div>
 								</div>
 
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-info">
+								<div class="col-md-4 col-sm-4" id ="listaroles">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
 										  Roles
 										</div>
@@ -99,14 +99,14 @@
 									</div>
 								</div>
 
-								<div class="col-md-4 col-sm-4">
-									<div class="panel panel-success">
+								<div class="col-md-4 col-sm-4" id="rolesopciones">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Opciones
 										</div>
 										<div class="panel-body">
 											<h4>
-												<div class="panel panel-primary text-left no-boder bg-color-green">
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
 													<div class="panel-body">
 														<a href="javascript:void(0)">
 															<i class="fa fa-file-text-o fa-3x"></i>

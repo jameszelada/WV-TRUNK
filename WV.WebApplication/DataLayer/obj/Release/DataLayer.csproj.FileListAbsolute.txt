@@ -1,0 +1,8 @@
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Release\DataLayer.dll.config
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Release\DataLayer.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Release\DataLayer.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Release\EntityFramework.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\bin\Release\EntityFramework.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Release\DataLayer.csprojResolveAssemblyReference.cache
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Release\DataLayer.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\DataLayer\obj\Release\DataLayer.pdb

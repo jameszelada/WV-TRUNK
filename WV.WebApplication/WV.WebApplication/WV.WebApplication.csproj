@@ -87,6 +87,8 @@
     <Content Include="Content\assets\css\images\ui-icons_ef8c08_256x240.png" />
     <Content Include="Content\assets\css\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\assets\css\images\VM_Blur.png" />
+    <Content Include="Content\assets\css\images\vm_transparent.png" />
     <Content Include="Content\assets\css\introjs.css" />
     <Content Include="Content\assets\css\jquery-ui.min.css" />
     <Content Include="Content\assets\css\jquery.dataTables.min.css" />
@@ -97,6 +99,9 @@
     <Content Include="Content\assets\css\style.css" />
     <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfontba72.svg" />
     <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\img\favicon.ico" />
+    <Content Include="Content\assets\img\worldvision.jpg" />
+    <Content Include="Content\assets\img\worldvision.png" />
     <Content Include="Content\assets\js\assignrrhh.js" />
     <Content Include="Content\assets\js\assignsubject.js" />
     <Content Include="Content\assets\js\attendancetracking.js" />
@@ -118,6 +123,18 @@
     <Content Include="Content\assets\js\dataTables\jquery.dataTables.min.js" />
     <Content Include="Content\assets\js\default.js" />
     <Content Include="Content\assets\js\fullcalendar.min.js" />
+    <Content Include="Content\assets\js\images\ajax-loader-small.gif" />
+    <Content Include="Content\assets\js\images\ajax-loader.gif" />
+    <Content Include="Content\assets\js\images\calender.png" />
+    <Content Include="Content\assets\js\images\close.png" />
+    <Content Include="Content\assets\js\images\favicon.ico" />
+    <Content Include="Content\assets\js\images\shadow_left.png" />
+    <Content Include="Content\assets\js\images\shadow_right.png" />
+    <Content Include="Content\assets\js\images\sort_asc.png" />
+    <Content Include="Content\assets\js\images\sort_asc_disabled.png" />
+    <Content Include="Content\assets\js\images\sort_both.png" />
+    <Content Include="Content\assets\js\images\sort_desc.png" />
+    <Content Include="Content\assets\js\images\sort_desc_disabled.png" />
     <Content Include="Content\assets\js\intro.js" />
     <Content Include="Content\assets\js\jquery-1.10.2.js" />
     <Content Include="Content\assets\js\jquery-ui.min.js" />
@@ -134,6 +151,7 @@
     <Content Include="Content\assets\js\recordgrades.js" />
     <Content Include="Content\assets\js\registration.js" />
     <Content Include="Content\assets\js\reportsadmin.js" />
+    <Content Include="Content\assets\js\reportsprograms.js" />
     <Content Include="Content\assets\js\reportsprojects.js" />
     <Content Include="Content\assets\js\screen_activity.js" />
     <Content Include="Content\assets\js\screen_community.js" />
@@ -158,6 +176,7 @@
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
     <Content Include="Pages\GeneralReportsAdmin.aspx" />
+    <Content Include="Pages\GeneralReportsProgram.aspx" />
     <Content Include="Pages\GeneralReportsProject.aspx" />
     <Content Include="Pages\GradesControl.aspx" />
     <Content Include="Pages\LogBook.aspx" />
@@ -212,6 +231,9 @@
     </Compile>
     <Compile Include="Handlers\GeneralReporstAdmin.ashx.cs">
       <DependentUpon>GeneralReporstAdmin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\GeneralReportsProgram.ashx.cs">
+      <DependentUpon>GeneralReportsProgram.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\GeneralReportsProject.ashx.cs">
       <DependentUpon>GeneralReportsProject.ashx</DependentUpon>
@@ -316,6 +338,13 @@
     </Compile>
     <Compile Include="Pages\GeneralReportsAdmin.aspx.designer.cs">
       <DependentUpon>GeneralReportsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsProgram.aspx.cs">
+      <DependentUpon>GeneralReportsProgram.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsProgram.aspx.designer.cs">
+      <DependentUpon>GeneralReportsProgram.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\GeneralReportsProject.aspx.cs">
       <DependentUpon>GeneralReportsProject.aspx</DependentUpon>
@@ -523,6 +552,9 @@
     <Content Include="Handlers\RecordGrades.ashx" />
     <Content Include="Handlers\GeneralReporstAdmin.ashx" />
     <Content Include="Handlers\GeneralReportsProject.ashx" />
+    <Content Include="Handlers\GeneralReportsProgram.ashx" />
+    <Content Include="Content\assets\js\images\Sorting icons.psd" />
+    <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -533,7 +565,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Start\" />
-    <Folder Include="Content\assets\img\" />
     <Folder Include="Controls\" />
     <Folder Include="Models\" />
   </ItemGroup>
