@@ -1,5 +1,13 @@
 $(window).load(function () {
 
+    setSelectedModule();
+
+    if (sessionStorage.getItem("currentmenu") != undefined)
+    {
+        idMenu = sessionStorage.getItem("currentmenu");
+        $("#" + idMenu).addClass("active").find("ul").addClass("in");
+    }
+
 
     if ($("#pagename").html() == "Inicio") {
         var introHtml = "<li><a href=''><div><strong>Habilitar Intro</strong><span class='pull-right text-muted'><em>Intro</em></span></div><div><div id='toggleintro' class='btn-group' data-toggle='buttons'><label class='btn btn-primary'><input type='radio' name='options1' id='' data-id-type='1'>On</label><label class='btn btn-primary active'><input type='radio' name='options1' id='' data-id-type=''>Off</label></div></div></a></li>";
@@ -625,6 +633,111 @@ $(window).load(function () {
 
             addHints(hints);
         }
+        else if ($("#pagename").html() == "Programa") {
+            var hints = [
+            {
+                element: document.querySelector('#tabtable'),
+                hint: "Muestra el todos los registro de la pantalla actual.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#tabdetails'),
+                hint: "Habilita los campos de ingreso de informacion, coloca la pantalla en modo Agregar.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.detail'),
+                hint: "Muestra el registro seleccionado y coloca la pantalla en modo Vista",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.edit'),
+                hint: "Habilita la edicion de la informacion para el registro seleccionado y coloca la pantalla en modo Edicion",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+        }
+        else if ($("#pagename").html() == "Reportes_Administracion") {
+                var hints = [
+                {
+                    element: document.querySelector('#listausuarios'),
+                    hint: "Este reporte permite mostrar el rol al que el usuario pertenece y las opciones respectivas.",
+                    hintPosition: 'top'
+                },
+                {
+                    element: document.querySelector('#listaroles'),
+                    hint: "Este reporte muestra los roles registrados en el sistema.",
+                    hintPosition: 'top'
+                },
+                {
+                    element: document.querySelector('#rolesopciones'),
+                    hint: "Este Reporte permite elegir el rol para mostrar los detalles de sus opciones registradas",
+                    hintPosition: 'top'
+                }
+                ];
+
+
+                addHints(hints);
+        }
+        else if ($("#pagename").html() == "Reportes_Proyectos") {
+            var hints = [
+            {
+                element: document.querySelector('#bitacoradiaria'),
+                hint: "Este reporte permite mostrar el detalle de la bitacora diaria registrada para un colaborador.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#plansemanal'),
+                hint: "Este reporte permite elegir la fecha correspondiente al plan semanal que se desea obtener.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#asignacionpersonal'),
+                hint: "Este Reporte permite mostrar la asignacion de personal (Recurso Humano) en un proyecto seleccionado.",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('#detallepuestos'),
+                hint: "Este Reporte permite mostrar los registros detallados de los puestos actuales registrados en el sistema.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+        }
+        else if ($("#pagename").html() == "Reportes_Programas") {
+            var hints = [
+            {
+                element: document.querySelector('#detalleprogramas'),
+                hint: "Este reporte permite elegir un programa en el cual muestra un resumen de la informacion mas relevante del mismo.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#programasproyecto'),
+                hint: "Este reporte muestra la informacion de todos los programas pertenecientes al proyecto seleccionado.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#asignacionpersonal'),
+                hint: "Este Reporte permite mostrar la asignacion de personal (Recurso Humano) en un proyecto seleccionado.",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('#detallepuestos'),
+                hint: "Este Reporte permite mostrar los registros detallados de los puestos actuales registrados en el sistema.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+        }
         else if ($("#pagename").html() == "Inscripcion") {
             var hints = [
             {
@@ -760,6 +873,13 @@ $(window).load(function () {
         }
     }
 
+    function setSelectedModule()
+    {
+        $(".lastselected").click(function ()
+        {
+            sessionStorage.setItem("currentmenu",$(this).attr("id"));
+        });
+    }
 
 
     

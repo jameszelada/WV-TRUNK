@@ -33,7 +33,7 @@
 									<!-- Remove inline styles when have background image. -->
 									<div class="header-section">
 										<h1 style="color:#999;">Reportes - Administración de Proyectos<br>
-											<%--<small >Realice Eliminacion Masiva de Registros. <strong><span id="attendance_date"></span>Realizar Cuidadosamente!</strong></small>--%></h1>
+											<small >Realice la selección correspondiente para Generar su reporte.</small></h1>
 									</div>
 									<!-- For best results use an image with a resolution of 2560x248 pixels (You can also use a blurred image with ratio 10:1 - eg: 1000x100 pixels - it will adjust and look great!) -->
 									<!-- <img src="/images/proui-2.0/placeholders/headers/profile_header.jpg" alt="header image" class="animation-pulseSlow"> -->
@@ -45,7 +45,7 @@
 						<div class="row">
 
 							<div class="row text-center pad-top">
-								<div class="col-md-4 col-sm-4">
+								<div class="col-md-4 col-sm-4" id="bitacoradiaria">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Personal
@@ -78,7 +78,7 @@
 									</div>
 								</div>
 
-								<div class="col-md-4 col-sm-4">
+								<div class="col-md-4 col-sm-4" id="plansemanal">
 									<div class="panel panel-info">
 										<div class="panel-heading">
 										  Personal
@@ -111,7 +111,7 @@
 									</div>
 								</div>
 
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 col-sm-4" id="asignacionpersonal">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Proyecto
@@ -146,7 +146,7 @@
 
 						    <div class="row text-center pad-top">
 								
-                                <div class="col-md-4 col-sm-4">
+                                <div class="col-md-4 col-sm-4" id="detallepuestos">
 									<div class="panel panel-success">
 										<div class="panel-heading">
 											Proyecto

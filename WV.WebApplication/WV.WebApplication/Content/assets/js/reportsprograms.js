@@ -20,9 +20,9 @@
     $("#cmbproyecto").trigger("change");
 
 
-    //$("#cmbpersonasplan").change(function () {
-    //    getWeeklyPlans();
-    //});
+    $("#cmbprogramaactividad").change(function () {
+        generateURLActivity();
+    });
 
     //$("#cmbpersonasplan").trigger("change");
 
@@ -51,8 +51,10 @@
 
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
-                    $("#cmbprograma").html(response.ResponseData);
-                    $("#cmbprograma").trigger("change");
+                    $("#cmbprograma").html(response.ResponseData); 
+                    $("#cmbprogramaactividad").html(response.ResponseData);
+                    $("#cmbprograma").trigger("change"); 
+                    $("#cmbprogramaactividad").trigger("change");
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
@@ -155,6 +157,11 @@
     function generateURLProject() {
         var projectID = $("#cmbproyecto > option:selected").attr("data-id-project");
         $("#btnreporteproyecto").attr("href", "/Handlers/GeneralReportsProgram.ashx?method=getprojectreport&ID_Proyecto=" + projectID);
+    }
+
+    function generateURLActivity() {
+        var programID = $("#cmbprogramaactividad > option:selected").attr("data-id-programs");
+        $("#btnreporteprogramaactividad").attr("href", "/Handlers/GeneralReportsProgram.ashx?method=getactivityreport&ID_Programa=" + programID);
     }
 
 

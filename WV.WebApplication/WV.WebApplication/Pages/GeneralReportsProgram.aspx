@@ -201,6 +201,36 @@
 									</div>
 								</div>
 
+                                <div class="col-md-4 col-sm-4" id="detalleprogramas">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											Programas
+										</div>
+										<div class="panel-body">
+											<h4>
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
+													<div class="panel-body">
+														<a href="javascript:void(0)">
+															<i class="fa fa-file-text-o fa-3x"></i>
+														</a>
+
+														<strong>Actividades en Programa</strong>
+
+													</div>
+
+												</div>
+											</h4>
+											<div class="form-inline">
+												<select id="cmbprogramaactividad" class="form-control">
+													
+												</select>
+												
+											</div>
+                                            <p><a href="javascript:void(0)" id="btnreporteprogramaactividad"  class="btn btn-primary pull-right">Generar</a></p>
+										</div>
+									</div>
+								</div>
+
 								
 							</div>
 
