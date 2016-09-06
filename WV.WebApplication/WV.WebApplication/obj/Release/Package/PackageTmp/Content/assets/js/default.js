@@ -2,6 +2,11 @@ $(window).load(function () {
 
     setSelectedModule();
 
+    //if ($("#contenido").children().children().hasClass("col-md-12"))
+    //{
+    //    $("#contenido").children().children().attr("style", "margin:0;padding:0;");
+    //}
+
     if (sessionStorage.getItem("currentmenu") != undefined)
     {
         idMenu = sessionStorage.getItem("currentmenu");

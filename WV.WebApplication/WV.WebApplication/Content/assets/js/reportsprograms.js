@@ -7,6 +7,8 @@
 
     getAllProjects();
 
+    getAllCommunities();
+
     ////getAllRoles();
 
     $("#cmbprograma").change(function () {
@@ -22,6 +24,14 @@
 
     $("#cmbprogramaactividad").change(function () {
         generateURLActivity();
+    });
+
+    $("#cmbprogramabeneficiario").change(function () {
+        generateURLBeneficiary();
+    });
+
+    $("#cmbcomunidadbeneficiario").change(function () {
+        generateURLCommunity();
     });
 
     //$("#cmbpersonasplan").trigger("change");
@@ -53,8 +63,10 @@
                 if (response.IsSucess) {
                     $("#cmbprograma").html(response.ResponseData); 
                     $("#cmbprogramaactividad").html(response.ResponseData);
+                    $("#cmbprogramabeneficiario").html(response.ResponseData);
                     $("#cmbprograma").trigger("change"); 
                     $("#cmbprogramaactividad").trigger("change");
+                    $("#cmbprogramabeneficiario").trigger("change");
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
@@ -80,6 +92,29 @@
                     $("#cmbproyecto").html(response.ResponseData);
                     //$("#cmbpersonasplan").html(response.ResponseData);
 
+                }
+                else {
+                    var error = "Error de Conexión, Intente nuevamente  ";
+                    displayErrorMessage(error);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
+    function getAllCommunities() {
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/GeneralReportsProgram.ashx?method=getallcommunities',
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    $("#cmbcomunidadbeneficiario").html(response.ResponseData);
+                    $("#cmbcomunidadbeneficiario").trigger("change");
                 }
                 else {
                     var error = "Error de Conexión, Intente nuevamente  ";
@@ -162,6 +197,16 @@
     function generateURLActivity() {
         var programID = $("#cmbprogramaactividad > option:selected").attr("data-id-programs");
         $("#btnreporteprogramaactividad").attr("href", "/Handlers/GeneralReportsProgram.ashx?method=getactivityreport&ID_Programa=" + programID);
+    }
+
+    function generateURLBeneficiary() {
+        var programID = $("#cmbprogramabeneficiario > option:selected").attr("data-id-programs");
+        $("#btnreportebeneficiarioprograma").attr("href", "/Handlers/GeneralReportsProgram.ashx?method=getbeneficiaryprogramreport&ID_Programa=" + programID);
+    }
+
+    function generateURLCommunity() {
+        var communityID  = $("#cmbcomunidadbeneficiario > option:selected").attr("data-id-community");
+        $("#btnreportebeneficiariopcomunidad").attr("href", "/Handlers/GeneralReportsProgram.ashx?method=getbeneficiarycommunityreport&ID_Comunidad=" + communityID);
     }
 
 
