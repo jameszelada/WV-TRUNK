@@ -31,6 +31,8 @@ namespace WV.WebApplication.Handlers
         IDataRepository<Proyecto> _proyecto;
         IDataRepository<Programa> _programa;
         IDataRepository<Comunidad> _comunidad;
+        IDataRepository<Actividad> _actividad;
+        IDataRepository<Beneficiario> _beneficiario;
         public void ProcessRequest(HttpContext context)
         {
             InitializeObjects();
@@ -40,9 +42,9 @@ namespace WV.WebApplication.Handlers
                 case "getallprograms":
                     context.Response.Write(GetAllPrograms());
                     break;
-                //case "getallprojects":
-                //    context.Response.Write(GetAllProjects());
-                //    break;
+                case "getallactivities":
+                    context.Response.Write(GetAllActivities(context));
+                    break;
                 //case "getalllogbooks":
                 //    context.Response.Write(GetLogBooks(context));
                 //    break;
@@ -74,8 +76,15 @@ namespace WV.WebApplication.Handlers
                     context.Response.AddHeader("Content-Disposition", "attachment;filename=Beneficiarios-Comunidad.pdf");
                     context.Response.BinaryWrite(GetBeneficiaryCommnityReport(context));
                     break;
+                case "getattendancereport":
+                    context.Response.ContentType = "application/pdf";
+                    context.Response.AddHeader("Content-Disposition", "attachment;filename=Asistencia-Acvitidad.pdf");
+                    context.Response.BinaryWrite(GetAttendanceActivityReport(context));
+                    break;
             }
         }
+
+        
 
         
 
@@ -86,9 +95,45 @@ namespace WV.WebApplication.Handlers
             _programa = new DataRepository<IAWContext, Programa>(_context);
             _proyecto = new DataRepository<IAWContext, Proyecto>(_context);
             _comunidad = new DataRepository<IAWContext, Comunidad>(_context);
+            _actividad = new DataRepository<IAWContext, Actividad>(_context);
+            _beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
         }
 
 
+        private string GetAllActivities(HttpContext context)
+        {
+            string options = "";
+
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            int ID_Programa = Int32.Parse(context.Request.Params["ID_Programa"].ToString());
+            try
+            {
+                var programa = _programa.GetFirst(p => p.ID_Programa == ID_Programa);
+
+                if (programa.Actividad.Count > 0)
+                {
+                    foreach (var actividad in programa.Actividad.OrderByDescending(a => a.Fecha))
+                    {
+                        options += "<option data-id-activity='" + actividad.ID_Actividad + "'>" + actividad.Fecha.ToShortDateString() + "</option>";
+                    }
+                }
+
+
+                response.IsSucess = true;
+                response.ResponseData = options;
+                response.Message = string.Empty;
+                response.CallBack = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
+        }
 
         public string GetAllPrograms()
         {
@@ -1998,6 +2043,409 @@ namespace WV.WebApplication.Handlers
             document.Add(pContent2);
 
             #endregion
+
+
+            document.Close();
+
+            return output.ToArray();
+        }
+
+        public byte[] GetAttendanceActivityReport(HttpContext context)
+        {
+            int index = 0;
+            int ID_Programa = Int32.Parse(context.Request.Params["ID_Programa"].ToString());
+
+            int ID_Actividad = Int32.Parse(context.Request.Params["ID_Actividad"].ToString());
+
+            var programa = _programa.GetFirst(p => p.ID_Programa == ID_Programa);
+
+            var actividad = _actividad.GetFirst(a=> a.ID_Actividad == ID_Actividad);
+
+            var document = new Document(PageSize.A4, 10f, 10f, 110f, 50f);
+            var output = new MemoryStream();
+            var writer = PdfWriter.GetInstance(document, output);
+            HeaderFooter headerFooter = new HeaderFooter();
+
+            headerFooter.Titulo = "Reporte de Asistencia a Actividad";
+            headerFooter.SubTitulo = "Vision Mundial";
+
+            writer.PageEvent = headerFooter;
+
+            document.Open();
+
+            Font tiny = new Font(Font.FontFamily.HELVETICA, 7f, Font.NORMAL, BaseColor.BLACK);
+            Font tinyBold = new Font(Font.FontFamily.HELVETICA, 7f, Font.BOLD, BaseColor.BLACK);
+
+
+            PdfPTable pdfTab1 = new PdfPTable(2);
+            int[] arr = new int[2];
+            arr[0] = 1;
+            arr[1] = 1;
+            pdfTab1.SetWidths(arr);
+
+            PdfPCell pdfCellHead = new PdfPCell(new Phrase("Nombre del Proyecto:", tinyBold));
+            PdfPCell pdfCellHead1 = new PdfPCell(new Phrase(programa.Proyecto.Codigo, tinyBold));
+
+
+            pdfCellHead.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellHead1.HorizontalAlignment = Element.ALIGN_LEFT;
+
+
+            pdfCellHead.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellHead1.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+            pdfCellHead.Border = 0;
+            pdfCellHead1.Border = 0;
+
+
+
+            //add all three cells into PdfTable
+            pdfTab1.AddCell(pdfCellHead);
+            pdfTab1.AddCell(pdfCellHead1);
+
+            pdfTab1.TotalWidth = document.PageSize.Width - 80f;
+            pdfTab1.WidthPercentage = 50;
+            pdfTab1.HorizontalAlignment = Element.ALIGN_LEFT;
+            Paragraph p1 = new Paragraph();
+            p1.IndentationLeft = 30;
+            p1.Add(pdfTab1);
+            p1.SpacingAfter = 20;
+
+
+            document.Add(p1);
+
+
+
+            index++;
+            #region Informacion de Programa
+
+            PdfPTable pdfTab = new PdfPTable(3);
+            int[] arrHeader = new int[3];
+            arrHeader[0] = 1;
+            arrHeader[1] = 1;
+            arrHeader[2] = 1;
+            pdfTab.SetWidths(arrHeader);
+
+            Font tinyFont = new Font(Font.FontFamily.HELVETICA, 7f, Font.NORMAL, BaseColor.BLACK);
+            Font tinyFontBold = new Font(Font.FontFamily.HELVETICA, 7f, Font.BOLD, BaseColor.BLACK);
+            Font tinyFontBoldUnderline = new Font(Font.FontFamily.HELVETICA, 7f, Font.UNDERLINE | Font.BOLD, BaseColor.BLACK);
+            BaseColor backgroundColor = WebColors.GetRGBColor("#DCDDDE");
+
+            ////We will have to create separate cells to include image logo and 2 separate strings
+            ////Row 1
+            PdfPCell pdfCell1 = new PdfPCell(new Phrase("Numero de Programa", tinyFontBold));
+            PdfPCell pdfCell2 = new PdfPCell(new Phrase(index.ToString(), tinyFont));
+            PdfPCell pdfCell3 = new PdfPCell(new Phrase("Código", tinyFontBold));
+            PdfPCell pdfCell4 = new PdfPCell(new Phrase(programa.Codigo, tinyFont));
+            PdfPCell pdfCell5 = new PdfPCell(new Phrase("Tipo de Programa", tinyFontBold));
+            PdfPCell pdfCell6 = new PdfPCell(new Phrase(programa.TipoPrograma.TipoProgramaDescripcion, tinyFont));
+            PdfPCell pdfCell7 = new PdfPCell(new Phrase("Comunidad", tinyFontBold));
+            PdfPCell pdfCell8 = new PdfPCell(new Phrase(programa.Comunidad.Comunidad1, tinyFont));
+            PdfPCell pdfCell9 = new PdfPCell(new Phrase("Municipio", tinyFontBold));
+            PdfPCell pdfCell10 = new PdfPCell(new Phrase(programa.Comunidad.Municipio.Municipio1, tinyFont));
+            PdfPCell pdfCell11 = new PdfPCell(new Phrase("Departamento", tinyFontBold));
+            PdfPCell pdfCell12 = new PdfPCell(new Phrase(programa.Comunidad.Municipio.Departamento.Departamento1, tinyFont));
+            PdfPCell pdfCell13 = new PdfPCell(new Phrase("Fecha de Inicio", tinyFontBold));
+            PdfPCell pdfCell14 = new PdfPCell(new Phrase(programa.FechaInicio.ToShortDateString(), tinyFont));
+            PdfPCell pdfCell15 = new PdfPCell(new Phrase("Fecha de Finalización", tinyFontBold));
+            PdfPCell pdfCell16 = new PdfPCell(new Phrase(programa.FechaFinal.ToShortDateString(), tinyFont));
+            PdfPCell pdfCell17 = new PdfPCell(new Phrase("", tinyFont));
+            PdfPCell pdfCell18 = new PdfPCell(new Phrase("", tinyFont));
+
+            //pdfCell1.BackgroundColor = backgroundColor;
+            //pdfCell2.BackgroundColor = backgroundColor;
+
+            pdfCell1.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell5.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell6.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell7.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell8.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell9.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell10.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell11.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell12.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell13.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell14.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell15.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell16.HorizontalAlignment = Element.ALIGN_LEFT;
+
+            pdfCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell8.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell14.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell15.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell16.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+
+            pdfCell1.Border = 0;
+            pdfCell2.Border = 0;
+            pdfCell3.Border = 0;
+            pdfCell4.Border = 0;
+            pdfCell5.Border = 0;
+            pdfCell6.Border = 0;
+            pdfCell7.Border = 0;
+            pdfCell8.Border = 0;
+            pdfCell9.Border = 0;
+            pdfCell10.Border = 0;
+            pdfCell11.Border = 0;
+            pdfCell12.Border = 0;
+            pdfCell13.Border = 0;
+            pdfCell14.Border = 0;
+            pdfCell15.Border = 0;
+            pdfCell16.Border = 0;
+            pdfCell17.Border = 0;
+            pdfCell18.Border = 0;
+
+
+            pdfCell1.FixedHeight = 25f;
+            pdfCell2.FixedHeight = 25f;
+            pdfCell3.FixedHeight = 25f;
+            pdfCell4.FixedHeight = 25f;
+            pdfCell5.FixedHeight = 25f;
+            pdfCell6.FixedHeight = 25f;
+            pdfCell7.FixedHeight = 25f;
+            pdfCell8.FixedHeight = 25f;
+            pdfCell9.FixedHeight = 25f;
+            pdfCell10.FixedHeight = 25f;
+            pdfCell11.FixedHeight = 25f;
+            pdfCell12.FixedHeight = 25f;
+            pdfCell13.FixedHeight = 25f;
+            pdfCell14.FixedHeight = 25f;
+            pdfCell15.FixedHeight = 25f;
+            pdfCell16.FixedHeight = 25f;
+            pdfCell17.FixedHeight = 25f;
+            pdfCell18.FixedHeight = 25f;
+
+            //add all three cells into PdfTable
+            pdfTab.AddCell(pdfCell1);
+            pdfTab.AddCell(pdfCell3);
+            pdfTab.AddCell(pdfCell5);
+            pdfTab.AddCell(pdfCell2);
+            pdfTab.AddCell(pdfCell4);
+            pdfTab.AddCell(pdfCell6);
+            pdfTab.AddCell(pdfCell7);
+            pdfTab.AddCell(pdfCell9);
+            pdfTab.AddCell(pdfCell11);
+            pdfTab.AddCell(pdfCell8);
+            pdfTab.AddCell(pdfCell10);
+            pdfTab.AddCell(pdfCell12);
+            pdfTab.AddCell(pdfCell13);
+            pdfTab.AddCell(pdfCell15);
+            pdfTab.AddCell(pdfCell17);
+            pdfTab.AddCell(pdfCell14);
+            pdfTab.AddCell(pdfCell16);
+            pdfTab.AddCell(pdfCell18);
+
+
+            pdfTab.TotalWidth = document.PageSize.Width - 80f;
+            pdfTab.WidthPercentage = 90;
+            pdfTab.HorizontalAlignment = Element.ALIGN_LEFT;
+            Paragraph paragraph = new Paragraph();
+            paragraph.IndentationLeft = 30;
+            paragraph.SpacingAfter = 10;
+            paragraph.Add(pdfTab);
+
+            Paragraph pDescripcion = new Paragraph("Información del Programa:", tinyFontBoldUnderline);
+            pDescripcion.IndentationLeft = 30;
+            pDescripcion.SpacingAfter = 20;
+            document.Add(pDescripcion);
+            document.Add(paragraph);
+
+            #endregion
+
+            #region Actividad
+
+            PdfPTable pdfTabContent2 = new PdfPTable(2);
+            pdfTabContent2.DefaultCell.FixedHeight = 100f;
+            int[] arrContent2 = new int[2];
+            arrContent2[0] = 1;
+            arrContent2[1] = 2;
+
+            pdfTabContent2.SetWidths(arrContent2);
+
+            PdfPCell pdfCellContentActivity1 = new PdfPCell(new Phrase("Fecha", tinyFontBold));
+            PdfPCell pdfCellContentActivity11 = new PdfPCell(new Phrase(actividad.Fecha.ToShortDateString(), tinyFont));
+            PdfPCell pdfCellContentActivity2 = new PdfPCell(new Phrase("Codigo de Actividad", tinyFontBold));
+            PdfPCell pdfCellContentActivity21 = new PdfPCell(new Phrase(actividad.Codigo, tinyFont));
+            PdfPCell pdfCellContentActivity3 = new PdfPCell(new Phrase("Actividad", tinyFontBold));
+            PdfPCell pdfCellContentActivity31 = new PdfPCell(new Phrase(actividad.ActividadDescripcion, tinyFont));
+            PdfPCell pdfCellContentActivity4 = new PdfPCell(new Phrase("Observación", tinyFontBold));
+            PdfPCell pdfCellContentActivity41 = new PdfPCell(new Phrase(actividad.Observacion, tinyFont));
+           
+
+            pdfCellContentActivity1.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity11.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity21.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity31.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity41.HorizontalAlignment = Element.ALIGN_LEFT;
+            
+
+            pdfCellContentActivity1.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity11.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity21.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity31.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity41.VerticalAlignment = Element.ALIGN_MIDDLE;
+            
+
+            pdfCellContentActivity1.Border = 0;
+            pdfCellContentActivity2.Border = 0;
+            pdfCellContentActivity3.Border = 0;
+            pdfCellContentActivity4.Border = 0;
+            pdfCellContentActivity11.Border = 0;
+            pdfCellContentActivity21.Border = 0;
+            pdfCellContentActivity31.Border = 0;
+            pdfCellContentActivity41.Border = 0;
+           
+
+            //add all three cells into PdfTable
+            pdfTabContent2.AddCell(pdfCellContentActivity1);
+            pdfTabContent2.AddCell(pdfCellContentActivity11);
+            pdfTabContent2.AddCell(pdfCellContentActivity2);
+            pdfTabContent2.AddCell(pdfCellContentActivity21);
+            pdfTabContent2.AddCell(pdfCellContentActivity3);
+            pdfTabContent2.AddCell(pdfCellContentActivity31);
+            pdfTabContent2.AddCell(pdfCellContentActivity4);
+            pdfTabContent2.AddCell(pdfCellContentActivity41);
+            
+
+            pdfTabContent2.TotalWidth = document.PageSize.Width - 80f;
+            pdfTabContent2.WidthPercentage = 90;
+            pdfTabContent2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTabContent2.SpacingAfter = 20;
+            Paragraph pContent2 = new Paragraph();
+            pContent2.IndentationLeft = 30;
+            pContent2.Add(pdfTabContent2);
+            Paragraph pActividades = new Paragraph("Información de Actividad:", tinyFontBoldUnderline);
+            pActividades.IndentationLeft = 30;
+            pActividades.SpacingAfter = 20;
+            document.Add(pActividades);
+            document.Add(pContent2);
+
+            #endregion
+
+            #region Beneficiarios en Actividad
+
+            PdfPTable pdfTabContent22 = new PdfPTable(3);
+            pdfTabContent22.DefaultCell.FixedHeight = 100f;
+            int[] arrContent22 = new int[3];
+            arrContent22[0] = 1;
+            arrContent22[1] = 3;
+            arrContent22[2] = 1;
+            
+
+            pdfTabContent22.SetWidths(arrContent22);
+
+            PdfPCell pdfCellContentActivity101 = new PdfPCell(new Phrase("N°", tinyFontBold));
+            PdfPCell pdfCellContentActivity201 = new PdfPCell(new Phrase("Nombre del Beneficiario", tinyFontBold));
+            PdfPCell pdfCellContentActivity301 = new PdfPCell(new Phrase("Estado", tinyFontBold));
+
+
+
+            pdfCellContentActivity101.BackgroundColor = backgroundColor;
+            pdfCellContentActivity201.BackgroundColor = backgroundColor;
+            pdfCellContentActivity301.BackgroundColor = backgroundColor;
+
+
+            pdfCellContentActivity101.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity201.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentActivity301.HorizontalAlignment = Element.ALIGN_LEFT;
+
+
+            pdfCellContentActivity101.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity201.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentActivity301.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+
+            pdfCellContentActivity101.Border = 0;
+            pdfCellContentActivity201.Border = 0;
+            pdfCellContentActivity301.Border = 0;
+           
+
+            //add all three cells into PdfTable
+            pdfTabContent22.AddCell(pdfCellContentActivity101);
+            pdfTabContent22.AddCell(pdfCellContentActivity201);
+            pdfTabContent22.AddCell(pdfCellContentActivity301);
+            
+
+
+            if (actividad.Asistencia.Count > 0)
+            {
+                int num = 0;
+                foreach (var asistencia in actividad.Asistencia)
+                {
+                    num++;
+
+                    var beneficiario = _beneficiario.GetFirst(ben=>ben.ID_Beneficiario==asistencia.ID_Beneficiario);
+
+                    PdfPCell contentCellFirst = new PdfPCell(new Phrase(num.ToString(), tinyFont));
+                    PdfPCell contentCellSecond = new PdfPCell(new Phrase(beneficiario.Nombre +" "+beneficiario.Apellido, tinyFont));
+                    PdfPCell contentCellThird = new PdfPCell(new Phrase(asistencia.Estado, tinyFont));
+                    
+
+                    contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
+                    contentCellSecond.HorizontalAlignment = Element.ALIGN_LEFT;
+                    contentCellThird.HorizontalAlignment = Element.ALIGN_LEFT;
+                    
+
+                    contentCellFirst.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    contentCellSecond.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    contentCellThird.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    
+
+
+                    contentCellFirst.Border = 0;
+                    contentCellSecond.Border = 0;
+                    contentCellThird.Border = 0;
+                   
+
+                    contentCellFirst.FixedHeight = 20f;
+                    contentCellSecond.FixedHeight = 20f;
+                    contentCellThird.FixedHeight = 20f;
+                    
+
+
+                    pdfTabContent22.AddCell(contentCellFirst);
+                    pdfTabContent22.AddCell(contentCellSecond);
+                    pdfTabContent22.AddCell(contentCellThird);
+                    
+
+                }
+            }
+            else
+            {
+                PdfPCell contentCellFirst = new PdfPCell(new Phrase("No existen Beneficiarios en inscritos en esta actividad", tinyFont));
+                pdfTabContent2.AddCell(contentCellFirst);
+            }
+
+            pdfTabContent22.TotalWidth = document.PageSize.Width - 80f;
+            pdfTabContent22.WidthPercentage = 95;
+            pdfTabContent22.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTabContent22.SpacingAfter = 20;
+            Paragraph pContent201 = new Paragraph();
+            pContent201.IndentationLeft = 30;
+            pContent201.Add(pdfTabContent22);
+            document.Add(pContent201);
+            #endregion
+
 
 
             document.Close();

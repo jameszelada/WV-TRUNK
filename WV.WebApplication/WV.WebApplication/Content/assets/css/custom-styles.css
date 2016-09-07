@@ -24,6 +24,13 @@ http://creativecommons.org/licenses/by/3.0/
     z-index: 1000000;
 }
 
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
 
 
 .default-row-spacer{

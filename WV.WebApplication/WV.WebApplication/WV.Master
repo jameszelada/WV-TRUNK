@@ -248,7 +248,7 @@
     </div>
     </header>
         
-    
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Ir al comienzo de la página" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
     <footer>
         <div class="content-wrapper">
             <div class="float-left">

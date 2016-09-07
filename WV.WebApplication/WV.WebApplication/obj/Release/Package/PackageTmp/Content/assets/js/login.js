@@ -4,6 +4,12 @@
         placement:'rigth'
     });
 
+    $('#contrasenia').keypress(function (event) {
+        if (event.keyCode == 13) {
+            $('#login').click();
+        }
+    });
+
     $('#login').click(function () {
 
         var username = $("#nombreusuario").val();

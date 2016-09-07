@@ -39,9 +39,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="Home">
-                    <div class="col-md-4 text-center">
+                   <%-- <div class="col-md-4 text-center">
                         <img src="/Content/assets/img/worldvision.jpg">
-                    </div>
+                    </div>--%>
                     Vision Mundial</a>
             </div>
 
@@ -248,7 +248,7 @@
     </div>
     </header>
         
-    
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Ir al comienzo de la página" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
     <footer>
         <div class="content-wrapper">
             <div class="float-left">

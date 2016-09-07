@@ -201,7 +201,7 @@
 									</div>
 								</div>
 
-                                <div class="col-md-4 col-sm-4" id="detalleprogramas">
+                                <div class="col-md-4 col-sm-4" id="Actividadesprograma">
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Programas
@@ -236,6 +236,96 @@
 
 						    <div class="row text-center pad-top">
 								
+                                <div class="col-md-4 col-sm-4" id="beneficiarioprograma">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											Programas
+										</div>
+										<div class="panel-body">
+											<h4>
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
+													<div class="panel-body">
+														<a href="javascript:void(0)">
+															<i class="fa fa-file-text-o fa-3x"></i>
+														</a>
+
+														<strong>Beneficiarios por Programa</strong>
+
+													</div>
+
+												</div>
+											</h4>
+											<div class="form-inline">
+												<select id="cmbprogramabeneficiario" class="form-control">
+													
+												</select>
+												
+											</div>
+                                            <p><a href="javascript:void(0)" id="btnreportebeneficiarioprograma"  class="btn btn-primary pull-right">Generar</a></p>
+										</div>
+									</div>
+								</div>
+
+                                 <div class="col-md-4 col-sm-4" id="beneficiariocomunidad">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											Programas
+										</div>
+										<div class="panel-body">
+											<h4>
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
+													<div class="panel-body">
+														<a href="javascript:void(0)">
+															<i class="fa fa-file-text-o fa-3x"></i>
+														</a>
+
+														<strong>Beneficiarios por Comunidad</strong>
+
+													</div>
+
+												</div>
+											</h4>
+											<div class="form-inline">
+												<select id="cmbcomunidadbeneficiario" class="form-control">
+													
+												</select>
+												
+											</div>
+                                            <p><a href="javascript:void(0)" id="btnreportebeneficiariopcomunidad"  class="btn btn-primary pull-right">Generar</a></p>
+										</div>
+									</div>
+								</div>
+
+                                <div class="col-md-4 col-sm-4" id="programaAsistencia">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											Programas
+										</div>
+										<div class="panel-body">
+											<h4>
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
+													<div class="panel-body">
+														<a href="javascript:void(0)">
+															<i class="fa fa-file-text-o fa-3x"></i>
+														</a>
+
+														<strong>Reporte de Asistencias</strong>
+
+													</div>
+
+												</div>
+											</h4>
+											<div class="form-inline">
+												<select id="cmbcomunidadbeneficiario1" class="form-control" style="visibility:hidden;">
+													
+												</select>
+                                                
+												
+											</div>
+                                            <p><a id="btnconfigurarreporte" href="#myModal" data-toggle="modal"  class="btn btn-primary pull-right">Configurar y Generar</a></p>
+										</div>
+									</div>
+								</div>
                                 <%--<div class="col-md-4 col-sm-4">
 									<div class="panel panel-success">
 										<div class="panel-heading">
@@ -287,42 +377,52 @@
 		<input id="roletoassign" class="hidden" type="text" />--%>
 	<input id="idactividad" class="hidden" type="text" />
 	<input id="pagetoedit" class="hidden" type="text" />
-	<div class="modal fade" id="modalmessage" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Eliminar Personal</h4>
-				</div>
-				<div class="modal-body">
-					<p>¿Está seguro de eliminar el registro seleccionado?</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-					<%--<button id="btndeleteuser" type="button" class="btn btn-default" data-dismiss="modal">Si</button>--%>
-					<button id="pagebtndelete" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="modal fade" id="myModal" role="dialog" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Configuración de Reporte</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form1" class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                    for="in_codigo">
+                                    Programa</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control"
+                                        id="cmbprogramaasistencia">
+                                        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"
+                                    for="in_descripcion">
+                                    Actividad</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control"
+                                        id="cmbactividad">
+                                        
+                                    </select>
+                                </div>
+                            </div>
 
-	<div class="modal fade" id="modalsave" role="dialog">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Eliminar Personal</h4>
-				</div>
-				<div class="modal-body">
-					<p id="actionmessage">¿Está seguro de guardar los cambios?</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-					<button id="pagebtnsave" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                            Cerrar
+                        </button>
+                        <a id="btngenerarreporte" type="button" class="btn btn-primary">
+                            Generar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 	</div>
 </asp:Content>
