@@ -22,3 +22,9 @@ F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\EntityFramework.xml
 F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.csprojResolveAssemblyReference.cache
 F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.dll
 F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.Helpers.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.Helpers.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.Deployment.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.Deployment.xml

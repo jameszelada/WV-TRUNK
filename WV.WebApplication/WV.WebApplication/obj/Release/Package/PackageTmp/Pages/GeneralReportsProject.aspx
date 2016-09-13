@@ -146,14 +146,44 @@
 
 						    <div class="row text-center pad-top">
 								
-                                <div class="col-md-4 col-sm-4" id="detallepuestos">
-									<div class="panel panel-success">
+                                 <div class="col-md-4 col-sm-4" id="consolidadoproyecto">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
 											Proyecto
 										</div>
 										<div class="panel-body">
 											<h4>
-												<div class="panel panel-primary text-left no-boder bg-color-green">
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
+													<div class="panel-body">
+														<a href="javascript:void(0)">
+															<i class="fa fa-file-text-o fa-3x"></i>
+														</a>
+
+														<strong>Consolidado de Proyecto</strong>
+
+													</div>
+
+												</div>
+											</h4>
+											<div class="form-inline">
+												<select id="cmbproyectoconsolidado" class="form-control">
+													
+												</select>
+												
+											</div>
+                                            <p><a href="javascript:void(0)" id="btnreporteconsolidado"  class="btn btn-primary pull-right">Generar</a></p>
+										</div>
+									</div>
+								</div>
+
+                                <div class="col-md-4 col-sm-4" id="detallepuestos">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											Proyecto
+										</div>
+										<div class="panel-body">
+											<h4>
+												<div class="panel panel-primary text-left no-boder bg-color-blue">
 													<div class="panel-body">
 														<a href="javascript:void(0)">
 															<i class="fa fa-file-text-o fa-3x"></i>
@@ -176,6 +206,7 @@
 									</div>
 								</div>
 
+                               
 							</div>
 
 						   

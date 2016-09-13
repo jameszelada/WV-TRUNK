@@ -27,6 +27,12 @@
 
     $("#cmbproyecto").trigger("change");
 
+    $("#cmbproyectoconsolidado").change(function () {
+        generateURLSummaryReport();
+    });
+
+    $("#cmbproyectoconsolidado").trigger("change");
+
     $("#cmbfechabitacora").change(function () {
         generateURLLogbook();
     });
@@ -72,8 +78,8 @@
 
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
-                    $("#cmbproyecto").html(response.ResponseData);
-                    //$("#cmbpersonasplan").html(response.ResponseData);
+                    $("#cmbproyecto").html(response.ResponseData); 
+                    $("#cmbproyectoconsolidado").html(response.ResponseData);
 
                 }
                 else {
@@ -147,6 +153,11 @@
     function generateURL() {
         var projectID = $("#cmbproyecto > option:selected").attr("data-id-project");
         $("#btnreporteasignacion").attr("href", "/Handlers/GeneralReportsProject.ashx?method=getassignreport&ID_Proyecto=" + projectID);
+    }
+
+    function generateURLSummaryReport() {
+        var projectID = $("#cmbproyectoconsolidado > option:selected").attr("data-id-project");
+        $("#btnreporteconsolidado").attr("href", "/Handlers/GeneralReportsProject.ashx?method=getSummaryReport&ID_Proyecto=" + projectID);
     }
 
     function generateURLLogbook() {
