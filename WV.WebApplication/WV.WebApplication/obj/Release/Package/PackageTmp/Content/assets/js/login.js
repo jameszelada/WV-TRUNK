@@ -10,6 +10,8 @@
         }
     });
 
+    $('#nombreusuario').focus();
+
     $('#login').click(function () {
 
         var username = $("#nombreusuario").val();
@@ -41,7 +43,7 @@
 
     function setErrorMessage(error)
     {
-        $("#errormessage").html(error).addClass("errormessage");
+        $("#errormessage").html(error).addClass("errormessage alert-danger");
     }
 
     function submitDataToHome()

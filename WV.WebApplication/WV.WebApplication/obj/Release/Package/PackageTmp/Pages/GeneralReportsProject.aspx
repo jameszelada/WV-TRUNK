@@ -29,7 +29,7 @@
 						<div class="row">
 
 							<div class="col-md-12" style="padding: 0px;">
-								<div class="content-header content-header-media" style="background-color: #09192a; height: 130px; padding-left: 0px;">
+								<div class="content-header content-header-media" style="background-color: #09192a; height: 110px; padding:10px">
 									<!-- Remove inline styles when have background image. -->
 									<div class="header-section">
 										<h1 style="color:#999;">Reportes - Administración de Proyectos<br>

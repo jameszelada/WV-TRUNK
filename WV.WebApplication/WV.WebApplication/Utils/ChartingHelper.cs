@@ -28,7 +28,7 @@ namespace WV.WebApplication.Utils
             set { _Data = value; }
         }
 
-        public const String CHARTS_THEME = @"<Chart BackColor=""#EFEFEF"" BackGradientStyle=""TopBottom"" BorderColor=""#A0A0A0"" Palette=""None"" PaletteCustomColors=""#376894"" >
+        public const String CHARTS_THEME = @"<Chart BackColor=""#FFFFFF"" BackGradientStyle=""TopBottom"" BorderColor=""#A0A0A0"" Palette=""None"" PaletteCustomColors=""#376894"" >
         <ChartAreas>
         <ChartArea Name=""Default"" _Template_=""All"" BackColor=""Transparent"" BackSecondaryColor=""White"" BorderWidth=""1"" BorderColor=""#A0A0A0"" BorderDashStyle=""Solid"" >
         <AxisY>
@@ -138,9 +138,9 @@ namespace WV.WebApplication.Utils
                     ranges.Add(13);
                     break;
                 case "other":
-                    ranges.Add(20);
                     ranges.Add(15);
-                    ranges.Add(12);
+                    ranges.Add(5);
+                    ranges.Add(3);
                     break;
                 default:
                     break;

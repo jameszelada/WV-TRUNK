@@ -11,6 +11,18 @@
 	<div runat="server" id="pagename" class="hidden">Administracion_Notas</div>
 	<div id="contenido" class="panel-body">
 		<div class="row">
+            <div class="col-md-12" style="padding: 0px;">
+								<div class="content-header content-header-media" style="background-color: #09192a; height: 110px; padding:10px; margin-bottom:20px;">
+									<!-- Remove inline styles when have background image. -->
+									<div class="header-section">
+										<h1 style="color:#999;">Administración de Notas<br>
+											<small >Mecanismo CIC.</small></h1>
+									</div>
+									<!-- For best results use an image with a resolution of 2560x248 pixels (You can also use a blurred image with ratio 10:1 - eg: 1000x100 pixels - it will adjust and look great!) -->
+									<!-- <img src="/images/proui-2.0/placeholders/headers/profile_header.jpg" alt="header image" class="animation-pulseSlow"> -->
+								</div>
+
+							</div>
             <div class="col-md-2">
             </div>
 			<div class="row text-center pad-top">

@@ -41,9 +41,9 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="content-header content-header-media" style="background-color: #09192a; height: 130px;">
+                                <div class="content-header content-header-media" style="background-color: #09192a; height: 145px;">
                                     <!-- Remove inline styles when have background image. -->
-                                    <div class="header-section">
+                                    <div class="header-section" style="padding :10px;">
                                         <h1 style="color:#999;">Acciones de Mantenimiento<br>
                                             <small >Seleccione los registros que desee eliminar <strong><span id="attendance_date"><br></span>Realizar Cuidadosamente!</strong></small></h1>
                                     </div>

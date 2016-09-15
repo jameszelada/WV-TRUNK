@@ -449,7 +449,8 @@ line-height: 1.428571429;
         min-height: 768px;
 		
     }
-	
+
+
 	
     .navbar-side {
         z-index: 1;
@@ -468,6 +469,20 @@ display: block;
 padding-top: 14px;
 font-size: 19px;
 }
+
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+
+    .header-section {
+        height:80%;
+    }
 }
 
 .activity_box h3 {
@@ -4271,7 +4286,53 @@ div#char {
 		width: 50%;
 	}
 }
+
+@media(max-width:720px) {
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+    .header-section {
+        height:80%;
+    }
+}
+
+@media(max-width:750px) {
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+
+    .header-section {
+        height:80%;
+    }
+}
+
 @media (max-width:800px){
+
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+    .header-section {
+        height:80%;
+    }
+
 	.profile_details_left {
 		float: none;
 	}
@@ -4365,6 +4426,18 @@ div#char {
 	}
 }
 @media (max-width:768px){
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+    .header-section {
+        height:80%;
+    }
 	.user-panel-top li a {
 		padding: 10px 10px 0;
 	}
@@ -4446,11 +4519,37 @@ div#char {
 	}
 }
 @media (max-width: 739px){
-	.float-left {
+	.header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+
+    .header-section {
+        height:80%;
+    }
+    .float-left {
 		width: 15%;
 	}
 }
 @media (max-width:736px){
+    .header-section h1 
+    {
+        font-size:14pt;
+    }
+
+    .header-section span
+    {
+        font-size:10pt;
+    }
+
+    .header-section {
+        height:80%;
+    }
 .navbar-right~.navbar-right {
   display: block;
 }

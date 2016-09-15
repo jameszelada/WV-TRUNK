@@ -10,10 +10,13 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.UI.DataVisualization;
 using System.Web.Script.Serialization;
 using System.Web.SessionState;
 using WV.WebApplication.Reports;
 using WV.WebApplication.Utils;
+using System.Web.UI.DataVisualization.Charting;
+using System.Web.Helpers;
 
 namespace WV.WebApplication.Handlers
 {
@@ -28,6 +31,7 @@ namespace WV.WebApplication.Handlers
         string CallBackMethodName = string.Empty;
         object Parameter = string.Empty;
         IAWContext _context;
+        AWContext _context1;
         IDataRepository<Persona> _persona;
         IDataRepository<Proyecto> _proyecto;
         public void ProcessRequest(HttpContext context)
@@ -68,6 +72,11 @@ namespace WV.WebApplication.Handlers
                     context.Response.AddHeader("Content-Disposition", "attachment;filename=Plan-Semanal.pdf");
                     context.Response.BinaryWrite(GetWeeklyPlanReport(context));
                     break;
+                case "getsummaryseport":
+                    context.Response.ContentType = "application/pdf";
+                    context.Response.AddHeader("Content-Disposition", string.Format("attachment;filename=Consolidado-Proyecto-{0}.pdf",DateTime.Now.ToShortDateString()));
+                    context.Response.BinaryWrite(GetConsolidatedProjectReport(context));
+                    break;
             }
         }
 
@@ -75,6 +84,7 @@ namespace WV.WebApplication.Handlers
         {
 
             _context = new AWContext();
+            _context1 = new AWContext();
             _persona = new DataRepository<IAWContext, Persona>(_context);
             _proyecto = new DataRepository<IAWContext, Proyecto>(_context);
         }
@@ -1011,6 +1021,403 @@ namespace WV.WebApplication.Handlers
             document.Close();
 
             return output.ToArray();
+        }
+
+        public byte[] GetConsolidatedProjectReport(HttpContext context) 
+        {
+            int ID_Proyecto = Int32.Parse(context.Request.Params["ID_Proyecto"].ToString());
+
+            var proyecto = _proyecto.GetFirst(p => p.ID_Proyecto == ID_Proyecto);
+
+            using (System.IO.MemoryStream memoryStream = new System.IO.MemoryStream())
+            {
+                var document = new Document(PageSize.A4, 10f, 10f, 110f, 50f);
+                PdfWriter writer = PdfWriter.GetInstance(document, memoryStream);
+                writer.CloseStream = false;
+                HeaderFooter headerFooter = new HeaderFooter();
+
+                headerFooter.Titulo = "Consolidado Global de Programa";
+                headerFooter.SubTitulo = "Vision Mundial";
+
+                writer.PageEvent = headerFooter;
+
+
+                #region Informacion de Proyecto
+
+                PdfPTable pdfTab = new PdfPTable(1);
+                int[] arrHeader = new int[1];
+                arrHeader[0] = 1;
+                pdfTab.SetWidths(arrHeader);
+
+                Font tinyFont = new Font(Font.FontFamily.HELVETICA, 7f, Font.NORMAL, BaseColor.BLACK);
+                Font tinyFontBold = new Font(Font.FontFamily.HELVETICA, 7f, Font.BOLD, BaseColor.BLACK);
+                Font tinyFontBoldUnderline = new Font(Font.FontFamily.HELVETICA, 7f, Font.UNDERLINE | Font.BOLD, BaseColor.BLACK);
+                BaseColor backgroundColor = WebColors.GetRGBColor("#DCDDDE");
+
+                ////We will have to create separate cells to include image logo and 2 separate strings
+                ////Row 1
+                PdfPCell pdfCell1 = new PdfPCell(new Phrase("Nombre de Proyecto", tinyFontBold));
+                PdfPCell pdfCell2 = new PdfPCell(new Phrase(proyecto.Codigo, tinyFont));
+                PdfPCell pdfCell3 = new PdfPCell(new Phrase("Descripción de Proyecto", tinyFontBold));
+                PdfPCell pdfCell4 = new PdfPCell(new Phrase(proyecto.ProyectoDescripcion, tinyFont));
+                PdfPCell pdfCell5 = new PdfPCell(new Phrase("Estado", tinyFontBold));
+                PdfPCell pdfCell6 = new PdfPCell(new Phrase(proyecto.Estado, tinyFont));
+
+                //pdfCell1.BackgroundColor = backgroundColor;
+                //pdfCell2.BackgroundColor = backgroundColor;
+
+                pdfCell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCell2.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCell3.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCell4.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCell5.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCell6.HorizontalAlignment = Element.ALIGN_LEFT;
+
+
+
+
+                pdfCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+
+                pdfCell1.Border = 0;
+                pdfCell2.Border = 0;
+                pdfCell3.Border = 0;
+                pdfCell4.Border = 0;
+                pdfCell5.Border = 0;
+                pdfCell6.Border = 0;
+
+
+
+
+                //add all three cells into PdfTable
+                pdfTab.AddCell(pdfCell1);
+                pdfTab.AddCell(pdfCell2);
+                pdfTab.AddCell(pdfCell3);
+                pdfTab.AddCell(pdfCell4);
+                pdfTab.AddCell(pdfCell5);
+                pdfTab.AddCell(pdfCell6);
+
+
+
+                pdfTab.TotalWidth = document.PageSize.Width - 80f;
+                pdfTab.WidthPercentage = 70;
+                pdfTab.HorizontalAlignment = Element.ALIGN_LEFT;
+                Paragraph p = new Paragraph();
+                p.IndentationLeft = 30;
+                p.SpacingAfter = 10;
+                p.Add(pdfTab);
+
+                
+
+                Paragraph pDescripcion = new Paragraph("Información del Proyecto:", tinyFontBoldUnderline);
+                pDescripcion.IndentationLeft = 30;
+                pDescripcion.SpacingAfter = 20;
+
+
+                #endregion
+
+                #region Primer Grafico
+                PdfPTable pdfTabContentAditional = new PdfPTable(2);
+                pdfTabContentAditional.DefaultCell.FixedHeight = 100f;
+                int[] arrContentAditional = new int[2];
+                arrContentAditional[0] = 2;
+                arrContentAditional[1] = 1;
+                pdfTabContentAditional.SetWidths(arrContentAditional);
+
+                PdfPCell pdfCellContentAditional1 = new PdfPCell(new Phrase("Número de Programas en el Proyecto: ", tinyFontBold));
+                PdfPCell pdfCellContentAditional2 = new PdfPCell(new Phrase(proyecto.Programa.Count().ToString(), tinyFontBold));
+
+                pdfCellContentAditional1.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCellContentAditional2.HorizontalAlignment = Element.ALIGN_LEFT;
+               
+                pdfCellContentAditional1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCellContentAditional2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                
+                pdfCellContentAditional1.Border = 0;
+                pdfCellContentAditional2.Border = 0;
+                
+                pdfCellContentAditional1.FixedHeight = 20f;
+                pdfCellContentAditional2.FixedHeight = 20f;
+               
+                pdfTabContentAditional.AddCell(pdfCellContentAditional1);
+                pdfTabContentAditional.AddCell(pdfCellContentAditional2);
+                
+                pdfTabContentAditional.TotalWidth = document.PageSize.Width - 80f;
+                pdfTabContentAditional.WidthPercentage = 60;
+                pdfTabContentAditional.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfTabContentAditional.SpacingAfter = 20;
+                Paragraph pContentProgram = new Paragraph();
+                pContentProgram.IndentationLeft = 30;
+                pContentProgram.Add(pdfTabContentAditional);
+
+                //#region Charts
+
+                ChartingHelper ChartProgramsByType = new ChartingHelper();
+
+                Dictionary<string, object> Parameters = new Dictionary<string, object>();
+                Parameters.Add("width", 300);
+                Parameters.Add("height", 400);
+                Parameters.Add("chartTitle", "Programas por Mecanismo");
+                Parameters.Add("xTitle", "Tipo de Programa");
+                Parameters.Add("yTitle", "Cantidad");
+                Parameters.Add("chartType", "Column");
+                Dictionary<string, object> Data = new Dictionary<string, object>();
+
+                List<string> programTypesId = _context1.Database.SqlQuery<string>("SELECT CONVERT(varchar(10), ID_TipoPrograma) +'-'+ TipoPrograma as result FROM TipoPrograma").ToList();
+
+                foreach (var tipoPrograma in programTypesId)
+                {
+                    string[] result = tipoPrograma.Split('-');
+                    int ID_TipoPrograma = Convert.ToInt32(result[0]);
+                    string tipoPrograma1 = result[1];
+
+                    Data.Add(tipoPrograma1, proyecto.Programa.Count(programa => programa.ID_TipoPrograma == ID_TipoPrograma));
+                    
+                }
+
+                ChartProgramsByType.ChartParameters = Parameters;
+                ChartProgramsByType.Data = Data;
+                byte[] imageBytes = ChartProgramsByType.GetChart();
+                iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(imageBytes);
+                image.ScalePercent(0.8f * 100);
+
+                Paragraph pContentImage1 = new Paragraph(new Chunk(image, 0, 0, true));
+                pContentImage1.IndentationLeft = 100;
+                pContentImage1.IndentationRight = 100;
+                Paragraph pImageHeader1 = new Paragraph("Gráfico de Programas por Mecanismo:", tinyFontBoldUnderline);
+                pImageHeader1.IndentationLeft = 30;
+                pImageHeader1.SpacingAfter = 20;
+
+                #endregion
+
+                #region Segundo Gráfico
+
+                PdfPTable pdfTabContentAditional2 = new PdfPTable(2);
+                pdfTabContentAditional2.DefaultCell.FixedHeight = 100f;
+                int[] arrContentAditional2 = new int[2];
+                arrContentAditional2[0] = 2;
+                arrContentAditional2[1] = 1;
+                pdfTabContentAditional2.SetWidths(arrContentAditional);
+
+                int total = 0;
+
+                proyecto.Programa.ToList().ForEach(prog=> total += prog.Beneficiario.Count());
+
+                PdfPCell pdfCellContentAditional11 = new PdfPCell(new Phrase("Total de beneficiarios en proyecto: ", tinyFontBold));
+                PdfPCell pdfCellContentAditional21 = new PdfPCell(new Phrase( total.ToString(), tinyFontBold));
+
+                pdfCellContentAditional11.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfCellContentAditional21.HorizontalAlignment = Element.ALIGN_LEFT;
+
+                pdfCellContentAditional11.VerticalAlignment = Element.ALIGN_MIDDLE;
+                pdfCellContentAditional21.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+                pdfCellContentAditional11.Border = 0;
+                pdfCellContentAditional21.Border = 0;
+
+                pdfCellContentAditional11.FixedHeight = 20f;
+                pdfCellContentAditional21.FixedHeight = 20f;
+
+                pdfTabContentAditional2.AddCell(pdfCellContentAditional11);
+                pdfTabContentAditional2.AddCell(pdfCellContentAditional21);
+
+                pdfTabContentAditional2.TotalWidth = document.PageSize.Width - 80f;
+                pdfTabContentAditional2.WidthPercentage = 60;
+                pdfTabContentAditional2.HorizontalAlignment = Element.ALIGN_LEFT;
+                pdfTabContentAditional2.SpacingAfter = 20;
+                Paragraph pContentCommunity = new Paragraph();
+                pContentCommunity.IndentationLeft = 30;
+                pContentCommunity.Add(pdfTabContentAditional2);
+
+                Paragraph pHeaderCommunity = new Paragraph("Información de proyecto:", tinyFontBoldUnderline);
+                pHeaderCommunity.IndentationLeft = 30;
+                pHeaderCommunity.SpacingAfter = 20;
+
+                //Chart
+                ChartingHelper ChartGenderCommunity = new ChartingHelper();
+
+                Dictionary<string, object> ParametersChartGenderCommunity = new Dictionary<string, object>();
+                ParametersChartGenderCommunity.Add("width", 300);
+                ParametersChartGenderCommunity.Add("height", 400);
+                ParametersChartGenderCommunity.Add("chartTitle", "Participación por Género");
+                ParametersChartGenderCommunity.Add("xTitle", "Género");
+                ParametersChartGenderCommunity.Add("yTitle", "Cantidad");
+                ParametersChartGenderCommunity.Add("chartType", "Column");
+                Dictionary<string, object> DataChartGenderCommunity = new Dictionary<string, object>();
+
+                //loading data
+
+                int male = 0;
+                int female = 0;
+
+                proyecto.Programa.ToList().ForEach((pro)=>
+                {
+                    male += pro.Beneficiario.Count(ben=> ben.Sexo=="M");
+                    female += pro.Beneficiario.Count(ben => ben.Sexo == "F");
+                } );
+                DataChartGenderCommunity.Add("Masculino",male);
+                DataChartGenderCommunity.Add("Femenino", female);
+
+                ChartGenderCommunity.ChartParameters = ParametersChartGenderCommunity;
+                ChartGenderCommunity.Data = DataChartGenderCommunity;
+                byte[] imageBytesGender = ChartGenderCommunity.GetChart();
+                iTextSharp.text.Image imageGender = iTextSharp.text.Image.GetInstance(imageBytesGender);
+                imageGender.ScalePercent(0.8f * 100);
+
+                Paragraph pContentImageGender = new Paragraph(new Chunk(imageGender, 0, 0, true));
+                pContentImageGender.IndentationLeft = 100;
+                pContentImageGender.IndentationRight = 100;
+                Paragraph pImageHeaderCommunity = new Paragraph("Gráfico de Participacion por Género en Proyecto:", tinyFontBoldUnderline);
+                pImageHeaderCommunity.IndentationLeft = 30;
+                pImageHeaderCommunity.SpacingAfter = 20;
+
+
+               
+                #endregion 
+
+
+
+                #region Tercer Gráfico
+
+                ChartingHelper ChartNCR = new ChartingHelper();
+
+                Dictionary<string, object> ParametersChartNCR = new Dictionary<string, object>();
+                ParametersChartNCR.Add("width", 300);
+                ParametersChartNCR.Add("height", 400);
+                ParametersChartNCR.Add("chartTitle", "Participantes Patrocinados");
+                ParametersChartNCR.Add("xTitle", "Patrocinio");
+                ParametersChartNCR.Add("yTitle", "Cantidad");
+                ParametersChartNCR.Add("chartType", "Column");
+                Dictionary<string, object> DataChartNCR = new Dictionary<string, object>();
+
+                //loading data
+
+                int NCR = 0;
+                int RC = 0;
+
+                proyecto.Programa.ToList().ForEach((pro) =>
+                {
+                    NCR += pro.Beneficiario.Count(ben => string.IsNullOrEmpty(ben.Codigo));
+                    RC += pro.Beneficiario.Count(ben => !string.IsNullOrEmpty(ben.Codigo));
+                });
+                DataChartNCR.Add("No Patrocinados", NCR);
+                DataChartNCR.Add("Patrocinados", RC);
+
+                ChartNCR.ChartParameters = ParametersChartNCR;
+                ChartNCR.Data = DataChartNCR;
+                byte[] imageBytesNCR = ChartNCR.GetChart();
+                iTextSharp.text.Image imageNCR = iTextSharp.text.Image.GetInstance(imageBytesNCR);
+                imageNCR.ScalePercent(0.8f * 100);
+
+                Paragraph pContentImageNCR = new Paragraph(new Chunk(imageNCR, 0, 0, true));
+                pContentImageNCR.IndentationLeft = 100;
+                pContentImageNCR.IndentationRight = 100;
+                Paragraph pImageHeaderNCR = new Paragraph("Gráfico de Beneficiarios Patrocinados:", tinyFontBoldUnderline);
+                pImageHeaderNCR.IndentationLeft = 30;
+                pImageHeaderNCR.SpacingAfter = 20;
+
+                #endregion
+
+                #region Cuarto Gráfico
+
+                ChartingHelper chartAges = new ChartingHelper();
+                Dictionary<string, object> ParametersAges = new Dictionary<string, object>();
+                ParametersAges.Add("width", 450);
+                ParametersAges.Add("height", 400);
+                ParametersAges.Add("chartTitle", "Participación por Edades");
+                ParametersAges.Add("xTitle", "Rangos");
+                ParametersAges.Add("yTitle", "Cantidad");
+                ParametersAges.Add("chartType", "Bar");
+
+                Dictionary<string, object> DataAges = new Dictionary<string, object>();
+                List<int> Ranges = chartAges.GetAgeRanges("other");
+                int menor1 = 0, menor2 = 0, menor3 = 0;
+
+                proyecto.Programa.ToList().ForEach(
+                    (pro) => 
+                    {
+                        foreach (var ben in pro.Beneficiario)
+                        {
+                            string[] personAge = ben.Edad.Split('|');
+                            int years = Convert.ToInt32(personAge[0]);
+                            if (years <= Ranges[0] && years >= Ranges[1])
+                            {
+                                menor1++;
+                            }
+                            else if (years <= Ranges[1] && years >= Ranges[2])
+                            {
+                                menor2++;
+                            }
+                            else if (years <= Ranges[2])
+                            {
+                                menor3++;
+                            }
+                        }
+
+                    }
+
+                    );
+
+                DataAges.Add("Menor a " + Ranges[0], menor1);
+                DataAges.Add("Menor a " + Ranges[1], menor2);
+                DataAges.Add("Menor a " + Ranges[2], menor3);
+
+
+                chartAges.ChartParameters = ParametersAges;
+                chartAges.Data = DataAges;
+
+                byte[] imageBytesAges = chartAges.GetChart();
+                iTextSharp.text.Image imageAges = iTextSharp.text.Image.GetInstance(imageBytesAges);
+                imageAges.ScalePercent(0.8f * 100);
+
+                Paragraph pContentImageAge = new Paragraph(new Chunk(imageAges, 0, 0, true));
+                pContentImageAge.IndentationLeft = 100;
+                pContentImageAge.IndentationRight = 100;
+                Paragraph pImageHeaderAges = new Paragraph("Gráfico de Beneficiarios Por Edades", tinyFontBoldUnderline);
+                pImageHeaderAges.IndentationLeft = 30;
+                pImageHeaderAges.SpacingAfter = 20;
+                #endregion
+
+
+                Paragraph pDescripcionProgramas= new Paragraph("Información del Programas Implementados:", tinyFontBoldUnderline);
+                pDescripcionProgramas.IndentationLeft = 30;
+                pDescripcionProgramas.SpacingAfter = 20;
+
+              
+                document.Open();
+                document.Add(pDescripcion);
+                document.Add(p);
+                document.Add(pDescripcionProgramas);
+                document.Add(pContentProgram);
+                document.Add(pImageHeader1);
+                document.Add(pContentImage1);
+                document.Add(pHeaderCommunity);
+                document.Add(pContentCommunity);
+                document.Add(pImageHeaderCommunity);
+                document.Add(pContentImageGender);
+                document.Add(pImageHeaderNCR);
+                document.Add(pContentImageNCR);
+                document.Add(pImageHeaderAges);
+                document.Add(pContentImageAge);
+
+
+
+                document.Close();
+
+
+                byte[] bytes = memoryStream.ToArray();
+                memoryStream.Close();
+
+
+
+                return bytes;
+
+            }
         }
 
         public bool IsReusable

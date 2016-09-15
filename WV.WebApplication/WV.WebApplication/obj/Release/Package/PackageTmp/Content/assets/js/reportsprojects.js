@@ -157,7 +157,7 @@
 
     function generateURLSummaryReport() {
         var projectID = $("#cmbproyectoconsolidado > option:selected").attr("data-id-project");
-        $("#btnreporteconsolidado").attr("href", "/Handlers/GeneralReportsProject.ashx?method=getSummaryReport&ID_Proyecto=" + projectID);
+        $("#btnreporteconsolidado").attr("href", "/Handlers/GeneralReportsProject.ashx?method=getsummaryseport&ID_Proyecto=" + projectID);
     }
 
     function generateURLLogbook() {
