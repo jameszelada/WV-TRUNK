@@ -73,6 +73,7 @@ $(window).load(function () {
     }
 
     function showPerson(ID_Persona) {
+        var idPerson = ID_Persona;
         var dataToSend =
             {
                 Id_Persona: ID_Persona
@@ -89,7 +90,7 @@ $(window).load(function () {
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
                     if (!$("#sidebaroptions").length) {
-                        loadSidebarOptions();
+                        loadSidebarOptions(idPerson);
                     }
                 }
                 else {
@@ -237,7 +238,7 @@ $(window).load(function () {
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-            
+            $("#sidebaroptions").remove();
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -530,8 +531,8 @@ $(window).load(function () {
         $("#tabdetails").unbind();
     }
 
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='javascript:void(0)'> Modificar Bitácoras</a></li><li><a id='showweeklyplan' href='javascript:void(0)'> Modificar Plan Semanal</a></li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(idPerson) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/LogBook?id=" + idPerson + "'> Modificar Bitácoras</a></li><li><a id='showweeklyplan' href='/WeeklyPlan?id="+idPerson+"'> Modificar Plan Semanal</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

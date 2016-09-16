@@ -124,6 +124,7 @@ $(window).load(function () {
     }
 
     function showProject(ID_Project) {
+        var idProject = ID_Project;
         var dataToSend =
             {
                 Id_Proyecto: ID_Project
@@ -141,7 +142,7 @@ $(window).load(function () {
                     setTabInDetailsMode();
                     if (!$("#sidebaroptions").length)
                     {
-                        loadSidebarOptions();
+                        loadSidebarOptions(idProject);
                     }
                     
                 }
@@ -283,7 +284,7 @@ $(window).load(function () {
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-            
+            $("#sidebaroptions").remove();
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -539,8 +540,8 @@ $(window).load(function () {
         $("#tabdetails").unbind();
     }
 
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li><li><a id='showprojectreport' href='javascript:void(0)'> Reporte General de Proyecto</a></li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(idProject) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li><li><a id='showprojectreport' href='/Handlers/GeneralReportsProject.ashx?method=getsummaryseport&ID_Proyecto="+idProject+"'> Reporte General de Proyecto</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

@@ -8,7 +8,7 @@ $(window).load(function () {
 
     getAllRoles();
 
-    loadSidebarOptions();
+    //loadSidebarOptions();
 
 
     // End of Execution
@@ -125,6 +125,7 @@ $(window).load(function () {
 
     function showUser(Id_User)
     {
+        var idUser = Id_User;
         var dataToSend =
             {
                 Id_Usuario: Id_User
@@ -143,7 +144,7 @@ $(window).load(function () {
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
                     if (!$("#sidebaroptions").length) {
-                        loadSidebarOptions();
+                        loadSidebarOptions(idUser);
                     }
                 }
                 else {
@@ -328,7 +329,7 @@ $(window).load(function () {
     {
         $("#tabtable").click(function ()
         {
-          
+            $("#sidebaroptions").remove();
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -621,8 +622,8 @@ $(window).load(function () {
        $("#tabdetails").unbind();
     }
 
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='javascript:void(0)'> Reporte de usuario del Sistema</a></li><li><a id='showrolereport' href='javascript:void(0)'> Reporte General de Roles</a></li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(ID_User) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/Handlers/GeneralReporstAdmin.ashx?method=getuserinfo&ID_Usuario="+ID_User+"'> Reporte de usuario del Sistema</a></li><li><a id='showrolereport' href='/Handlers/GeneralReporstAdmin.ashx?method=getrolesreport'> Reporte General de Roles</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

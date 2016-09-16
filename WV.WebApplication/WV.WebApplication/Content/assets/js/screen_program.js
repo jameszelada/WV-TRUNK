@@ -207,6 +207,7 @@
 
         $("#datepickerinicio").datepicker();
         $("#datepickerfinal").datepicker();
+        validation();
     }
 
     function fillLblFields(program) {
@@ -271,6 +272,7 @@
 
 
     function showProgram(ID_Programa) {
+        var idProgram = ID_Programa;
         var dataToSend =
             {
                 ID_Programa: ID_Programa
@@ -287,8 +289,10 @@
                     
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
+                    
                     if (!$("#sidebaroptions").length) {
-                        loadSidebarOptions();
+                        
+                        loadSidebarOptions(response.ResponseData.ID_Proyecto,parseInt(idProgram));
                     }
 
                 }
@@ -371,7 +375,9 @@
     }
 
     function attachClickToListButton() {
+        
         $("#tabtable").click(function () {
+            $("#sidebaroptions").remove();
             $("#cancelpage").unbind();
             $("#savepage").unbind();
             clearControls();
@@ -572,8 +578,8 @@
         $("#tabdetails").unbind();
     }
 
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='javascript:void(0)'> Reporte de Asignación de Personal</a></li><li><a id='showasignreport' href='javascript:void(0)'> Reporte General de Programa</a></li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(ID_Project,ID_Program) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/Handlers/GeneralReportsProject.ashx?method=getassignreport&ID_Proyecto=" + ID_Project + "'> Reporte de Asignación de Personal</a></li><li><a id='showasignreport' href='/Handlers/GeneralReportsProgram.ashx?method=getprogramreport&ID_Programa="+ID_Program+"'> Reporte General de Programa</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
