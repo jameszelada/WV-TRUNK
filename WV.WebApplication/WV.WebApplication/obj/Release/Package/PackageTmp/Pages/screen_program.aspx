@@ -11,6 +11,7 @@
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
     <script src="/Content/assets/js/jquery-ui.min.js"></script>
     <script src="/Content/assets/js/screen_program.js"></script>
+    <script src="/Content/assets/js/Chart.min.js"></script>
     
 </asp:Content>
 
@@ -189,6 +190,65 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
                         <%--<button id="btndeleteuser" type="button" class="btn btn-default" data-dismiss="modal">Si</button>--%>
                         <button id="pagebtndelete" type="button" class="btn btn-default" data-dismiss="modal">Si</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modalstatistics" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Estadísticas del Programa</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h4><strong>Personal Asignado al programa</strong></h4>
+                        <div id="assignedcontainer"></div>
+                        <h4><strong>Actividades del Programa</strong></h4>
+                        <div id="activitiescontainer"></div>
+                        <h4><strong>Información Adicional</strong></h4>
+                        <div id="additionalinfocontainer"></div>
+                        <%--<p>¿Está seguro de eliminar el registro seleccionado?</p>--%>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="modal fade" id="modalcharts" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Estadísticas del Programa</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                        <div class="col-md-4">
+                        </div>
+                            <div class="col-md-8">
+                                <h4><strong>Gráfico de participación por Género</strong> </h4>
+                        <div style=" width:300px; height:400px;">
+                        <canvas id="chart1container" width="300" height="400"></canvas>
+                         </div>
+                        <h4><strong>Gráfico de participacíon por Edades</strong> </h4>
+                        <div style=" width:300px; height:400px;">
+                        <canvas id="chart2container" width="100" height="100" ></canvas>
+                        </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                        </div>
+                            
+                        </div>
+
+                        <%--<p>¿Está seguro de eliminar el registro seleccionado?</p>--%>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>

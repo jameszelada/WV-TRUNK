@@ -32,7 +32,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 11:05:12</publishTime>
     </File>
     <File Include="bin/WV.WebApplication.dll">
-      <publishTime>09/15/2016 15:50:29</publishTime>
+      <publishTime>09/18/2016 00:06:59</publishTime>
     </File>
     <File Include="Content/assets/css/bootstrap.css">
       <publishTime>12/09/2014 18:39:30</publishTime>
@@ -183,6 +183,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/assets/js/bootstrapValidator.js">
       <publishTime>03/31/2016 08:22:21</publishTime>
+    </File>
+    <File Include="Content/assets/js/Chart.min.js">
+      <publishTime>09/16/2016 23:21:26</publishTime>
     </File>
     <File Include="Content/assets/js/controlstaff.js">
       <publishTime>07/18/2016 19:53:14</publishTime>
@@ -341,13 +344,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/15/2016 20:04:07</publishTime>
     </File>
     <File Include="Content/assets/js/screen_program.js">
-      <publishTime>09/15/2016 19:53:16</publishTime>
+      <publishTime>09/17/2016 14:34:36</publishTime>
     </File>
     <File Include="Content/assets/js/screen_programtype.js">
       <publishTime>08/26/2016 12:54:25</publishTime>
     </File>
     <File Include="Content/assets/js/screen_project.js">
-      <publishTime>09/15/2016 21:37:47</publishTime>
+      <publishTime>09/18/2016 00:04:31</publishTime>
     </File>
     <File Include="Content/assets/js/screen_role.js">
       <publishTime>09/15/2016 21:29:28</publishTime>
@@ -423,6 +426,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Handlers/Project.ashx">
       <publishTime>05/21/2016 20:34:59</publishTime>
+    </File>
+    <File Include="Handlers/ProjectSummary.ashx">
+      <publishTime>09/17/2016 10:42:39</publishTime>
     </File>
     <File Include="Handlers/RecordGrades.ashx">
       <publishTime>07/31/2016 21:35:42</publishTime>
@@ -518,13 +524,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/04/2016 17:57:19</publishTime>
     </File>
     <File Include="Pages/screen_program.aspx">
-      <publishTime>06/26/2016 00:36:03</publishTime>
+      <publishTime>09/17/2016 15:07:42</publishTime>
     </File>
     <File Include="Pages/screen_programtype.aspx">
       <publishTime>05/17/2016 23:12:30</publishTime>
     </File>
     <File Include="Pages/screen_project.aspx">
-      <publishTime>06/09/2016 23:53:04</publishTime>
+      <publishTime>09/18/2016 00:06:20</publishTime>
     </File>
     <File Include="Pages/screen_role.aspx">
       <publishTime>04/11/2016 23:31:55</publishTime>

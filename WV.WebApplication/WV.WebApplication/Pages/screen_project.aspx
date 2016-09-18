@@ -6,6 +6,7 @@
 <asp:Content ContentPlaceHolderID="HeadContent" runat="server">
     <script src="/Content/assets/js/bootstrapValidator.js"></script>
      <script src="/Content/assets/js/screen_project.js"></script>
+    <script src="/Content/assets/js/Chart.min.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
@@ -155,6 +156,52 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+
+        <div class="modal fade" id="modalcharts" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Estadísticas del Proyecto</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-8">
+                                <h4><strong>Información Mecanismos</strong></h4>
+                                <div id="numberofmechanismscontainer"></div>
+                                <h4><strong>Gráfico de Mecanismos por proyecto</strong> </h4>
+                                <div style="width: 300px; height: 400px;">
+                                    <canvas id="chart1container" width="300" height="400"></canvas>
+                                </div>
+                                <h4><strong>Información Beneficiarios</strong></h4>
+                                <div id="numberofbeneficiariescontainer"></div>
+                                <h4><strong>Gráfico de participación por Género</strong> </h4>
+                                <div style="width: 300px; height: 400px;">
+                                    <canvas id="chart2container" width="300" height="400"></canvas>
+                                </div>
+                                 <h4><strong>Gráfico de beneficiarios Patrocinados</strong> </h4>
+                                <div style="width: 300px; height: 400px;">
+                                    <canvas id="chart3container" width="100" height="100"></canvas>
+                                </div>
+                                <h4><strong>Gráfico de participacíon por Edades</strong> </h4>
+                                <div style="width: 300px; height: 400px;">
+                                    <canvas id="chart4container" width="100" height="100"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </asp:Content>

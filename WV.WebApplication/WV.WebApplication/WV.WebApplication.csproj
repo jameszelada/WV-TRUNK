@@ -118,6 +118,7 @@
     <Content Include="Content\assets\js\attendancetracking.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
+    <Content Include="Content\assets\js\Chart.min.js" />
     <Content Include="Content\assets\js\controlstaff.js" />
     <Content Include="Content\assets\js\custom-scripts.js" />
     <Content Include="Content\assets\js\custom.js" />
@@ -269,6 +270,9 @@
     </Compile>
     <Compile Include="Handlers\Project.ashx.cs">
       <DependentUpon>Project.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\ProjectSummary.ashx.cs">
+      <DependentUpon>ProjectSummary.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\RecordGrades.ashx.cs">
       <DependentUpon>RecordGrades.ashx</DependentUpon>
@@ -566,6 +570,7 @@
     <Content Include="Handlers\GeneralReportsProject.ashx" />
     <Content Include="Handlers\GeneralReportsProgram.ashx" />
     <Content Include="Content\assets\js\images\Sorting icons.psd" />
+    <Content Include="Handlers\ProjectSummary.ashx" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -292,7 +292,9 @@
                     
                     if (!$("#sidebaroptions").length) {
                         
-                        loadSidebarOptions(response.ResponseData.ID_Proyecto,parseInt(idProgram));
+                        loadSidebarOptions(response.ResponseData.ID_Proyecto, parseInt(idProgram));
+                        attachClickToStatisticsLink(idProgram);
+                        attachClickToChartsLink(idProgram);
                     }
 
                 }
@@ -403,6 +405,146 @@
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
+
+        });
+    }
+
+    function attachClickToStatisticsLink(ID_Programa) {
+
+        $("#showstatistics").click(function () {
+
+            var dataToSend =
+            {
+                ID_Programa: ID_Programa
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Handlers/ProjectSummary.ashx?method=getprogramsummary',
+                async:false,
+                data: dataToSend,
+                success: function (data) {
+
+                    var response = JSON.parse(data);
+                    if (response.IsSucess) {
+
+                        $("#assignedcontainer").html(response.ResponseData.Staff);
+                        $("#activitiescontainer").html(response.ResponseData.Activities);
+                        $("#additionalinfocontainer").html(response.ResponseData.AdditionalInfo);
+                    }
+                    else {
+                        var error = "Error de Conexión, Intente nuevamente  ";
+                        displayErrorMessage(error);
+                    }
+                },
+                error: function () {
+                    var error = "Error de Conexión, Intente nuevamente";
+                    displayErrorMessage(error);
+                }
+            });
+
+            $('#modalstatistics').modal({
+                keyboard: false
+            })
+
+        });
+    }
+
+    function attachClickToChartsLink(ID_Programa) {
+
+        $("#showcharts").click(function () {
+
+            var dataToSend =
+            {
+                ID_Programa: ID_Programa
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Handlers/ProjectSummary.ashx?method=getprogramsummary',
+                async: false,
+                data: dataToSend,
+                success: function (data) {
+
+                    var options = { 
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+
+                    var response = JSON.parse(data);
+                    if (response.IsSucess) {
+                        var xValues1 = Object.getOwnPropertyNames(response.ResponseData.Chart1);
+                        var yValues1 = $.map(response.ResponseData.Chart1, function (val, key) { return val; });
+                        var xValues2 = Object.getOwnPropertyNames(response.ResponseData.Chart2);
+                        var yValues2 = $.map(response.ResponseData.Chart2, function (val, key) { return val; });
+
+                        var dataPie = {
+                            labels: xValues1,
+                            datasets: [
+                                {
+                                    data: yValues1,
+                                    backgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB"
+                                    ],
+                                    hoverBackgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB"
+                                    ]
+                                }]
+                        };
+
+                        var context = $("#chart1container");
+                        context.get(0).getContext('2d');
+                        var Chart1 = new Chart(context, {
+                            type: "pie",
+                            data: dataPie,
+                            options: options
+                        });
+
+                        var dataDoughnut = {
+                            labels: xValues2,
+                            datasets: [
+                                {
+                                    data: yValues2,
+                                    backgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB",
+                                        "#FFCE56"
+                                    ],
+                                    hoverBackgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB",
+                                        "#FFCE56"
+
+                                    ]
+                                }]
+                        };
+
+                        var context2 = $("#chart2container");
+                        context2.get(0).getContext('2d');
+                        var Chart1 = new Chart(context2, {
+                            type: "doughnut",
+                            data: dataDoughnut,
+                            options: options
+                        });
+
+                      
+                    }
+                    else {
+                        var error = "Error de Conexión, Intente nuevamente  ";
+                        displayErrorMessage(error);
+                    }
+                },
+                error: function () {
+                    var error = "Error de Conexión, Intente nuevamente";
+                    displayErrorMessage(error);
+                }
+            });
+
+            $('#modalcharts').modal({
+                keyboard: false
+            })
 
         });
     }
@@ -579,7 +721,7 @@
     }
 
     function loadSidebarOptions(ID_Project,ID_Program) {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/Handlers/GeneralReportsProject.ashx?method=getassignreport&ID_Proyecto=" + ID_Project + "'> Reporte de Asignación de Personal</a></li><li><a id='showasignreport' href='/Handlers/GeneralReportsProgram.ashx?method=getprogramreport&ID_Programa="+ID_Program+"'> Reporte General de Programa</a></li></ul></div></div></div></div></div>";
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/Handlers/GeneralReportsProject.ashx?method=getassignreport&ID_Proyecto=" + ID_Project + "'> Reporte de Asignación de Personal</a></li><li><a id='showasignreport' href='/Handlers/GeneralReportsProgram.ashx?method=getprogramreport&ID_Programa=" + ID_Program + "'> Reporte General de Programa</a></li><li><a id='showstatistics' href='#'>Estadísticas</a></li><li><a id='showcharts' href='#'>Gráficos</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

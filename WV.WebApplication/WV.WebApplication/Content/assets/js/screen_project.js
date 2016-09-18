@@ -143,6 +143,7 @@ $(window).load(function () {
                     if (!$("#sidebaroptions").length)
                     {
                         loadSidebarOptions(idProject);
+                        attachClickToStatisticsLink(idProject);
                     }
                     
                 }
@@ -157,6 +158,162 @@ $(window).load(function () {
         });
     }
 
+    function attachClickToStatisticsLink(ID_Proyecto) {
+
+        $("#showstatistics").click(function () {
+
+            var dataToSend =
+            {
+                ID_Proyecto: ID_Proyecto
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/Handlers/ProjectSummary.ashx?method=getprojectsummary',
+                async: false,
+                data: dataToSend,
+                success: function (data) {
+
+                    var response = JSON.parse(data);
+                    if (response.IsSucess) {
+
+                        var options = {
+                            responsive: true,
+                            maintainAspectRatio: true
+                        }
+
+                        $("#numberofmechanismscontainer").html(response.ResponseData.ProgramType);
+                        $("#numberofbeneficiariescontainer").html(response.ResponseData.Beneficiaries);
+
+                        var xValues1 = Object.getOwnPropertyNames(response.ResponseData.Chart2);
+                        var yValues1 = $.map(response.ResponseData.Chart2, function (val, key) { return val; });
+                        var xValues2 = Object.getOwnPropertyNames(response.ResponseData.Chart4);
+                        var yValues2 = $.map(response.ResponseData.Chart4, function (val, key) { return val; });
+                        var xValues3 = Object.getOwnPropertyNames(response.ResponseData.Chart1);
+                        var yValues3 = $.map(response.ResponseData.Chart1, function (val, key) { return val; });
+                        var xValues4 = Object.getOwnPropertyNames(response.ResponseData.Chart3);
+                        var yValues4 = $.map(response.ResponseData.Chart3, function (val, key) { return val; });
+
+                        var dataPie = {
+                            labels: xValues1,
+                            datasets: [
+                                {
+                                    data: yValues1,
+                                    backgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB"
+                                    ],
+                                    hoverBackgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB"
+                                    ]
+                                }]
+                        };
+
+                        var context = $("#chart2container");
+                        context.get(0).getContext('2d');
+                        var Chart1 = new Chart(context, {
+                            type: "pie",
+                            data: dataPie,
+                            options: options
+                        });
+
+                        var dataDoughnut = {
+                            labels: xValues2,
+                            datasets: [
+                                {
+                                    data: yValues2,
+                                    backgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB",
+                                        "#FFCE56"
+                                    ],
+                                    hoverBackgroundColor: [
+                                        "#FF6384",
+                                        "#36A2EB",
+                                        "#FFCE56"
+
+                                    ]
+                                }]
+                        };
+
+                        var context2 = $("#chart4container");
+                        context2.get(0).getContext('2d');
+                        var Chart1 = new Chart(context2, {
+                            type: "doughnut",
+                            data: dataDoughnut,
+                            options: options
+                        });
+
+                        var backgroundColors = [];
+                        var borderColors = [];
+
+                        for (var i = 0; i < yValues3.length; i++) {
+                            backgroundColors.push('#' + (Math.random() * 0xFFFFFF << 0).toString(16));
+                            borderColors.push('rgba(255,99,132,1)');
+                        }
+
+                        var dataBar = {
+                            labels: xValues3,
+                            datasets: [
+                                {
+                                    label: "Programas por tipo de Mecanismo",
+                                    backgroundColor: backgroundColors,
+                                    borderColor: borderColors,
+                                    borderWidth: 1,
+                                    data: yValues3,
+                                }
+                            ]
+                        };
+
+                        var context3 = $("#chart1container");
+                        context3.get(0).getContext('2d');
+                        var Chart3 = new Chart(context3, {
+                            type: "horizontalBar",
+                            data: dataBar,
+                            options: options
+                        });
+
+                        var dataBar1 = {
+                            labels: xValues4,
+                            datasets: [
+                                {
+                                    label: "",
+                                    backgroundColor: backgroundColors,
+                                    borderColor: borderColors,
+                                    borderWidth: 1,
+                                    data: yValues4,
+                                }
+                            ]
+                        };
+
+                        var context4 = $("#chart3container");
+                        context4.get(0).getContext('2d');
+                        var Chart4 = new Chart(context4, {
+                            type: "horizontalBar",
+                            data: dataBar1,
+                            options: options
+                        });
+
+
+                    }
+                    else {
+                        var error = "Error de Conexión, Intente nuevamente  ";
+                        displayErrorMessage(error);
+                    }
+                },
+                error: function () {
+                    var error = "Error de Conexión, Intente nuevamente";
+                    displayErrorMessage(error);
+                }
+            });
+
+            $('#modalcharts').modal({
+                keyboard: false
+            })
+
+        });
+    }
 
 
 
@@ -541,7 +698,7 @@ $(window).load(function () {
     }
 
     function loadSidebarOptions(idProject) {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li><li><a id='showprojectreport' href='/Handlers/GeneralReportsProject.ashx?method=getsummaryseport&ID_Proyecto="+idProject+"'> Reporte General de Proyecto</a></li></ul></div></div></div></div></div>";
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='deleterrhhasign' href='#gridSystemModal'  data-toggle='modal'> Eliminar Asignación de RRHH</a></li><li><a id='showprojectreport' href='/Handlers/GeneralReportsProject.ashx?method=getsummaryseport&ID_Proyecto=" + idProject + "'> Reporte General de Proyecto</a></li><li><a id='showstatistics' href='#'>Estadísticas</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
