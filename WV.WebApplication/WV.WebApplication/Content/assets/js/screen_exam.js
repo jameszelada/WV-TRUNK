@@ -115,6 +115,8 @@
 
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
+
+                    postFileToServer(response.ResponseData)
                     displayMessage(response.Message);
                     getExams();
                 } else {
@@ -192,6 +194,7 @@
 
             });
         }
+        validation();
 
 
     }
@@ -199,6 +202,15 @@
     function fillLblFields(examen) {
         $("#lbl_examen").html(examen.NumeroExamen);
         $("#lbl_materia").html(examen.NombreMateria);
+
+        if (examen.Archivo === "") {
+            $("#link_documento").html("Sin Documento");
+        }
+
+        else
+        {
+            $("#link_documento").html("<a href='/Handlers/Exam.ashx?method=downloadattachment&ID_Examen="+examen.ID_Examen+"'>Descargar Archivo</a>");
+        }
         //$("#lbl_materia").html(examen.Archivo);
 
 
@@ -506,28 +518,6 @@
         });
     }
 
-    /*Message Functions*/
-
-    //function displayErrorMessage(message) {
-    //    $("#errorcontainer").css({
-    //        'position': 'absolute',
-    //        'zIndex': '0',
-    //        'right': '30%'
-
-    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
-    //}
-
-    //function displayMessage(message) {
-    //    $("#messagecontainer").css({
-    //        'position': 'absolute',
-    //        'zIndex': '0',
-    //        'right': '30%'
-
-    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
-    //    $("#pagebtndelete").unbind();
-    //    $("#tabdetails").unbind();
-
-    //}
 
     function displayErrorMessage(message) {
         //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
@@ -561,6 +551,46 @@
     function loadSidebarOptions() {
         var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
+    }
+
+
+    function postFileToServer(ID_Exam)
+    {
+      
+        var fileUpload = $("#fileupload").get(0);
+            var files = fileUpload.files;
+            var dataToSend = new FormData();
+            dataToSend.append("ID_Examen",ID_Exam);
+            for (var i = 0; i < files.length; i++) {
+                dataToSend.append(files[i].name, files[i]);
+            }
+      
+            if (files.length > 0)
+            {
+                $.ajax({
+                    url: "/Handlers/Exam.ashx?method=uploadfile",
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: dataToSend,
+                    // dataType: "json",
+                    success: function (data) {
+
+                        var response = JSON.parse(data);
+                        if (response.IsSucess) {
+                           
+
+                        }
+                        else {
+                            displayErrorMessage(response.Message);
+                        }
+                    },
+                    error: function () {
+                        var error = "Error de Conexión, Intente nuevamente";
+                        displayErrorMessage(error);
+                    }
+                });
+            }
     }
 
 

@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Web.Script.Serialization;
 using System.Web.SessionState;
 using System.Globalization;
+using System.IO;
 
 namespace WV.WebApplication.Handlers
 {
@@ -22,6 +23,7 @@ namespace WV.WebApplication.Handlers
         string CallBackMethodName = string.Empty;
         object Parameter = string.Empty;
         IAWContext _context;
+        string FileName = "";
 
         IDataRepository<Examen> _examen;
         IDataRepository<Materia> _materia;
@@ -31,6 +33,7 @@ namespace WV.WebApplication.Handlers
             MethodName = context.Request.Params["method"];
             CallBackMethodName = context.Request.Params["callbackmethod"];
             Parameter = context.Request.Params["parameter"];
+           
 
             switch (MethodName.ToLower())
             {
@@ -52,6 +55,18 @@ namespace WV.WebApplication.Handlers
                 case "subjects":
                     context.Response.Write(getSubjects(context));
                     break;
+                case "uploadfile":
+                    context.Response.Write(UploadFile(context));
+                    break;
+                case "downloadattachment":
+                    context.Response.Clear();
+                    context.Response.ContentType = "application/octet-stream";
+                    //context.Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}",FileName));                                            
+                    context.Response.WriteFile(DownloadFile(context));
+                    context.Response.AddHeader("Content-Disposition", string.Format("attachment; filename={0}", FileName));  
+                    context.Response.End();
+                    break;
+
             }
         }
 
@@ -69,6 +84,73 @@ namespace WV.WebApplication.Handlers
             _examen = new DataRepository<IAWContext, Examen>(_context);
             _materia = new DataRepository<IAWContext, Materia>(_context);
         }
+
+        public string UploadFile(HttpContext context)
+        {
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string rootPath = context.Server.MapPath("~/uploads/");
+            int id = Int32.Parse( context.Request.Form["ID_Examen"]);
+            string path = rootPath + id;
+            if (context.Request.Files.Count > 0)
+            {
+                HttpFileCollection files = context.Request.Files;
+                for (int i = 0; i < files.Count; i++)
+                {
+                    HttpPostedFile file = files[i];
+                    string fname;
+                    if (HttpContext.Current.Request.Browser.Browser.ToUpper() == "IE" || HttpContext.Current.Request.Browser.Browser.ToUpper() == "INTERNETEXPLORER")
+                    {
+                        string[] testfiles = file.FileName.Split(new char[] { '\\' });
+                        fname = testfiles[testfiles.Length - 1];
+                    }
+                    else
+                    {
+                        fname = file.FileName;
+                    }
+
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+
+                    }
+                    fname = System.IO.Path.Combine(path, fname);
+                    file.SaveAs(fname);
+                    
+                }
+            }
+
+            response.IsSucess = true;
+            response.ResponseData = string.Empty;
+            response.Message = string.Empty;
+            response.CallBack = string.Empty;
+
+            return serializer.Serialize(response);
+        }
+
+        public string DownloadFile(HttpContext context)
+        {
+
+            int ID_Examen = Int32.Parse(context.Request.Params["ID_Examen"].ToString());
+
+            var examen = _examen.GetFirst(e=> e.ID_Examen==ID_Examen);
+            string rootPath = context.Server.MapPath("~/uploads/");
+            string path = rootPath + ID_Examen;
+            string file = "" ,returnPath="";
+
+            if (Directory.Exists(path))
+            {
+                file= path+"\\"+examen.Archivo;
+                if (File.Exists(file))
+                {
+                    returnPath = file;
+                    FileName = examen.Archivo;
+                }
+            }
+
+            return returnPath;
+        }
+
 
         public override string GetAllRecords()
         {
@@ -127,7 +209,7 @@ namespace WV.WebApplication.Handlers
             try
             {
                 var examen = _examen.GetFirst(u => u.ID_Examen == ID_Examen);
-                var fullObject = new { NumeroExamen= examen.NumeroExamen,Archivo=examen.Archivo, ID_Materia= examen.ID_Materia , NombreMateria=examen.Materia.Nombre +" - "+ examen.Materia.Grado}; 
+                var fullObject = new { NumeroExamen= examen.NumeroExamen,Archivo=examen.Archivo, ID_Materia= examen.ID_Materia , NombreMateria=examen.Materia.Nombre +" - "+ examen.Materia.Grado, ID_Examen=examen.ID_Examen}; 
 
                 response.IsSucess = true;
                 response.ResponseData = fullObject;
@@ -194,7 +276,7 @@ namespace WV.WebApplication.Handlers
                 _examen.Add(examen);
                 _context.SaveChanges();
                 response.IsSucess = true;
-                response.ResponseData = string.Empty;
+                response.ResponseData = examen.ID_Examen;
                 response.Message = "Registro Creado Satisfactoriamente";
                 response.CallBack = string.Empty;
 
@@ -233,7 +315,7 @@ namespace WV.WebApplication.Handlers
 
                 _context.SaveChanges();
                 response.IsSucess = true;
-                response.ResponseData = string.Empty;
+                response.ResponseData = examen.ID_Examen;
                 response.Message = "Edicion realizada Satisfactoriamente";
                 response.CallBack = string.Empty;
 

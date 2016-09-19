@@ -80,7 +80,7 @@
                                         <div class="form-group hidden in-controls">
                                             <label for="in_grado" class="control-label">Adjuntar Documento</label>
                                             <div style="position: relative;">
-                                                <a class='btn btn-primary' href='javascript:;'>Adjuntar Archivo
+                                                <a class='btn btn-primary' href='javascript:void(0);'>Adjuntar Archivo
 			<input type="file" id="fileupload" style='position: absolute; z-index: 2; top: 0; left: 0; filter: alpha(opacity=0); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; opacity: 0; background-color: transparent; color: transparent;' name="file_source" size="40" >
                                                 </a>
                                                 &nbsp;
