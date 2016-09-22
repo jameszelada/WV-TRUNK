@@ -195,6 +195,7 @@ namespace WV.WebApplication.Handlers
                     AsignacionMateria asignacion = new AsignacionMateria();
                     asignacion.ID_Materia = ID_Materia;
                     asignacion.ID_Beneficiario = ID_Beneficiario;
+                    asignacion.CreadoPor = SystemUsername;
                     _asignacion.Add(asignacion);
                 }
 

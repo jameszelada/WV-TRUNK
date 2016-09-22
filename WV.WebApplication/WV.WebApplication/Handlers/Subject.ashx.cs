@@ -180,6 +180,7 @@ namespace WV.WebApplication.Handlers
                 materia.Nombre = nombreMateria;
                 materia.Grado = grado;
                 materia.Anio = anio;
+                materia.CreadoPor = SystemUsername;
 
 
                 _materia.Add(materia);
@@ -220,6 +221,7 @@ namespace WV.WebApplication.Handlers
                 materia.Nombre = nombreMateria;
                 materia.Grado = grado;
                 materia.Anio = anio;
+                materia.ModificadoPor = SystemUsername;
 
                 _context.SaveChanges();
                 response.IsSucess = true;

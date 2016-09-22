@@ -131,6 +131,9 @@
     <Compile Include="RolRecurso.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoPrograma.cs">
       <DependentUpon>VisionMundialDataModel.tt</DependentUpon>
     </Compile>

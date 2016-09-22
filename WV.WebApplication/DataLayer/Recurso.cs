@@ -17,11 +17,19 @@ namespace DataLayer
         public Recurso()
         {
             this.RolRecurso = new HashSet<RolRecurso>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Recurso { get; set; }
         public string Recurso1 { get; set; }
         public string Pagina { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<RolRecurso> RolRecurso { get; set; }
     }

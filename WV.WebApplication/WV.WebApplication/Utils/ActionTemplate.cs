@@ -21,6 +21,25 @@ namespace WV.WebApplication.Utils
             get { return _Connection; }
         }
 
+        private const string SESSION_USERNAME = "username";
+        private string _systemUsername = "";
+
+        public string SystemUsername
+        {
+            get {
+                if (HttpContext.Current.Session[SESSION_USERNAME] != null)
+                {
+                    _systemUsername = HttpContext.Current.Session[SESSION_USERNAME].ToString().ToUpper();
+                }
+                else
+                {
+                    _systemUsername = "";
+                }
+ 
+                return _systemUsername; }
+            
+        }
+
         public abstract void InitializeObjects();
 
 

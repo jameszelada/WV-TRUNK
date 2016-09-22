@@ -14,11 +14,22 @@ namespace DataLayer
     
     public partial class PlanSemanalDetalle
     {
+        public PlanSemanalDetalle()
+        {
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
+        }
         public int ID_PlanSemanalDetalle { get; set; }
         public int ID_PlanSemanal { get; set; }
         public string Actividad { get; set; }
         public string Observaciones { get; set; }
         public string Recurso { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual PlanSemanal PlanSemanal { get; set; }
     }

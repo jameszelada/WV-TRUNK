@@ -20,13 +20,3 @@ C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\Repos
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\Repository\obj\Debug\Repository.dll
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\Repository\obj\Debug\Repository.pdb
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\Repository.dll.config
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\Repository.dll
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\Repository.pdb
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\DataLayer.dll
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\EntityFramework.dll
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\DataLayer.pdb
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\bin\Debug\EntityFramework.xml
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\obj\Debug\Repository.csprojResolveAssemblyReference.cache
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\obj\Debug\Repository.dll
-F:\TRUNK\WV-TRUNK\WV.WebApplication\Repository\obj\Debug\Repository.pdb

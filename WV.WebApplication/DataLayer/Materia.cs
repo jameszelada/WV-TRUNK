@@ -18,12 +18,20 @@ namespace DataLayer
         {
             this.AsignacionMateria = new HashSet<AsignacionMateria>();
             this.Examen = new HashSet<Examen>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Materia { get; set; }
         public string Nombre { get; set; }
         public string Anio { get; set; }
         public string Grado { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<AsignacionMateria> AsignacionMateria { get; set; }
         public virtual ICollection<Examen> Examen { get; set; }

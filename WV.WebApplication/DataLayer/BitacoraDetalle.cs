@@ -14,10 +14,21 @@ namespace DataLayer
     
     public partial class BitacoraDetalle
     {
+        public BitacoraDetalle()
+        {
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
+        }
         public int ID_BitacoraDetalle { get; set; }
         public int ID_Bitacora { get; set; }
         public string Actividad { get; set; }
         public string Observaciones { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Bitacora Bitacora { get; set; }
     }

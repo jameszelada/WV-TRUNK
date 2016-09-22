@@ -17,12 +17,20 @@ namespace DataLayer
         public PlanSemanal()
         {
             this.PlanSemanalDetalle = new HashSet<PlanSemanalDetalle>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_PlanSemanal { get; set; }
         public int ID_Persona { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaFinal { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Persona Persona { get; set; }
         public virtual ICollection<PlanSemanalDetalle> PlanSemanalDetalle { get; set; }

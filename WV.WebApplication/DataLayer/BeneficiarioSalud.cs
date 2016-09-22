@@ -14,6 +14,13 @@ namespace DataLayer
     
     public partial class BeneficiarioSalud
     {
+        public BeneficiarioSalud()
+        {
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
+        }
         public int ID_BeneficiarioSalud { get; set; }
         public string EstadoSalud { get; set; }
         public Nullable<bool> TieneTarjeta { get; set; }
@@ -22,6 +29,10 @@ namespace DataLayer
         public string Enfermedad { get; set; }
         public string Discapacidad { get; set; }
         public int ID_Beneficiario { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Beneficiario Beneficiario { get; set; }
     }

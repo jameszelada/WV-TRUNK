@@ -57,5 +57,6 @@ namespace DataLayer
         public DbSet<Examen> Examen { get; set; }
         public DbSet<ExamenResultado> ExamenResultado { get; set; }
         public DbSet<Materia> Materia { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace WV.WebApplication.Handlers
     /// <summary>
     /// Summary description for ProgramType
     /// </summary>
-    public class ProgramType : IHttpHandler, IRequiresSessionState
+    public class ProgramType : ActionTemplate, IHttpHandler, IRequiresSessionState
     {
 
         string connection = ConfigurationManager.ConnectionStrings["VISIONMUNDIALEntities"].ConnectionString;
@@ -51,7 +51,7 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        private void InitializeObjects()
+        public override void InitializeObjects()
         {
 
             _context = new AWContext(connection);
@@ -60,9 +60,9 @@ namespace WV.WebApplication.Handlers
             
         }
 
-        
 
-        public string GetAllRecords()
+
+        public override string GetAllRecords()
         {
             string tableHeader = "", tableBody = "", tableFooter = "", table = "";
             tableHeader = "<div class='table-responsive'>";
@@ -112,7 +112,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string DeleteRecord(HttpContext context)
+        public override string DeleteRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -138,7 +138,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string GetSingleRecord(HttpContext context)
+        public override string GetSingleRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -163,7 +163,7 @@ namespace WV.WebApplication.Handlers
 
         }
 
-        public string AddRecord(HttpContext context)
+        public override string AddRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -176,6 +176,7 @@ namespace WV.WebApplication.Handlers
                 TipoPrograma tipoPrograma = new TipoPrograma();
                 tipoPrograma.TipoPrograma1 = tipoPrograma1;
                 tipoPrograma.TipoProgramaDescripcion = tipoProgramaDescripcion;
+                tipoPrograma.CreadoPor = SystemUsername;
                 
                 _tipoPrograma.Add(tipoPrograma);
                 _context.SaveChanges();
@@ -195,7 +196,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string EditRecord(HttpContext context)
+        public override string EditRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -210,7 +211,7 @@ namespace WV.WebApplication.Handlers
                 var tipoPrograma = _tipoPrograma.GetFirst(u => u.ID_TipoPrograma == ID_TipoPrograma);
                 tipoPrograma.TipoPrograma1 = tipoPrograma1;
                 tipoPrograma.TipoProgramaDescripcion = tipoProgramaDescripcion;
-                
+                tipoPrograma.ModificadoPor = SystemUsername;
 
                 _context.SaveChanges();
                 response.IsSucess = true;

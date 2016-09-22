@@ -14,7 +14,7 @@ namespace WV.WebApplication.Handlers
     /// <summary>
     /// Summary description for Role
     /// </summary>
-    public class Role : IHttpHandler, IRequiresSessionState
+    public class Role : ActionTemplate, IHttpHandler, IRequiresSessionState
     {
         string connection = ConfigurationManager.ConnectionStrings["VISIONMUNDIALEntities"].ConnectionString;
         string MethodName = string.Empty;
@@ -47,7 +47,7 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        private void InitializeObjects()
+        public override void InitializeObjects()
         {
 
             _context = new AWContext(connection);
@@ -142,6 +142,7 @@ namespace WV.WebApplication.Handlers
                 Rol rol = new Rol();
                 rol.Rol1 = rol1;
                 rol.Descripcion = descripcion;
+                rol.CreadoPor = SystemUsername;
                 _rol.Add(rol);
                 _context.SaveChanges();
                 response.IsSucess = true;
@@ -175,6 +176,7 @@ namespace WV.WebApplication.Handlers
                 var rol= _rol.GetFirst(u => u.ID_Rol == ID_Rol);
                  rol.Rol1 = rol1;
                 rol.Descripcion = descripcion;
+                rol.ModificadoPor = SystemUsername;
                 _context.SaveChanges();
                 response.IsSucess = true;
                 response.ResponseData = string.Empty;
@@ -200,6 +202,31 @@ namespace WV.WebApplication.Handlers
             {
                 return false;
             }
+        }
+
+        public override string GetAllRecords()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetSingleRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string DeleteRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string AddRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string EditRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

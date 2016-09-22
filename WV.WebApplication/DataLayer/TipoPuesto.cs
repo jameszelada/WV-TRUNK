@@ -17,11 +17,19 @@ namespace DataLayer
         public TipoPuesto()
         {
             this.Puesto = new HashSet<Puesto>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_TipoPuesto { get; set; }
         public string TipoPuesto1 { get; set; }
         public string TipoPuestoDescripcion { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<Puesto> Puesto { get; set; }
     }

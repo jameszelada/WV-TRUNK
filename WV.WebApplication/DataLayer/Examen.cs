@@ -17,12 +17,20 @@ namespace DataLayer
         public Examen()
         {
             this.ExamenResultado = new HashSet<ExamenResultado>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Examen { get; set; }
         public int ID_Materia { get; set; }
         public string NumeroExamen { get; set; }
         public string Archivo { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Materia Materia { get; set; }
         public virtual ICollection<ExamenResultado> ExamenResultado { get; set; }

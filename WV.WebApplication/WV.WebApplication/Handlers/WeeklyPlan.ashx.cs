@@ -201,6 +201,7 @@ namespace WV.WebApplication.Handlers
                 planEncabezado.ID_Persona = planSemanal.ID_Persona;
                 planEncabezado.FechaInicio = FechaInicio;
                 planEncabezado.FechaFinal = FechaFinal;
+                planEncabezado.CreadoPor = SystemUsername;
 
                 foreach (var detalle in planSemanal.PlanSemanalDetalle)
                 {
@@ -208,6 +209,7 @@ namespace WV.WebApplication.Handlers
                     planSemanalDetalle.Actividad = detalle.Actividad;
                     planSemanalDetalle.Observaciones = detalle.Observaciones;
                     planSemanalDetalle.Recurso = detalle.Recurso;
+                    planSemanalDetalle.CreadoPor = SystemUsername;
                     planEncabezado.PlanSemanalDetalle.Add(planSemanalDetalle);
 
                 }
@@ -248,7 +250,7 @@ namespace WV.WebApplication.Handlers
                 _planSemanal = new DataRepository<IAWContext, PlanSemanal>(_lazyContext);
 
                 var planSemanal = _planSemanal.GetFirst(b => b.ID_PlanSemanal == ID_PlanSemanal);
-
+                planSemanal.ModificadoPor = SystemUsername;
                 //Forma menos complicada borrar todos los detalles e insertar los nuevos
 
 
@@ -268,6 +270,7 @@ namespace WV.WebApplication.Handlers
                     planDetalle.Actividad = detalle.Actividad;
                     planDetalle.Observaciones = detalle.Observaciones;
                     planDetalle.Recurso = detalle.Recurso;
+                    planDetalle.CreadoPor = SystemUsername;
                     planSemanal.PlanSemanalDetalle.Add(planDetalle);
 
                 }

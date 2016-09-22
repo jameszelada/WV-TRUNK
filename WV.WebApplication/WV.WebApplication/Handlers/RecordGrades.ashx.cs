@@ -271,7 +271,7 @@ namespace WV.WebApplication.Handlers
                 var examenTemporal = javaScriptSerializer.Deserialize<ExamenTemp>(stream);
 
                 var examen = _examen.GetFirst(a => a.ID_Examen == examenTemporal.ID_Examen);
-
+                examen.ModificadoPor = SystemUsername;
                 if (examen.ExamenResultado.Count == 0)
                 {
                     foreach (var examenTemp in examenTemporal.Resultados)
@@ -280,6 +280,7 @@ namespace WV.WebApplication.Handlers
                         examenResultado.ID_Beneficiario = examenTemp.ID_Beneficiario;
                         examenResultado.ID_Examen = examenTemp.ID_Examen;
                         examenResultado.Nota = examenTemp.Nota;
+                        examenResultado.CreadoPor = SystemUsername;
 
                         examen.ExamenResultado.Add(examenResultado);
                     }
@@ -315,7 +316,7 @@ namespace WV.WebApplication.Handlers
                 var examenTemp = javaScriptSerializer.Deserialize<ExamenTemp>(stream);
 
                 var examen = _examen.GetFirst(a => a.ID_Examen == examenTemp.ID_Examen);
-
+                examen.ModificadoPor = SystemUsername;
                 if (examen.ExamenResultado.Count > 0)
                 {
                     foreach (var examenResultadoTemp in examenTemp.Resultados)
@@ -326,6 +327,7 @@ namespace WV.WebApplication.Handlers
                             if (examenResultadoTemp.ID_Beneficiario == resultado.ID_Beneficiario && examenResultadoTemp.ID_Examen == resultado.ID_Examen)
                             {
                                 resultado.Nota = examenResultadoTemp.Nota;
+                                resultado.ModificadoPor = SystemUsername;
                                 break;
                             }
                         }

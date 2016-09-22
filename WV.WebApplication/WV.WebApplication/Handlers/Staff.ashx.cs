@@ -199,6 +199,7 @@ namespace WV.WebApplication.Handlers
                 persona.Telefono = telefono;
                 persona.Sexo = sexo;
                 persona.FechaNacimiento = fechaNacimiento;
+                persona.CreadoPor = SystemUsername;
                 _persona.Add(persona);
                 _context.SaveChanges();
                 response.IsSucess = true;
@@ -247,6 +248,7 @@ namespace WV.WebApplication.Handlers
                 persona.Telefono = telefono;
                 persona.Sexo = sexo;
                 persona.FechaNacimiento = fechaNacimiento;
+                persona.ModificadoPor = SystemUsername;
                 _context.SaveChanges();
                 response.IsSucess = true;
                 response.ResponseData = string.Empty;

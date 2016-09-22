@@ -19,6 +19,10 @@ namespace DataLayer
             this.Bitacora = new HashSet<Bitacora>();
             this.PlanSemanal = new HashSet<PlanSemanal>();
             this.AsignacionRecursoHumano = new HashSet<AsignacionRecursoHumano>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Persona { get; set; }
@@ -30,6 +34,10 @@ namespace DataLayer
         public string Email { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<Bitacora> Bitacora { get; set; }
         public virtual ICollection<PlanSemanal> PlanSemanal { get; set; }

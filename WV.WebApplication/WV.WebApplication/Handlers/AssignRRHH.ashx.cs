@@ -213,6 +213,7 @@ namespace WV.WebApplication.Handlers
                     asignacionRRHH.ID_Proyecto= asignacion.ID_Proyecto;
                     asignacionRRHH.ID_Persona= asignacion.ID_Persona;
                     asignacionRRHH.ID_Puesto = asignacion.ID_Puesto;
+                    asignacionRRHH.CreadoPor = SystemUsername;
                     _asignacion.Add(asignacionRRHH);
 
                 }

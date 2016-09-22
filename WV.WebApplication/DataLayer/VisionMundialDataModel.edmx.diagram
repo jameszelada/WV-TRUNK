@@ -69,6 +69,7 @@
         <AssociationConnector Association="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Materia" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_Examen_ID_Materia" />
         <AssociationConnector Association="VISIONMUNDIALModel.FK_ExamenResultado_ID_Examen" />
+        <EntityTypeShape EntityType="VISIONMUNDIALModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

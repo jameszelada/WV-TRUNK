@@ -234,6 +234,7 @@ namespace WV.WebApplication.Handlers
                         actividad.Observacion = actividadTemp.Observacion;
                         Fecha = epoch.AddMilliseconds(Convert.ToInt64(actividadTemp.Fecha));
                         actividad.Fecha = Fecha;
+                        actividad.CreadoPor = SystemUsername;
 
                         programa.Actividad.Add(actividad);
                     }
@@ -285,6 +286,7 @@ namespace WV.WebApplication.Handlers
                             actividad.ActividadDescripcion = actividadTemp.Descripcion;
                             actividad.Estado = actividadTemp.Estado[0].ToString();
                             actividad.Observacion = actividadTemp.Observacion;
+                            actividad.ModificadoPor = SystemUsername;
 
                         }
                         else
@@ -297,6 +299,7 @@ namespace WV.WebApplication.Handlers
                             actividad.Observacion = actividadTemp.Observacion;
                             Fecha = epoch.AddMilliseconds(Convert.ToInt64(actividadTemp.Fecha));
                             actividad.Fecha = Fecha;
+                            actividad.CreadoPor = SystemUsername;
 
                             programa.Actividad.Add(actividad);
                         }

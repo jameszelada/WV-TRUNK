@@ -220,6 +220,7 @@ namespace WV.WebApplication.Handlers
                 puesto.Puesto1 = puesto1;
                 puesto.PuestoDescripcion = puestoDescripcion;
                 puesto.ID_TipoPuesto = ID_TipoPuesto;
+                puesto.CreadoPor = SystemUsername;
 
 
                 _puesto.Add(puesto);
@@ -260,6 +261,7 @@ namespace WV.WebApplication.Handlers
                 puesto.Puesto1 = puesto1;
                 puesto.PuestoDescripcion = puestoDescripcion;
                 puesto.ID_TipoPuesto = ID_TipoPuesto;
+                puesto.ModificadoPor = SystemUsername;
                 _context.SaveChanges();
                 response.IsSucess = true;
                 response.ResponseData = string.Empty;

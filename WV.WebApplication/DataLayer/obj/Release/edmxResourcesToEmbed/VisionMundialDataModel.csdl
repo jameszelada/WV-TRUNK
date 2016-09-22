@@ -11,6 +11,10 @@
     <Property Name="Apellido" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="UsuarioRol" Relationship="VISIONMUNDIALModel.FK_UsuarioRol_ID_Usuario" FromRole="Usuario" ToRole="UsuarioRol" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityContainer Name="VISIONMUNDIALEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Usuario" EntityType="Self.Usuario" />
@@ -169,6 +173,7 @@
       <End Role="Examen" EntitySet="Examen" />
       <End Role="ExamenResultado" EntitySet="ExamenResultado" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="VISIONMUNDIALModel.sysdiagrams" />
   </EntityContainer>
   <EntityType Name="Recurso">
     <Key>
@@ -178,6 +183,10 @@
     <Property Name="Recurso1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Pagina" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="RolRecurso" Relationship="VISIONMUNDIALModel.FK_RolRecurso_ID_Recurso" FromRole="Recurso" ToRole="RolRecurso" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -188,6 +197,10 @@
     <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="RolRecurso" Relationship="VISIONMUNDIALModel.FK_RolRecurso_ID_Rol" FromRole="Rol" ToRole="RolRecurso" />
     <NavigationProperty Name="UsuarioRol" Relationship="VISIONMUNDIALModel.FK_UsuarioRol_ID_Rol" FromRole="Rol" ToRole="UsuarioRol" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="RolRecurso">
     <Key>
@@ -198,6 +211,10 @@
     <Property Name="ID_Recurso" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Recurso" Relationship="VISIONMUNDIALModel.FK_RolRecurso_ID_Recurso" FromRole="RolRecurso" ToRole="Recurso" />
     <NavigationProperty Name="Rol" Relationship="VISIONMUNDIALModel.FK_RolRecurso_ID_Rol" FromRole="RolRecurso" ToRole="Rol" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="UsuarioRol">
     <Key>
@@ -208,6 +225,10 @@
     <Property Name="ID_Rol" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Rol" Relationship="VISIONMUNDIALModel.FK_UsuarioRol_ID_Rol" FromRole="UsuarioRol" ToRole="Rol" />
     <NavigationProperty Name="Usuario" Relationship="VISIONMUNDIALModel.FK_UsuarioRol_ID_Usuario" FromRole="UsuarioRol" ToRole="Usuario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_RolRecurso_ID_Recurso">
     <End Type="VISIONMUNDIALModel.Recurso" Role="Recurso" Multiplicity="1">
@@ -275,6 +296,10 @@
     <Property Name="IndicadorValor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ID_Programa" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Indicador_ID_Programa" FromRole="Indicador" ToRole="Programa" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Objetivo">
     <Key>
@@ -286,6 +311,10 @@
     <Property Name="TipoObjetivo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
     <Property Name="ID_Programa" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Objetivo_ID_Programa" FromRole="Objetivo" ToRole="Programa" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="TipoPrograma">
     <Key>
@@ -295,6 +324,10 @@
     <Property Name="TipoPrograma1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="TipoProgramaDescripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Programa_ID_TipoPrograma" FromRole="TipoPrograma" ToRole="Programa" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Comunidad">
     <Key>
@@ -305,6 +338,10 @@
     <Property Name="ID_Municipio" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Municipio" Relationship="VISIONMUNDIALModel.FK_Comunidad_ID_Municipio" FromRole="Comunidad" ToRole="Municipio" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Programa_ID_Comunidad" FromRole="Comunidad" ToRole="Programa" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Departamento">
     <Key>
@@ -313,6 +350,10 @@
     <Property Name="ID_Departamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Departamento1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Municipio" Relationship="VISIONMUNDIALModel.FK_Municipio_ID_Departamento" FromRole="Departamento" ToRole="Municipio" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Municipio">
     <Key>
@@ -323,6 +364,10 @@
     <Property Name="ID_Departamento" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Comunidad" Relationship="VISIONMUNDIALModel.FK_Comunidad_ID_Municipio" FromRole="Municipio" ToRole="Comunidad" />
     <NavigationProperty Name="Departamento" Relationship="VISIONMUNDIALModel.FK_Municipio_ID_Departamento" FromRole="Municipio" ToRole="Departamento" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Puesto">
     <Key>
@@ -334,6 +379,10 @@
     <Property Name="ID_TipoPuesto" Type="Int32" Nullable="false" />
     <NavigationProperty Name="TipoPuesto" Relationship="VISIONMUNDIALModel.FK_Puesto_ID_TipoPuesto" FromRole="Puesto" ToRole="TipoPuesto" />
     <NavigationProperty Name="AsignacionRecursoHumano" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Puesto" FromRole="Puesto" ToRole="AsignacionRecursoHumano" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="TipoPuesto">
     <Key>
@@ -343,6 +392,10 @@
     <Property Name="TipoPuesto1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="TipoPuestoDescripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Puesto" Relationship="VISIONMUNDIALModel.FK_Puesto_ID_TipoPuesto" FromRole="TipoPuesto" ToRole="Puesto" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Comunidad_ID_Municipio">
     <End Type="VISIONMUNDIALModel.Municipio" Role="Municipio" Multiplicity="1">
@@ -395,6 +448,10 @@
     <Property Name="FechaBitacora" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Persona" Relationship="VISIONMUNDIALModel.FK_Bitacora_ID_Persona" FromRole="Bitacora" ToRole="Persona" />
     <NavigationProperty Name="BitacoraDetalle" Relationship="VISIONMUNDIALModel.FK_BitacoraDetalle_ID_Bitacora" FromRole="Bitacora" ToRole="BitacoraDetalle" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="BitacoraDetalle">
     <Key>
@@ -405,6 +462,10 @@
     <Property Name="Actividad" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Bitacora" Relationship="VISIONMUNDIALModel.FK_BitacoraDetalle_ID_Bitacora" FromRole="BitacoraDetalle" ToRole="Bitacora" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Persona">
     <Key>
@@ -422,6 +483,10 @@
     <NavigationProperty Name="Bitacora" Relationship="VISIONMUNDIALModel.FK_Bitacora_ID_Persona" FromRole="Persona" ToRole="Bitacora" />
     <NavigationProperty Name="PlanSemanal" Relationship="VISIONMUNDIALModel.FK_PlanSemanal_ID_Persona" FromRole="Persona" ToRole="PlanSemanal" />
     <NavigationProperty Name="AsignacionRecursoHumano" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Persona" FromRole="Persona" ToRole="AsignacionRecursoHumano" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PlanSemanal">
     <Key>
@@ -433,6 +498,10 @@
     <Property Name="FechaFinal" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Persona" Relationship="VISIONMUNDIALModel.FK_PlanSemanal_ID_Persona" FromRole="PlanSemanal" ToRole="Persona" />
     <NavigationProperty Name="PlanSemanalDetalle" Relationship="VISIONMUNDIALModel.FK_PlanSemanalDetalle_ID_PlanSemanal" FromRole="PlanSemanal" ToRole="PlanSemanalDetalle" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="PlanSemanalDetalle">
     <Key>
@@ -444,6 +513,10 @@
     <Property Name="Observaciones" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="Recurso" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PlanSemanal" Relationship="VISIONMUNDIALModel.FK_PlanSemanalDetalle_ID_PlanSemanal" FromRole="PlanSemanalDetalle" ToRole="PlanSemanal" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Bitacora_ID_Persona">
     <End Type="VISIONMUNDIALModel.Persona" Role="Persona" Multiplicity="1">
@@ -511,6 +584,10 @@
     <Property Name="Estado" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AsignacionRecursoHumano" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Proyecto" FromRole="Proyecto" ToRole="AsignacionRecursoHumano" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Programa_ID_Proyecto" FromRole="Proyecto" ToRole="Programa" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="AsignacionRecursoHumano">
     <Key>
@@ -523,6 +600,10 @@
     <NavigationProperty Name="Persona" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Persona" FromRole="AsignacionRecursoHumano" ToRole="Persona" />
     <NavigationProperty Name="Proyecto" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Proyecto" FromRole="AsignacionRecursoHumano" ToRole="Proyecto" />
     <NavigationProperty Name="Puesto" Relationship="VISIONMUNDIALModel.FK_AsignacionRecursoHumano_ID_Puesto" FromRole="AsignacionRecursoHumano" ToRole="Puesto" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_AsignacionRecursoHumano_ID_Persona">
     <End Type="VISIONMUNDIALModel.Persona" Role="Persona" Multiplicity="1">
@@ -586,6 +667,10 @@
     <NavigationProperty Name="TipoPrograma" Relationship="VISIONMUNDIALModel.FK_Programa_ID_TipoPrograma" FromRole="Programa" ToRole="TipoPrograma" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_Beneficiario_ID_Programa" FromRole="Programa" ToRole="Beneficiario" />
     <NavigationProperty Name="Actividad" Relationship="VISIONMUNDIALModel.FK_Actividad_ID_Programa" FromRole="Programa" ToRole="Actividad" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Programa_ID_Comunidad">
     <End Type="VISIONMUNDIALModel.Comunidad" Role="Comunidad" Multiplicity="1">
@@ -677,6 +762,10 @@
     <NavigationProperty Name="BeneficiarioSalud" Relationship="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" FromRole="Beneficiario" ToRole="BeneficiarioSalud" />
     <NavigationProperty Name="Asistencia" Relationship="VISIONMUNDIALModel.FK_Asistencia_ID_Beneficiario" FromRole="Beneficiario" ToRole="Asistencia" />
     <NavigationProperty Name="AsignacionMateria" Relationship="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Beneficiario" FromRole="Beneficiario" ToRole="AsignacionMateria" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="BeneficiarioAdicional">
     <Key>
@@ -688,6 +777,10 @@
     <Property Name="TieneRegistroNacimiento" Type="Boolean" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_BeneficiarioAdicional_ID_Beneficiario" FromRole="BeneficiarioAdicional" ToRole="Beneficiario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="BeneficiarioCompromiso">
     <Key>
@@ -701,6 +794,10 @@
     <Property Name="Comentario" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
     <Property Name="ID_Beneficiario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_BeneficiarioCompromiso_ID_Beneficiario" FromRole="BeneficiarioCompromiso" ToRole="Beneficiario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="BeneficiarioEducacion">
     <Key>
@@ -716,6 +813,10 @@
     <Property Name="Turno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="ID_Beneficiario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_BeneficiarioEducacion_ID_Beneficiario" FromRole="BeneficiarioEducacion" ToRole="Beneficiario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="BeneficiarioSalud">
     <Key>
@@ -730,6 +831,10 @@
     <Property Name="Discapacidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="ID_Beneficiario" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_BeneficiarioSalud_ID_Beneficiario" FromRole="BeneficiarioSalud" ToRole="Beneficiario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Beneficiario_ID_Programa">
     <End Type="VISIONMUNDIALModel.Programa" Role="Programa" Multiplicity="1">
@@ -814,6 +919,10 @@
     <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="Programa" Relationship="VISIONMUNDIALModel.FK_Actividad_ID_Programa" FromRole="Actividad" ToRole="Programa" />
     <NavigationProperty Name="Asistencia" Relationship="VISIONMUNDIALModel.FK_Asistencia_ID_Actividad" FromRole="Actividad" ToRole="Asistencia" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Actividad_ID_Programa">
     <End Type="VISIONMUNDIALModel.Programa" Role="Programa" Multiplicity="1">
@@ -839,6 +948,10 @@
     <Property Name="Estado" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Actividad" Relationship="VISIONMUNDIALModel.FK_Asistencia_ID_Actividad" FromRole="Asistencia" ToRole="Actividad" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_Asistencia_ID_Beneficiario" FromRole="Asistencia" ToRole="Beneficiario" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_Asistencia_ID_Actividad">
     <End Type="VISIONMUNDIALModel.Actividad" Role="Actividad" Multiplicity="1">
@@ -875,6 +988,10 @@
     <Property Name="ID_Materia" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Beneficiario" Relationship="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Beneficiario" FromRole="AsignacionMateria" ToRole="Beneficiario" />
     <NavigationProperty Name="Materia" Relationship="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Materia" FromRole="AsignacionMateria" ToRole="Materia" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Examen">
     <Key>
@@ -886,6 +1003,10 @@
     <NavigationProperty Name="Materia" Relationship="VISIONMUNDIALModel.FK_Examen_ID_Materia" FromRole="Examen" ToRole="Materia" />
     <NavigationProperty Name="ExamenResultado" Relationship="VISIONMUNDIALModel.FK_ExamenResultado_ID_Examen" FromRole="Examen" ToRole="ExamenResultado" />
     <Property Name="Archivo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="ExamenResultado">
     <Key>
@@ -896,6 +1017,10 @@
     <Property Name="ID_Beneficiario" Type="Int32" Nullable="false" />
     <Property Name="Nota" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Examen" Relationship="VISIONMUNDIALModel.FK_ExamenResultado_ID_Examen" FromRole="ExamenResultado" ToRole="Examen" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="Materia">
     <Key>
@@ -907,6 +1032,10 @@
     <Property Name="Grado" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="AsignacionMateria" Relationship="VISIONMUNDIALModel.FK_AsignacionMateria_ID_Materia" FromRole="Materia" ToRole="AsignacionMateria" />
     <NavigationProperty Name="Examen" Relationship="VISIONMUNDIALModel.FK_Examen_ID_Materia" FromRole="Materia" ToRole="Examen" />
+    <Property Name="CreadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
   </EntityType>
   <Association Name="FK_AsignacionMateria_ID_Beneficiario">
     <End Type="VISIONMUNDIALModel.Beneficiario" Role="Beneficiario" Multiplicity="1">
@@ -964,4 +1093,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

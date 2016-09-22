@@ -17,11 +17,19 @@ namespace DataLayer
         public Municipio()
         {
             this.Comunidad = new HashSet<Comunidad>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Municipio { get; set; }
         public string Municipio1 { get; set; }
         public int ID_Departamento { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<Comunidad> Comunidad { get; set; }
         public virtual Departamento Departamento { get; set; }

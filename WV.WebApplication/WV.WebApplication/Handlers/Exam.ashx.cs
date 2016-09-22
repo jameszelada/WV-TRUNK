@@ -271,6 +271,7 @@ namespace WV.WebApplication.Handlers
                 examen.NumeroExamen = numeroExamen;
                 examen.Archivo = archivo;
                 examen.ID_Materia = ID_Materia;
+                examen.CreadoPor = SystemUsername;
 
 
                 _examen.Add(examen);
@@ -312,6 +313,7 @@ namespace WV.WebApplication.Handlers
                examen.NumeroExamen = numeroExamen;
                 examen.Archivo = archivo;
                 examen.ID_Materia = ID_Materia;
+                examen.ModificadoPor = SystemUsername;
 
                 _context.SaveChanges();
                 response.IsSucess = true;

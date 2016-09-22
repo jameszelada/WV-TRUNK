@@ -14,9 +14,20 @@ namespace DataLayer
     
     public partial class RolRecurso
     {
+        public RolRecurso()
+        {
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
+        }
         public int ID_RolRecurso { get; set; }
         public int ID_Rol { get; set; }
         public int ID_Recurso { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Recurso Recurso { get; set; }
         public virtual Rol Rol { get; set; }

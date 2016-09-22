@@ -22,6 +22,10 @@ namespace DataLayer
             this.BeneficiarioSalud = new HashSet<BeneficiarioSalud>();
             this.Asistencia = new HashSet<Asistencia>();
             this.AsignacionMateria = new HashSet<AsignacionMateria>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Beneficiario { get; set; }
@@ -33,6 +37,10 @@ namespace DataLayer
         public string Sexo { get; set; }
         public string Direccion { get; set; }
         public int ID_Programa { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Programa Programa { get; set; }
         public virtual ICollection<BeneficiarioAdicional> BeneficiarioAdicional { get; set; }

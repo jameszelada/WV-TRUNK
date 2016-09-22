@@ -199,12 +199,14 @@ namespace WV.WebApplication.Handlers
                 Bitacora bitacoraEncabezado = new Bitacora();
                 bitacoraEncabezado.ID_Persona = bitacora.ID_Persona;
                 bitacoraEncabezado.FechaBitacora = FechaBitacora;
+                bitacoraEncabezado.CreadoPor = SystemUsername;
 
                 foreach (var detalle in bitacora.BitacoraDetalle)
 	            {
                     BitacoraDetalle bitacoraDetalle= new BitacoraDetalle();
                     bitacoraDetalle.Actividad = detalle.Actividad;
                     bitacoraDetalle.Observaciones= detalle.Observaciones;
+                    bitacoraDetalle.CreadoPor = SystemUsername;
                     bitacoraEncabezado.BitacoraDetalle.Add(bitacoraDetalle);
 		 
 	            }
@@ -245,6 +247,7 @@ namespace WV.WebApplication.Handlers
                 _bitacora = new DataRepository<IAWContext,Bitacora>(_lazyContext);
 
                 var bitacora = _bitacora.GetFirst(b=>b.ID_Bitacora==ID_Bitacora);
+                bitacora.ModificadoPor = SystemUsername;
 
                 //Forma menos complicada borrar todos los detalles e insertar los nuevos
 
@@ -264,6 +267,7 @@ namespace WV.WebApplication.Handlers
                     BitacoraDetalle bitacoraDetalle = new BitacoraDetalle();
                     bitacoraDetalle.Actividad = detalle.Actividad;
                     bitacoraDetalle.Observaciones = detalle.Observaciones;
+                    bitacoraDetalle.CreadoPor = SystemUsername;
                     bitacora.BitacoraDetalle.Add(bitacoraDetalle);
 
                 }

@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using DataLayer;
+using System.Data;
 
 namespace Repository
 {
@@ -19,6 +20,28 @@ namespace Repository
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
+
+        public override int SaveChanges()
+        {
+            DateTime saveTime = DateTime.Now;
+            string defaultStringDate = new DateTime(1990, 1, 1).ToString();
+            foreach (var entry in this.ChangeTracker.Entries().Where(e => e.State == (EntityState)System.Data.EntityState.Added))
+            {
+                if (entry.Property("FechaCreacion").CurrentValue.ToString() == defaultStringDate)
+                {
+                    entry.Property("FechaCreacion").CurrentValue = saveTime;
+                }
+                    
+            }
+
+            foreach (var entry in this.ChangeTracker.Entries().Where(e => e.State == (EntityState)System.Data.EntityState.Modified))
+            {  
+                entry.Property("FechaModificacion").CurrentValue = saveTime;   
+            }
+
+            return base.SaveChanges();
+        }
+
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Recurso> Recurso { get; set; }
         public DbSet<Rol> Rol { get; set; }

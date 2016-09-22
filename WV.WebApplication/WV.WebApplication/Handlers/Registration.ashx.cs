@@ -276,6 +276,7 @@ namespace WV.WebApplication.Handlers
                 BeneficiarioToAdd.Sexo = beneficiario.Sexo;
                 BeneficiarioToAdd.Dui = beneficiario.Dui;
                 BeneficiarioToAdd.Direccion = beneficiario.Direccion;
+                BeneficiarioToAdd.CreadoPor = SystemUsername;
 
                 BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
                 bool? canAddChildAdicional = null;
@@ -285,11 +286,14 @@ namespace WV.WebApplication.Handlers
                 if (beneficiario.BeneficiarioAdicional.TieneRegistroNacimiento.HasValue)
                 {
                     BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = beneficiario.BeneficiarioAdicional.TieneRegistroNacimiento.Value;
+                   
+
                     canAddChildAdicional = true;
                 }
 
                 if (canAddChildAdicional != null)
                 {
+                    BeneficiarioAdicionalToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
                 }
 
@@ -312,6 +316,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddCompromiso != null)
                 {
+                    BeneficiaroCompromisoToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiaroCompromisoToAdd);
                 }
 
@@ -336,6 +341,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddSalud != null && canAddSaludTarjeta != null)
                 {
+                    BeneficiarioSaludToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioSalud.Add(BeneficiarioSaludToAdd);
                 }
 
@@ -356,6 +362,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddEducacion != null)
                 {
+                    BeneficiarioEducacionToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioEducacion.Add(BeneficiarioEducacionToAdd);
                 }
 
@@ -407,7 +414,7 @@ namespace WV.WebApplication.Handlers
             BeneficiarioToAdd.Sexo = beneficiario.Sexo;
             BeneficiarioToAdd.Dui = beneficiario.Dui;
             BeneficiarioToAdd.Direccion = beneficiario.Direccion;
-
+            BeneficiarioToAdd.ModificadoPor = SystemUsername;
 
             
             //BeneficiarioToAdd.BeneficiarioAdicional.First()
@@ -427,6 +434,7 @@ namespace WV.WebApplication.Handlers
 
                 if (canAddChildAdicional != null)
                 {
+                    BeneficiarioAdicionalToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
                 }
             }
@@ -435,6 +443,7 @@ namespace WV.WebApplication.Handlers
                 BeneficiarioToAdd.BeneficiarioAdicional.First().NombreEmergencia = !string.IsNullOrEmpty(beneficiario.BeneficiarioAdicional.NombreEmergencia) ? beneficiario.BeneficiarioAdicional.NombreEmergencia : "";
                 BeneficiarioToAdd.BeneficiarioAdicional.First().NumeroEmergencia = !string.IsNullOrEmpty(beneficiario.BeneficiarioAdicional.NumeroEmergencia) ? beneficiario.BeneficiarioAdicional.NumeroEmergencia : "";
                 BeneficiarioToAdd.BeneficiarioAdicional.First().TieneRegistroNacimiento = beneficiario.BeneficiarioAdicional.TieneRegistroNacimiento.Value;
+                BeneficiarioToAdd.BeneficiarioAdicional.First().ModificadoPor = SystemUsername;
             }
 
             if (BeneficiarioToAdd.BeneficiarioCompromiso.Count == 0)
@@ -458,6 +467,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddCompromiso != null)
                 {
+                    BeneficiaroCompromisoToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiaroCompromisoToAdd);
                 }
             }
@@ -468,6 +478,7 @@ namespace WV.WebApplication.Handlers
                 BeneficiarioToAdd.BeneficiarioCompromiso.First().ExistioProblema = beneficiario.BeneficiarioCompromiso.ExistioProblema.Value;
                 BeneficiarioToAdd.BeneficiarioCompromiso.First().SeCongrega = beneficiario.BeneficiarioCompromiso.SeCongrega.Value;
                 BeneficiarioToAdd.BeneficiarioCompromiso.First().AceptaCompromiso = beneficiario.BeneficiarioCompromiso.AceptaCompromiso.Value;
+                BeneficiarioToAdd.BeneficiarioCompromiso.First().ModificadoPor = SystemUsername;
             }
 
             if (BeneficiarioToAdd.BeneficiarioSalud.Count == 0)
@@ -493,6 +504,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddSalud != null && canAddSaludTarjeta != null)
                 {
+                    BeneficiarioSaludToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioSalud.Add(BeneficiarioSaludToAdd);
                 }
             }
@@ -504,7 +516,7 @@ namespace WV.WebApplication.Handlers
                 BeneficiarioToAdd.BeneficiarioSalud.First().FechaInmunizacion = beneficiario.BeneficiarioSalud.FechaInmunizacion != null ? beneficiario.BeneficiarioSalud.FechaInmunizacion : new DateTime(1900, 1, 1);
                 BeneficiarioToAdd.BeneficiarioSalud.First().EstadoSalud = beneficiario.BeneficiarioSalud.EstadoSalud;
                 BeneficiarioToAdd.BeneficiarioSalud.First().TieneTarjeta = beneficiario.BeneficiarioSalud.TieneTarjeta.Value;
-
+                BeneficiarioToAdd.BeneficiarioSalud.First().ModificadoPor = SystemUsername;
             }
 
             if (BeneficiarioToAdd.BeneficiarioEducacion.Count==0)
@@ -526,6 +538,7 @@ namespace WV.WebApplication.Handlers
                 }
                 if (canAddEducacion != null)
                 {
+                    BeneficiarioEducacionToAdd.CreadoPor = SystemUsername;
                     BeneficiarioToAdd.BeneficiarioEducacion.Add(BeneficiarioEducacionToAdd);
                 }
             }
@@ -537,6 +550,7 @@ namespace WV.WebApplication.Handlers
                 BeneficiarioToAdd.BeneficiarioEducacion.First().UltimoGrado = !string.IsNullOrEmpty(beneficiario.BeneficiarioEducacion.UltimoGrado) ? beneficiario.BeneficiarioEducacion.UltimoGrado : "";
                 BeneficiarioToAdd.BeneficiarioEducacion.First().NombreCentroEscolar = !string.IsNullOrEmpty(beneficiario.BeneficiarioEducacion.NombreCentroEscolar) ? beneficiario.BeneficiarioEducacion.NombreCentroEscolar : "";
                 BeneficiarioToAdd.BeneficiarioEducacion.First().Turno = !string.IsNullOrEmpty(beneficiario.BeneficiarioEducacion.Turno) ? beneficiario.BeneficiarioEducacion.Turno : "";
+                BeneficiarioToAdd.BeneficiarioEducacion.First().ModificadoPor = SystemUsername;
             }
 
             _context.SaveChanges();

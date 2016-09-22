@@ -260,6 +260,7 @@ namespace WV.WebApplication.Handlers
                         asistencia.ID_Actividad = asistenciaTemp.ID_Actividad;
                         asistencia.ID_Beneficiario = asistenciaTemp.ID_Beneficiario;
                         asistencia.Estado = asistenciaTemp.Estado;
+                        asistencia.CreadoPor = SystemUsername;
 
                         actividad.Asistencia.Add(asistencia);
                     }
@@ -359,6 +360,7 @@ namespace WV.WebApplication.Handlers
                             if (asistenciaTemp.ID_Beneficiario == asistencia.ID_Beneficiario && asistenciaTemp.ID_Actividad == asistencia.ID_Actividad)
                             {
                                 asistencia.Estado = asistenciaTemp.Estado;
+                                asistencia.ModificadoPor = SystemUsername;
                                 break;
                             }
                         }

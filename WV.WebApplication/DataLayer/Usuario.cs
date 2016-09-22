@@ -17,6 +17,10 @@ namespace DataLayer
         public Usuario()
         {
             this.UsuarioRol = new HashSet<UsuarioRol>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Usuario { get; set; }
@@ -25,6 +29,10 @@ namespace DataLayer
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Email { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual ICollection<UsuarioRol> UsuarioRol { get; set; }
     }

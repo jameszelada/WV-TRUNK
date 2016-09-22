@@ -14,7 +14,7 @@ namespace WV.WebApplication.Handlers
     /// <summary>
     /// Summary description for Community
     /// </summary>
-    public class Community : IHttpHandler, IRequiresSessionState
+    public class Community : ActionTemplate, IHttpHandler, IRequiresSessionState
     {
 
        string connection = ConfigurationManager.ConnectionStrings["VISIONMUNDIALEntities"].ConnectionString;
@@ -58,7 +58,7 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        private void InitializeObjects()
+        public override void InitializeObjects()
         {
 
             _context = new AWContext(connection);
@@ -73,7 +73,7 @@ namespace WV.WebApplication.Handlers
 
         
 
-        public string GetAllRecords()
+        public override string GetAllRecords()
         {
             string tableHeader = "", tableBody = "", tableFooter = "", table = "";
             tableHeader = "<div class='table-responsive'>";
@@ -123,7 +123,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string DeleteRecord(HttpContext context)
+        public override string DeleteRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -149,7 +149,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string GetSingleRecord(HttpContext context)
+        public override string GetSingleRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -239,7 +239,7 @@ namespace WV.WebApplication.Handlers
 
         }
 
-        public string AddRecord(HttpContext context)
+        public override string AddRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -253,6 +253,7 @@ namespace WV.WebApplication.Handlers
                 Comunidad comunidad = new Comunidad();
                 comunidad.Comunidad1 = comunidad1;
                 comunidad.ID_Municipio = ID_Municipio;
+                comunidad.CreadoPor = SystemUsername;
                 _comunidad.Add(comunidad);
                 _context.SaveChanges();
                 response.IsSucess = true;
@@ -271,7 +272,7 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
-        public string EditRecord(HttpContext context)
+        public override string EditRecord(HttpContext context)
         {
             JsonResponse response = new JsonResponse();
             JavaScriptSerializer serializer = new JavaScriptSerializer();
@@ -286,6 +287,7 @@ namespace WV.WebApplication.Handlers
             {
                 var comunidad = _comunidad.GetFirst(u => u.ID_Comunidad == ID_Comunidad);
                 comunidad.Comunidad1 = comunidad1;
+                comunidad.ModificadoPor = SystemUsername;
                 comunidad.ID_Municipio = ID_Municipio;
                 _context.SaveChanges();
                 response.IsSucess = true;

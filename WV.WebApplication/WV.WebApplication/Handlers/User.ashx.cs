@@ -14,7 +14,7 @@ namespace WV.WebApplication.Handlers
     /// <summary>
     /// Summary description for User
     /// </summary>
-    public class User : IHttpHandler, IRequiresSessionState
+    public class User :ActionTemplate, IHttpHandler, IRequiresSessionState
     {
         string connection = ConfigurationManager.ConnectionStrings["VISIONMUNDIALEntities"].ConnectionString;
         string MethodName = string.Empty;
@@ -57,7 +57,7 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        private void InitializeObjects()
+        public override void InitializeObjects()
         {
 
             _context = new AWContext(connection);
@@ -230,6 +230,7 @@ namespace WV.WebApplication.Handlers
                 usuario.Apellido = apellido;
                 usuario.Contrasenia = contrasenia;
                 usuario.Email = email;
+                usuario.CreadoPor = SystemUsername;
                 _usuario.Add(usuario);
                 _context.SaveChanges();
                 response.IsSucess = true;
@@ -268,6 +269,7 @@ namespace WV.WebApplication.Handlers
                 usuario.Apellido = apellido;
                 usuario.Contrasenia = contrasenia;
                 usuario.Email = email;
+                usuario.ModificadoPor = SystemUsername;
 
                 _context.SaveChanges();
                 response.IsSucess = true;
@@ -307,6 +309,7 @@ namespace WV.WebApplication.Handlers
                 {
                     var UsuarioRol = _usuarioRol.GetFirst(ur=> ur.ID_Usuario == ID_usuario);
                     UsuarioRol.ID_Rol = ID_rol;
+                    UsuarioRol.ModificadoPor = SystemUsername;
                     _context.SaveChanges();
                     response.IsSucess = true;
                     response.ResponseData = string.Empty;
@@ -319,6 +322,7 @@ namespace WV.WebApplication.Handlers
                     UsuarioRol usuariorol = new UsuarioRol();
                     usuariorol.ID_Rol = ID_rol;
                     usuariorol.ID_Usuario = ID_usuario;
+                    usuariorol.CreadoPor = SystemUsername;
                     _usuarioRol.Add(usuariorol);
                     _context.SaveChanges();
                     response.IsSucess = true;
@@ -346,6 +350,31 @@ namespace WV.WebApplication.Handlers
             {
                 return false;
             }
+        }
+
+        public override string GetAllRecords()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetSingleRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string DeleteRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string AddRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string EditRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -20,6 +20,10 @@ namespace DataLayer
             this.Objetivo = new HashSet<Objetivo>();
             this.Beneficiario = new HashSet<Beneficiario>();
             this.Actividad = new HashSet<Actividad>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Programa { get; set; }
@@ -31,6 +35,10 @@ namespace DataLayer
         public int ID_Proyecto { get; set; }
         public int ID_TipoPrograma { get; set; }
         public int ID_Comunidad { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Comunidad Comunidad { get; set; }
         public virtual ICollection<Indicador> Indicador { get; set; }

@@ -278,6 +278,7 @@ namespace WV.WebApplication.Handlers
                 proyecto.Codigo = codigo;
                 proyecto.ProyectoDescripcion = proyectoDescripcion;
                 proyecto.Estado = estado;
+                proyecto.CreadoPor = SystemUsername;
                
                 _proyecto.Add(proyecto);
                 _context.SaveChanges();
@@ -315,6 +316,7 @@ namespace WV.WebApplication.Handlers
                 proyecto.Codigo = codigo;
                 proyecto.ProyectoDescripcion = proyectoDescripcion;
                 proyecto.Estado = estado;
+                proyecto.ModificadoPor = SystemUsername;
                 _context.SaveChanges();
                 response.IsSucess = true;
                 response.ResponseData = string.Empty;

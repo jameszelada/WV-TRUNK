@@ -179,6 +179,7 @@ namespace WV.WebApplication.Handlers
                 TipoPuesto tipoPuesto = new TipoPuesto();
                 tipoPuesto.TipoPuesto1 = tipoPuesto1;
                 tipoPuesto.TipoPuestoDescripcion = tipoPuestoDescripcion;
+                tipoPuesto.CreadoPor = SystemUsername;
                 
 
                 _tipoPuesto.Add(tipoPuesto);
@@ -217,6 +218,7 @@ namespace WV.WebApplication.Handlers
                 var tipoPuesto = _tipoPuesto.GetFirst(u => u.ID_TipoPuesto == ID_TipoPuesto);
                 tipoPuesto.TipoPuesto1 = tipoPuesto1;
                 tipoPuesto.TipoPuestoDescripcion = tipoPuestoDescripcion;
+                tipoPuesto.ModificadoPor = SystemUsername;
                 
                 _context.SaveChanges();
                 response.IsSucess = true;

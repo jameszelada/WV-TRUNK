@@ -14,7 +14,7 @@ namespace WV.WebApplication.Handlers
     /// <summary>
     /// Summary description for RoleConfiguration
     /// </summary>
-    public class RoleConfiguration : IHttpHandler, IRequiresSessionState
+    public class RoleConfiguration : ActionTemplate, IHttpHandler, IRequiresSessionState
     {
 
         string connection = ConfigurationManager.ConnectionStrings["VISIONMUNDIALEntities"].ConnectionString;
@@ -59,7 +59,7 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        private void InitializeObjects()
+        public override void InitializeObjects()
         {
 
             _context = new AWContext(connection);
@@ -261,6 +261,7 @@ namespace WV.WebApplication.Handlers
                     RolRecurso rolRecurso = new RolRecurso();
                     rolRecurso.ID_Rol = ID_Rol;
                     rolRecurso.ID_Recurso = ID_Recurso;
+                    rolRecurso.CreadoPor = SystemUsername;
                     _rolRecurso.Add(rolRecurso);
                 }
 
@@ -316,6 +317,31 @@ namespace WV.WebApplication.Handlers
             }
         }
 
-        
+
+
+        public override string GetAllRecords()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetSingleRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string DeleteRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string AddRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string EditRecord(HttpContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

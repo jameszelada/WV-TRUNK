@@ -11,6 +11,10 @@
     <Property Name="ID_Programa" Type="int" Nullable="false" />
     <Property Name="Observacion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="AsignacionMateria">
     <Key>
@@ -19,6 +23,10 @@
     <Property Name="ID_AsignacionMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
     <Property Name="ID_Materia" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="AsignacionRecursoHumano">
     <Key>
@@ -28,6 +36,10 @@
     <Property Name="ID_Puesto" Type="int" Nullable="false" />
     <Property Name="ID_Persona" Type="int" Nullable="false" />
     <Property Name="ID_Proyecto" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Asistencia">
     <Key>
@@ -37,6 +49,10 @@
     <Property Name="ID_Actividad" Type="int" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
     <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Beneficiario">
     <Key>
@@ -51,6 +67,10 @@
     <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="ID_Programa" Type="int" Nullable="false" />
     <Property Name="Edad" Type="varchar" MaxLength="10" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="BeneficiarioAdicional">
     <Key>
@@ -61,6 +81,10 @@
     <Property Name="NumeroEmergencia" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="TieneRegistroNacimiento" Type="bit" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="BeneficiarioCompromiso">
     <Key>
@@ -73,6 +97,10 @@
     <Property Name="NombreIglesia" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Comentario" Type="varchar" MaxLength="2000" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="BeneficiarioEducacion">
     <Key>
@@ -87,6 +115,10 @@
     <Property Name="NombreCentroEscolar" Type="varchar" MaxLength="100" />
     <Property Name="Turno" Type="varchar" MaxLength="30" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="BeneficiarioSalud">
     <Key>
@@ -100,6 +132,10 @@
     <Property Name="Enfermedad" Type="varchar" MaxLength="30" />
     <Property Name="Discapacidad" Type="varchar" MaxLength="30" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Bitacora">
     <Key>
@@ -108,6 +144,10 @@
     <Property Name="ID_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Persona" Type="int" Nullable="false" />
     <Property Name="FechaBitacora" Type="datetime" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="BitacoraDetalle">
     <Key>
@@ -117,6 +157,10 @@
     <Property Name="ID_Bitacora" Type="int" Nullable="false" />
     <Property Name="Actividad" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="Observaciones" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Comunidad">
     <Key>
@@ -125,6 +169,10 @@
     <Property Name="ID_Comunidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Comunidad" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="ID_Municipio" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Departamento">
     <Key>
@@ -132,6 +180,10 @@
     </Key>
     <Property Name="ID_Departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Departamento" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Examen">
     <Key>
@@ -141,6 +193,10 @@
     <Property Name="ID_Materia" Type="int" Nullable="false" />
     <Property Name="NumeroExamen" Type="varchar" MaxLength="25" />
     <Property Name="Archivo" Type="varchar" MaxLength="200" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="ExamenResultado">
     <Key>
@@ -150,6 +206,10 @@
     <Property Name="ID_Examen" Type="int" Nullable="false" />
     <Property Name="ID_Beneficiario" Type="int" Nullable="false" />
     <Property Name="Nota" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Indicador">
     <Key>
@@ -160,6 +220,10 @@
     <Property Name="IndicadorDescripcion" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="IndicadorValor" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="ID_Programa" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Materia">
     <Key>
@@ -169,6 +233,10 @@
     <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Anio" Type="varchar" MaxLength="4" Nullable="false" />
     <Property Name="Grado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Municipio">
     <Key>
@@ -177,6 +245,10 @@
     <Property Name="ID_Municipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Municipio" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="ID_Departamento" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Objetivo">
     <Key>
@@ -187,6 +259,10 @@
     <Property Name="ObjetivoDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="TipoObjetivo" Type="varchar" MaxLength="1" Nullable="false" />
     <Property Name="ID_Programa" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Persona">
     <Key>
@@ -201,6 +277,10 @@
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Direccion" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Telefono" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="PlanSemanal">
     <Key>
@@ -210,6 +290,10 @@
     <Property Name="ID_Persona" Type="int" Nullable="false" />
     <Property Name="FechaInicio" Type="datetime" Nullable="false" />
     <Property Name="FechaFinal" Type="datetime" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="PlanSemanalDetalle">
     <Key>
@@ -220,6 +304,10 @@
     <Property Name="Actividad" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="Observaciones" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="Recurso" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Programa">
     <Key>
@@ -234,6 +322,10 @@
     <Property Name="ID_Proyecto" Type="int" Nullable="false" />
     <Property Name="ID_TipoPrograma" Type="int" Nullable="false" />
     <Property Name="ID_Comunidad" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Proyecto">
     <Key>
@@ -243,6 +335,10 @@
     <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ProyectoDescripcion" Type="varchar" MaxLength="1000" Nullable="false" />
     <Property Name="Estado" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Puesto">
     <Key>
@@ -252,6 +348,10 @@
     <Property Name="Puesto" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="PuestoDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
     <Property Name="ID_TipoPuesto" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Recurso">
     <Key>
@@ -260,6 +360,10 @@
     <Property Name="ID_Recurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Recurso" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Pagina" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
@@ -268,6 +372,10 @@
     <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Rol" Type="varchar" MaxLength="30" Nullable="false" />
     <Property Name="Descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="RolRecurso">
     <Key>
@@ -276,6 +384,20 @@
     <Property Name="ID_RolRecurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Rol" Type="int" Nullable="false" />
     <Property Name="ID_Recurso" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="TipoPrograma">
     <Key>
@@ -284,6 +406,10 @@
     <Property Name="ID_TipoPrograma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoPrograma" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="TipoProgramaDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="TipoPuesto">
     <Key>
@@ -292,6 +418,10 @@
     <Property Name="ID_TipoPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TipoPuesto" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="TipoPuestoDescripcion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="Usuario">
     <Key>
@@ -303,6 +433,10 @@
     <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <EntityType Name="UsuarioRol">
     <Key>
@@ -311,6 +445,10 @@
     <Property Name="ID_UsuarioRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Usuario" Type="int" Nullable="false" />
     <Property Name="ID_Rol" Type="int" Nullable="false" />
+    <Property Name="CreadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaCreacion" Type="datetime" />
+    <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
+    <Property Name="FechaModificacion" Type="datetime" />
   </EntityType>
   <Association Name="FK_Actividad_ID_Programa">
     <End Role="Programa" Type="Self.Programa" Multiplicity="1">
@@ -773,6 +911,7 @@
     <EntitySet Name="Recurso" EntityType="Self.Recurso" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RolRecurso" EntityType="Self.RolRecurso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoPrograma" EntityType="Self.TipoPrograma" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoPuesto" EntityType="Self.TipoPuesto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />

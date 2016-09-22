@@ -255,6 +255,8 @@ namespace WV.WebApplication.Handlers
                 programa.Estado = estado;
                 programa.FechaFinal = FechaFinal;
                 programa.FechaInicio = FechaInicio;
+                programa.CreadoPor = SystemUsername;
+
 
                 _programa.Add(programa); 
                 _context.SaveChanges();
@@ -307,6 +309,7 @@ namespace WV.WebApplication.Handlers
                 programa.Estado = estado;
                 programa.FechaFinal = FechaFinal;
                 programa.FechaInicio = FechaInicio;
+                programa.ModificadoPor = SystemUsername;
 
                 _context.SaveChanges();
 

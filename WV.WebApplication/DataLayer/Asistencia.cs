@@ -14,10 +14,21 @@ namespace DataLayer
     
     public partial class Asistencia
     {
+        public Asistencia()
+        {
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
+        }
         public int ID_Asistencia { get; set; }
         public int ID_Actividad { get; set; }
         public int ID_Beneficiario { get; set; }
         public string Estado { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Actividad Actividad { get; set; }
         public virtual Beneficiario Beneficiario { get; set; }

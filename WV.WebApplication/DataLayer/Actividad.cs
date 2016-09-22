@@ -17,6 +17,10 @@ namespace DataLayer
         public Actividad()
         {
             this.Asistencia = new HashSet<Asistencia>();
+            this.CreadoPor = "";
+            this.ModificadoPor = "";
+            this.FechaCreacion = new DateTime(1990, 1, 1);
+            this.FechaModificacion = new DateTime(1990, 1, 1);
         }
     
         public int ID_Actividad { get; set; }
@@ -26,6 +30,10 @@ namespace DataLayer
         public int ID_Programa { get; set; }
         public string Observacion { get; set; }
         public System.DateTime Fecha { get; set; }
+        public string CreadoPor { get; set; }
+        public Nullable<System.DateTime> FechaCreacion { get; set; }
+        public string ModificadoPor { get; set; }
+        public Nullable<System.DateTime> FechaModificacion { get; set; }
     
         public virtual Programa Programa { get; set; }
         public virtual ICollection<Asistencia> Asistencia { get; set; }
