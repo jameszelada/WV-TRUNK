@@ -1,11 +1,7 @@
 ﻿$(window).load(function () {
-    
+    CleanTabState();
     var t;
     getPrograms();
-
-
-
-
 
     // End of Execution
 
@@ -152,7 +148,9 @@
             attachClickToShowProgramButtons();
             attachClickToEditProgramButtons();
             attachClickToListButton();
-            attachClickToNewButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            }
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
                 "bPaginate": true,
@@ -183,7 +181,9 @@
             attachClickToShowProgramButtons();
             attachClickToEditProgramButtons();
             attachClickToListButton();
-            attachClickToNewButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            }
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
                 "bPaginate": true,
@@ -204,9 +204,10 @@
 
             });
         }
-
+        //permissions
         $("#datepickerinicio").datepicker();
         $("#datepickerfinal").datepicker();
+        applyOptionPermissions(t);
         validation();
     }
 
@@ -402,6 +403,7 @@
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 saveProgram(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
@@ -725,5 +727,19 @@
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
+    function applyOptionPermissions(table) {
+        if (!Security.editar) {
+            table.column(5).visible(false);
+        }
+        //if (!Security.eliminar) {
+        //    table.column(6).visible(false);
+        //}
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
+    }
 
 });

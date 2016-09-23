@@ -215,6 +215,9 @@
     <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
     <Property Name="ModificadoPor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+    <Property Name="Agregar" Type="Boolean" />
+    <Property Name="Modificar" Type="Boolean" />
+    <Property Name="Eliminar" Type="Boolean" />
   </EntityType>
   <EntityType Name="UsuarioRol">
     <Key>

@@ -1,5 +1,7 @@
 ﻿$(window).load(function () {
 
+    CleanTabState();
+
     /*CRUD Functions*/
     getAllRoles();
 
@@ -12,7 +14,10 @@
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
                     setRolesTable(response.ResponseData);
-                    attachClickToNewButton();
+                    if (Security.agregar)
+                    {
+                        attachClickToNewButton();
+                    }
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
@@ -125,6 +130,7 @@
 
     function setRolesTable(responseData) {
         $("#roles_table").html(responseData);
+        applyOptionPermissions();
         validation();
     }
 
@@ -188,6 +194,7 @@
                 var screenmode = $("#screenmode").val();
                 saveRole(screenmode);
             }
+            clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
 
         });
@@ -376,4 +383,17 @@
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#users_table").find("[class='btn btn-primary btn-sm edit']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
+    }
 });

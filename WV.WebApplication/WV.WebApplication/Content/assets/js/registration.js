@@ -1,6 +1,7 @@
 ﻿$(window).load(function () {
 
     var t;
+    applyOptionPermissions();
     getAll();
     getPrograms();
     initialization();
@@ -1124,4 +1125,16 @@
         });
     }
 
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#editarbeneficiario").addClass("hidden");
+        }
+        //if (!Security.eliminar) {
+        //    $("#action-delete").addClass("hidden");
+        //}
+        if (!Security.agregar) {
+            $("#nuevobeneficiario").addClass("hidden");
+
+        }
+    }
 });

@@ -1,5 +1,5 @@
 ﻿$(window).load(function () {
-
+    CleanTabState();
     var tac;
     var tpr;
     getPrograms();
@@ -18,7 +18,9 @@
                     attachClickToView();
                     attachClickToEdit();
                     attachClickToListButton();
-                    attachClickToNewButton();
+                    if (Security.agregar) {
+                        attachClickToNewButton();
+                    }
                     attachClickToAddRecord();
 
                 }
@@ -100,7 +102,8 @@
 
             });
         }
-
+        //Permissions
+        applyOptionPermissions(tpr);
     }
 
     function attachClickToView() {
@@ -905,6 +908,21 @@
                 var error = "Error de Conexión, Intente nuevamente";
                 displayErrorMessage(error);
             }
+        });
+    }
+
+    function applyOptionPermissions(table) {
+        if (!Security.editar) {
+            table.column(4).visible(false);
+        }
+        //if (!Security.eliminar) {
+        //    table.column(6).visible(false);
+        //}
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
         });
     }
 });

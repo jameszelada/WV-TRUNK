@@ -2,7 +2,7 @@
 $(window).load(function () {
 
     //Execution
-
+    CleanTabState();
 
     getAllCommunities();
 
@@ -26,7 +26,9 @@ $(window).load(function () {
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
-                    attachClickToNewButton();
+                    if (Security.agregar) {
+                        attachClickToNewButton();
+                    }
                     attachClickToModal();
 
                 }
@@ -226,6 +228,7 @@ $(window).load(function () {
 
     function setCommunityTable(responseData) {
         $("#page_table").html(responseData);
+        applyOptionPermissions();
         validation();
     }
 
@@ -333,6 +336,7 @@ $(window).load(function () {
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 saveCommunity(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
@@ -581,4 +585,22 @@ $(window).load(function () {
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm edit']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+        if (!Security.eliminar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm delete']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
+    }
 });

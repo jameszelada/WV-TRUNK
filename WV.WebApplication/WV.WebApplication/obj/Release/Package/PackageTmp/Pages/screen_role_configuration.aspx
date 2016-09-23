@@ -9,10 +9,19 @@
     <%--<script src="/Content/assets/js/bootstrapValidator.js"></script>--%>
     <script src="/Content/assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="/Content/assets/js/dataTables/dataTables.bootstrap.js"></script>
+    <script src="/Content/assets/js/bootstrap-checkbox.js"></script>
     <script src="/Content/assets/js/screen_role_configuration.js"></script>
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+    <style type="text/css">
+    .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #3276b1;
+    border-color: none;
+}
+    </style>
+
     <div id="pagename" runat="server" class="hidden">Recursos</div>
 
     <div id="contenido" class="panel-body">
@@ -53,6 +62,7 @@
                                         <th>Nombre de Opción</th>
                                         <th>Descripción</th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
 
@@ -92,6 +102,64 @@
                             <!-- /.modal-dialog -->
                         </div>
                         <!-- /.modal -->
+
+                        <div class="modal fade" id="modalpermissions" role="dialog" data-keyboard="false" data-backdrop="static">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4  class="modal-title">Permisos de la opción <div id="nombreopcion"></div>
+                                        </h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <div hidden id="identrecurso"></div>
+
+                                                <div id="table-permissions" class="table-responsive">
+                                                    <table class="table" id="tblpermisions">
+                                                        <tbody>
+                                                             <tr>
+                                                                 
+                                                                 <td><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></td>
+                                                                <td>Agregar</td>
+                                                                <td> <input id="opcionagregar" type="checkbox" data-off-label="false" data-on-label="false" data-off-icon-cls="glyphicon-remove" data-on-icon-cls="glyphicon-ok"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                                                                <td>Editar</td>
+                                                                <td><input id="opcioneditar" type="checkbox" data-off-label="false" data-on-label="false" data-off-icon-cls="glyphicon-remove" data-on-icon-cls="glyphicon-ok"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><i class="fa fa-times fa-2x" aria-hidden="true"></i></td>
+                                                                <td>Eliminar</td>
+                                                                <td> <input id="opcioneliminar" type="checkbox" data-off-label="false" data-on-label="false" data-off-icon-cls="glyphicon-remove" data-on-icon-cls="glyphicon-ok"></td>
+                                                            </tr>
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+
+                                                
+
+
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                            </div>
+
+                                        </div>
+
+                                        <%--<p>¿Está seguro de eliminar el registro seleccionado?</p>--%>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnguardarpermisos">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

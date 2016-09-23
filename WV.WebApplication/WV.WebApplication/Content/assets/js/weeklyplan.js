@@ -3,6 +3,7 @@
     var t;// reference to table object
     //Execution
 
+    applyOptionPermissions();
     initializeControls();
     attachEventsToToolbar();
     getAllWeeklyPlans();
@@ -525,6 +526,19 @@
                 displayErrorMessage(error);
             }
         });
+    }
+
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#action-edit").addClass("hidden");
+        }
+        if (!Security.eliminar) {
+            $("#action-delete").addClass("hidden");
+        }
+        if (!Security.agregar) {
+            $("#action-add").addClass("hidden");
+
+        }
     }
 
 });

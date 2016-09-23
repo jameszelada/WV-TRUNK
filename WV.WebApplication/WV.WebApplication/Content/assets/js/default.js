@@ -1,3 +1,70 @@
+
+var Security = (function () {
+
+    var _userName = $('meta[name=username]').attr("content"),
+        _resourceName = $('#pagename').html(),
+         _ADD, _EDIT, _DELETE;
+
+    var dataToSend = {
+        UserName: _userName,
+        ResourceName : _resourceName
+    }
+
+    getOptionPermissions(dataToSend);
+
+    var optionPermissions =
+    {
+        agregar: _ADD,
+        editar: _EDIT,
+        eliminar:_DELETE
+    };
+
+
+    //Functions declaration
+    function getOptionPermissions(dataToSend)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/RoleConfiguration.ashx?method=getoptionpermissions',
+            async:false,
+            data: dataToSend,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    _ADD = response.ResponseData.Agregar;
+                    _EDIT = response.ResponseData.Modificar;
+                    _DELETE = response.ResponseData.Eliminar;
+
+                }
+                else {
+                    displayErrorMessage(response.Message);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
+    function displayErrorMessage(message) {
+        
+        $("#errorcontainer").html(message);
+        $("#myErrorDialog").modal('show');
+    }
+
+    function displayMessage(message) {
+
+        $("#messagecontainer").html(message);
+        $("#myMessageDialog").modal('show');
+    }
+
+    return optionPermissions;
+})();
+
+
+
 $(window).load(function () {
 
    

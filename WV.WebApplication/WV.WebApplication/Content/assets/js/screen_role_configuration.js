@@ -1,10 +1,12 @@
 ﻿$(window).load(function () {
 
     var t;
-
+    $(':checkbox').checkboxpicker();
     getAllRoles();
 
     getAllResources();
+
+    AttachClickToSavePermissionsButton();
 
 
     function getAllRoles() {
@@ -119,6 +121,8 @@
 
                     if (t == null || t == undefined) {
                         $("#tblopcionesenrol").append(response.ResponseData);
+                        attachClickToDeleteButtons();
+                        attachClickToPermissions();
                         t = $('#tblopcionesenrol').DataTable({
                             "bFilter": true,
                             "bPaginate": true,
@@ -147,6 +151,7 @@
                         t.destroy();
                         $("#tblopcionesenrol").append(response.ResponseData);
                         attachClickToDeleteButtons();
+                        attachClickToPermissions();
                         t = $('#tblopcionesenrol').DataTable({
                             "bFilter": true,
                             "bPaginate": true,
@@ -259,6 +264,31 @@
 
     }
 
+    function AttachClickToSavePermissionsButton()
+    {
+        $("#btnguardarpermisos").click(function () {
+
+            var ID_Role = $("#roletosave").val();
+            var Id_recurso = $("#identrecurso").html();
+
+            var permissionsArray = [];
+            permissionsArray.push($('#opcionagregar').is(':checked'));
+            permissionsArray.push($('#opcioneditar').is(':checked'));
+            permissionsArray.push($('#opcioneliminar').is(':checked'));
+            
+            var dataToSend =
+            {
+                ID_Rol: ID_Role,
+                ID_Recurso : Id_recurso,
+                OptionsArray: permissionsArray
+            };
+
+            modifyPermissions(dataToSend);
+
+        });
+
+    }
+
     function deleteOptionInRole(dataToSend)
     {
         $.ajax({
@@ -271,6 +301,33 @@
                 if (response.IsSucess) {
                     displayMessage(response.Message);
                     showOptionsInRole($('#roletosave').val());
+
+                }
+                else {
+                    displayErrorMessage(response.Message);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
+    function getSingleOption(dataToSend) {
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/RoleConfiguration.ashx?method=getsingleoption',
+            data: dataToSend,
+            async:false,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    
+                    $('#opcionagregar').prop('checked', response.ResponseData.Agregar);
+                    $('#opcioneditar').prop('checked', response.ResponseData.Modificar);
+                    $('#opcioneliminar').prop('checked', response.ResponseData.Eliminar);
 
                 }
                 else {
@@ -355,6 +412,57 @@
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
     }
+
+    function attachClickToPermissions() {
+        $("#tblopcionesenrol").find("[class='btn btn-primary btn-sm permissions']").each(function (index, value) {
+            $(value).click(function () {
+
+                $("#identrecurso").html($(this).parent().parent().attr("data-id-resource"));
+                $("#nombreopcion").html($(this).parent().parent().find('td').eq(1).html());
+
+                var Id_rol = $("#roletosave").val();
+                var Id_recurso = $("#identrecurso").html();
+
+                var dataToSend = {
+                    Id_Rol: Id_rol,
+                    Id_Recurso: Id_recurso
+                };
+
+                getSingleOption(dataToSend);
+                
+                $('#modalpermissions').modal({
+                    keyboard: false
+                })
+
+            });
+        });
+    }
+
+    function modifyPermissions(dataToSend)
+    {
+        $.ajax({
+            type: 'POST',
+            url: '/Handlers/RoleConfiguration.ashx?method=edit',
+            data: dataToSend,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+                    displayMessage(response.Message);
+                   
+
+                }
+                else {
+                    displayErrorMessage(response.Message);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+    }
+
 
 
 });

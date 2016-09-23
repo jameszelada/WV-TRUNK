@@ -2,7 +2,7 @@
 $(window).load(function () {
 
     //Execution
-
+    CleanTabState();
 
     getJobTypes();
 
@@ -25,7 +25,10 @@ $(window).load(function () {
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
-                    attachClickToNewButton();
+                    if (Security.agregar) {
+                        attachClickToNewButton();
+                    }
+                   
                     attachClickToModal();
 
                 }
@@ -169,6 +172,7 @@ $(window).load(function () {
 
     function setJobTypeTable(responseData) {
         $("#page_table").html(responseData);
+        applyOptionPermissions();
         validation();
     }
 
@@ -458,6 +462,25 @@ $(window).load(function () {
     function loadSidebarOptions() {
         var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showjobreport' href='/Handlers/GeneralReportsProject.ashx?method=getjobreport'>Reporte General de Puestos</a></li><li><a id='showjobtypes' href='Job'>Pantalla de Puestos</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
+    }
+
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm edit']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+        if (!Security.eliminar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm delete']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
     }
 
 });

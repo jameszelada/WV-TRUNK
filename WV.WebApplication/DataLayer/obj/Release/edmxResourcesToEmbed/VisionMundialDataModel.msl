@@ -46,6 +46,9 @@
     <EntitySetMapping Name="RolRecurso">
       <EntityTypeMapping TypeName="VISIONMUNDIALModel.RolRecurso">
         <MappingFragment StoreEntitySet="RolRecurso">
+          <ScalarProperty Name="Eliminar" ColumnName="Eliminar" />
+          <ScalarProperty Name="Modificar" ColumnName="Modificar" />
+          <ScalarProperty Name="Agregar" ColumnName="Agregar" />
           <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
           <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
           <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />

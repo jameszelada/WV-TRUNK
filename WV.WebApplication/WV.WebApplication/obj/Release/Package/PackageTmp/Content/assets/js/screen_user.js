@@ -2,7 +2,9 @@
 $(window).load(function () {
 
     //Execution
-   
+
+    
+    CleanTabState();
 
     getAllUsers();
 
@@ -31,7 +33,10 @@ $(window).load(function () {
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
-                    attachClickToNewButton();
+                    if (Security.agregar)
+                    {
+                        attachClickToNewButton();
+                    }
                     attachClickToModal();
                 }
                 else
@@ -232,6 +237,7 @@ $(window).load(function () {
     function setUsersTable(responseData)
     {
         $("#users_table").html(responseData);
+        applyOptionPermissions();
         validation();
         
     }
@@ -368,6 +374,7 @@ $(window).load(function () {
             {
                 var screenmode = $("#screenmode").val();
                 saveUser(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
@@ -625,6 +632,31 @@ $(window).load(function () {
     function loadSidebarOptions(ID_User) {
         var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/Handlers/GeneralReporstAdmin.ashx?method=getuserinfo&ID_Usuario="+ID_User+"'> Reporte de usuario del Sistema</a></li><li><a id='showrolereport' href='/Handlers/GeneralReporstAdmin.ashx?method=getrolesreport'> Reporte General de Roles</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
+    }
+
+    function applyOptionPermissions()
+    {
+        if (!Security.editar)
+        {
+            $("#users_table").find("[class='btn btn-primary btn-sm edit']").each(function (index, value)
+            {
+                    $(this).parent().attr("hidden", "hidden");  
+            });
+        }
+        if (!Security.eliminar)
+        {
+            $("#users_table").find("[class='btn btn-primary btn-sm delete']").each(function (index, value)
+            {
+                    $(this).parent().attr("hidden", "hidden");
+            });
+        }
+    }
+
+    function CleanTabState()
+    {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
     }
 
 });

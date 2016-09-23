@@ -2,7 +2,7 @@
 $(window).load(function () {
 
     //Execution
-
+    CleanTabState();
 
     getStaff();
 
@@ -27,7 +27,10 @@ $(window).load(function () {
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
-                    attachClickToNewButton();
+                    if (Security.agregar) {
+                        attachClickToNewButton();
+                    }
+                    
                     attachClickToModal();
 
                 }
@@ -184,6 +187,7 @@ $(window).load(function () {
 
     function setStaffTable(responseData) {
         $("#page_table").html(responseData);
+        applyOptionPermissions();
         validation();
     }
 
@@ -266,6 +270,7 @@ $(window).load(function () {
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 savePerson(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
@@ -534,6 +539,25 @@ $(window).load(function () {
     function loadSidebarOptions(idPerson) {
         var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showuserreport' href='/LogBook?id=" + idPerson + "'> Modificar Bitácoras</a></li><li><a id='showweeklyplan' href='/WeeklyPlan?id="+idPerson+"'> Modificar Plan Semanal</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
+    }
+
+    function applyOptionPermissions() {
+        if (!Security.editar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm edit']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+        if (!Security.eliminar) {
+            $("#page_table").find("[class='btn btn-primary btn-sm delete']").each(function (index, value) {
+                $(this).parent().attr("hidden", "hidden");
+            });
+        }
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
     }
 
 });

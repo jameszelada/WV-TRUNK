@@ -388,6 +388,9 @@
     <Property Name="FechaCreacion" Type="datetime" />
     <Property Name="ModificadoPor" Type="nvarchar" MaxLength="30" />
     <Property Name="FechaModificacion" Type="datetime" />
+    <Property Name="Agregar" Type="bit" />
+    <Property Name="Modificar" Type="bit" />
+    <Property Name="Eliminar" Type="bit" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

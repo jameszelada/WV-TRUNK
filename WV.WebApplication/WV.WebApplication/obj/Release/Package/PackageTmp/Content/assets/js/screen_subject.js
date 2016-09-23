@@ -1,11 +1,8 @@
 ﻿$(window).load(function () {
     
+    CleanTabState();
     var t;
     getSubjects();
-
-
-
-
 
     // End of Execution
 
@@ -109,7 +106,9 @@
             attachClickToEditSubjectButtons();
             attachClickToDeleteButtons();
             attachClickToListButton();
-            attachClickToNewButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            }
 
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
@@ -141,7 +140,9 @@
             attachClickToEditSubjectButtons();
             attachClickToDeleteButtons();
             attachClickToListButton();
-            attachClickToNewButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            };
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
                 "bPaginate": true,
@@ -162,7 +163,9 @@
 
             });
         }
-
+        //Permissions
+        applyOptionPermissions(t);
+        validation();
         
     }
 
@@ -368,6 +371,7 @@
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 saveSubject(screenmode);
+                clearControls();
                 $("#form1").data('bootstrapValidator').resetForm();
             }
 
@@ -530,5 +534,19 @@
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 
+    function applyOptionPermissions(table) {
+        if (!Security.editar) {
+            table.column(5).visible(false);
+        }
+        if (!Security.eliminar) {
+            table.column(6).visible(false);
+        }
+    }
+
+    function CleanTabState() {
+        $('#tabtable').on('shown.bs.tab', function (e) {
+            setTabInDetailsMode();
+        });
+    }
 
 });

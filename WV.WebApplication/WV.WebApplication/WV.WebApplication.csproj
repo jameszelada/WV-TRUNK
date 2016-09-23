@@ -116,6 +116,7 @@
     <Content Include="Content\assets\js\assignrrhh.js" />
     <Content Include="Content\assets\js\assignsubject.js" />
     <Content Include="Content\assets\js\attendancetracking.js" />
+    <Content Include="Content\assets\js\bootstrap-checkbox.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
     <Content Include="Content\assets\js\bootstrapValidator.js" />
     <Content Include="Content\assets\js\Chart.min.js" />

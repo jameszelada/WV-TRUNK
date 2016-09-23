@@ -22,8 +22,10 @@ namespace WV.WebApplication.Handlers
         string CallBackMethodName = string.Empty;
         object Parameter = string.Empty;
         IAWContext _context;
+        IAWContext _lazyContext;
         IDataRepository<Usuario> _usuario;
         IDataRepository<Rol> _rol;
+        IDataRepository<Usuario> _lazyUsuario;
         IDataRepository<UsuarioRol> _usuarioRol;
         IDataRepository<RolRecurso> _rolRecurso;
         IDataRepository<Recurso> _recurso;
@@ -55,6 +57,15 @@ namespace WV.WebApplication.Handlers
                 case "delete":
                     context.Response.Write(DeleteRoleResource(context));
                     break;
+                case "getsingleoption":
+                    context.Response.Write(GetSingleOption(context));
+                    break;
+                case "edit":
+                    context.Response.Write(EditRecord(context));
+                    break;
+                case "getoptionpermissions":
+                    context.Response.Write(GetOptionsPermission(context));
+                    break;
                 
             }
         }
@@ -63,11 +74,12 @@ namespace WV.WebApplication.Handlers
         {
 
             _context = new AWContext(connection);
-
+            _lazyContext = new AWContext();
             //_usuario = new DataRepository<IAWContext, Usuario>(_context);
             _rol = new DataRepository<IAWContext, Rol>(_context);
             _rolRecurso = new DataRepository<IAWContext, RolRecurso>(_context);
             _recurso = new DataRepository<IAWContext, Recurso>(_context);
+            _lazyUsuario = new DataRepository<IAWContext, Usuario>(_lazyContext);
 
             //_usuarioRol = new DataRepository<IAWContext, UsuarioRol>(_context);
         }
@@ -120,6 +132,38 @@ namespace WV.WebApplication.Handlers
 
             return serializer.Serialize(response);
         
+        }
+
+        public string GetOptionsPermission(HttpContext context)
+        {
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            string UserName = context.Request.Params["UserName"].ToString();
+            string ResourceName = context.Request.Params["ResourceName"].ToString();
+           
+            try
+            {
+                var usuario = _lazyUsuario.GetFirst(user=> user.NombreUsuario == UserName);
+                var recurso = _recurso.GetFirst(rec=> rec.Recurso1== ResourceName);
+
+                var rolRecurso = _rolRecurso.GetFirst(rl => rl.ID_Recurso == recurso.ID_Recurso && rl.ID_Rol == usuario.UsuarioRol.First().ID_Rol);  //usuario.UsuarioRol.First();
+
+                var fakeObject = new { Agregar= rolRecurso.Agregar,Modificar= rolRecurso.Modificar,Eliminar=rolRecurso.Eliminar };
+
+                response.IsSucess = true;
+                response.ResponseData = fakeObject;
+                response.Message = string.Empty;
+                response.CallBack = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
         }
 
         public string GetAllRoles()
@@ -220,7 +264,8 @@ namespace WV.WebApplication.Handlers
                 {
                     index++;
                     string deleteButton = "<a data-id-resource='" + resource.ID_Recurso + "' class='btn btn-primary btn-sm delete' >Eliminar</a>";
-                    tableBody += "<tr data-id-resource='" + resource.ID_Recurso + "'><td>" + index + "</td><td>" + resource.Recurso1 + "</td><td>" + resource.Pagina + "</td><td>" + deleteButton + "</td></tr>";
+                    string permissions = "<a data-id-resource='" + resource.ID_Recurso + "' class='btn btn-primary btn-sm permissions' >Permisos</a>";
+                    tableBody += "<tr data-id-resource='" + resource.ID_Recurso + "'><td>" + index + "</td><td>" + resource.Recurso1 + "</td><td>" + resource.Pagina + "</td><td>" + deleteButton + "</td><td>"+permissions+"</td></tr>";
                 }
                 tableFooter += "</tbody>";
 
@@ -309,6 +354,32 @@ namespace WV.WebApplication.Handlers
             return serializer.Serialize(response);
         }
 
+        public string GetSingleOption(HttpContext context)
+        {
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            int ID_Rol = Int32.Parse(context.Request.Params["Id_Rol"].ToString());
+            int ID_Recurso = Int32.Parse(context.Request.Params["Id_Recurso"].ToString());
+            try
+            {
+                var rolRecurso = _rolRecurso.GetFirst(rr => rr.ID_Rol == ID_Rol && rr.ID_Recurso == ID_Recurso);
+               
+                response.IsSucess = true;
+                response.ResponseData = rolRecurso;
+                response.Message = "Opción Eliminada Satisfactoriamente";
+                response.CallBack = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
+        }
+
         public bool IsReusable
         {
             get
@@ -341,7 +412,37 @@ namespace WV.WebApplication.Handlers
 
         public override string EditRecord(HttpContext context)
         {
-            throw new NotImplementedException();
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            int ID_Rol = Int32.Parse(context.Request.Params["Id_Rol"].ToString());
+            int ID_Recurso = Int32.Parse(context.Request.Params["Id_Recurso"].ToString());
+            string[] permissions = context.Request.Form["OptionsArray[]"].Split(',');
+
+
+
+            try
+            {
+                var rolRecurso = _rolRecurso.GetFirst(rr => rr.ID_Rol == ID_Rol && rr.ID_Recurso == ID_Recurso);
+                rolRecurso.Agregar = bool.Parse( permissions[0].ToLower());
+                rolRecurso.Modificar = bool.Parse(permissions[1].ToLower());
+                rolRecurso.Eliminar = bool.Parse(permissions[2].ToLower());
+                rolRecurso.ModificadoPor = SystemUsername;
+
+                _context.SaveChanges();
+                response.IsSucess = true;
+                response.ResponseData = string.Empty;
+                response.Message = "Permisos modificados satisfactoriamente";
+                response.CallBack = string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+
+                response.Message = ex.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
         }
     }
 }

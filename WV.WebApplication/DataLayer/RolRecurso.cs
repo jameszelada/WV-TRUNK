@@ -20,6 +20,9 @@ namespace DataLayer
             this.ModificadoPor = "";
             this.FechaCreacion = new DateTime(1990, 1, 1);
             this.FechaModificacion = new DateTime(1990, 1, 1);
+            this.Agregar = true;
+            this.Modificar = true;
+            this.Eliminar = true;
         }
         public int ID_RolRecurso { get; set; }
         public int ID_Rol { get; set; }
@@ -28,6 +31,9 @@ namespace DataLayer
         public Nullable<System.DateTime> FechaCreacion { get; set; }
         public string ModificadoPor { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
+        public Nullable<bool> Agregar { get; set; }
+        public Nullable<bool> Modificar { get; set; }
+        public Nullable<bool> Eliminar { get; set; }
     
         public virtual Recurso Recurso { get; set; }
         public virtual Rol Rol { get; set; }
