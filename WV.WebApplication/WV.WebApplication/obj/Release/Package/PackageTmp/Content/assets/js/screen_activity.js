@@ -234,10 +234,17 @@
 
     function attachClickToNewButton() {
 
-        
+       
 
         $("#tabdetails").click(function ()
         {
+
+            $('#calendar').fullCalendar('removeEvents');
+
+            setTimeout(function () {
+                $('#calendar').fullCalendar('removeEvents');
+            }, 1000);
+           
             getProgramsCombo();
 
             $("#screenmode").val("add");
@@ -923,6 +930,7 @@
     function CleanTabState() {
         $('#tabtable').on('shown.bs.tab', function (e) {
             setTabInDetailsMode();
+            $('#calendar').fullCalendar('removeEvents');
         });
     }
 });

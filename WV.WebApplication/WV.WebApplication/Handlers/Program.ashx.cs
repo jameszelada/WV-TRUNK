@@ -103,10 +103,23 @@ namespace WV.WebApplication.Handlers
                 foreach (var programa in programas)
                 {
                     int index = programa.index + 1;
+                    string estado = "";
+                    switch (programa.Estado)
+                    {
+                        case "A":
+                            estado = "Activo";
+                            break;
+                        case "I":
+                            estado = "Inactivo";
+                            break;
+                        case "S":
+                            estado = "Suspendido";
+                            break;
+                    }
 
                     string showProgram = "<a data-id-program='" + programa.ID_Programa + "'class='btn btn-primary btn-sm detail'>Mostrar</a>";
                     string editProgram = "<a data-id-program='" + programa.ID_Programa + "' class='btn btn-primary btn-sm edit'>Editar</a>";
-                    tableBody += "<tr><td>" + index + "</td><td>" + programa.Codigo + "</td><td>" + programa.Estado + "</td><td>" + programa.TipoPrograma.TipoPrograma1 + "</td><td>" + showProgram + "</td><td>" + editProgram + "</td></tr>";
+                    tableBody += "<tr><td>" + index + "</td><td>" + programa.Codigo + "</td><td>" + estado + "</td><td>" + programa.TipoPrograma.TipoPrograma1 + "</td><td>" + showProgram + "</td><td>" + editProgram + "</td></tr>";
                 }
 
                 tableFooter += "</tbody>";

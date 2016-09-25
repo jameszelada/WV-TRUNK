@@ -39,8 +39,8 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nombre de Materia</th>
-                                            <th>Grado</th>
                                             <th>Año</th>
+                                            <th>Grado</th>
                                             <th></th>
                                             <th></th>
                                             <th></th>

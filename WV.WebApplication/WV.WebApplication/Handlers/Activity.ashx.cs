@@ -26,6 +26,10 @@ namespace WV.WebApplication.Handlers
         IDataRepository<Actividad> _actividad;
         IAWContext _context1;
         IDataRepository<Programa> _programa;
+        IAWContext _fakeContext;
+        IDataRepository<Actividad> _fakeActividad;
+
+        IAWContext _context3;
         public void ProcessRequest(HttpContext context)
         {
            InitializeObjects();
@@ -69,9 +73,12 @@ namespace WV.WebApplication.Handlers
         public override void InitializeObjects()
         {
             _context = new AWContext();
+            _context3 = new AWContext(Connection);
             _actividad = new DataRepository<IAWContext, Actividad>(_context);
             _context1 = new AWContext();
             _programa = new DataRepository<IAWContext, Programa>(_context);
+            _fakeContext = new AWContext();
+            _fakeActividad = new DataRepository<IAWContext, Actividad>(_context3);
         }
 
         public override string GetAllRecords()
@@ -86,17 +93,30 @@ namespace WV.WebApplication.Handlers
                 var programas = _actividad.GetAll().GroupBy(act=> act.ID_Programa).Select(group=>group.First()).Select((x, index) => new
                 {
                     index,
-                    x.Programa,
+                    x.Programa
+                    
                 });
 
 
                 foreach (var programa in programas)
                 {
                     int index = programa.index + 1;
-
+                    string estado = "";
+                    switch (programa.Programa.Estado)
+                    {
+                        case "A":
+                            estado = "Activo";
+                            break;
+                        case "I":
+                            estado = "Inactivo";
+                            break;
+                        case "S":
+                            estado = "Suspendido";
+                            break;
+                    }
                     string showButton = "<a data-id-program='" + programa.Programa.ID_Programa + "'class='btn btn-primary btn-sm details'>Mostrar</a>";
                     string editButton = "<a data-id-program='" + programa.Programa.ID_Programa + "' class='btn btn-primary btn-sm edit'>Editar</a>";
-                    tableBody += "<tr><td>" + index + "</td><td>" +programa.Programa.Codigo+"-"+ programa.Programa.TipoPrograma.TipoPrograma1 +"-"+programa.Programa.Comunidad.Comunidad1+ "</td><td>" + programa.Programa.Estado + "</td><td>" + showButton + "</td><td>" + editButton + "</td></tr>";
+                    tableBody += "<tr><td>" + index + "</td><td>" +programa.Programa.Codigo+"-"+ programa.Programa.TipoPrograma.TipoPrograma1 +"-"+programa.Programa.Comunidad.Comunidad1+ "</td><td>" + estado + "</td><td>" + showButton + "</td><td>" + editButton + "</td></tr>";
                 }
 
                 tableFooter += "</tbody>";
@@ -137,7 +157,22 @@ namespace WV.WebApplication.Handlers
                     long mili = Convert.ToInt64( actividad.Fecha.Subtract(
                     new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
                         ).TotalMilliseconds);
-                    tableBody += "<tr><td></td><td>" + actividad.Codigo + "</td><td>" + actividad.ActividadDescripcion + "</td><td>" + actividad.Estado + "</td><td>" + actividad.Fecha.ToShortDateString() + "<label class='hidden'>"+mili+"</label></td><td>" + actividad.Observacion + "</td></tr>";
+
+                    string estado = "";
+                    switch (actividad.Estado)
+                    {
+                        case "A":
+                            estado = "Activo";
+                            break;
+                        case "I":
+                            estado = "Inactivo";
+                            break;
+                        case "S":
+                            estado = "Suspendido";
+                            break;
+                    }
+
+                    tableBody += "<tr><td></td><td>" + actividad.Codigo + "</td><td>" + actividad.ActividadDescripcion + "</td><td>" + estado + "</td><td>" + actividad.Fecha.ToShortDateString() + "<label class='hidden'>"+mili+"</label></td><td>" + actividad.Observacion + "</td></tr>";
                 }
                 tableFooter += "</tbody>";
                 table = tableHeader + tableBody + tableFooter;
@@ -271,16 +306,36 @@ namespace WV.WebApplication.Handlers
                 var programaTemp = javaScriptSerializer.Deserialize<ProgramaTemp>(stream);
 
                 var programa = _programa.GetFirst(p => p.ID_Programa == programaTemp.ID_Programa);
+                var OriginalActivities = new List<DateTime>();
+                var CurrentActivties = new List<DateTime>();
+                var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+                var ID_Programa = programa.Actividad.First().ID_Programa;
+                programa.Actividad.ToList().ForEach((act) => { OriginalActivities.Add(act.Fecha); });
+                programaTemp.Actividades.ForEach((act) => 
+                { 
+                    Fecha = epoch.AddMilliseconds(Convert.ToInt64(act.Fecha));
+                    CurrentActivties.Add(Fecha);
+                });
+
+                var ToDelete = OriginalActivities.Except(CurrentActivties);
+
+                foreach (var activityToDelete in ToDelete.ToList())
+                {
+                   // var actividad = _actividad.GetFirst();
+                    var actividad =_fakeContext.Set<Actividad>().Single(act => act.Fecha == activityToDelete && act.ID_Programa == ID_Programa );
+                    _fakeContext.Set<Actividad>().Remove(actividad);
+                    _fakeContext.SaveChanges();
+                }
 
                 if (programa.Actividad.Count > 0)
                 {
-                    var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
                     foreach (var actividadTemp in programaTemp.Actividades)
                     {
                         Fecha = epoch.AddMilliseconds(Convert.ToInt64(actividadTemp.Fecha));
-                        if (programa.Actividad.Any(act=> act.Fecha == Fecha))
+
+                        if (programa.Actividad.Any(act => act.Fecha == Fecha))
                         {
-                            var actividad = _actividad.GetFirst(act=> (act.Fecha == Fecha && act.ID_Programa==actividadTemp.ID_Programa));
+                            var actividad = _actividad.GetFirst(act => (act.Fecha == Fecha && act.ID_Programa == actividadTemp.ID_Programa));
                             actividad.ID_Programa = actividadTemp.ID_Programa;
                             actividad.Codigo = actividadTemp.Codigo;
                             actividad.ActividadDescripcion = actividadTemp.Descripcion;
@@ -305,6 +360,10 @@ namespace WV.WebApplication.Handlers
                         }
                     }
                 }
+
+                var programaOriginal = _fakeContext.Set<Programa>().First(p => p.ID_Programa == programaTemp.ID_Programa);
+
+
 
                 _context.SaveChanges();
 

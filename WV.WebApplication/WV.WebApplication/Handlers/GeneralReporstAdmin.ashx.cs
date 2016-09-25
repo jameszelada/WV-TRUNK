@@ -358,37 +358,47 @@ namespace WV.WebApplication.Handlers
 
             document.Add(p);
 
-            PdfPTable pdfTabContent = new PdfPTable(2);
-            int[] arrContent = new int[2];
-            arrContent[0] = 1;
-            arrContent[1] = 1;
+            PdfPTable pdfTabContent = new PdfPTable(5);
+            int[] arrContent = new int[5];
+            arrContent[0] = 2;
+            arrContent[1] = 2;
+            arrContent[2] = 1;
+            arrContent[3] = 1;
+            arrContent[4] = 1;
             pdfTabContent.SetWidths(arrContent);
 
             PdfPCell pdfCellContent1 = new PdfPCell(new Phrase("Nombre de Opcion", tinyFontBold));
             PdfPCell pdfCellContent2 = new PdfPCell(new Phrase("Descripcion", tinyFontBold));
-
+            PdfPCell pdfCellContent3 = new PdfPCell(new Phrase("Agregar", tinyFontBold));
+            PdfPCell pdfCellContent4 = new PdfPCell(new Phrase("Editar", tinyFontBold));
+            PdfPCell pdfCellContent5 = new PdfPCell(new Phrase("Eliminar", tinyFontBold));
             pdfCellContent1.BackgroundColor = backgroundColor;
             pdfCellContent2.BackgroundColor = backgroundColor;
-
+            pdfCellContent3.BackgroundColor = backgroundColor;
+            pdfCellContent4.BackgroundColor = backgroundColor;
+            pdfCellContent5.BackgroundColor = backgroundColor;
             pdfCellContent1.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfCellContent2.HorizontalAlignment = Element.ALIGN_LEFT;
-
-
-
-
+            pdfCellContent3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContent4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContent5.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfCellContent1.VerticalAlignment = Element.ALIGN_MIDDLE;
             pdfCellContent2.VerticalAlignment = Element.ALIGN_MIDDLE;
-
-
+            pdfCellContent3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContent4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContent5.VerticalAlignment = Element.ALIGN_MIDDLE;
             pdfCellContent1.Border = 0;
             pdfCellContent2.Border = 0;
-            
-
-
-
+            pdfCellContent3.Border = 0;
+            pdfCellContent4.Border = 0;
+            pdfCellContent5.Border = 0;
             //add all three cells into PdfTable
             pdfTabContent.AddCell(pdfCellContent1);
             pdfTabContent.AddCell(pdfCellContent2);
+            pdfTabContent.AddCell(pdfCellContent3);
+            pdfTabContent.AddCell(pdfCellContent4);
+            pdfTabContent.AddCell(pdfCellContent5);
+            
 
 
 
@@ -396,16 +406,36 @@ namespace WV.WebApplication.Handlers
             {
                 PdfPCell contentCellFirst = new PdfPCell(new Phrase(row["Recurso"].ToString(), tinyFont));
                 PdfPCell contentCellSecond = new PdfPCell(new Phrase(row["Pagina"].ToString(), tinyFont));
+                PdfPCell contentCellThird = new PdfPCell(new Phrase(Boolean.Parse(row["Agregar"].ToString())==true ? "Si": "No", tinyFont));
+                PdfPCell contentCellFourth = new PdfPCell(new Phrase(Boolean.Parse(row["Modificar"].ToString()) == true ? "Si" : "No", tinyFont));
+                PdfPCell contentCellFifth = new PdfPCell(new Phrase(Boolean.Parse(row["Eliminar"].ToString()) == true ? "Si" : "No", tinyFont));
+                
                 contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
                 contentCellSecond.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellThird.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellFourth.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellFifth.HorizontalAlignment = Element.ALIGN_LEFT;
+                
                 contentCellFirst.VerticalAlignment = Element.ALIGN_MIDDLE;
                 contentCellSecond.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellThird.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellFourth.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellFifth.VerticalAlignment = Element.ALIGN_MIDDLE;
+                
 
                 contentCellFirst.Border = 0;
                 contentCellSecond.Border = 0;
+                contentCellThird.Border = 0;
+                contentCellFourth.Border = 0;
+                contentCellFifth.Border = 0;
+                
 
                 pdfTabContent.AddCell(contentCellFirst);
                 pdfTabContent.AddCell(contentCellSecond);
+                pdfTabContent.AddCell(contentCellThird);
+                pdfTabContent.AddCell(contentCellFourth);
+                pdfTabContent.AddCell(contentCellFifth);
+                
             }
 
             pdfTabContent.TotalWidth = document.PageSize.Width - 80f;
@@ -506,54 +536,81 @@ namespace WV.WebApplication.Handlers
 
             document.Add(p);
 
-            PdfPTable pdfTabContent = new PdfPTable(2);
-            int[] arrContent = new int[2];
-            arrContent[0] = 1;
-            arrContent[1] = 1;
+            PdfPTable pdfTabContent = new PdfPTable(5);
+            int[] arrContent = new int[5];
+            arrContent[0] = 2;
+            arrContent[1] = 2;
+            arrContent[2] = 1;
+            arrContent[3] = 1;
+            arrContent[4] = 1;
             pdfTabContent.SetWidths(arrContent);
 
             PdfPCell pdfCellContent1 = new PdfPCell(new Phrase("Nombre de Opcion", tinyFontBold));
             PdfPCell pdfCellContent2 = new PdfPCell(new Phrase("Descripcion", tinyFontBold));
-
+            PdfPCell pdfCellContent3 = new PdfPCell(new Phrase("Agregar", tinyFontBold));
+            PdfPCell pdfCellContent4 = new PdfPCell(new Phrase("Editar", tinyFontBold));
+            PdfPCell pdfCellContent5 = new PdfPCell(new Phrase("Eliminar", tinyFontBold));
             pdfCellContent1.BackgroundColor = backgroundColor;
             pdfCellContent2.BackgroundColor = backgroundColor;
-
+            pdfCellContent3.BackgroundColor = backgroundColor;
+            pdfCellContent4.BackgroundColor = backgroundColor;
+            pdfCellContent5.BackgroundColor = backgroundColor;
             pdfCellContent1.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfCellContent2.HorizontalAlignment = Element.ALIGN_LEFT;
-
-
-
-
+            pdfCellContent3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContent4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContent5.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfCellContent1.VerticalAlignment = Element.ALIGN_MIDDLE;
             pdfCellContent2.VerticalAlignment = Element.ALIGN_MIDDLE;
-
-
+            pdfCellContent3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContent4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContent5.VerticalAlignment = Element.ALIGN_MIDDLE;
             pdfCellContent1.Border = 0;
             pdfCellContent2.Border = 0;
-
-
-
-
+            pdfCellContent3.Border = 0;
+            pdfCellContent4.Border = 0;
+            pdfCellContent5.Border = 0;
             //add all three cells into PdfTable
             pdfTabContent.AddCell(pdfCellContent1);
             pdfTabContent.AddCell(pdfCellContent2);
-
-
+            pdfTabContent.AddCell(pdfCellContent3);
+            pdfTabContent.AddCell(pdfCellContent4);
+            pdfTabContent.AddCell(pdfCellContent5);
 
             foreach (DataRow row in myDataset.Tables[0].Rows)
             {
                 PdfPCell contentCellFirst = new PdfPCell(new Phrase(row["Recurso"].ToString(), tinyFont));
                 PdfPCell contentCellSecond = new PdfPCell(new Phrase(row["Pagina"].ToString(), tinyFont));
+                PdfPCell contentCellThird = new PdfPCell(new Phrase(Boolean.Parse(row["Agregar"].ToString()) == true ? "Si" : "No", tinyFont));
+                PdfPCell contentCellFourth = new PdfPCell(new Phrase(Boolean.Parse(row["Modificar"].ToString()) == true ? "Si" : "No", tinyFont));
+                PdfPCell contentCellFifth = new PdfPCell(new Phrase(Boolean.Parse(row["Eliminar"].ToString()) == true ? "Si" : "No", tinyFont));
+
                 contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
                 contentCellSecond.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellThird.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellFourth.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellFifth.HorizontalAlignment = Element.ALIGN_LEFT;
+
                 contentCellFirst.VerticalAlignment = Element.ALIGN_MIDDLE;
                 contentCellSecond.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellThird.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellFourth.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellFifth.VerticalAlignment = Element.ALIGN_MIDDLE;
+
 
                 contentCellFirst.Border = 0;
                 contentCellSecond.Border = 0;
+                contentCellThird.Border = 0;
+                contentCellFourth.Border = 0;
+                contentCellFifth.Border = 0;
+
 
                 pdfTabContent.AddCell(contentCellFirst);
                 pdfTabContent.AddCell(contentCellSecond);
+                pdfTabContent.AddCell(contentCellThird);
+                pdfTabContent.AddCell(contentCellFourth);
+                pdfTabContent.AddCell(contentCellFifth);
+
             }
 
             pdfTabContent.TotalWidth = document.PageSize.Width - 80f;

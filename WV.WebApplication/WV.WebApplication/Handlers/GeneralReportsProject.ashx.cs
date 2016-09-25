@@ -454,7 +454,7 @@ namespace WV.WebApplication.Handlers
             PdfPCell pdfCell3 = new PdfPCell(new Phrase("Descripción de Proyecto", tinyFontBold));
             PdfPCell pdfCell4 = new PdfPCell(new Phrase(headerData["ProyectoDescripcion"].ToString(), tinyFont));
             PdfPCell pdfCell5 = new PdfPCell(new Phrase("Estado", tinyFontBold));
-            PdfPCell pdfCell6 = new PdfPCell(new Phrase(headerData["Estado"].ToString(), tinyFont));
+            PdfPCell pdfCell6 = new PdfPCell(new Phrase(GetFormattedState(headerData["Estado"].ToString()), tinyFont));
 
             //pdfCell1.BackgroundColor = backgroundColor;
             //pdfCell2.BackgroundColor = backgroundColor;
@@ -1061,7 +1061,7 @@ namespace WV.WebApplication.Handlers
                 PdfPCell pdfCell3 = new PdfPCell(new Phrase("Descripción de Proyecto", tinyFontBold));
                 PdfPCell pdfCell4 = new PdfPCell(new Phrase(proyecto.ProyectoDescripcion, tinyFont));
                 PdfPCell pdfCell5 = new PdfPCell(new Phrase("Estado", tinyFontBold));
-                PdfPCell pdfCell6 = new PdfPCell(new Phrase(proyecto.Estado, tinyFont));
+                PdfPCell pdfCell6 = new PdfPCell(new Phrase(GetFormattedState(proyecto.Estado), tinyFont));
 
                 //pdfCell1.BackgroundColor = backgroundColor;
                 //pdfCell2.BackgroundColor = backgroundColor;
@@ -1418,6 +1418,24 @@ namespace WV.WebApplication.Handlers
                 return bytes;
 
             }
+        }
+
+        private string GetFormattedState(string field)
+        {
+            string estado = "";
+            switch (field)
+            {
+                case "A":
+                    estado = "Activo";
+                    break;
+                case "I":
+                    estado = "Inactivo";
+                    break;
+                case "S":
+                    estado = "Suspendido";
+                    break;
+            }
+            return estado;
         }
 
         public bool IsReusable

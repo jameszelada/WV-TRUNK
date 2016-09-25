@@ -564,7 +564,7 @@ namespace WV.WebApplication.Handlers
                         PdfPCell contentCellFirst = new PdfPCell(new Phrase(act.Fecha.ToShortDateString(), tinyFont));
                         PdfPCell contentCellSecond = new PdfPCell(new Phrase(act.Codigo, tinyFont));
                         PdfPCell contentCellThird = new PdfPCell(new Phrase(act.ActividadDescripcion, tinyFont));
-                        PdfPCell contentCellFourth = new PdfPCell(new Phrase(act.Estado, tinyFont));
+                        PdfPCell contentCellFourth = new PdfPCell(new Phrase(GetFormattedState( act.Estado), tinyFont));
                         PdfPCell contentCellFifth = new PdfPCell(new Phrase(act.Observacion, tinyFont));
 
                         contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -1387,7 +1387,7 @@ namespace WV.WebApplication.Handlers
                         PdfPCell contentCellFirst = new PdfPCell(new Phrase(act.Fecha.ToShortDateString(), tinyFont));
                         PdfPCell contentCellSecond = new PdfPCell(new Phrase(act.Codigo, tinyFont));
                         PdfPCell contentCellThird = new PdfPCell(new Phrase(act.ActividadDescripcion, tinyFont));
-                        PdfPCell contentCellFourth = new PdfPCell(new Phrase(act.Estado, tinyFont));
+                        PdfPCell contentCellFourth = new PdfPCell(new Phrase(GetFormattedState( act.Estado), tinyFont));
                         PdfPCell contentCellFifth = new PdfPCell(new Phrase(act.Observacion, tinyFont));
 
                         contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -2584,6 +2584,24 @@ namespace WV.WebApplication.Handlers
             {
                 return false;
             }
+        }
+
+        private string GetFormattedState(string field)
+        {
+            string estado = "";
+            switch (field)
+            {
+                case "A":
+                    estado = "Activo";
+                    break;
+                case "I":
+                    estado = "Inactivo";
+                    break;
+                case "S":
+                    estado = "Suspendido";
+                    break;
+            }
+            return estado;
         }
     }
 }

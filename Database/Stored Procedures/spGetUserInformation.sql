@@ -10,7 +10,7 @@ CREATE PROCEDURE [dbo].spGetUserInformation
 	 @userIdentity INT			/* User ID */				
 AS
 
-SELECT US.NombreUsuario,US.Nombre,US.Apellido,US.Email,RL.Rol,REC.Pagina,REC.Recurso FROM USUARIO US
+SELECT US.NombreUsuario,US.Nombre,US.Apellido,US.Email,RL.Rol,REC.Pagina,REC.Recurso ,ROLREC.Agregar,ROLREC.Modificar,ROLREC.Eliminar FROM USUARIO US
 INNER JOIN UsuarioRol USROL ON
 US.ID_Usuario= USROL.ID_Usuario
 INNER JOIN Rol RL ON
