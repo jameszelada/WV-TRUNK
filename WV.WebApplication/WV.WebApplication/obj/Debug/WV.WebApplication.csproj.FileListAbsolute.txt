@@ -10,3 +10,21 @@ C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.We
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.csprojResolveAssemblyReference.cache
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.dll
 C:\Users\Alejandro\documents\visual studio 2013\Projects\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll.config
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\WV.WebApplication.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\DataLayer.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\EntityFramework.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\Repository.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.Helpers.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.Deployment.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\DataLayer.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\Repository.pdb
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\EntityFramework.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.Helpers.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\bin\System.Web.WebPages.Deployment.xml
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.csprojResolveAssemblyReference.cache
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.dll
+F:\TRUNK\WV-TRUNK\WV.WebApplication\WV.WebApplication\obj\Debug\WV.WebApplication.pdb

@@ -164,6 +164,7 @@
     <Content Include="Content\assets\js\recordgrades.js" />
     <Content Include="Content\assets\js\registration.js" />
     <Content Include="Content\assets\js\reportsadmin.js" />
+    <Content Include="Content\assets\js\reportsgrades.js" />
     <Content Include="Content\assets\js\reportsprograms.js" />
     <Content Include="Content\assets\js\reportsprojects.js" />
     <Content Include="Content\assets\js\screen_activity.js" />
@@ -189,6 +190,7 @@
     <Content Include="Pages\Default.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
     <Content Include="Pages\GeneralReportsAdmin.aspx" />
+    <Content Include="Pages\GeneralReportsGrades.aspx" />
     <Content Include="Pages\GeneralReportsProgram.aspx" />
     <Content Include="Pages\GeneralReportsProject.aspx" />
     <Content Include="Pages\GradesControl.aspx" />
@@ -244,6 +246,9 @@
     </Compile>
     <Compile Include="Handlers\GeneralReporstAdmin.ashx.cs">
       <DependentUpon>GeneralReporstAdmin.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Handlers\GeneralReportsGrades.ashx.cs">
+      <DependentUpon>GeneralReportsGrades.ashx</DependentUpon>
     </Compile>
     <Compile Include="Handlers\GeneralReportsProgram.ashx.cs">
       <DependentUpon>GeneralReportsProgram.ashx</DependentUpon>
@@ -354,6 +359,13 @@
     </Compile>
     <Compile Include="Pages\GeneralReportsAdmin.aspx.designer.cs">
       <DependentUpon>GeneralReportsAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsGrades.aspx.cs">
+      <DependentUpon>GeneralReportsGrades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GeneralReportsGrades.aspx.designer.cs">
+      <DependentUpon>GeneralReportsGrades.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\GeneralReportsProgram.aspx.cs">
       <DependentUpon>GeneralReportsProgram.aspx</DependentUpon>
@@ -572,6 +584,7 @@
     <Content Include="Handlers\GeneralReportsProgram.ashx" />
     <Content Include="Content\assets\js\images\Sorting icons.psd" />
     <Content Include="Handlers\ProjectSummary.ashx" />
+    <Content Include="Handlers\GeneralReportsGrades.ashx" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

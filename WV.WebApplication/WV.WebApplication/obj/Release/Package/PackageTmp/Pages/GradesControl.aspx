@@ -27,14 +27,14 @@
             </div>
 			<div class="row text-center pad-top">
 
-				<div class="col-md-4 col-sm-4">
-					<div class="panel panel-success">
+				<div class="col-md-4 col-sm-4" id="materiadialogo">
+					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Registro de Asignaturas
 						</div>
 						<div class="panel-body">
 							
-								<div class="panel panel-primary text-center no-boder bg-color-green">
+								<div class="panel panel-primary text-center no-boder bg-color-blue">
 									<div class="panel-body">
 										 <a href="Subject">
 										<i class="fa fa-file-text-o fa-5x"></i>
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-4 col-sm-4">
+				<div class="col-md-4 col-sm-4" id="examendialogo">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Control de Examenes
@@ -80,7 +80,7 @@
             </div>
 			<div class="row text-center pad-top">
 
-				<div class="col-md-4 col-sm-4">
+				<div class="col-md-4 col-sm-4" id="asignarmateriadialogo">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Asignacion de Materias
@@ -101,7 +101,7 @@
 					</div>
 				</div>
 
-				<div class="col-md-4 col-sm-4">
+				<div class="col-md-4 col-sm-4" id="registrarnotasdialogo">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
 							Control de Notas

@@ -184,6 +184,9 @@
                             <li id="Reportes_Programas" runat="server">
                                 <a href="ProgramReports">Reportes Monitoreo de Programas</a>
                             </li>
+                            <li id="Reportes_Notas" runat="server">
+                                <a href="GradesReports">Reportes Administración de Notas</a>
+                            </li>
                            
                             
                         </ul>

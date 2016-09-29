@@ -32,7 +32,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 11:05:12</publishTime>
     </File>
     <File Include="bin/WV.WebApplication.dll">
-      <publishTime>09/25/2016 11:42:23</publishTime>
+      <publishTime>09/28/2016 23:36:40</publishTime>
     </File>
     <File Include="Content/assets/css/bootstrap.css">
       <publishTime>12/09/2014 18:39:30</publishTime>
@@ -233,7 +233,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2016 01:07:06</publishTime>
     </File>
     <File Include="Content/assets/js/default.js">
-      <publishTime>09/23/2016 13:11:48</publishTime>
+      <publishTime>09/25/2016 15:31:53</publishTime>
     </File>
     <File Include="Content/assets/js/fullcalendar.min.js">
       <publishTime>06/20/2016 04:38:52</publishTime>
@@ -325,8 +325,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/assets/js/reportsadmin.js">
       <publishTime>08/23/2016 23:17:11</publishTime>
     </File>
+    <File Include="Content/assets/js/reportsgrades.js">
+      <publishTime>09/28/2016 22:46:17</publishTime>
+    </File>
     <File Include="Content/assets/js/reportsprograms.js">
-      <publishTime>09/07/2016 09:08:39</publishTime>
+      <publishTime>09/27/2016 23:49:26</publishTime>
     </File>
     <File Include="Content/assets/js/reportsprojects.js">
       <publishTime>09/14/2016 23:26:26</publishTime>
@@ -402,6 +405,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Handlers/GeneralReporstAdmin.ashx">
       <publishTime>08/22/2016 15:46:39</publishTime>
+    </File>
+    <File Include="Handlers/GeneralReportsGrades.ashx">
+      <publishTime>09/28/2016 00:01:10</publishTime>
     </File>
     <File Include="Handlers/GeneralReportsProgram.ashx">
       <publishTime>08/24/2016 10:57:59</publishTime>
@@ -479,10 +485,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2016 23:45:50</publishTime>
     </File>
     <File Include="Pages/Error/Unauthorized.aspx">
-      <publishTime>04/11/2016 23:25:11</publishTime>
+      <publishTime>09/28/2016 23:11:16</publishTime>
     </File>
     <File Include="Pages/GeneralReportsAdmin.aspx">
       <publishTime>09/15/2016 15:13:31</publishTime>
+    </File>
+    <File Include="Pages/GeneralReportsGrades.aspx">
+      <publishTime>09/28/2016 00:39:29</publishTime>
     </File>
     <File Include="Pages/GeneralReportsProgram.aspx">
       <publishTime>09/15/2016 15:13:43</publishTime>
@@ -491,13 +500,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/15/2016 15:13:59</publishTime>
     </File>
     <File Include="Pages/GradesControl.aspx">
-      <publishTime>09/15/2016 16:28:41</publishTime>
+      <publishTime>09/25/2016 15:07:55</publishTime>
     </File>
     <File Include="Pages/LogBook.aspx">
       <publishTime>07/13/2016 13:18:29</publishTime>
     </File>
     <File Include="Pages/Login.aspx">
-      <publishTime>09/15/2016 14:44:59</publishTime>
+      <publishTime>09/26/2016 22:47:18</publishTime>
     </File>
     <File Include="Pages/Logout.aspx">
       <publishTime>03/25/2016 23:07:53</publishTime>
@@ -557,7 +566,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2016 13:54:08</publishTime>
     </File>
     <File Include="WV.Master">
-      <publishTime>09/06/2016 22:55:33</publishTime>
+      <publishTime>09/27/2016 23:09:58</publishTime>
     </File>
   </ItemGroup>
 </Project>

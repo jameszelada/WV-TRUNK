@@ -18,13 +18,17 @@ namespace WV.WebApplication.Pages
         IDataRepository<Usuario> _usuario;
         public void Logout()
         {
-            HttpContext.Current.Session["isActive"] = null;
+            HttpContext.Current.Session.Remove("isActive");
             HttpContext.Current.Session.Abandon();
             HttpContext.Current.Response.Redirect("Login");
         }
 
         public bool ValidateSession()
         {
+            HttpContext.Current.Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            HttpContext.Current.Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+            HttpContext.Current.Response.Cache.SetNoStore();
+            HttpContext.Current.Response.AppendHeader("pragma", "no-cache");
             bool isActive = true;
             if (Context.Session["isActive"] != null)
             {

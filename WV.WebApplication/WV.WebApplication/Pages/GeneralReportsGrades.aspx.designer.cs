@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WV.WebApplication.Pages.Error {
+namespace WV.WebApplication.Pages {
     
     
-    public partial class Unauthorized {
+    public partial class GeneralReportsGrades {
         
         /// <summary>
         /// pagename control.

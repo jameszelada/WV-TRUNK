@@ -88,11 +88,6 @@ $(window).load(function () {
 
     setSelectedModule();
 
-    //if ($("#contenido").children().children().hasClass("col-md-12"))
-    //{
-    //    $("#contenido").children().children().attr("style", "margin:0;padding:0;");
-    //}
-
     if (sessionStorage.getItem("currentmenu") != undefined)
     {
         idMenu = sessionStorage.getItem("currentmenu");
@@ -181,7 +176,7 @@ $(window).load(function () {
                      {
                          element: document.querySelector('ul.nav.nav-second-level.collapse.in'),
                          intro: 'Para acceder a dichas opciones debe tener los permisos adecuados.',
-                         position: 'right'
+                            position: 'right'
                      },
                      {
                          element: document.querySelector('#contenido > div[class="row"]'),
@@ -312,6 +307,41 @@ $(window).load(function () {
             addHints(hints);
 
         }
+        else if ($("#pagename").html() == "Examen") {
+
+            var hints = [
+            {
+                element: document.querySelector('#tabtable'),
+                hint: "Muestra el todos los registro de la pantalla actual.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#tabdetails'),
+                hint: "Habilita los campos de ingreso de informacion, coloca la pantalla en modo Agregar.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.detail'),
+                hint: "Muestra el registro seleccionado y coloca la pantalla en modo Vista",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.edit'),
+                hint: "Habilita la edicion de la informacion para el registro seleccionado y coloca la pantalla en modo Edicion",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('.delete'),
+                hint: "Despliega un dialogo modal el cual permite confirmar si se desea eliminar el registro seleccionado",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+
+        }
         else if ($("#pagename").html() == "Acciones_Mantenimiento") {
 
             var hints = [
@@ -363,6 +393,57 @@ $(window).load(function () {
             {
                 element: document.querySelector('.delete'),
                 hint: "Al hacer clic en este boton elimina el recurso seleccionado del rol y se actualiza la tabla.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+
+        }
+        else if ($("#pagename").html() == "Asignar_Materia") {
+            var hints = [
+            {
+                element: document.querySelector('#menuroles'),
+                hint: "Se despliegan los roles del sistema, al hacer clic sobre alguno de ellos se carga la informaicon en el panel principal.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#btnagregarbeneficiario'),
+                hint: "Despliega un cuadro modal que contiene todas los beneficiarios inscritos en ese programa",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#cmbmateria'),
+                hint: "Despliega una lista en la cual se elige a que materia asignar al beneficiario",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('.delete'),
+                hint: "Al hacer clic en este boton elimina la asignacion del beneficiario seleccionado y se actualiza el contenido de la pantalla.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+
+        }
+        else if ($("#pagename").html() == "Control_Notas") {
+            var hints = [
+            {
+                element: document.querySelector('td>input'),
+                hint: "Permite introducir la calificacion para el beneficiario",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#cmbmateria'),
+                hint: "Despliega una lista en la cual se elige la materia en la que se registraran las calificaciones",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#cmbexamen'),
+                hint: "Despliega una lista en la cual se elige el examen al cual se registraran las calificaciones.",
                 hintPosition: 'top'
             }
             ];
@@ -796,6 +877,12 @@ $(window).load(function () {
                 hint: "Este Reporte permite mostrar los registros detallados de los puestos actuales registrados en el sistema.",
                 hintPosition: 'top'
             }
+            ,
+            {
+                element: document.querySelector('#consolidadoproyecto'),
+                hint: "Este Reporte permite mostrar un resumen general con gráficas de los beneficiarios por programa y datos estadísticos",
+                hintPosition: 'top'
+            }
             ];
 
 
@@ -814,14 +901,27 @@ $(window).load(function () {
                 hintPosition: 'top'
             },
             {
-                element: document.querySelector('#asignacionpersonal'),
-                hint: "Este Reporte permite mostrar la asignacion de personal (Recurso Humano) en un proyecto seleccionado.",
+                element: document.querySelector('#Actividadesprograma'),
+                hint: "Este Reporte permite mostrar las distintas actividades calendarizadas por programa seleccionado.",
                 hintPosition: 'top'
             }
             ,
             {
-                element: document.querySelector('#detallepuestos'),
-                hint: "Este Reporte permite mostrar los registros detallados de los puestos actuales registrados en el sistema.",
+                element: document.querySelector('#beneficiarioprograma'),
+                hint: "Este Reporte permite mostrar la lista de beneficiarios en el programa con su informacion personal.",
+                hintPosition: 'top'
+            }
+            ,
+            {
+                element: document.querySelector('#beneficiariocomunidad'),
+                hint: "Este Reporte permite mostrar los distintos beneficiarios filtrados por comunidad mostrando informacion de los programas a los cuales pertenecen.",
+                hintPosition: 'top'
+            }
+            ,
+            
+            {
+                element: document.querySelector('#programaAsistencia'),
+                hint: "Este Reporte permite mostrar la lista de asistencias de los beneficiarios por actividad seleccionada.",
                 hintPosition: 'top'
             }
             ];
@@ -910,6 +1010,34 @@ $(window).load(function () {
            {
                element: document.querySelector('#savepage'),
                hint: "Guarda la informacion de asistencia para la actividad seleccionada, debe estar completa la informacion ingresada.",
+               hintPosition: 'top'
+           }
+
+            ];
+
+
+            addHints(hints);
+        }
+        else if ($("#pagename").html() == "Administracion_Notas") {
+            var hints = [
+           {
+               element: document.querySelector('#materiadialogo'),
+               hint: "Al acceder a esta opcion podra crear asignaturas individuales.",
+               hintPosition: 'top'
+           },
+           {
+               element: document.querySelector('#examendialogo'),
+               hint: "Al acceder a esta opcion prodra crear examenes y adjuntar archivos a este.",
+               hintPosition: 'top'
+           },
+           {
+               element: document.querySelector('#asignarmateriadialogo'),
+               hint: "Al acceder a esta opcion podra asignar beneficiarios a una materia en especifico.",
+               hintPosition: 'top'
+           },
+           {
+               element: document.querySelector('#registrarnotasdialogo'),
+               hint: "Esta opcion permite acceder al registro de calificaciones para los distintos examenes de la asignatura.",
                hintPosition: 'top'
            }
 

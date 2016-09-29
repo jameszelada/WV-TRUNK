@@ -211,6 +211,15 @@ namespace WV.WebApplication {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Reportes_Programas;
         
         /// <summary>
+        /// Reportes_Notas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Reportes_Notas;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

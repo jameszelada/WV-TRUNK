@@ -5,6 +5,7 @@
   <head runat="server">
     <title runat="server">Visión Mundial - Iniciar Sesión</title>
     <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="/Content/assets/img/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
       
     <link rel="stylesheet" href="/Content/assets/css/charisma-app.css">
@@ -14,23 +15,79 @@
     <script src="/Content/assets/js/prefixfree.min.js"></script>
     <script src="../Content/assets/js/jquery-1.10.2.js"></script> 
     <script type="text/javascript" src="/Content/assets/js/bootstrap.min.js"></script>
+
+      <style type="text/css">
+
+          h2 
+          {
+              font-size :33px;
+          }
+
+          @media(max-width:480px) 
+          {
+              h2 
+              {
+                  font-size: 16px;
+              }
+
+              .login-header 
+              {
+                 height:80px;
+              }
+
+              #cornervm 
+              {
+                  display:none;
+              }
+          }
+
+          @media(max-width:600px) 
+          {
+              h2 
+              {
+                  font-size: 16px;
+              }  
+
+              .login-header 
+              {
+                  height:80px;
+              }
+
+              #cornervm 
+              {
+                  display:none;
+              }
+          }
+
+          @media(max-width:700px) 
+          {
+              h2 
+              {
+                   font-size: 16px;
+              }  
+
+              .login-header 
+              {
+                  height:80px;
+              }
+
+              #cornervm 
+              {
+                  display:none;
+              }
+          }
+
+      </style>
+
   </head>
   <body>
-   <%-- <div class="login">
-	<h1>Login</h1>
-    <form id="form1" runat="server">
-    	<input id="nombreusuario" type="text" name="u" placeholder="Username" required="required" />
-        <input id="contrasenia" type="password" name="p" placeholder="Password" required="required" />
-        <div id="errormessage" class=""></div>
-        <button id="login" type="button" class="btn btn-primary btn-block btn-large">Log In</button>
-    </form>
-</div>--%>
+
       
     <img id="cornervm" src="../Content/assets/css/images/vm_transparent.png"  />
         
     <div class="row" style="margin-top: 50px;margin-bottom:20px;">
         <div class="col-md-12 center login-header">
-            <h2 style="color:white;font-weight: bold;font-size: 33px;">Sistema de Administración de Proyectos <br>Visión Mundial El Salvador, Guaymango</h2>
+            <h2 style="color:white;font-weight: bold;">Sistema de Administración de Proyectos <br>Visión Mundial El Salvador, Guaymango</h2>
         </div>
         <!--/span-->
     </div><!--/row-->

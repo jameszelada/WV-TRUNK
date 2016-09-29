@@ -7,6 +7,7 @@
 </asp:Content>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
+     <div runat="server" id="pagename" class="hidden">Unauthorized</div>
     <div class="col-md-12">
         <h1 class="page-header">
             Acceso No Autorizado
