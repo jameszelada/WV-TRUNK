@@ -134,7 +134,7 @@
                                 <a href="Community">Comunidades</a>
                             </li>
                             <li id="Inscripcion" runat="server">
-                                <a href="Registration">Inscripcion de Beneficiarios</a>
+                                <a href="Registration">Inscripción de Beneficiarios</a>
                             </li>
                             <li id="Actividades" runat="server">
                                 <a href="Activity">Control de Actividades</a>
@@ -143,7 +143,7 @@
                                 <a href="AttendanceTracking">Control de Asistencia</a>
                             </li>
                             <li id="Administracion_Notas" runat="server">
-                                <a href="GradesControl">Administracion de Notas</a>
+                                <a href="GradesControl">Administración de Notas</a>
                             </li>
                         </ul>
                     </li>

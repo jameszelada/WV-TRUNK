@@ -854,6 +854,28 @@ $(window).load(function () {
 
                 addHints(hints);
         }
+        else if ($("#pagename").html() == "Reportes_Notas") {
+            var hints = [
+            {
+                element: document.querySelector('#listainscritos'),
+                hint: "Este reporte permite mostrar la lista de beneficiarios inscritos por materia.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#listanotas'),
+                hint: "Este reporte abre un dialogo que permite elegir la materia y el examen respectivo y muestra los resultados para dicha prueba.",
+                hintPosition: 'top'
+            },
+            {
+                element: document.querySelector('#consolidadomaterias'),
+                hint: "Este Reporte permite mostrar un consolidado de notas por materia, incluye informacion de beneficiarios inscritos y sus respectivas calificaciones.",
+                hintPosition: 'top'
+            }
+            ];
+
+
+            addHints(hints);
+        }
         else if ($("#pagename").html() == "Reportes_Proyectos") {
             var hints = [
             {

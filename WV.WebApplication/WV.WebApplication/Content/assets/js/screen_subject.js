@@ -208,6 +208,7 @@
 
 
     function showSubject(ID_Materia) {
+        idMateria = ID_Materia;
         var dataToSend =
             {
                 ID_Materia: ID_Materia
@@ -225,7 +226,7 @@
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
                     if (!$("#sidebaroptions").length) {
-                        loadSidebarOptions();
+                        loadSidebarOptions(idMateria);
                     }
 
                 }
@@ -349,6 +350,7 @@
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
+            $("#sidebaroptions").remove();
             $("#cancelpage").unbind();
             $("#savepage").unbind();
             clearControls();
@@ -529,8 +531,8 @@
         $("#tabdetails").unbind();
     }
 
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(idMateria) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos Rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showrolereport' href='/Handlers/GeneralReportsGrades.ashx?method=getinscriptionreport&ID_Materia=" + idMateria + "'> Reporte Alumnos Inscritos</a></li><li><a id='showrolereport' href='/Handlers/GeneralReportsGrades.ashx?method=getsummaryreport&ID_Materia=" + idMateria + "'> Reporte Consolidado Materia</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

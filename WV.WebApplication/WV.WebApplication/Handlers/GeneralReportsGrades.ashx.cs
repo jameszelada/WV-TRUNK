@@ -58,6 +58,11 @@ namespace WV.WebApplication.Handlers
                     context.Response.AddHeader("Content-Disposition", "attachment;filename=Resultados-Examen.pdf");
                     context.Response.BinaryWrite(GetResultsReport(context));
                     break;
+                case "getsummaryreport":
+                    context.Response.ContentType = "application/pdf";
+                    context.Response.AddHeader("Content-Disposition", "attachment;filename=Consolidado-Materia.pdf");
+                    context.Response.BinaryWrite(GetSummaryReport(context));
+                    break;
                 
 
             }
@@ -911,6 +916,451 @@ namespace WV.WebApplication.Handlers
             pdfTabContentAditional.AddCell(pdfCellContentAditional5);
             pdfTabContentAditional.AddCell(pdfCellContentAditional6);
             
+
+
+            pdfTabContentAditional.TotalWidth = document.PageSize.Width - 80f;
+            pdfTabContentAditional.WidthPercentage = 30;
+            pdfTabContentAditional.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTabContentAditional.SpacingAfter = 20;
+            Paragraph pContentAdditional = new Paragraph();
+            pContentAdditional.IndentationLeft = 30;
+            pContentAdditional.Add(pdfTabContentAditional);
+
+            #endregion
+
+
+            document.Add(pBeneficiarios);
+            document.Add(pContent2);
+            document.Add(pInfAdicional);
+            document.Add(pContentAdditional);
+
+            #endregion
+
+
+            document.Close();
+
+            return output.ToArray();
+        }
+
+        public byte[] GetSummaryReport(HttpContext context)
+        {
+            int index = 0;
+            int ID_Materia = Int32.Parse(context.Request.Params["ID_Materia"].ToString());
+           // int ID_Examen = Int32.Parse(context.Request.Params["ID_Examen"].ToString());
+
+            var materia = _materia.GetFirst(p => p.ID_Materia == ID_Materia);
+            var programa = materia.AsignacionMateria.First().Beneficiario.Programa;
+
+            //var examen = _examen.GetFirst(e => e.ID_Examen == ID_Examen);
+
+            var document = new Document(PageSize.A4, 10f, 10f, 110f, 50f);
+            var output = new MemoryStream();
+            var writer = PdfWriter.GetInstance(document, output);
+            HeaderFooter headerFooter = new HeaderFooter();
+
+            headerFooter.Titulo = "Reporte de Notas por Materia";
+            headerFooter.SubTitulo = "Consolidado";
+            writer.PageEvent = headerFooter;
+            document.Open();
+            Font tiny = new Font(Font.FontFamily.HELVETICA, 7f, Font.NORMAL, BaseColor.BLACK);
+            Font tinyBold = new Font(Font.FontFamily.HELVETICA, 7f, Font.BOLD, BaseColor.BLACK);
+            PdfPTable pdfTab1 = new PdfPTable(2);
+            int[] arr = new int[2];
+            arr[0] = 1;
+            arr[1] = 1;
+            pdfTab1.SetWidths(arr);
+
+            PdfPCell pdfCellHead = new PdfPCell(new Phrase("Nombre Materia:", tinyBold));
+            PdfPCell pdfCellHead1 = new PdfPCell(new Phrase(materia.Nombre + " " + materia.Grado + " " + materia.Anio, tinyBold));
+            pdfCellHead.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellHead1.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellHead.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellHead1.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellHead.Border = 0;
+            pdfCellHead1.Border = 0;
+            pdfTab1.AddCell(pdfCellHead);
+            pdfTab1.AddCell(pdfCellHead1);
+            
+
+            pdfTab1.TotalWidth = document.PageSize.Width - 80f;
+            pdfTab1.WidthPercentage = 50;
+            pdfTab1.HorizontalAlignment = Element.ALIGN_LEFT;
+            Paragraph p1 = new Paragraph();
+            p1.IndentationLeft = 30;
+            p1.Add(pdfTab1);
+            p1.SpacingAfter = 20;
+
+
+            document.Add(p1);
+
+
+
+            index++;
+            #region Informacion de Programa
+
+            PdfPTable pdfTab = new PdfPTable(3);
+            int[] arrHeader = new int[3];
+            arrHeader[0] = 1;
+            arrHeader[1] = 1;
+            arrHeader[2] = 1;
+            pdfTab.SetWidths(arrHeader);
+
+            Font tinyFont = new Font(Font.FontFamily.HELVETICA, 7f, Font.NORMAL, BaseColor.BLACK);
+            Font tinyFontBold = new Font(Font.FontFamily.HELVETICA, 7f, Font.BOLD, BaseColor.BLACK);
+            Font tinyFontBoldUnderline = new Font(Font.FontFamily.HELVETICA, 7f, Font.UNDERLINE | Font.BOLD, BaseColor.BLACK);
+            BaseColor backgroundColor = WebColors.GetRGBColor("#DCDDDE");
+
+            ////We will have to create separate cells to include image logo and 2 separate strings
+            ////Row 1
+            PdfPCell pdfCell1 = new PdfPCell(new Phrase("Numero de Programa", tinyFontBold));
+            PdfPCell pdfCell2 = new PdfPCell(new Phrase(index.ToString(), tinyFont));
+            PdfPCell pdfCell3 = new PdfPCell(new Phrase("Código", tinyFontBold));
+            PdfPCell pdfCell4 = new PdfPCell(new Phrase(programa.Codigo, tinyFont));
+            PdfPCell pdfCell5 = new PdfPCell(new Phrase("Tipo de Programa", tinyFontBold));
+            PdfPCell pdfCell6 = new PdfPCell(new Phrase(programa.TipoPrograma.TipoProgramaDescripcion, tinyFont));
+            PdfPCell pdfCell7 = new PdfPCell(new Phrase("Comunidad", tinyFontBold));
+            PdfPCell pdfCell8 = new PdfPCell(new Phrase(programa.Comunidad.Comunidad1, tinyFont));
+            PdfPCell pdfCell9 = new PdfPCell(new Phrase("Municipio", tinyFontBold));
+            PdfPCell pdfCell10 = new PdfPCell(new Phrase(programa.Comunidad.Municipio.Municipio1, tinyFont));
+            PdfPCell pdfCell11 = new PdfPCell(new Phrase("Departamento", tinyFontBold));
+            PdfPCell pdfCell12 = new PdfPCell(new Phrase(programa.Comunidad.Municipio.Departamento.Departamento1, tinyFont));
+            PdfPCell pdfCell13 = new PdfPCell(new Phrase("Fecha de Inicio", tinyFontBold));
+            PdfPCell pdfCell14 = new PdfPCell(new Phrase(programa.FechaInicio.ToShortDateString(), tinyFont));
+            PdfPCell pdfCell15 = new PdfPCell(new Phrase("Fecha de Finalización", tinyFontBold));
+            PdfPCell pdfCell16 = new PdfPCell(new Phrase(programa.FechaFinal.ToShortDateString(), tinyFont));
+            PdfPCell pdfCell17 = new PdfPCell(new Phrase("", tinyFont));
+            PdfPCell pdfCell18 = new PdfPCell(new Phrase("", tinyFont));
+
+            //pdfCell1.BackgroundColor = backgroundColor;
+            //pdfCell2.BackgroundColor = backgroundColor;
+
+            pdfCell1.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell5.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell6.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell7.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell8.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell9.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell10.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell11.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell12.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell13.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell14.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell15.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCell16.HorizontalAlignment = Element.ALIGN_LEFT;
+
+            pdfCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell5.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell6.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell7.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell8.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell9.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell10.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell11.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell12.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell13.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell14.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell15.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCell16.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+
+            pdfCell1.Border = 0;
+            pdfCell2.Border = 0;
+            pdfCell3.Border = 0;
+            pdfCell4.Border = 0;
+            pdfCell5.Border = 0;
+            pdfCell6.Border = 0;
+            pdfCell7.Border = 0;
+            pdfCell8.Border = 0;
+            pdfCell9.Border = 0;
+            pdfCell10.Border = 0;
+            pdfCell11.Border = 0;
+            pdfCell12.Border = 0;
+            pdfCell13.Border = 0;
+            pdfCell14.Border = 0;
+            pdfCell15.Border = 0;
+            pdfCell16.Border = 0;
+            pdfCell17.Border = 0;
+            pdfCell18.Border = 0;
+
+
+            pdfCell1.FixedHeight = 25f;
+            pdfCell2.FixedHeight = 25f;
+            pdfCell3.FixedHeight = 25f;
+            pdfCell4.FixedHeight = 25f;
+            pdfCell5.FixedHeight = 25f;
+            pdfCell6.FixedHeight = 25f;
+            pdfCell7.FixedHeight = 25f;
+            pdfCell8.FixedHeight = 25f;
+            pdfCell9.FixedHeight = 25f;
+            pdfCell10.FixedHeight = 25f;
+            pdfCell11.FixedHeight = 25f;
+            pdfCell12.FixedHeight = 25f;
+            pdfCell13.FixedHeight = 25f;
+            pdfCell14.FixedHeight = 25f;
+            pdfCell15.FixedHeight = 25f;
+            pdfCell16.FixedHeight = 25f;
+            pdfCell17.FixedHeight = 25f;
+            pdfCell18.FixedHeight = 25f;
+
+            //add all three cells into PdfTable
+            pdfTab.AddCell(pdfCell1);
+            pdfTab.AddCell(pdfCell3);
+            pdfTab.AddCell(pdfCell5);
+            pdfTab.AddCell(pdfCell2);
+            pdfTab.AddCell(pdfCell4);
+            pdfTab.AddCell(pdfCell6);
+            pdfTab.AddCell(pdfCell7);
+            pdfTab.AddCell(pdfCell9);
+            pdfTab.AddCell(pdfCell11);
+            pdfTab.AddCell(pdfCell8);
+            pdfTab.AddCell(pdfCell10);
+            pdfTab.AddCell(pdfCell12);
+            pdfTab.AddCell(pdfCell13);
+            pdfTab.AddCell(pdfCell15);
+            pdfTab.AddCell(pdfCell17);
+            pdfTab.AddCell(pdfCell14);
+            pdfTab.AddCell(pdfCell16);
+            pdfTab.AddCell(pdfCell18);
+
+
+            pdfTab.TotalWidth = document.PageSize.Width - 80f;
+            pdfTab.WidthPercentage = 90;
+            pdfTab.HorizontalAlignment = Element.ALIGN_LEFT;
+            Paragraph paragraph = new Paragraph();
+            paragraph.IndentationLeft = 30;
+            paragraph.SpacingAfter = 10;
+            paragraph.Add(pdfTab);
+
+            Paragraph pDescripcion = new Paragraph("Información del Programa:", tinyFontBoldUnderline);
+            pDescripcion.IndentationLeft = 30;
+            pDescripcion.SpacingAfter = 20;
+            document.Add(pDescripcion);
+            document.Add(paragraph);
+
+            #endregion
+
+            #region Beneficiarios de Programa
+
+            int numberOfColumns = materia.Examen.Count + 4;
+
+            PdfPTable pdfTabContent2 = new PdfPTable(numberOfColumns);
+            pdfTabContent2.DefaultCell.FixedHeight = 100f;
+            int[] arrContent2 = new int[numberOfColumns];
+
+            for (int i = 0; i < arrContent2.Length; i++)
+            {
+                if (i == 2)
+	            {
+		            arrContent2[i] = 4;
+	            }
+                else
+                {
+                    arrContent2[i] = 1;
+                }
+               
+            }
+
+            pdfTabContent2.SetWidths(arrContent2);
+
+            for (int i = 0; i < arrContent2.Length; i++)
+            {
+                if (i == 0)
+                {
+                    PdfPCell pdfCellContentActivity1 = new PdfPCell(new Phrase("N°", tinyFontBold));
+                    pdfCellContentActivity1.BackgroundColor = backgroundColor;
+                    pdfCellContentActivity1.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfCellContentActivity1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    pdfCellContentActivity1.Border = 0;
+                    pdfTabContent2.AddCell(pdfCellContentActivity1);
+                }
+                else if (i == 1)
+                {
+                    PdfPCell pdfCellContentActivity2 = new PdfPCell(new Phrase("RC", tinyFontBold));
+                    pdfCellContentActivity2.BackgroundColor = backgroundColor;
+                    pdfCellContentActivity2.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfCellContentActivity2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    pdfCellContentActivity2.Border = 0;
+                    pdfTabContent2.AddCell(pdfCellContentActivity2);
+                }
+                else if (i == 2)
+                {
+                    PdfPCell pdfCellContentActivity3 = new PdfPCell(new Phrase("Nombre del Beneficiario", tinyFontBold));
+                    pdfCellContentActivity3.BackgroundColor = backgroundColor;
+                    pdfCellContentActivity3.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfCellContentActivity3.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    pdfCellContentActivity3.Border = 0;
+                    pdfTabContent2.AddCell(pdfCellContentActivity3);
+                }
+                else if (i == arrContent2.Length -1)
+                {
+                    PdfPCell pdfCellContentActivity3 = new PdfPCell(new Phrase("Promedio", tinyFontBold));
+                    pdfCellContentActivity3.BackgroundColor = backgroundColor;
+                    pdfCellContentActivity3.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfCellContentActivity3.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    pdfCellContentActivity3.Border = 0;
+                    pdfTabContent2.AddCell(pdfCellContentActivity3);
+                }
+                else
+                {
+                    PdfPCell pdfCellContentActivity4 = new PdfPCell(new Phrase("Nota"+ (i-2).ToString(), tinyFontBold));
+                    pdfCellContentActivity4.BackgroundColor = backgroundColor;
+                    pdfCellContentActivity4.HorizontalAlignment = Element.ALIGN_LEFT;
+                    pdfCellContentActivity4.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    pdfCellContentActivity4.Border = 0;
+                    pdfTabContent2.AddCell(pdfCellContentActivity4);
+                }
+            }
+
+            List<int> beneficiariesIDs = materia.Examen.FirstOrDefault().ExamenResultado.Select(er=>er.ID_Beneficiario).ToList();
+
+             int num = 0;
+            foreach (var id in beneficiariesIDs)
+        	{
+                num++;
+        		var beneficiario = _beneficiario.GetFirst(b => b.ID_Beneficiario == id);
+                List<double> Notas = new List<double>();
+                PdfPCell contentCellFirst = new PdfPCell(new Phrase(num.ToString(), tinyFont));
+                PdfPCell contentCellSecond = new PdfPCell(new Phrase(string.IsNullOrEmpty(beneficiario.Codigo) ? "---" : beneficiario.Codigo, tinyFont));
+                PdfPCell contentCellThird = new PdfPCell(new Phrase(beneficiario.Nombre + " " + beneficiario.Apellido, tinyFont));
+                materia.Examen.ToList().ForEach(
+                    (e) => 
+                    {
+                        Notas.Add(double.Parse(e.ExamenResultado.FirstOrDefault(er=>er.ID_Beneficiario == id).Nota));
+                    });
+                contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellSecond.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellThird.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellFirst.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellSecond.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellThird.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellFirst.Border = 0;
+                contentCellSecond.Border = 0;
+                contentCellThird.Border = 0;
+                contentCellFirst.FixedHeight = 20f;
+                contentCellSecond.FixedHeight = 20f;
+                contentCellThird.FixedHeight = 20f;
+                pdfTabContent2.AddCell(contentCellFirst);
+                pdfTabContent2.AddCell(contentCellSecond);
+                pdfTabContent2.AddCell(contentCellThird);
+
+                foreach (double nota in Notas)
+                {
+                    PdfPCell contentCell4= new PdfPCell(new Phrase(nota.ToString(), tinyFont));
+                    contentCell4.HorizontalAlignment = Element.ALIGN_LEFT;
+                    contentCell4.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    contentCell4.Border = 0;
+                    contentCell4.FixedHeight = 20f;
+                    pdfTabContent2.AddCell(contentCell4);
+                }
+
+                PdfPCell contentCellLast = new PdfPCell(new Phrase(Math.Round( Notas.Average(),2).ToString(), tinyFont));
+                contentCellLast.HorizontalAlignment = Element.ALIGN_LEFT;
+                contentCellLast.VerticalAlignment = Element.ALIGN_MIDDLE;
+                contentCellLast.Border = 0;
+                pdfTabContent2.AddCell(contentCellLast);
+        	}
+
+            
+            
+
+           
+            
+
+            pdfTabContent2.TotalWidth = document.PageSize.Width - 80f;
+            pdfTabContent2.WidthPercentage = 95;
+            pdfTabContent2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTabContent2.SpacingAfter = 20;
+            Paragraph pContent2 = new Paragraph();
+            pContent2.IndentationLeft = 30;
+            pContent2.Add(pdfTabContent2);
+
+            Paragraph pBeneficiarios = new Paragraph("Beneficiarios Registrados:", tinyFontBoldUnderline);
+            pBeneficiarios.IndentationLeft = 30;
+            pBeneficiarios.SpacingAfter = 20;
+
+            #region Informacion Beneficiarios
+
+            Paragraph pInfAdicional = new Paragraph("Informacion Adicional:", tinyFontBoldUnderline);
+            pInfAdicional.IndentationLeft = 30;
+            pInfAdicional.SpacingAfter = 20;
+
+            PdfPTable pdfTabContentAditional = new PdfPTable(2);
+            pdfTabContentAditional.DefaultCell.FixedHeight = 100f;
+            int[] arrContentAditional = new int[2];
+            arrContentAditional[0] = 2;
+            arrContentAditional[1] = 1;
+            pdfTabContentAditional.SetWidths(arrContentAditional);
+
+            List<Double> Stats = new List<double>();
+
+
+            materia.Examen.ToList().ForEach(
+                (e) => 
+                {
+                    e.ExamenResultado.ToList().ForEach((er => {
+
+                        Stats.Add(Double.Parse(er.Nota));
+                    
+                    }));
+                }
+
+                );
+
+            PdfPCell pdfCellContentAditional1 = new PdfPCell(new Phrase("Nota Mayor en materia: ", tinyFontBold));
+            PdfPCell pdfCellContentAditional2 = new PdfPCell(new Phrase(Math.Round(Stats.Max()).ToString(), tinyFontBold));
+            PdfPCell pdfCellContentAditional3 = new PdfPCell(new Phrase("Nota Menor en materia:", tinyFontBold));
+            PdfPCell pdfCellContentAditional4 = new PdfPCell(new Phrase(Math.Round(Stats.Min()).ToString(), tinyFontBold));
+            PdfPCell pdfCellContentAditional5 = new PdfPCell(new Phrase("Nota promedio en materia:", tinyFontBold));
+            PdfPCell pdfCellContentAditional6 = new PdfPCell(new Phrase(Math.Round(Stats.Average()).ToString(), tinyFontBold));
+
+
+            pdfCellContentAditional1.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentAditional2.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentAditional3.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentAditional4.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentAditional5.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfCellContentAditional6.HorizontalAlignment = Element.ALIGN_LEFT;
+
+
+            pdfCellContentAditional1.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentAditional2.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentAditional3.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentAditional4.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentAditional5.VerticalAlignment = Element.ALIGN_MIDDLE;
+            pdfCellContentAditional6.VerticalAlignment = Element.ALIGN_MIDDLE;
+
+
+
+            pdfCellContentAditional1.Border = 0;
+            pdfCellContentAditional2.Border = 0;
+            pdfCellContentAditional3.Border = 0;
+            pdfCellContentAditional4.Border = 0;
+            pdfCellContentAditional5.Border = 0;
+            pdfCellContentAditional6.Border = 0;
+
+
+            pdfCellContentAditional1.FixedHeight = 20f;
+            pdfCellContentAditional2.FixedHeight = 20f;
+            pdfCellContentAditional3.FixedHeight = 20f;
+            pdfCellContentAditional4.FixedHeight = 20f;
+            pdfCellContentAditional5.FixedHeight = 20f;
+            pdfCellContentAditional6.FixedHeight = 20f;
+
+
+
+            pdfTabContentAditional.AddCell(pdfCellContentAditional1);
+            pdfTabContentAditional.AddCell(pdfCellContentAditional2);
+            pdfTabContentAditional.AddCell(pdfCellContentAditional3);
+            pdfTabContentAditional.AddCell(pdfCellContentAditional4);
+            pdfTabContentAditional.AddCell(pdfCellContentAditional5);
+            pdfTabContentAditional.AddCell(pdfCellContentAditional6);
+
 
 
             pdfTabContentAditional.TotalWidth = document.PageSize.Width - 80f;
