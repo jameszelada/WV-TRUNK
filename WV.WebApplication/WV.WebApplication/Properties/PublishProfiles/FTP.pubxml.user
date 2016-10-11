@@ -32,7 +32,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/09/2013 11:05:12</publishTime>
     </File>
     <File Include="bin/WV.WebApplication.dll">
-      <publishTime>09/30/2016 23:07:10</publishTime>
+      <publishTime>10/11/2016 00:37:35</publishTime>
     </File>
     <File Include="Content/assets/css/bootstrap.css">
       <publishTime>12/09/2014 18:39:30</publishTime>
@@ -320,7 +320,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/05/2016 00:00:19</publishTime>
     </File>
     <File Include="Content/assets/js/registration.js">
-      <publishTime>09/23/2016 16:44:36</publishTime>
+      <publishTime>10/10/2016 23:58:26</publishTime>
     </File>
     <File Include="Content/assets/js/reportsadmin.js">
       <publishTime>08/23/2016 23:17:11</publishTime>
@@ -335,43 +335,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2016 23:26:26</publishTime>
     </File>
     <File Include="Content/assets/js/screen_activity.js">
-      <publishTime>09/24/2016 23:03:29</publishTime>
+      <publishTime>10/11/2016 00:34:34</publishTime>
     </File>
     <File Include="Content/assets/js/screen_community.js">
-      <publishTime>09/23/2016 15:17:36</publishTime>
+      <publishTime>10/11/2016 00:33:58</publishTime>
     </File>
     <File Include="Content/assets/js/screen_exam.js">
-      <publishTime>10/01/2016 22:57:00</publishTime>
+      <publishTime>10/11/2016 00:33:33</publishTime>
     </File>
     <File Include="Content/assets/js/screen_job.js">
-      <publishTime>09/23/2016 15:32:55</publishTime>
+      <publishTime>10/11/2016 00:33:01</publishTime>
     </File>
     <File Include="Content/assets/js/screen_jobtype.js">
-      <publishTime>09/23/2016 15:35:58</publishTime>
+      <publishTime>10/11/2016 00:32:45</publishTime>
     </File>
     <File Include="Content/assets/js/screen_program.js">
-      <publishTime>09/23/2016 16:35:01</publishTime>
+      <publishTime>10/11/2016 00:32:26</publishTime>
     </File>
     <File Include="Content/assets/js/screen_programtype.js">
-      <publishTime>09/23/2016 15:12:42</publishTime>
+      <publishTime>10/11/2016 00:31:54</publishTime>
     </File>
     <File Include="Content/assets/js/screen_project.js">
-      <publishTime>09/23/2016 15:23:25</publishTime>
+      <publishTime>10/11/2016 00:31:39</publishTime>
     </File>
     <File Include="Content/assets/js/screen_role.js">
-      <publishTime>09/23/2016 15:03:57</publishTime>
+      <publishTime>10/11/2016 00:31:07</publishTime>
     </File>
     <File Include="Content/assets/js/screen_role_configuration.js">
       <publishTime>09/23/2016 00:54:13</publishTime>
     </File>
     <File Include="Content/assets/js/screen_staff.js">
-      <publishTime>09/15/2016 21:48:09</publishTime>
+      <publishTime>10/11/2016 00:30:18</publishTime>
     </File>
     <File Include="Content/assets/js/screen_subject.js">
-      <publishTime>09/23/2016 16:15:52</publishTime>
+      <publishTime>10/11/2016 00:29:59</publishTime>
     </File>
     <File Include="Content/assets/js/screen_user.js">
-      <publishTime>09/23/2016 15:00:37</publishTime>
+      <publishTime>10/11/2016 00:29:07</publishTime>
     </File>
     <File Include="Content/assets/js/weeklyplan.js">
       <publishTime>09/23/2016 15:50:58</publishTime>
@@ -485,7 +485,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2016 23:45:50</publishTime>
     </File>
     <File Include="Pages/Error/Unauthorized.aspx">
-      <publishTime>09/28/2016 23:11:16</publishTime>
+      <publishTime>10/02/2016 10:57:15</publishTime>
     </File>
     <File Include="Pages/GeneralReportsAdmin.aspx">
       <publishTime>09/15/2016 15:13:31</publishTime>
@@ -513,6 +513,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Pages/MassActions.aspx">
       <publishTime>09/15/2016 15:08:00</publishTime>
+    </File>
+    <File Include="Pages/Misc/SiteMap.aspx">
+      <publishTime>10/02/2016 11:38:37</publishTime>
     </File>
     <File Include="Pages/RecordGrades.aspx">
       <publishTime>09/15/2016 15:07:46</publishTime>
@@ -566,7 +569,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/25/2016 13:54:08</publishTime>
     </File>
     <File Include="WV.Master">
-      <publishTime>10/01/2016 23:05:25</publishTime>
+      <publishTime>10/02/2016 12:19:20</publishTime>
     </File>
   </ItemGroup>
 </Project>

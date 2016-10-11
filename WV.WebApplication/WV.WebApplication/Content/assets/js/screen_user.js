@@ -37,6 +37,10 @@ $(window).load(function () {
                     {
                         attachClickToNewButton();
                     }
+                    else
+                    {
+                        $("#tabdetails").html("Detalles");
+                    }
                     attachClickToModal();
                 }
                 else
@@ -368,6 +372,8 @@ $(window).load(function () {
 
         $("#saveuser").click(function ()
         {
+            
+           $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
            
             if (formValidation)
@@ -494,8 +500,13 @@ $(window).load(function () {
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 10 ',
+                            max: 10,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
                         }
                     }
                 },
@@ -503,13 +514,32 @@ $(window).load(function () {
                     validators: {
                         notEmpty: {
                             message: 'Este campo es requerido.'
+                        },
+                        stringLength: {
+                            message: 'Mínimo 4 caracteres, Máximo 45 ',
+                            max: 45,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfabéticos'
                         }
+
                     }
                 },
                 in_apellido: {
                     validators: {
                         notEmpty: {
                             message: 'Este campo es requerido.'
+                        },
+                        stringLength: {
+                            message: 'Mínimo 4 caracteres, Máximo 45 ',
+                            max: 45,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfabéticos'
                         }
                     }
                 },

@@ -198,6 +198,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\MassActions.aspx" />
+    <Content Include="Pages\Misc\SiteMap.aspx" />
     <Content Include="Pages\RecordGrades.aspx" />
     <Content Include="Pages\Registration.aspx" />
     <Content Include="Pages\screen_activity.aspx" />
@@ -415,6 +416,13 @@
     </Compile>
     <Compile Include="Pages\MassActions.aspx.designer.cs">
       <DependentUpon>MassActions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Misc\SiteMap.aspx.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Misc\SiteMap.aspx.designer.cs">
+      <DependentUpon>SiteMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>

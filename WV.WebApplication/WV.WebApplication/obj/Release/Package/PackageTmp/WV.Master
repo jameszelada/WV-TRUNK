@@ -45,7 +45,16 @@
                     Vision Mundial</a>
             </div>
 
-            <ul class="nav navbar-top-links navbar-right">
+              <ul class="nav navbar-top-links navbar-right">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="SiteMap" aria-expanded="false">
+                        <i class="fa fa-sitemap"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="SiteMap"><i class=""></i>Mapa del Sitio</a>
+                    </ul>
+                </li>
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                         <i class="fa fa-question fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -92,6 +101,8 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
+
+            
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">

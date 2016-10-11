@@ -118,8 +118,13 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 30',
+                            max: 30,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfabéticos'
                         }
                     },
 
@@ -130,8 +135,13 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 50',
+                            max: 50,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfabéticos'
                         }
                     }
 
@@ -142,8 +152,9 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 15 caracteres',
-                            min: 15
+                            message: 'Mínimo 4 caracteres, Máximo 100',
+                            max: 100,
+                            min: 4
                         }
                     }
 
@@ -482,7 +493,7 @@
 
     function attachClickToSave() {
         $("#savepage").click(function () {
-
+            $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
 
             if (formValidation) {

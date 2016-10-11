@@ -109,6 +109,10 @@
             if (Security.agregar) {
                 attachClickToNewButton();
             }
+            else
+            {
+                $("#tabdetails").html("Detalles");
+            }
 
             t = $('#dataTables-example').DataTable({
                 "bFilter": true,
@@ -368,6 +372,7 @@
         });
 
         $("#savepage").click(function () {
+           $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
 
             if (formValidation) {
@@ -464,10 +469,11 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 50 ',
+                            max: 50,
+                            min: 4
                         }
-                    },
+                    }
                     
                 }
                

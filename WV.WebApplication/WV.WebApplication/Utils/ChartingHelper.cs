@@ -117,9 +117,9 @@ namespace WV.WebApplication.Utils
                     ranges.Add(1);
                     break;
                 case "primera infancia":
-                    ranges.Add(3);
-                    ranges.Add(2);
-                    ranges.Add(1);
+                    ranges.Add(8);
+                    ranges.Add(6);
+                    ranges.Add(4);
 
                     break;
                 case "cdic":

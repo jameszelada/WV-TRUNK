@@ -100,6 +100,7 @@ namespace WV.WebApplication.Handlers
                 {
                     int index = project.index + 1;
                     string estado = "";
+                    string bgcolor = "";
                     if (project.Estado == "A")
                     {
                         estado = "Activo";
@@ -107,15 +108,17 @@ namespace WV.WebApplication.Handlers
                     else if (project.Estado == "I")
                     {
                         estado = "Inactivo";
+                        bgcolor = "#efef7f";
                     }
                     else if (project.Estado == "S")
                     {
                         estado = "Suspendido";
+                        bgcolor = "#ffa807";
                     }
                     string showButton = "<a data-id-project='" + project.ID_Proyecto + "'class='btn btn-primary btn-sm detail'>Mostrar</a>";
                     string editButton = "<a data-id-project='" + project.ID_Proyecto + "' class='btn btn-primary btn-sm edit'>Editar</a>";
                     string deleteButton = "<a data-id-project='" + project.ID_Proyecto + "' class='btn btn-primary btn-sm delete' data-toggle='modal' data-target='#modalmessage'>Eliminar</a>";
-                    tableBody += "<tr><td>" + index + "</td><td>" + project.Codigo + "</td><td>" + estado + "</td><td>" + showButton + "</td><td>" + editButton + "</td><td>" + deleteButton + "</td></tr>";
+                    tableBody += "<tr bgcolor='"+bgcolor+"'><td>" + index + "</td><td>" + project.Codigo + "</td><td>" + estado + "</td><td>" + showButton + "</td><td>" + editButton + "</td><td>" + deleteButton + "</td></tr>";
                 }
 
                 tableFooter += "</tbody></table></div>";

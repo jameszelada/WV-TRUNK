@@ -21,6 +21,10 @@
                     if (Security.agregar) {
                         attachClickToNewButton();
                     }
+                    else
+                    {
+                        $("#tabdetails").html("Detalles");
+                    }
                     attachClickToAddRecord();
 
                 }

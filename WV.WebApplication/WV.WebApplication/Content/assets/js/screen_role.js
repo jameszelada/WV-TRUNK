@@ -18,6 +18,10 @@
                     {
                         attachClickToNewButton();
                     }
+                    else
+                    {
+                        $("#tabdetails").html("Detalles");
+                    }
                     attachClickToShowButtons();
                     attachClickToEditButtons();
                     attachClickToListButton();
@@ -188,14 +192,15 @@
         });
 
         $("#saverole").click(function () {
+           $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
 
             if (formValidation) {
                 var screenmode = $("#screenmode").val();
                 saveRole(screenmode);
+                clearControls();
+                $("#form1").data('bootstrapValidator').resetForm();
             }
-            clearControls();
-            $("#form1").data('bootstrapValidator').resetForm();
 
         });
     }
@@ -288,8 +293,13 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 25 ',
+                            max: 25,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
                         }
                     }
                 },
@@ -297,6 +307,10 @@
                     validators: {
                         notEmpty: {
                             message: 'Este campo es requerido.'
+                        },
+                        stringLength: {
+                            message: 'Máximo 25 caracteres',
+                            max: 25
                         }
                     }
                 }

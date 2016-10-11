@@ -12,6 +12,8 @@ using WV.WebApplication.Reports;
 using Repository;
 using WV.WebApplication.Utils;
 using System.Web.UI.DataVisualization.Charting;
+using DataLayer;
+using System.Xml.Linq;
 
 namespace WV.WebApplication.Pages
 {
@@ -72,7 +74,448 @@ namespace WV.WebApplication.Pages
     //    Response.Cache.SetCacheability(HttpCacheability.NoCache);
     //    Response.BinaryWrite(bytes);
     //    Response.End();
+
+
     //}
+           //CBSN
+
+
+            //var xml = File.ReadAllText(Server.MapPath("~/uploads/CBSN.xml"));
+            //var str = XElement.Parse(xml);
+            //IDataRepository<Beneficiario> _beneficiario;
+
+            //IAWContext _context;
+            //_context = new AWContext();
+            //_beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
+
+
+
+
+            //foreach (var row in str.Elements("fila"))
+            //{
+            //    //Beneficiario Header
+            //    Beneficiario BeneficiarioToAdd = new Beneficiario();
+            //    Random rnd = new Random();
+            //    int month = rnd.Next(1, 13);
+            //    BeneficiarioToAdd.Nombre = row.Element("Nombre").Value;
+            //    BeneficiarioToAdd.Apellido = row.Element("Apellido1").Value + " " + row.Element("Apellido2").Value;
+            //    BeneficiarioToAdd.Sexo = row.Element("Sexo").Value == "H" ? "M" : "F";
+            //    BeneficiarioToAdd.Edad = row.Element("Edad").Value == "0" ? row.Element("Edad").Value + "|" + month : row.Element("Edad").Value + "|0";
+            //    BeneficiarioToAdd.Direccion = row.Element("Direccion").Value;
+            //    if (bool.Parse(row.Element("Flag").Value))
+            //    {
+            //        BeneficiarioToAdd.Codigo = row.Element("Codigo").Value;
+            //    }
+            //    else
+            //    {
+            //        BeneficiarioToAdd.Codigo = "";
+            //    }
+            //    BeneficiarioToAdd.Dui = "0" + row.Element("DUI").Value + "-" + rnd.Next(0, 1);
+            //    BeneficiarioToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioToAdd.ID_Programa = 10;
+
+            //    //Beneficiario Adicional
+
+            //    BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
+            //    BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = true;
+            //    BeneficiarioAdicionalToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioAdicionalToAdd.NombreEmergencia = "";
+            //    BeneficiarioAdicionalToAdd.NumeroEmergencia = "";
+
+
+            //    //Beneficiario Compromiso
+
+            //    BeneficiarioCompromiso BeneficiarioCompromisoToAdd = new BeneficiarioCompromiso();
+            //    BeneficiarioCompromisoToAdd.AceptaCompromiso = true;
+            //    BeneficiarioCompromisoToAdd.ExistioProblema = false;
+            //    BeneficiarioCompromisoToAdd.SeCongrega = false;
+            //    BeneficiarioCompromisoToAdd.Comentario = "";
+            //    BeneficiarioCompromisoToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioCompromisoToAdd.NombreIglesia = "";
+
+            //    //Beneficiario Salud
+
+            //    BeneficiarioSalud BeneficiarioSaludToAdd = new BeneficiarioSalud();
+            //    BeneficiarioSaludToAdd.EstadoSalud = "Satisfactoria";
+            //    BeneficiarioSaludToAdd.TieneTarjeta = bool.Parse(row.Element("Flag").Value);
+            //    BeneficiarioSaludToAdd.Enfermedad = "";
+            //    BeneficiarioSaludToAdd.Discapacidad = "";
+            //    BeneficiarioSaludToAdd.FechaCurvaCrecimiento = GetRandomDate(new DateTime(2016, 1, 1), new DateTime(2016, 3, 1));
+            //    BeneficiarioSaludToAdd.FechaInmunizacion = GetRandomDate(new DateTime(2016, 1, 1), new DateTime(2016, 3, 1));
+            //    BeneficiarioSaludToAdd.CreadoPor = "ADMIN";
+
+            //    BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
+            //    BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiarioCompromisoToAdd);
+            //    BeneficiarioToAdd.BeneficiarioSalud.Add(BeneficiarioSaludToAdd);
+
+
+            //    _beneficiario.Add(BeneficiarioToAdd);
+
+
+            //    var x = 0;
+
+            //}
+            //_context.SaveChanges();
+
+
+
+           //CDIC
+
+
+            //var xml = File.ReadAllText(Server.MapPath("~/uploads/CDIC.xml"));
+            //var str = XElement.Parse(xml);
+            //IDataRepository<Beneficiario> _beneficiario;
+
+            //IAWContext _context;
+            //_context = new AWContext();
+            //_beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
+
+
+
+
+            //foreach (var row in str.Elements("fila"))
+            //{
+            //    //Beneficiario Header
+            //    Beneficiario BeneficiarioToAdd = new Beneficiario();
+            //    Random rnd = new Random();
+            //    int month = rnd.Next(1, 13);
+            //    BeneficiarioToAdd.Nombre = row.Element("Nombre").Value;
+            //    BeneficiarioToAdd.Apellido = row.Element("Apellido1").Value + " " + row.Element("Apellido2").Value;
+            //    BeneficiarioToAdd.Sexo = row.Element("Sexo").Value == "H" ? "M" : "F";
+            //    BeneficiarioToAdd.Edad = row.Element("Edad").Value == "0" ? row.Element("Edad").Value + "|" + month : row.Element("Edad").Value + "|0";
+            //    BeneficiarioToAdd.Direccion = row.Element("Direccion").Value;
+            //    if (bool.Parse(row.Element("Flag").Value))
+            //    {
+            //        BeneficiarioToAdd.Codigo = row.Element("Codigo").Value;
+            //    }
+            //    else
+            //    {
+            //        BeneficiarioToAdd.Codigo = "";
+            //    }
+            //    BeneficiarioToAdd.Dui = "0" + row.Element("DUI").Value + "-" + rnd.Next(0, 1);
+            //    BeneficiarioToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioToAdd.ID_Programa = 11;
+
+            //    //Beneficiario Adicional
+
+            //    BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
+            //    BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = true;
+            //    BeneficiarioAdicionalToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioAdicionalToAdd.NombreEmergencia = "";
+            //    BeneficiarioAdicionalToAdd.NumeroEmergencia = "";
+
+
+            //    //Beneficiario Compromiso
+
+            //    BeneficiarioCompromiso BeneficiarioCompromisoToAdd = new BeneficiarioCompromiso();
+            //    BeneficiarioCompromisoToAdd.AceptaCompromiso = true;
+            //    BeneficiarioCompromisoToAdd.ExistioProblema = false;
+            //    BeneficiarioCompromisoToAdd.SeCongrega = false;
+            //    BeneficiarioCompromisoToAdd.Comentario = "";
+            //    BeneficiarioCompromisoToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioCompromisoToAdd.NombreIglesia = "";
+
+
+
+            //    BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
+            //    BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiarioCompromisoToAdd);
+
+
+
+            //    _beneficiario.Add(BeneficiarioToAdd);
+
+
+            //    var x = 0;
+
+            //}
+            //_context.SaveChanges();
+
+
+            //Primera Infancia
+
+
+            //var xml = File.ReadAllText(Server.MapPath("~/uploads/PrimeraInfancia.xml"));
+            //var str = XElement.Parse(xml);
+            //IDataRepository<Beneficiario> _beneficiario;
+
+            //IAWContext _context;
+            //_context = new AWContext();
+            //_beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
+
+
+
+
+            //foreach (var row in str.Elements("fila"))
+            //{
+            //    //Beneficiario Header
+            //    Beneficiario BeneficiarioToAdd = new Beneficiario();
+            //    Random rnd = new Random();
+            //    int month = rnd.Next(1, 13); 
+            //    BeneficiarioToAdd.Nombre = row.Element("Nombre").Value;
+            //    BeneficiarioToAdd.Apellido = row.Element("Apellido1").Value +" "+ row.Element("Apellido2").Value;
+            //    BeneficiarioToAdd.Sexo = row.Element("Sexo").Value == "H" ? "M":"F";
+            //    BeneficiarioToAdd.Edad = row.Element("Edad").Value == "0" ? row.Element("Edad").Value + "|" + month : row.Element("Edad").Value + "|0";
+            //    BeneficiarioToAdd.Direccion = row.Element("Direccion").Value;
+            //    if (bool.Parse(row.Element("Flag").Value))
+            //    {
+            //        BeneficiarioToAdd.Codigo = row.Element("Codigo").Value;
+            //    }
+            //    else
+            //    {
+            //        BeneficiarioToAdd.Codigo = "";
+            //    }
+            //    BeneficiarioToAdd.Dui = "0"+row.Element("DUI").Value+"-"+rnd.Next(0,1);
+            //    BeneficiarioToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioToAdd.ID_Programa = 21;
+
+            //    //Beneficiario Adicional
+
+            //    BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
+            //    BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = true;
+            //    BeneficiarioAdicionalToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioAdicionalToAdd.NombreEmergencia = "";
+            //    BeneficiarioAdicionalToAdd.NumeroEmergencia = "";
+
+
+            //    //Beneficiario Compromiso
+
+            //    BeneficiarioCompromiso BeneficiarioCompromisoToAdd = new BeneficiarioCompromiso();
+            //    BeneficiarioCompromisoToAdd.AceptaCompromiso = true;
+            //    BeneficiarioCompromisoToAdd.ExistioProblema = false;
+            //    BeneficiarioCompromisoToAdd.SeCongrega = false;
+            //    BeneficiarioCompromisoToAdd.Comentario = "";
+            //    BeneficiarioCompromisoToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioCompromisoToAdd.NombreIglesia = "";
+
+            //    //Beneficiario Salud
+
+            //    BeneficiarioSalud BeneficiarioSaludToAdd = new BeneficiarioSalud();
+            //    BeneficiarioSaludToAdd.EstadoSalud = "Satisfactoria";
+            //    BeneficiarioSaludToAdd.TieneTarjeta = bool.Parse(row.Element("Flag").Value);
+            //    BeneficiarioSaludToAdd.Enfermedad = "";
+            //    BeneficiarioSaludToAdd.Discapacidad = "";
+            //    BeneficiarioSaludToAdd.FechaCurvaCrecimiento = GetRandomDate(new DateTime(2016, 1, 1), new DateTime(2016,3, 1));
+            //    BeneficiarioSaludToAdd.FechaInmunizacion = GetRandomDate(new DateTime(2016, 1, 1), new DateTime(2016, 3, 1));
+            //    BeneficiarioSaludToAdd.CreadoPor = "ADMIN";
+
+            //    BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
+            //    BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiarioCompromisoToAdd);
+            //    BeneficiarioToAdd.BeneficiarioSalud.Add(BeneficiarioSaludToAdd);
+
+
+            //    _beneficiario.Add(BeneficiarioToAdd);
+
+
+            //    var x = 0;
+
+            //}
+            //_context.SaveChanges();
+
+            //CAJ
+
+
+            //var xml = File.ReadAllText(Server.MapPath("~/uploads/CAJ.xml"));
+            //var str = XElement.Parse(xml);
+            //IDataRepository<Beneficiario> _beneficiario;
+
+            //IAWContext _context;
+            //_context = new AWContext();
+            //_beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
+
+
+
+
+            //foreach (var row in str.Elements("fila"))
+            //{
+            //    //Beneficiario Header
+            //    Beneficiario BeneficiarioToAdd = new Beneficiario();
+            //    Random rnd = new Random();
+            //    int month = rnd.Next(1, 13);
+            //    BeneficiarioToAdd.Nombre = row.Element("Nombre").Value;
+            //    BeneficiarioToAdd.Apellido = row.Element("Apellido1").Value + " " + row.Element("Apellido2").Value;
+            //    BeneficiarioToAdd.Sexo = row.Element("Sexo").Value == "H" ? "M" : "F";
+            //    BeneficiarioToAdd.Edad = row.Element("Edad").Value == "0" ? row.Element("Edad").Value + "|" + month : row.Element("Edad").Value + "|0";
+            //    BeneficiarioToAdd.Direccion = row.Element("Direccion").Value;
+            //    if (bool.Parse(row.Element("Flag").Value))
+            //    {
+            //        BeneficiarioToAdd.Codigo = row.Element("Codigo").Value;
+            //    }
+            //    else
+            //    {
+            //        BeneficiarioToAdd.Codigo = "";
+            //    }
+            //    BeneficiarioToAdd.Dui = "0" + row.Element("DUI").Value + "-" + rnd.Next(0, 1);
+            //    BeneficiarioToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioToAdd.ID_Programa = 13;
+
+            //    //Beneficiario Adicional
+
+            //    BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
+            //    BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = true;
+            //    BeneficiarioAdicionalToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioAdicionalToAdd.NombreEmergencia = "";
+            //    BeneficiarioAdicionalToAdd.NumeroEmergencia = "";
+
+
+            //    //Beneficiario Compromiso
+
+            //    BeneficiarioCompromiso BeneficiarioCompromisoToAdd = new BeneficiarioCompromiso();
+            //    BeneficiarioCompromisoToAdd.AceptaCompromiso = true;
+            //    BeneficiarioCompromisoToAdd.ExistioProblema = false;
+            //    BeneficiarioCompromisoToAdd.SeCongrega = false;
+            //    BeneficiarioCompromisoToAdd.Comentario = "";
+            //    BeneficiarioCompromisoToAdd.CreadoPor = "ADMIN";
+            //    BeneficiarioCompromisoToAdd.NombreIglesia = "";
+
+
+
+            //    BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
+            //    BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiarioCompromisoToAdd);
+                
+
+            //    _beneficiario.Add(BeneficiarioToAdd);
+
+
+            //    var x = 0;
+
+            //}
+            //_context.SaveChanges();
+
+
+            //CIC
+
+
+            var xml = File.ReadAllText(Server.MapPath("~/uploads/CIC.xml"));
+            var str = XElement.Parse(xml);
+            IDataRepository<Beneficiario> _beneficiario;
+
+            IAWContext _context;
+            _context = new AWContext();
+            _beneficiario = new DataRepository<IAWContext, Beneficiario>(_context);
+
+
+
+
+            foreach (var row in str.Elements("fila"))
+            {
+                //Beneficiario Header
+                Beneficiario BeneficiarioToAdd = new Beneficiario();
+                Random rnd = new Random();
+                int month = rnd.Next(1, 13);
+                BeneficiarioToAdd.Nombre = row.Element("Nombre").Value;
+                BeneficiarioToAdd.Apellido = row.Element("Apellido1").Value + " " + row.Element("Apellido2").Value;
+                BeneficiarioToAdd.Sexo = row.Element("Sexo").Value == "H" ? "M" : "F";
+                BeneficiarioToAdd.Edad = row.Element("Edad").Value == "0" ? row.Element("Edad").Value + "|" + month : row.Element("Edad").Value + "|0";
+                BeneficiarioToAdd.Direccion = row.Element("Direccion").Value;
+                if (bool.Parse(row.Element("Flag").Value))
+                {
+                    BeneficiarioToAdd.Codigo = row.Element("Codigo").Value;
+                }
+                else
+                {
+                    BeneficiarioToAdd.Codigo = "";
+                }
+                BeneficiarioToAdd.Dui = "0" + row.Element("DUI").Value + "-" + rnd.Next(0, 1);
+                BeneficiarioToAdd.CreadoPor = "ADMIN";
+                BeneficiarioToAdd.ID_Programa = 12;
+
+                //Beneficiario Adicional
+
+                BeneficiarioAdicional BeneficiarioAdicionalToAdd = new BeneficiarioAdicional();
+                BeneficiarioAdicionalToAdd.TieneRegistroNacimiento = true;
+                BeneficiarioAdicionalToAdd.CreadoPor = "ADMIN";
+                BeneficiarioAdicionalToAdd.NombreEmergencia = "";
+                BeneficiarioAdicionalToAdd.NumeroEmergencia = "";
+
+
+                //Beneficiario Compromiso
+
+                BeneficiarioCompromiso BeneficiarioCompromisoToAdd = new BeneficiarioCompromiso();
+                BeneficiarioCompromisoToAdd.AceptaCompromiso = true;
+                BeneficiarioCompromisoToAdd.ExistioProblema = false;
+                BeneficiarioCompromisoToAdd.SeCongrega = false;
+                BeneficiarioCompromisoToAdd.Comentario = "";
+                BeneficiarioCompromisoToAdd.CreadoPor = "ADMIN";
+                BeneficiarioCompromisoToAdd.NombreIglesia = "";
+
+                //Beneficiario Educación
+
+                BeneficiarioEducacion BeneficiarioEducacionToAdd = new BeneficiarioEducacion();
+
+                string[] Grados = GetCurrentAndPreviousYear(row.Element("Edad").Value);
+
+                BeneficiarioEducacionToAdd.Estudia = true;
+                BeneficiarioEducacionToAdd.GradoEducacion = Grados[0];
+                BeneficiarioEducacionToAdd.Motivo = "";
+                BeneficiarioEducacionToAdd.UltimoGrado = Grados[1];
+                BeneficiarioEducacionToAdd.UltimoAño = "2015";
+                BeneficiarioEducacionToAdd.NombreCentroEscolar = "";
+                if (bool.Parse(row.Element("Flag").Value))
+                {
+                    BeneficiarioEducacionToAdd.Turno = "Mañana";
+                }
+                else
+                {
+                    BeneficiarioEducacionToAdd.Turno = "Tarde";
+                }
+
+                BeneficiarioToAdd.BeneficiarioAdicional.Add(BeneficiarioAdicionalToAdd);
+                BeneficiarioToAdd.BeneficiarioCompromiso.Add(BeneficiarioCompromisoToAdd);
+                BeneficiarioToAdd.BeneficiarioEducacion.Add(BeneficiarioEducacionToAdd);
+
+                _beneficiario.Add(BeneficiarioToAdd);
+
+
+            }
+            _context.SaveChanges();
+
+        }
+        static readonly Random rnd = new Random();
+        public static DateTime GetRandomDate(DateTime from, DateTime to)
+        {
+            var range = to - from;
+
+            var randTimeSpan = new TimeSpan((long)(rnd.NextDouble() * range.Ticks));
+
+            return from + randTimeSpan;
+        }
+
+        public string [] GetCurrentAndPreviousYear(string age)
+        {
+            string[] returnArray= new string [2];
+
+            if (age=="7")
+            {
+                returnArray[0] = "2do Grado";
+                returnArray[1] = "1er Grado";
+            }
+            if (age == "8")
+            {
+                returnArray[0] = "3er Grado";
+                returnArray[1] = "2do Grado";
+            }
+            if (age == "9")
+            {
+                returnArray[0] = "4to Grado";
+                returnArray[1] = "3er Grado";
+            }
+            if (age == "10")
+            {
+                returnArray[0] = "5to Grado";
+                returnArray[1] = "4to Grado";
+            }
+            if (age == "11")
+            {
+                returnArray[0] = "6to Grado";
+                returnArray[1] = "5to Grado";
+            }
+            if (age == "12")
+            {
+                returnArray[0] = "7mo Grado";
+                returnArray[1] = "6to Grado";
+            }
+
+            return returnArray;
         }
     }
 }

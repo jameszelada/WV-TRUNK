@@ -26,6 +26,10 @@ $(window).load(function () {
                     if (Security.agregar) {
                         attachClickToNewButton();
                     }
+                    else
+                    {
+                        $("#tabdetails").html("Detalles");
+                    }
                     attachClickToModal();
 
                 }
@@ -471,6 +475,7 @@ $(window).load(function () {
         });
 
         $("#savepage").click(function () {
+           $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
 
             if (formValidation) {
@@ -601,8 +606,13 @@ $(window).load(function () {
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 20',
+                            max: 20,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
                         }
                     },
 
@@ -613,8 +623,9 @@ $(window).load(function () {
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 1000',
+                            max: 1000,
+                            min: 4
                         }
                     }
 

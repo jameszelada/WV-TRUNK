@@ -30,7 +30,10 @@ $(window).load(function () {
                     if (Security.agregar) {
                         attachClickToNewButton();
                     }
-                    
+                    else
+                    {
+                        $("#tabdetails").html("Detalles");
+                    }
                     attachClickToModal();
 
                 }
@@ -265,6 +268,7 @@ $(window).load(function () {
         });
 
         $("#savepage").click(function () {
+           $("#form1").data('bootstrapValidator').validate();
             var formValidation = $("#form1").data('bootstrapValidator').isValid();
 
             if (formValidation) {
@@ -394,22 +398,32 @@ $(window).load(function () {
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 30',
+                            max: 30,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
                         }
                     },
 
                 },
                 in_apellido: {
-            validators: {
-                    notEmpty: {
-                        message: 'Este campo es requerido.'
+                    validators: {
+                        notEmpty: {
+                            message: 'Este campo es requerido.'
+                        },
+                        stringLength: {
+                            message: 'Mínimo 4 caracteres, Máximo 50',
+                            max: 50,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
+                        }
                     },
-                stringLength: {
-                    message: 'El campo debe tener mas de 5 caracteres',
-                    min: 5
-                }
-            },
 
                 },
                 in_dui: {
@@ -417,9 +431,9 @@ $(window).load(function () {
                         notEmpty: {
                             message: 'Este campo es requerido.'
                         },
-                        stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                        regexp: {
+                            regexp: /^\d{8}-\d$/i,
+                            message: 'Ingrese el campo en el formato correcto'
                         }
                     },
 
@@ -433,11 +447,15 @@ $(window).load(function () {
 
                 },
                 in_email: {
-            validators: {
-                    notEmpty: {
-                        message: 'Este campo es requerido.'
+                    validators: {
+                        notEmpty: {
+                            message: 'Este campo es requerido.'
+                        },
+                        emailAddress: {
+                            message: 'Ingrese una direccion de correo válida'
+                        }
                     }
-            },
+                    
 
                 },
                 in_direccion: {
@@ -445,13 +463,29 @@ $(window).load(function () {
                         notEmpty: {
                             message: 'Este campo es requerido.'
                         }
-                    },
+                        ,
+                        stringLength: {
+                            message: 'Mínimo 4 caracteres, Máximo 100',
+                            max: 100,
+                            min: 4
+                        }
+                    }
 
                 },
                 in_telefono: {
                     validators: {
                         notEmpty: {
                             message: 'Este campo es requerido.'
+                        },
+                        regexp: {
+                            regexp: /[2|7][0-9]{3}[-][0-9]{4}/i,
+                            message: 'Ingrese el campo en el formato correcto'
+                        }
+                        ,
+                        stringLength: {
+                            message: 'Formato incorrecto',
+                            max: 9
+                            
                         }
                     },
 
