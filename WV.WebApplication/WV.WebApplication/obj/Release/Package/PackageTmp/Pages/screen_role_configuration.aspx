@@ -52,7 +52,7 @@
                             <p id="lbl_descripcion" class="form-control-static"></p>
                         </div>
 
-                        <button id="btnagregaropcion" href="#myModal" data-toggle="modal" type="button" class="btn btn-secondary btn-sm disabled">Agregar Opción</button>
+                        <button id="btnagregaropcion" href="#myModal" data-toggle="modal" type="button" style="margin-bottom:10px;" class="btn btn-secondary btn-sm disabled">Agregar Opción</button>
                         <br />
                         <div id="table-responsive" class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="tblopcionesenrol">

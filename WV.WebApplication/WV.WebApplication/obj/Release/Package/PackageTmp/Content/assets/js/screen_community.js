@@ -94,7 +94,7 @@ $(window).load(function () {
                     fillLblFields(response.ResponseData);
                     setTabInDetailsMode();
                     if (!$("#sidebaroptions").length) {
-                        loadSidebarOptions();
+                        loadSidebarOptions(ID_Comunidad);
                     }
                 }
                 else {
@@ -312,7 +312,7 @@ $(window).load(function () {
 
     function attachClickToListButton() {
         $("#tabtable").click(function () {
-           
+            $("#sidebaroptions").remove();
             clearControls();
             $("#form1").data('bootstrapValidator').resetForm();
         });
@@ -538,56 +538,47 @@ $(window).load(function () {
 
     /*Message Functions*/
 
-    //function displayErrorMessage(message) {
-    //    $("#errorcontainer").css({
-    //        'position': 'absolute',
-    //        'zIndex': '0',
-    //        'right': '30%'
-
-    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
-    //}
-
-    //function displayMessage(message) {
-    //    $("#messagecontainer").css({
-    //        'position': 'absolute',
-    //        'zIndex': '0',
-    //        'right': '30%'
-
-    //    }).html(message).toggleClass("hidden").fadeToggle(2000, "linear", function () { $("#messagecontainer").toggleClass("hidden").empty(); });
-    //    $("#pagebtndelete").unbind();
-    //    $("#tabdetails").unbind();
-
-    //}
     function displayErrorMessage(message) {
-        //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-        //$("#errorcontainer").css({
-        //    'position': 'absolute',
-        //    'zIndex': '0',
-        //    'right': '30%'
 
-        //}).html(message).toggleClass("hidden").fadeToggle(8000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
-        $("#errorcontainer").html(message);
-        $("#myErrorDialog").modal('show');
+        //$("#errorcontainer").html(message);
+        //$("#myErrorDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Error',
+            message: message,
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
     }
 
     function displayMessage(message) {
-        // message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-        //$("#messagecontainer").css({
-        //    'position': 'absolute',
-        //    'zIndex': '0',
-        //    'right': '30%'
 
-        //}).html(message).toggleClass("hidden").fadeToggle(8000,"linear" , function () { $("#messagecontainer").toggleClass("hidden").empty(); });
-        //$("#pagebtndelete").unbind();
-        //$("#tabdetails").unbind();
+        BootstrapDialog.alert({
+            title: 'Información',
+            message: message,
+            type: BootstrapDialog.TYPE_PRIMARY, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
 
-        $("#messagecontainer").html(message);
-        $("#myMessageDialog").modal('show');
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
+
+
+        //$("#messagecontainer").html(message);
+        //$("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
     }
-    function loadSidebarOptions() {
-        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Opciones</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li> </li></ul></div></div></div></div></div>";
+    function loadSidebarOptions(idComunidad) {
+        var htmlToAppend = "<div class='col-md-2 col-sm-2'></div><div id='sidebaroptions' class='col-md-4 col-sm-4'><div class='activity_box activity_box2'><h3 style='color:#999'>Accesos Rápidos</h3><div class='scrollbar' id='style-2'> <div class='activity-row activity-row1'><div class='single-bottom'><ul><li><a id='showrolereport' href='/Handlers/GeneralReportsProgram.ashx?method=getbeneficiarycommunityreport&ID_Comunidad=" + idComunidad + "'>Reporte de Beneficiarios</a></li></ul></div></div></div></div></div>";
         $(htmlToAppend).insertAfter("div[class='col-md-6 col-sm-6']");
     }
 

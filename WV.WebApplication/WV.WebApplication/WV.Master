@@ -21,6 +21,8 @@
 
     <link href="<%# ResolveUrl("~/") %>Content/assets/css/introjs.css" rel="stylesheet" />
 
+    <link href="<%# ResolveUrl("~/") %>Content/assets/css/bootstrap-dialog.min.css" rel="stylesheet" />
+
     
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -77,6 +79,19 @@
                                 </div>
                                 </a>
                         </li>
+                         
+                        <li><a href="#" onclick="window.open('/screen_help/index.htm', '_blank', 'toolbar=0,location=0,menubar=0');">
+                            <div>
+                                    <strong>Habilitar Manual</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Ayuda</em>
+                                    </span>
+                                </div>
+                            <i class="fa fa-book">
+
+                            </i>Manual en pantalla
+
+                            </a>
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
@@ -241,6 +256,8 @@
                                 <script type="text/javascript" src="/Content/assets/js/custom-scripts.js"></script>
 
                                 <script type="text/javascript" src="/Content/assets/js/intro.js"></script>
+
+                                <script type="text/javascript" src="/Content/assets/js/bootstrap-dialog.min.js"></script>
 
                                 <script type="text/javascript" src="/Content/assets/js/default.js"></script>
                                 

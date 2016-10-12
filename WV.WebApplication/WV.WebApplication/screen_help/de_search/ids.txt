@@ -1,0 +1,93 @@
+1
+ Página principal
+ index.htm
+2
+ Introducción
+ introduccion.htm
+3
+ 1. Inicio
+ inicio.htm
+4
+ 2. Administración
+ administracion.htm
+5
+ 2.1. Usuarios
+ usuarios.htm
+6
+ 2.2. Roles
+ roles.htm
+7
+ 2.3. Configuración de Contenido
+ configuracion_de_contenido.htm
+8
+ 2.4. Acciones de Mantenimiento
+ acciones_de_mantenimiento.htm
+9
+ 3. Monitoreo de Programas
+ monitoreo_de_programas.htm
+10
+ 3.1. Programas
+ programas.htm
+11
+ 3.2. Tipos de Programas
+ tipos_de_programas.htm
+12
+ 3.3. Comunidades
+ comunidades.htm
+13
+ 3.4. Inscripción de Beneficiarios
+ inscripcion_de_beneficiarios.htm
+14
+ 3.5. Control de Actividades
+ control_de_actividades.htm
+15
+ 3.6. Control de Asistencia
+ control_de_asistencia.htm
+16
+ 3.7. Administración de Notas
+ administracion_de_notas.htm
+17
+ 3.7.1. Registro de Asignaturas
+ registro_de_asignaturas.htm
+18
+ 3.7.2. Control de Exámenes
+ control_de_examenes.htm
+19
+ 3.7.3. Asignación de Materias
+ asignacion_de_materias.htm
+20
+ 3.7.4. Control de Notas
+ control_de_notas.htm
+21
+ 4. Administración de Proyectos
+ administracion_de_proyectos.htm
+22
+ 4.1. Proyectos
+ proyectos.htm
+23
+ 4.2. Personal
+ personal.htm
+24
+ 4.3. Control de Personal
+ control_de_personal.htm
+25
+ 4.4. Asignar RRHH a Proyecto
+ asignar_rrhh_a_proyecto.htm
+26
+ 4.5. Tipo de Puesto
+ tipo_de_puesto.htm
+27
+ 5. Reportes
+ reportes.htm
+28
+ 5.1. Reportes Modulo Administración
+ reportes_modulo_administracion.htm
+29
+ 5.2. Reportes Modulo Proyecto
+ reportes_modulo_proyecto.htm
+30
+ 5.3. Reportes Monitoreo de Programas
+ reportes_monitoreo_de_programas.htm
+31
+ 5.4. Reportes Administración de Notas
+ reportes_administracion_de_notas.htm

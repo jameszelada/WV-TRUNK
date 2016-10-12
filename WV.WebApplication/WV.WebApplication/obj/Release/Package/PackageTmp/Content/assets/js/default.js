@@ -10,7 +10,12 @@ var Security = (function () {
         ResourceName : _resourceName
     }
 
-    getOptionPermissions(dataToSend);
+    if (_resourceName !== "Unauthorized" || _resourceName !== "SiteMap") {
+
+        getOptionPermissions(dataToSend);
+    }
+
+    
 
     var optionPermissions =
     {
@@ -49,15 +54,43 @@ var Security = (function () {
     }
 
     function displayErrorMessage(message) {
-        
-        $("#errorcontainer").html(message);
-        $("#myErrorDialog").modal('show');
+
+        //$("#errorcontainer").html(message);
+        //$("#myErrorDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Error',
+            message: message,
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
     }
 
     function displayMessage(message) {
 
-        $("#messagecontainer").html(message);
-        $("#myMessageDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Información',
+            message: message,
+            type: BootstrapDialog.TYPE_PRIMARY, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
+
+
+        //$("#messagecontainer").html(message);
+        //$("#myMessageDialog").modal('show');
+       // $("#pagebtndelete").unbind();
+        //$("#tabdetails").unbind();
     }
 
     return optionPermissions;

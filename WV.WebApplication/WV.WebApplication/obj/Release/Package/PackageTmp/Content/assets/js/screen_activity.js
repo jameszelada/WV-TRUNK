@@ -59,7 +59,11 @@
                     searchPlaceholder: "Búsqueda",
                     "search": "",
                     "emptyTable": "No hay datos encontrados",
-                    "zeroRecords": "No hay datos disponibles"
+                    "zeroRecords": "No hay datos disponibles",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
                 },
                 columns: [
                     { "width": "5%" },
@@ -93,7 +97,11 @@
                     searchPlaceholder: "Búsqueda",
                     "search": "",
                     "emptyTable": "No hay datos encontrados",
-                    "zeroRecords": "No hay datos disponibles"
+                    "zeroRecords": "No hay datos disponibles",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
                 },
                 columns: [
                     { "width": "5%" },
@@ -221,17 +229,42 @@
         
     }
 
-    function displayErrorMessage(message) {
-  
-        $("#errorcontainer").html(message);
-        $("#myErrorDialog").modal('show');
+ function displayErrorMessage(message) {
+
+        //$("#errorcontainer").html(message);
+        //$("#myErrorDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Error',
+            message: message,
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
     }
 
     function displayMessage(message) {
-      
 
-        $("#messagecontainer").html(message);
-        $("#myMessageDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Información',
+            message: message,
+            type: BootstrapDialog.TYPE_PRIMARY, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
+
+
+        //$("#messagecontainer").html(message);
+        //$("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
     }
@@ -764,8 +797,13 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 4 caracteres, Máximo 20 ',
+                            max: 20,
+                            min: 4
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ-\s]+$/i,
+                            message: 'Solo caracteres alfanuméricos'
                         }
                     },
 
@@ -776,8 +814,9 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'El campo debe tener mas de 5 caracteres',
-                            min: 5
+                            message: 'Mínimo 15 caracteres, Máximo 1000',
+                            min: 15,
+                            max: 1000
                         }
                     }
 

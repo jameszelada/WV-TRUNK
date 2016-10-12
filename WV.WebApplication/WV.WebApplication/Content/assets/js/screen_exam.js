@@ -164,7 +164,11 @@
                     "emptyTable": "No hay datos encontrados",
                     "zeroRecords": "No hay datos disponibles",
                     "lengthMenu": "_MENU_ registros por página",
-                    "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
 
                 }
 
@@ -201,7 +205,11 @@
                     "emptyTable": "No hay datos encontrados",
                     "zeroRecords": "No hay datos disponibles",
                     "lengthMenu": "_MENU_ registros por página",
-                    "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                    "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                    "paginate": {
+                        "previous": "Anterior",
+                        "next": "Siguiente"
+                    }
 
                 }
 
@@ -540,30 +548,41 @@
 
 
     function displayErrorMessage(message) {
-        //message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-        //$("#errorcontainer").css({
-        //    'position': 'absolute',
-        //    'zIndex': '0',
-        //    'right': '30%'
 
-        //}).html(message).toggleClass("hidden").fadeToggle(8000, "linear", function () { $("#errorcontainer").toggleClass("hidden").empty(); });
-        $("#errorcontainer").html(message);
-        $("#myErrorDialog").modal('show');
+        //$("#errorcontainer").html(message);
+        //$("#myErrorDialog").modal('show');
+        BootstrapDialog.alert({
+            title: 'Error',
+            message: message,
+            type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
+
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
     }
 
     function displayMessage(message) {
-        // message += "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
-        //$("#messagecontainer").css({
-        //    'position': 'absolute',
-        //    'zIndex': '0',
-        //    'right': '30%'
 
-        //}).html(message).toggleClass("hidden").fadeToggle(8000,"linear" , function () { $("#messagecontainer").toggleClass("hidden").empty(); });
-        //$("#pagebtndelete").unbind();
-        //$("#tabdetails").unbind();
+        BootstrapDialog.alert({
+            title: 'Información',
+            message: message,
+            type: BootstrapDialog.TYPE_PRIMARY, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+            closable: true, // <-- Default value is false
+            draggable: false // <-- Default value is false
 
-        $("#messagecontainer").html(message);
-        $("#myMessageDialog").modal('show');
+            //callback: function (result) {
+            //    // result will be true if button was click, while it will be false if users close the dialog directly.
+            //    alert('Result is: ' + result);
+            //}
+        });
+
+
+        //$("#messagecontainer").html(message);
+        //$("#myMessageDialog").modal('show');
         $("#pagebtndelete").unbind();
         $("#tabdetails").unbind();
     }

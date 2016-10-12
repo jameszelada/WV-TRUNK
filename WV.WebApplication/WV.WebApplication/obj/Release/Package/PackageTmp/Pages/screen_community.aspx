@@ -43,14 +43,14 @@
                                                 <div class="panel-body">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Seleccione el Departamento</label>
+                                                            <label>Departamento</label>
                                                             <select id="cmbdepartamento" class="form-control">
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label>Seleccione el Municipio</label>
+                                                            <label>Municipio</label>
                                                             <select id="cmbmunicipio" class="form-control">
                                                             </select>
                                                         </div>
