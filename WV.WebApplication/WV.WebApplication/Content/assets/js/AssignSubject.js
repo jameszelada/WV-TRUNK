@@ -16,7 +16,7 @@
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
                     $("#cmbmateria").html(response.ResponseData);
-                    attachClickToDeleteButtons();
+                    
                     attachClickSubjectOptions();
                 }
                 else {
@@ -54,7 +54,11 @@
                             "emptyTable": "No hay datos encontrados",
                             "zeroRecords": "No hay datos disponibles",
                             "lengthMenu": "_MENU_ registros por página",
-                            "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                            "paginate": {
+                                "previous": "Anterior",
+                                "next": "Siguiente"
+                            }
 
                         }
 
@@ -93,6 +97,7 @@
 
                     if (t == null || t == undefined) {
                         $("#dataTables-example").append(response.ResponseData);
+                        attachClickToDeleteButtons();
                         t = $('#dataTables-example').DataTable({
                             "bFilter": true,
                             "bPaginate": true,
@@ -106,7 +111,11 @@
                                 "emptyTable": "No hay datos encontrados",
                                 "zeroRecords": "No hay datos disponibles",
                                 "lengthMenu": "_MENU_ registros por página",
-                                "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                                "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                                "paginate": {
+                                    "previous": "Anterior",
+                                    "next": "Siguiente"
+                                }
 
                             }
 
@@ -134,7 +143,11 @@
                                 "emptyTable": "No hay datos encontrados",
                                 "zeroRecords": "No hay datos disponibles",
                                 "lengthMenu": "_MENU_ registros por página",
-                                "info": "Mostrando pagina _PAGE_ de _PAGES_"
+                                "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                                "paginate": {
+                                    "previous": "Anterior",
+                                    "next": "Siguiente"
+                                }
 
                             }
 

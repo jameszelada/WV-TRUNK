@@ -190,6 +190,8 @@
     <Content Include="Pages\AttendanceTracking.aspx" />
     <Content Include="Pages\ControlStaff.aspx" />
     <Content Include="Pages\Default.aspx" />
+    <Content Include="Pages\Error\error.html" />
+    <Content Include="Pages\Error\Error404.aspx" />
     <Content Include="Pages\Error\Unauthorized.aspx" />
     <Content Include="Pages\GeneralReportsAdmin.aspx" />
     <Content Include="Pages\GeneralReportsGrades.aspx" />
@@ -698,6 +700,13 @@
     </Compile>
     <Compile Include="Pages\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error\Error404.aspx.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\Error404.aspx.designer.cs">
+      <DependentUpon>Error404.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Error\Unauthorized.aspx.cs">
       <DependentUpon>Unauthorized.aspx</DependentUpon>

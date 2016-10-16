@@ -161,8 +161,9 @@ namespace WV.WebApplication.Handlers
 
                 foreach (var programa in programas)
                 {
-                    
-                        optionsProgramas += "<option data-id-programs='" + programa.ID_Programa + "'>"+programa.TipoPrograma.TipoPrograma1 + "-" + programa.Comunidad.Comunidad1 + "</option>";
+                    string tipoprograma = programa.TipoPrograma.TipoPrograma1 == "Primera Infancia" ? "PI" : programa.TipoPrograma.TipoPrograma1;
+
+                    optionsProgramas += "<option data-id-programs='" + programa.ID_Programa + "'>" + tipoprograma + "-" + programa.Comunidad.Comunidad1 + "</option>";
                     
 
                 }
@@ -195,7 +196,7 @@ namespace WV.WebApplication.Handlers
                 foreach (var comunidad in comunidades)
                 {
 
-                    optionsCommunities += "<option data-id-community='" + comunidad.ID_Comunidad + "'>" + comunidad.Municipio.Municipio1 + "-" + comunidad.Comunidad1 + "</option>";
+                    optionsCommunities += "<option data-id-community='" + comunidad.ID_Comunidad + "'>" + comunidad.Comunidad1 + "</option>";
 
 
                 }

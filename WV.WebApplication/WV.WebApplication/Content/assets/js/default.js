@@ -10,10 +10,11 @@ var Security = (function () {
         ResourceName : _resourceName
     }
 
-    if (_resourceName !== "Unauthorized" || _resourceName !== "SiteMap") {
+    if (!(["Unauthorized", "SiteMap"].indexOf(_resourceName) > -1)) {
 
         getOptionPermissions(dataToSend);
     }
+    
 
     
 

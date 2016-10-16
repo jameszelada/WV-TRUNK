@@ -152,7 +152,7 @@ namespace WV.WebApplication.Handlers
             {
                 var programa = _programa.GetFirst(p=> p.ID_Programa == ID_Programa);
                 optionsProgramas += "<option data-id-programs='" + programa.ID_Programa + "'>" + programa.Codigo + "-" + programa.TipoPrograma.TipoPrograma1 + "-" + programa.Comunidad.Comunidad1 + "</option>";
-                foreach (var actividad in programa.Actividad)
+                foreach (var actividad in programa.Actividad.OrderByDescending(act=>act.Fecha))
                 {
                     long mili = Convert.ToInt64( actividad.Fecha.Subtract(
                     new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)

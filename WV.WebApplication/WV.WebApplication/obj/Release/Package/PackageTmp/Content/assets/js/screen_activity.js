@@ -15,17 +15,7 @@
                 var response = JSON.parse(data);
                 if (response.IsSucess) {
                     setProgramsTable(response.ResponseData);
-                    attachClickToView();
-                    attachClickToEdit();
-                    attachClickToListButton();
-                    if (Security.agregar) {
-                        attachClickToNewButton();
-                    }
-                    else
-                    {
-                        $("#tabdetails").html("Detalles");
-                    }
-                    attachClickToAddRecord();
+                    
 
                 }
                 else {
@@ -41,8 +31,19 @@
     }
 
     function setProgramsTable(responseData) {
-        $("#dataTables-example").append(responseData);
+        
         if (tpr == null || tpr == undefined) {
+            $("#dataTables-example").append(responseData);
+            attachClickToView();
+            attachClickToEdit();
+            attachClickToListButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            }
+            else {
+                $("#tabdetails").html("Detalles");
+            }
+            attachClickToAddRecord();
            
             tpr = $('#dataTables-example').DataTable({
                 "bPaginate": true,
@@ -82,6 +83,17 @@
             $("#dataTables-example > tbody").remove();
             tpr.destroy();
             $("#dataTables-example").append(responseData);
+            //$("#dataTables-example").append(responseData);
+            attachClickToView();
+            attachClickToEdit();
+            attachClickToListButton();
+            if (Security.agregar) {
+                attachClickToNewButton();
+            }
+            else {
+                $("#tabdetails").html("Detalles");
+            }
+            attachClickToAddRecord();
             tpr = $('#dataTables-example').DataTable({
                 "bPaginate": true,
                 "bFilter": true,

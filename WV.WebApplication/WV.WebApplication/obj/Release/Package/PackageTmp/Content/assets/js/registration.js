@@ -118,9 +118,9 @@
                             message: 'Este campo es requerido.'
                         },
                         stringLength: {
-                            message: 'Mínimo 4 caracteres, Máximo 30',
+                            message: 'Mínimo 2 caracteres, Máximo 30',
                             max: 30,
-                            min: 4
+                            min: 2
                         },
                         regexp: {
                             regexp: /^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+$/i,
@@ -571,14 +571,15 @@
 
     function fillInputFields(beneficiario)
     {
-       
+        $("#cmbprograma").prop("disabled", false);
         $("#cmbprograma > option").each(function (index, value) { $(value).removeAttr("selected") });
         $("#cmbanio > option").each(function (index, value) { $(value).removeAttr("selected") });
         $("#cmbgrado > option").each(function (index, value) { $(value).removeAttr("selected") });
         $("#cmbultimogrado > option").each(function (index, value) { $(value).removeAttr("selected") });
         $("#cmbultimoaño > option").each(function (index, value) { $(value).removeAttr("selected") });
         
-        $("#cmbprograma > option[data-id-program='" + beneficiario.ID_Program + "']").attr("selected", "selected");
+        $("#cmbprograma > option[data-id-program='" + beneficiario.ID_Programa + "']").prop("selected", "selected");
+        $("#cmbprograma").prop("disabled", true);
         $("#inp_nombre").val(beneficiario.Nombre);
         $("#inp_apellido").val(beneficiario.Apellido);
         beneficiario.Codigo == "N/A" ? $("input[value='NRC']").prop('checked', true) && $("#inp_codigo").prop("disabled", true) : $("input[value='RC']").prop('checked', true) && $("#inp_codigo").val(beneficiario.Codigo).prop("disabled", false);

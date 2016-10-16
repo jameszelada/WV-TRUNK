@@ -196,7 +196,7 @@ namespace WV.WebApplication.Handlers
                     Beneficiario bene = _beneficiario.GetFirst(b => b.ID_Beneficiario == asignacion.ID_Beneficiario);
 
                     index++;
-                    string grade = "<input type='number' name='quantity' min='1' max='10' step='any' value=''>";
+                    string grade = "<input pattern='[1-9]|10' type='number' name='quantity' min='1' max='10' step='any' value='' onkeydown='return false'>";
                     tableBody += "<tr data-id-beneficiario='" + bene.ID_Beneficiario + "'><td>" + index + "</td><td data-id-beneficiario='" + bene.ID_Beneficiario + "' >" + bene.Nombre + " " + bene.Apellido + "</td><td>" + grade + "</td></tr>";
 
                 }

@@ -87,7 +87,7 @@
         
     <div class="row" style="margin-top: 50px;margin-bottom:20px;">
         <div class="col-md-12 center login-header">
-            <h2 style="color:white;font-weight: bold;">Sistema de Administración de Proyectos <br>Visión Mundial El Salvador, Guaymango</h2>
+            <h2 style="color:white;font-weight: bold;">Sistema de Monitoreo de Proyectos <br>Visión Mundial El Salvador, Guaymango</h2>
         </div>
         <!--/span-->
     </div><!--/row-->

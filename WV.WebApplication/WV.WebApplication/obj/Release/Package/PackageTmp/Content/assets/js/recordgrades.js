@@ -24,7 +24,11 @@
 				searchPlaceholder: "Búsqueda",
 				"search": "",
 				"emptyTable": "No hay datos encontrados",
-				"zeroRecords": "No hay datos disponibles"
+				"zeroRecords": "No hay datos disponibles",
+				"paginate": {
+				    "previous": "Anterior",
+				    "next": "Siguiente"
+				}
 			},
 			fnDrawCallback: function () {
 				$("#dataTables-example thead").remove();
@@ -94,7 +98,11 @@
 					searchPlaceholder: "Búsqueda",
 					"search": "",
 					"emptyTable": "No hay datos encontrados",
-					"zeroRecords": "No hay datos disponibles"
+					"zeroRecords": "No hay datos disponibles",
+					"paginate": {
+					    "previous": "Anterior",
+					    "next": "Siguiente"
+					}
 				},
 				columns: [
 					{ "width": "10%" },
@@ -125,7 +133,11 @@
 					searchPlaceholder: "Búsqueda",
 					"search": "",
 					"emptyTable": "No hay datos encontrados",
-					"zeroRecords": "No hay datos disponibles"
+					"zeroRecords": "No hay datos disponibles",
+					"paginate": {
+					    "previous": "Anterior",
+					    "next": "Siguiente"
+					}
 				},
 				fnDrawCallback: function () {
 					$("#dataTables-example thead").remove();
