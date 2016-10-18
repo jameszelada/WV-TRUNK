@@ -982,7 +982,7 @@ namespace WV.WebApplication.Handlers
             {
                 PdfPCell contentCellFirst = new PdfPCell(new Phrase(row["Actividad"].ToString(), tinyFont));
                 PdfPCell contentCellSecond = new PdfPCell(new Phrase(row["Observaciones"].ToString(), tinyFont));
-                PdfPCell contentCellThird = new PdfPCell(new Phrase(row["Observaciones"].ToString(), tinyFont));
+                PdfPCell contentCellThird = new PdfPCell(new Phrase(row["Recurso"].ToString(), tinyFont));
 
 
                 contentCellFirst.HorizontalAlignment = Element.ALIGN_LEFT;

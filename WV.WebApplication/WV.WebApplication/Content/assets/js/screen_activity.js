@@ -164,9 +164,25 @@
             eventLimit: true,
             dayClick: function (date, jsEvent, view) {
                     
-                $("#in_fecha").val(date.format("DD/MM/YYYY"));
-                $('#modalmessage').modal('show');
-                $('#in_fecha').attr("data-fecha",date._d.getTime());
+                
+
+                var dateSelected = moment(date);
+                if (!VerifyDay(dateSelected.toDate().getTime())) {
+                    $("#in_fecha").val(date.format("DD/MM/YYYY"));
+                    $('#modalmessage').modal('show');
+                    $('#in_fecha').attr("data-fecha", date._d.getTime());
+                }
+                else
+                {
+                    $("#in_fecha").val(date.format("DD/MM/YYYY"));
+                    $('#in_fecha').attr("data-fecha", date._d.getTime());
+                    $('#modalmessage').modal('show');
+                }
+
+                
+
+
+
             },
             header: {
                 left: 'prev,next',
@@ -240,6 +256,59 @@
 
         
     }
+
+    function VerifyDay(ActivityDate) {
+
+        var dataToSend =
+            {
+                ID_Programa: parseInt($("#cmbprograma > option:selected").attr("data-id-programs")),
+                FechaActividad: ActivityDate
+            };
+
+        var exists = false;
+
+        $.ajax({
+            type: 'POST',
+            data: dataToSend,
+            url: '/Handlers/Activity.ashx?method=exists',
+            async:false,
+            success: function (data) {
+
+                var response = JSON.parse(data);
+                if (response.IsSucess) {
+
+                    if (response.ResponseData.Exists == true) {
+                      
+                        $("#in_codigo").val(response.ResponseData.Codigo);
+                        $("#in_descripcion").val(response.ResponseData.Descripcion);
+                        $("#in_observacion").val(response.ResponseData.Observacion);
+
+                        exists = true;
+                        
+                    }
+                    else {
+                        $("#in_codigo").val("");
+                        $("#in_descripcion").val("");
+                        $("#in_observacion").val("");
+                        exists = false;
+
+                    }
+
+                }
+                else {
+                    var error = "Error de Conexión, Intente nuevamente  ";
+                    displayErrorMessage(error);
+                }
+            },
+            error: function () {
+                var error = "Error de Conexión, Intente nuevamente";
+                displayErrorMessage(error);
+            }
+        });
+
+        return exists;
+    }
+
 
  function displayErrorMessage(message) {
 
@@ -741,18 +810,18 @@
             if (formValidation ) {
 
                 var exists=dateExists($("#in_fecha").attr("data-fecha"));
-                if (exists) {
-                    $('#modalmessage').modal('hide');
-                    var error = "-El Registro de Actividad ya existe." + "</br></br>" +
-                    "-Para EDITAR un registro existente Remuevalo de " +
-                    "la tabla y luego REDEFINA la informacion.";
+              
+
+                    //$('#modalmessage').modal('hide');
+                    //var error = "-El Registro de Actividad ya existe." + "</br></br>" +
+                    //"-Para EDITAR un registro existente Remuevalo de " +
+                    //"la tabla y luego REDEFINA la informacion.";
                         
-                    displayMessage(error);
+                    //displayMessage(error);
+                    DeleteRow($("#in_fecha").attr("data-fecha"));
                     $("#form1").data('bootstrapValidator').resetForm();
 
-                }
-                else
-                {
+                
                     tac.row.add(['', $("#in_codigo").val(), $("#in_descripcion").val(), $("#in_estado").val(), "<label class='hidden'>" + $("#in_fecha").attr("data-fecha") + "</label>" + $("#in_fecha").val(), $("#in_observacion").val()]).draw(false);
                     $("#form1").data('bootstrapValidator').resetForm();
                     clearControls();
@@ -764,7 +833,7 @@
                     newEvent.allDay = false;
                     newEvent.id = parseInt($("#in_fecha").attr("data-fecha"));
                     $('#calendar').fullCalendar('renderEvent', newEvent, true);
-                }
+                
 
                 
             }
@@ -971,6 +1040,24 @@
                 displayErrorMessage(error);
             }
         });
+    }
+
+    function DeleteRow(date) {
+        var exists = false;
+        tac.rows().iterator('row', function (context, index) {
+            var node = $(this.row(index).node());
+            $(node).find("td label").each(function () {
+
+                if ($(this).text() == date) {
+
+                    tac.row($(this).parent().parent("tr")).remove();
+                }
+
+            });
+
+        });
+
+        return exists;
     }
 
     function applyOptionPermissions(table) {

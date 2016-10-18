@@ -59,6 +59,9 @@ namespace WV.WebApplication.Handlers
                 case "edit":
                     context.Response.Write(EditRecord(context));
                     break;
+                case "exists":
+                    context.Response.Write(ExistsActivityInProgram(context));
+                    break;
             }
         }
 
@@ -370,6 +373,49 @@ namespace WV.WebApplication.Handlers
                 response.IsSucess = true;
                 response.ResponseData = string.Empty;
                 response.Message = "Registro Modificado Satisfactoriamente";
+                response.CallBack = string.Empty;
+
+            }
+            catch (Exception msg)
+            {
+                response.Message = msg.Message;
+                response.IsSucess = false;
+            }
+
+            return serializer.Serialize(response);
+        }
+
+        public string ExistsActivityInProgram(HttpContext context)
+        {
+            JsonResponse response = new JsonResponse();
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            int ID_Programa = Int32.Parse(context.Request.Params["ID_Programa"].ToString());
+            long FechaActividad = Int64.Parse(context.Request.Params["FechaActividad"].ToString());
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            try
+            {
+                var programa = _programa.GetFirst(p => p.ID_Programa == ID_Programa);
+                DateTime Fecha = epoch.AddMilliseconds(FechaActividad);
+                bool exists = programa.Actividad.Any(act => act.Fecha.ToShortDateString() == Fecha.ToShortDateString());
+                int id = 0;
+                string mode = "";
+                string codigo = "", description = "", observations = "";
+                if (exists)
+                {
+                    id = programa.Actividad.First(act => act.Fecha.ToShortDateString() == Fecha.ToShortDateString()).ID_Actividad;
+                    mode = programa.Actividad.First(act => act.ID_Actividad == id).Asistencia.Count == 0 ? "add" : "edit";
+                    var actividad = _actividad.GetFirst(act=>act.ID_Actividad == id);
+                    codigo = actividad.Codigo;
+                    description = actividad.ActividadDescripcion;
+                    observations= actividad.Observacion;
+
+                }
+
+                var fullObject = new { Exists = exists, ID_Actividad = id, Mode = mode ,Codigo=codigo,Descripcion=description,Observacion=observations};
+
+                response.IsSucess = true;
+                response.ResponseData = fullObject;
+                response.Message = string.Empty;
                 response.CallBack = string.Empty;
 
             }
